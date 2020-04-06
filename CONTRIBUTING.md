@@ -8,6 +8,7 @@ the community.
 ## You can contribute in so many ways!
 
 There are 4 ways you can contribute to this project:
+
 * Fixing outstanding issues with the existing code;
 * Contributing to the examples or to the documentation;
 * Submitting issues related to bugs or desired new features.
