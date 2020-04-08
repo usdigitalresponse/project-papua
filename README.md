@@ -10,7 +10,20 @@ The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a 
 [link(s) to documentation]
 
 # Running locally
-[instructions here, if applicable]
+To run the app locally, just do the following:
+```bash
+$ yarn start
+```
+
+To build the app, run:
+```bash
+$ yarn build
+```
+
+To run tests, run:
+```bash
+$ yarn test
+```
 
 # Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information.

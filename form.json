@@ -1,0 +1,19 @@
+{
+  "pages": [
+    {
+      "questions": [
+        {
+          "name": "First Name",
+          "required": true
+        },
+        {
+          "name": "Middle Name"
+        },
+        {
+          "name": "Last Name",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
