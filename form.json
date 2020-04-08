@@ -1,17 +1,162 @@
 {
   "pages": [
     {
+      "title": "Personal Information",
       "questions": [
         {
           "name": "First Name",
-          "required": true
+          "id": "first_name",
+          "required": true,
+          "type": "shorttext"
         },
         {
-          "name": "Middle Name"
+          "name": "Middle Name",
+          "id": "middle_name",
+          "type": "shorttext"
         },
         {
           "name": "Last Name",
-          "required": true
+          "id": "last_name",
+          "required": true,
+          "type": "shorttext"
+        },
+        {
+          "name": "Enter any other name you are known by",
+          "id": "known_as_name",
+          "type": "shorttext",
+          "instructions": "For example, if your name is “Sandra” and you go by “Sandy,” or your name is “Robert” and you go by “Rob,” write it down here."
+        },
+        {
+          "name": "Date of Birth",
+          "id": "dob",
+          "required": true,
+          "type": "datepicker"
+        },
+        {
+          "name": "Gender",
+          "id": "gender",
+          "required": true,
+          "type": "dropdown",
+          "options": [{
+            "name": "Male",
+            "id": "male"
+          }, {
+            "name": "Female",
+            "id": "female"
+          }, {
+            "name": "Decline to state",
+            "id": "decline"
+          }]
+        }
+      ]
+    },
+    {
+      "title": "Contact Information",
+      "questions": [
+        {
+          "name": "Mailing Address",
+          "id": "mailing_address",
+          "required": true,
+          "type": "address_picker"
+        },
+        {
+          "name": "My mailing address is the same as my home address.",
+          "id": "mailing_home_address_same",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "false": null,
+            "true": [{
+              "name": "Home Address",
+              "id": "home_address",
+              "required": true,
+              "type": "address_picker"
+            }]
+          }
+        },
+        {
+          "name": "Telephone Number",
+          "instructions": "Provide the telephone number where we can best reach you with questions about your claim.",
+          "id": "telephone",
+          "required": true,
+          "type": "phone"
+        },
+        {
+          "name": "Cell Phone Number",
+          "instructions": "This is optional. By providing your cell phone number, you agree to allow the Department to send you communications which may include: important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available skills training opportunities.",
+          "id": "cellphone",
+          "required": false,
+          "type": "phone"
+        },
+        {
+          "name": "Enter your email address:",
+          "instructions": "This is optional. By providing your email, you agree to allow the Department to send you communications which may include: questions relative to the Unemployment Insurance claim you filed, important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available training opportunities. Your email, if provided, will also be used to send you your confirmation code for your Unemployment Insurance application. Please double-check that it is correct.",
+          "id": "cellphone",
+          "required": false,
+          "type": "phone"
+        },
+        {
+          "name": "Preferred Language",
+          "instructions": "What language should we use in followup communications.",
+          "id": "preferred_language",
+          "required": true,
+          "type": "dropdown",
+          "options": [{
+            "name": "English",
+            "id": "en"
+          }, {
+            "name": "Spanish",
+            "id": "es"
+          }, {
+            "name": "Chinese",
+            "id": "zh"
+          }]
+        }
+      ]
+    },
+    {
+      "title": "Demographic Information",
+      "questions": [
+        {
+          "name": "Race",
+          "id": "race",
+          "required": true,
+          "type": "dropdown",
+          "options": [{
+            "name": "White",
+            "id": "white"
+          }, {
+            "name": "Black",
+            "id": "black"
+          }, {
+            "name": "Asian",
+            "id": "asian"
+          }, {
+            "name": "American Indian / Alaskan Native",
+            "id": "aian"
+          }, {
+            "name": "Native Hawaiian / Pacific Islander",
+            "id": "nhpi"
+          }, {
+            "name": "Decline to state",
+            "id": "decline"
+          }]
+        },
+        {
+          "name": "Ethnicity",
+          "id": "ethnicity",
+          "required": true,
+          "type": "dropdown",
+          "options": [{
+            "name": "Hispanic or Latino",
+            "id": "hispanic"
+          }, {
+            "name": "Not hispanic or Latino",
+            "id": "non-hispanic"
+          }, {
+            "name": "Decline to State",
+            "id": "decline"
+          }]
         }
       ]
     }
