@@ -1,5 +1,5 @@
-# [Project Name]
-[Brief description.]
+# Project PAPUA
+The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers high unemployment claims to various State backends.
 
 [screenshots]
 
