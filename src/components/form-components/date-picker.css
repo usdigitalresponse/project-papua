@@ -6,7 +6,7 @@
 .date-picker .react-date-picker__wrapper{
   border: none;
   background-color: white;
-  box-shadow: inset 0 0 0 1px rgba(67, 90, 111, 0.3), inset 0 1px 2px rgba(67, 90, 111, 0.14);
+  border: black 1px solid;
   border-radius: 3px;
   padding: 0px 10px 0px 10px;
   height: 32px;
@@ -32,4 +32,13 @@
 .react-calendar__navigation__label {
   font-size: 16px;
   font-weight: 600;
+}
+
+.react-date-picker__inputGroup__input:focus {
+  border: none;
+  outline: none;
+}
+.react-calendar {
+  border: black 1px solid;
+  margin-top: 8px;
 }

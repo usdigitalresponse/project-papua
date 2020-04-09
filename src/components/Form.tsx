@@ -11,7 +11,7 @@ const Form: React.FC<Props> = (props) => {
   const { page } = props
   return (
     <Pane padding={majorScale(4)} display="flex" flexDirection="column">
-      <Heading marginBottom={majorScale(2)}>{page.title}</Heading>
+      <Heading color="black" size={600} marginBottom={majorScale(2)}>{page.heading}</Heading>
       {page.questions.map(question => <Question question={question} key={question.name} />)}
     </Pane>
   )

@@ -24,6 +24,6 @@ interface Option {
   id: string
 }
 
-export type QuestionType = 'text' | 'date_picker' | 'email' | 'select' | 'ssn' | 'address_picker' | 'phone' | 'boolean' | string
+export type QuestionType = 'text' | 'datepicker' | 'email' | 'select' | 'ssn' | 'address_picker' | 'phone' | 'boolean' | string
 
 type QuestionValidation = boolean | 're-enter'

@@ -20,9 +20,11 @@ const FormApp: React.FC<{}> = () => {
     <Pane padding={majorScale(8)} display="flex">
       <Card width="50%" background="white" display="flex" justifyContent="space-between" flexDirection="column" textAlign="left">
         {pageComponents[currentIndex]}
-        <Pane display="flex" justifyContent="flex-end" padding={majorScale(4)}>
+        <Pane display="flex" justifyContent="space-between" padding={majorScale(4)}>
+          {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={() => setcurrentIndex(currentIndex - 1)}>{'Go Back'}
+          </Button>}
           {(currentIndex + 1 < pageTitles.length) &&
-            <Button backgroundColor="#008060 !important" backgroundImage="none !important" color="white !important" width={125} display="flex" justifyContent="center" onClick={() => setcurrentIndex(currentIndex + 1)}>{currentIndex === 0 ? 'Get Started' : 'Next Page'}
+            <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={() => setcurrentIndex(currentIndex + 1)}>{currentIndex === 0 ? 'Get Started' : 'Next'}
             </Button>}
         </Pane>
       </Card>

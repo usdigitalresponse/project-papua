@@ -13,8 +13,8 @@ const Question: React.FC<Props> = (props) => {
   return (
     <Pane display="flex" flexDirection="column" marginBottom={majorScale(2)}>
       <Pane marginBottom={majorScale(1)}>
-        <Heading size={400}>{question.name}</Heading>
-        {question.instructions && <Text size={300}>{question.instructions}</Text>}
+        <Heading color="black" size={400}>{question.name}</Heading>
+        {question.instructions && <Text color="black" size={300}>{question.instructions}</Text>}
       </Pane>
       <Component width="100%" />
     </Pane>
