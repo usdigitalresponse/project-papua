@@ -1,7 +1,8 @@
+import { ReactNode } from 'react'
 import validator from 'validator'
-
 import form from '../form.json'
-import { Form, Question } from './types'
+import { Form, Question, QuestionType } from './types'
+import { TextInput } from 'evergreen-ui'
 
 export function initializeForm(): Form {
   const baseForm: Form = form
@@ -22,4 +23,12 @@ export function isValid(question: Question, answer: string | undefined, secondAn
   }
 
   return { valid: true }
+}
+
+const typeComponentMappings: { [type: string]: React.FC } = {
+  'text': (TextInput as unknown) as React.FC
+}
+
+export function getComponent(type: QuestionType): React.FC {
+  return typeComponentMappings[type] || TextInput
 }

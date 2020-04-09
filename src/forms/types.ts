@@ -12,7 +12,7 @@ export interface Question {
   name: string
   instructions?: string
   required?: boolean
-  type?: QuestionType
+  type: QuestionType
   validation?: QuestionValidation
   id?: string
   options?: Option[]
@@ -23,6 +23,6 @@ interface Option {
   id: string
 }
 
-type QuestionType = 'text' | 'date_picker' | 'email' | 'select' | 'ssn' | 'address_picker' | 'phone' | 'boolean' | string
+export type QuestionType = 'text' | 'date_picker' | 'email' | 'select' | 'ssn' | 'address_picker' | 'phone' | 'boolean' | string
 
 type QuestionValidation = boolean | 're-enter'

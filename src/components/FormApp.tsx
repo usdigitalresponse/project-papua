@@ -13,7 +13,7 @@ const FormApp: React.FC<{}> = () => {
   const pageTitles = ["Introduction", ...pages.map(page => page.title), "Review & Submit"]
   const pageComponents = [<Introduction state={state} />, ...pages.map(page => <Form page={page} />), <Review />]
 
-  const [currentIndex, setcurrentIndex] = useState<number>(0)
+  const [currentIndex, setcurrentIndex] = useState<number>(1)
 
 
   return (
