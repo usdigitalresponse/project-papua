@@ -764,6 +764,44 @@
         "id": "last-day-of-work",
         "required": true,
         "type": "datepicker"
+      }, {
+        "name": "Please select ALL the DAYS you actually worked during the last week of your employment. Please include the last day that you actually performed work for your employer.",
+        "instructions": "For the purposes of this question a week starts on Sunday and ends on Saturday.\nEx. If the last day you worked was a Tuesday, and you work on weekends, you should select Sunday, Monday, and Tuesday.\nIf the last day you worked was a Friday, and you do not work on weekends, you should select Monday, Tuesday, Wednesday, Thursday, and Friday.",
+        "id": "last-week-days-worked",
+        "required": true,
+        "type": "multiselect",
+        "options": [{
+            "name": "Sunday",
+            "id": "sunday"
+          }, {
+            "name": "Monday",
+            "id": "monday"
+          }, {
+            "name": "Tuesday",
+            "id": "tuesday"
+          }, {
+            "name": "Wednesday",
+            "id": "wednesday"
+          }, {
+            "name": "Thursday",
+            "id": "thursday"
+          }, {
+            "name": "Friday",
+            "id": "friday"
+          }, {
+            "name": "Saturday",
+            "id": "saturday"
+        }]
+      },  {
+        "name": "How much in total did you earn at your job(s) the last week you worked, including all wages or salaries, commissions, bonuses, and tips?",
+        "id": "last-week-paid",
+        "required": true,
+        "type": "dollar-amount"
+      }, {
+        "name": "How many hours in total did you work during the last week you worked, in total across all jobs?",
+        "id": "last-week-hours",
+        "required": true,
+        "type": "decimal"
       }]
     }, {
       "title": "Skills",
@@ -876,7 +914,69 @@
       }]
     }, {
       "title": "Tax Info",
-      "questions": []
+      "questions": [{
+        "name": "We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?*",
+        "id": "tax-info-have-tax-return",
+        "required": true,
+        "type": "boolean",
+        "switch": {
+          "false": [{
+            "name": "TODO",
+            "id": "TODO",
+            "required": true,
+            "type": "longtext"
+          }]
+        }
+      }, {
+        "name": "For your most recent tax filing, were you married filing jointly, married filing separately, or single?*",
+        "id": "tax-info-married",
+        "required": true,
+        "type": "dropdown",
+        "options": [{
+          "name": "Married filing jointly",
+          "id": "married-jointly"
+        }, {
+          "name": "Married filing separately",
+          "id": "married-separately"
+        }, {
+          "name": "Single",
+          "id": "single"
+        }]
+      }, {
+        "name": "What was your Adjusted Gross Income on your most recently filed federal tax return?",
+        "instructions": "You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted:\n\nLine 8b on Form 1040 (for tax year 2019)\nLine 8b on Form 1040-SR (for tax year 2019)\nLine 7 on Form 1040 (for tax year 2018)\nLine 21 on Form 1040A (for tax years before 2018)\nLine 4 on Form 1040EZ (for tax years before 2018)\nLine 35 on Form 1040NR (for tax year 2019 or 2019)",
+        "id": "tax-info-agi",
+        "required": true,
+        "type": "dollar-amount"
+      }, {
+        "name": "How many dependent children do you have?",
+        "instructions": "You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return.\n\nA dependent child must be:\n\n1) A natural, adopted, or step-child under the age of 18 whom you support.\n2) A child under the age of 18 for whom you are the court-appointed guardian.\n3) A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.\n\nNOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.",
+        "id": "tax-info-dependents",
+        "required": true,
+        "type": "singleselect",
+        "options": [{
+            "name": "0",
+            "id": "0"
+          }, {
+            "name": "1",
+            "id": "1"
+          }, {
+            "name": "2",
+            "id": "2"
+          }, {
+            "name": "3",
+            "id": "3"
+          }, {
+            "name": "4",
+            "id": "4"
+          }, {
+            "name": "5 or more",
+            "id": "5-or-more"
+          }, {
+            "name": "All dependents are already claimed by another parent or guardians' unemployment benefits.",
+            "id": "already-getting-benefit"
+          }]
+      }]
     }, {
       "title": "Unemployment Benefits",
       "questions": [{
@@ -963,7 +1063,95 @@
         }]
     }, {
       "title": "Payment Info",
-      "questions": []
+      "questions": [{
+        "name": "Do you wish to have Income Taxes withheld from your Unemployment Compensation?*",
+        "instructions": "Unemployment is taxable income. If you do not withhold state or federal taxes from your benefits, you will be responsible to pay them when you file your tax return. Everyone who collects unemployment benefits will receive a 1099 detailing the total payments received and any taxes paid on that income. You may request changes to your claim’s tax deductions anytime.",
+        "id": "payment-income-withheld",
+        "required": true,
+        "type": "singleselect",
+        "options": [{
+          "name": "Yes, I would like both ${state_name} and Federal Income Taxes withheld",
+          "id": "state-and-fed"
+        }, {
+          "name": "Yes, I would like only Federal Income Tax withheld",
+          "id": "fed"
+        }, {
+          "name": "Yes, I would like only ${state_name} Income Tax withheld",
+          "id": "state"
+        }, {
+          "name": "No, I do not want any Income Taxes withheld",
+          "id": "none"
+        }]
+      }, {
+        "name": "Please select a payment option.*",
+        "instructions": "There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:\n\nDirect Deposit (DD), which deposits your unemployment benefits into your checking or savings account.\n\nElectronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.",
+        "id": "payment-option",
+        "required": true,
+        "options": [{
+          "name": "Direct Deposit",
+          "id": "direct-deposit"
+        }, {
+          "name": "Electronic Payment Card",
+          "id": "electronic-payment-card"
+        }],
+        "switch": {
+          "electronic-payment-card": [{
+            "instructions": "Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees.\n\nThe monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees.",
+            "type": "instructions-only"
+          }],
+          "direct-deposit": [{
+            "name": "Bank Name",
+            "id": "payment-bank-name",
+            "type": "shorttext",
+            "required": true
+          }, {
+            "name": "Account Type",
+            "id": "payment-account-type",
+            "type": "singleselect",
+            "required": true,
+            "options": [{
+              "name": "Checking account",
+              "id": "checking"
+            }, {
+              "name": "Savings account",
+              "id": "savings"
+            }]
+          }, {
+            "name": "Account Number",
+            "instructions": "Please type the account number for the account where you would like your benefits to be deposited.",
+            "id": "payment-account-number",
+            "type": "integer",
+            "required": true
+          }, {
+            "name": "Confirm Account Number*",
+            "instructions": "Please re-type the account number for the account where you would like your benefits to be deposited.",
+            "id": "payment-account-number-confirm",
+            "type": "integer",
+            "required": true,
+            "validate": [{
+              "type": "matches_field",
+              "value": "payment-account-number",
+              "error": "Account numbers do not match"
+            }]
+          }, {
+            "name": "Routing Number",
+            "instructions": "Please type the routing number of your bank.",
+            "id": "payment-routing-number",
+            "type": "integer",
+            "required": true
+          }, {
+            "name": "Confirm Routing Number*",
+            "id": "payment-routing-number-confirm",
+            "type": "integer",
+            "required": true,
+            "validate": [{
+              "type": "matches_field",
+              "value": "payment-routing-number",
+              "error": "Routing numbers do not match"
+            }]
+          }]
+        }
+      }]
     }
   ]
 }
