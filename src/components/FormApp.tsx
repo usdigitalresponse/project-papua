@@ -13,7 +13,7 @@ const FormApp: React.FC<{}> = () => {
   const pageTitles = ["Introduction", ...pages.map(page => page.title), "Review & Submit"]
   const pageComponents = [<Introduction state={state} />, ...pages.map(page => <Form page={page} />), <Review />]
 
-  const [currentIndex, setcurrentIndex] = useState<number>(3)
+  const [currentIndex, setCurrentIndex] = useState<number>(3)
 
 
   return (
@@ -21,14 +21,14 @@ const FormApp: React.FC<{}> = () => {
       <Card height="0%" width="50%" background="white" display="flex" justifyContent="space-between" flexDirection="column" textAlign="left">
         {pageComponents[currentIndex]}
         <Pane display="flex" justifyContent="space-between" padding={majorScale(4)}>
-          {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={() => setcurrentIndex(currentIndex - 1)}>{'Go Back'}
+          {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={() => setCurrentIndex(currentIndex - 1)}>{'Go Back'}
           </Button>}
           {(currentIndex + 1 < pageTitles.length) &&
-            <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={() => setcurrentIndex(currentIndex + 1)}>{currentIndex === 0 ? 'Get Started' : 'Next'}
+            <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={() => setCurrentIndex(currentIndex + 1)}>{currentIndex === 0 ? 'Get Started' : 'Next'}
             </Button>}
         </Pane>
       </Card>
-      <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} />
+      <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
     </Pane >
   )
 }

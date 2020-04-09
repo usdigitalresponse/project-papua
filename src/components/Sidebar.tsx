@@ -6,6 +6,7 @@ interface Props {
   pages: string[]
   currentIndex: number
   seal?: string
+  setCurrentIndex: (index: number) => void
 }
 
 const languages = [
@@ -24,7 +25,7 @@ const languages = [
 ]
 
 const Sidebar: React.FC<Props> = (props) => {
-  const { pages, seal, currentIndex } = props
+  const { pages, seal, currentIndex, setCurrentIndex } = props
   const currentPage = pages[currentIndex]
   const percent = Math.floor((currentIndex + 1) / pages.length * 100)
 
@@ -47,8 +48,8 @@ const Sidebar: React.FC<Props> = (props) => {
         <Pane textAlign="center"> <Text color="black" size={300}>{percent}% complete</Text> </Pane>
       </Pane>
       <Pane marginTop={majorScale(2)} display="flex" flexDirection="column">
-        {pages.map(page =>
-          <Text color={currentPage === page ? 'black' : 'muted'} display="block" marginBottom={majorScale(1)} key={page}>{page}</Text>
+        {pages.map((page, i) =>
+          <Text cursor="pointer" onClick={() => setCurrentIndex(i)} color={currentPage === page ? 'black' : 'muted'} display="block" marginBottom={majorScale(1)} key={page}>{page}</Text>
         )}
       </Pane>
     </Card >
