@@ -24,20 +24,23 @@ const FormApp: React.FC<{}> = () => {
   const onClickBack = () => setNextPage(currentIndex - 1)
 
   return (
-    <Pane justifyContent="center" padding={majorScale(8)} display="flex">
-      <Card height="0%" width="50%" background="white" display="flex" justifyContent="space-between" flexDirection="column" textAlign="left">
-        {pageComponents[currentIndex]}
-        <Pane display="flex" justifyContent="space-between" padding={majorScale(4)}>
-          {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickBack}>{'Go Back'}
-          </Button>}
-          {(currentIndex + 1 < pageTitles.length) &&
-            <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickNext}>
-              {currentIndex === 0 ? 'Get Started' : 'Next'}
-            </Button>
-          }
-        </Pane>
-      </Card>
-      <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setNextPage} />
+    <Pane alignItems="center" padding={majorScale(8)} display="flex" flexDirection="column" >
+      <Card marginBottom={majorScale(2)} padding={majorScale(2)} background="white">This is for demo purposes only.</Card>
+      <Pane display="flex" height="100%" justifyContent="center">
+        <Card width="50%" background="white" display="flex" justifyContent="space-between" flexDirection="column" textAlign="left">
+          {pageComponents[currentIndex]}
+          <Pane display="flex" justifyContent="space-between" padding={majorScale(4)}>
+            {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickBack}>{'Go Back'}
+            </Button>}
+            {(currentIndex + 1 < pageTitles.length) &&
+              <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickNext}>
+                {currentIndex === 0 ? 'Get Started' : 'Next'}
+              </Button>
+            }
+          </Pane>
+        </Card>
+        <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setNextPage} />
+      </Pane>
     </Pane >
   )
 }
