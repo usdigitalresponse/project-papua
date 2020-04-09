@@ -1,7 +1,8 @@
 {
   "pages": [
     {
-      "title": "Personal Information",
+      "title": "Name",
+      "heading": "What is your name?",
       "questions": [
         {
           "name": "First Name",
@@ -25,15 +26,21 @@
           "id": "known_as_name",
           "type": "shorttext",
           "instructions": "For example, if your name is “Sandra” and you go by “Sandy,” or your name is “Robert” and you go by “Rob,” write it down here."
-        },
+        }
+      ]
+    },
+    {
+      "title": "Birthday and gender",
+      "heading": "More about you",
+      "questions": [
         {
-          "name": "Date of Birth",
+          "name": "When were you born?",
           "id": "dob",
           "required": true,
           "type": "datepicker"
         },
         {
-          "name": "Gender",
+          "name": "What is your gender?",
           "id": "gender",
           "required": true,
           "type": "dropdown",
@@ -52,9 +59,10 @@
     },
     {
       "title": "Eligibility",
+      "heading": "Eligibility",
       "questions": [
         {
-          "name": "Select one of the following reasons why you are applying for Pandemic Unemployment Assistance",
+          "name": "Please select one of the following reasons why you are applying for Pandemic Unemployment Assistance",
           "instructions": "If none of the following are true, you can't apply for unemployment through this form. Please look into your state unemployment insurance application for further options.",
           "id": "reason",
           "required": true,
@@ -104,16 +112,17 @@
       ]
     },
     {
-      "title": "Contact Information",
+      "title": "Address",
+      "heading": "What is your address?",
       "questions": [
         {
-          "name": "Mailing Address",
+          "name": "Address",
           "id": "mailing_address",
           "required": true,
           "type": "address_picker"
         },
         {
-          "name": "My mailing address is the same as my home address.",
+          "name": "Is your mailing address the same as your home address?",
           "id": "mailing_home_address_same",
           "required": true,
           "type": "boolean",
@@ -126,31 +135,22 @@
               "type": "address_picker"
             }]
           }
-        },
+        }
+      ]
+    }, {
+      "title": "Contact Information",
+      "heading": "How can we get in touch?",
+      "questions": [
         {
-          "name": "Telephone Number",
+          "name": "Telephone number",
           "instructions": "Provide the telephone number where we can best reach you with questions about your claim.",
           "id": "telephone",
           "required": true,
           "type": "phone"
         },
         {
-          "name": "Cell Phone Number",
-          "instructions": "This is optional. By providing your cell phone number, you agree to allow the Department to send you communications which may include: important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available skills training opportunities.",
-          "id": "cellphone",
-          "required": false,
-          "type": "phone"
-        },
-        {
-          "name": "Enter your email address:",
-          "instructions": "This is optional. By providing your email, you agree to allow the Department to send you communications which may include: questions relative to the Unemployment Insurance claim you filed, important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available training opportunities. Your email, if provided, will also be used to send you your confirmation code for your Unemployment Insurance application. Please double-check that it is correct.",
-          "id": "cellphone",
-          "required": false,
-          "type": "phone"
-        },
-        {
-          "name": "Preferred Language",
-          "instructions": "What language should we use in followup communications.",
+          "name": "Preferred language",
+          "instructions": "What language should we use in followup communications?",
           "id": "preferred_language",
           "required": true,
           "type": "dropdown",
@@ -164,11 +164,26 @@
             "name": "Chinese",
             "id": "zh"
           }]
+        },
+        {
+          "name": "Cell phone number",
+          "instructions": "This is optional. By providing your cell phone number, you agree to allow the Department to send you communications which may include: important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available skills training opportunities.",
+          "id": "cellphone",
+          "required": false,
+          "type": "phone"
+        },
+        {
+          "name": "Email address",
+          "instructions": "This is optional. By providing your email, you agree to allow the Department to send you communications which may include: questions relative to the Unemployment Insurance claim you filed, important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available training opportunities. Your email, if provided, will also be used to send you your confirmation code for your Unemployment Insurance application. Please double-check that it is correct.",
+          "id": "cellphone",
+          "required": false,
+          "type": "phone"
         }
       ]
     },
     {
       "title": "Demographic Information",
+      "heading": "Which which groups do you identify?",
       "questions": [
         {
           "name": "Race",
@@ -215,6 +230,7 @@
     },
     {
       "title": "Identification and Citizenship Information",
+      "heading": "What are your government document IDs?",
       "questions": [
         {
           "name": "Please enter your 9-digit Social Security Number",
@@ -292,12 +308,13 @@
     },
     {
       "title": "Education",
+      "heading": "Please tell us about your education",
       "questions": [
         {
           "name": "Please select the highest grade that you completed in school.",
           "id": "highest_grade",
           "required": true,
-          "type": "dropdown",
+          "type": "singleselect",
           "options": [{
             "name": "Elementary School or less",
             "id": "elementary"
@@ -350,21 +367,22 @@
       ]
     }, {
       "title": "Military Service",
+      "heading": "Please tell us about any military service",
       "questions": [
         {
-          "name": "Are you a Military Veteran?",
+          "name": "Are you a Military veteran?",
           "id": "military-veteran",
           "required": true,
           "type": "boolean",
           "switch": {
             "false": null,
             "true": [{
-                "name": "Enter active duty start date",
+                "name": "Active duty start date",
                 "required": true,
                 "id": "active-duty-start",
                 "type": "datepicker"
               }, {
-                "name": "Enter active duty end date",
+                "name": "Active duty end date",
                 "required": true,
                 "id": "active-duty-end",
                 "type": "datepicker"
@@ -457,6 +475,7 @@
     },
     {
       "title": "Employment Status",
+      "heading": "Please tell us about your recent employment status",
       "questions": [
         {
           "name": "Are you currently working?",
@@ -600,6 +619,7 @@
     },
     {
       "title": "Employment History",
+      "heading": "Tell us more about your employment history",
       "instructions": "Please provide your employment history for your most relevant employer (such as your largest or most common client or business in your capacity as a gig worker, contract worker, small business owner, worker for hire, or self-employed individual) during the last 18 months.\nIf you're self-employed, you are your own employer and should enter that information.",
       "questions": [
         {
@@ -648,7 +668,7 @@
           "name": "Did you work for this employer full-time, part-time or on a staggered schedule?",
           "id": "employer-type",
           "required": true,
-          "type": "dropdown",
+          "type": "singleselect",
           "options": [{
             "name": "I work or worked for this employer full-time.",
             "id": "fulltime"
@@ -758,118 +778,123 @@
     },
     {
       "title": "Recent Employment",
+      "heading": "Please tell us more about your last job",
       "instructions": "You are filing this claim because you have experienced a change in your employment. The following questions are about your most recent work/employment.",
       "questions": [{
-        "name": "Enter your last day of work.",
-        "id": "last-day-of-work",
-        "required": true,
-        "type": "datepicker"
-      }, {
-        "name": "Please select ALL the DAYS you actually worked during the last week of your employment. Please include the last day that you actually performed work for your employer.",
-        "instructions": "For the purposes of this question a week starts on Sunday and ends on Saturday.\nEx. If the last day you worked was a Tuesday, and you work on weekends, you should select Sunday, Monday, and Tuesday.\nIf the last day you worked was a Friday, and you do not work on weekends, you should select Monday, Tuesday, Wednesday, Thursday, and Friday.",
-        "id": "last-week-days-worked",
-        "required": true,
-        "type": "multiselect",
-        "options": [{
-            "name": "Sunday",
-            "id": "sunday"
-          }, {
-            "name": "Monday",
-            "id": "monday"
-          }, {
-            "name": "Tuesday",
-            "id": "tuesday"
-          }, {
-            "name": "Wednesday",
-            "id": "wednesday"
-          }, {
-            "name": "Thursday",
-            "id": "thursday"
-          }, {
-            "name": "Friday",
-            "id": "friday"
-          }, {
-            "name": "Saturday",
-            "id": "saturday"
-        }]
-      },  {
-        "name": "How much in total did you earn at your job(s) the last week you worked, including all wages or salaries, commissions, bonuses, and tips?",
-        "id": "last-week-paid",
-        "required": true,
-        "type": "dollar-amount"
-      }, {
-        "name": "How many hours in total did you work during the last week you worked, in total across all jobs?",
-        "id": "last-week-hours",
-        "required": true,
-        "type": "decimal"
-      }]
+          "name": "Enter your last day of work.",
+          "id": "last-day-of-work",
+          "required": true,
+          "type": "datepicker"
+        }, {
+          "name": "Please select ALL the DAYS you actually worked during the last week of your employment. Please include the last day that you actually performed work for your employer.",
+          "instructions": "For the purposes of this question a week starts on Sunday and ends on Saturday.\nEx. If the last day you worked was a Tuesday, and you work on weekends, you should select Sunday, Monday, and Tuesday.\nIf the last day you worked was a Friday, and you do not work on weekends, you should select Monday, Tuesday, Wednesday, Thursday, and Friday.",
+          "id": "last-week-days-worked",
+          "required": true,
+          "type": "multiselect",
+          "options": [{
+              "name": "Sunday",
+              "id": "sunday"
+            }, {
+              "name": "Monday",
+              "id": "monday"
+            }, {
+              "name": "Tuesday",
+              "id": "tuesday"
+            }, {
+              "name": "Wednesday",
+              "id": "wednesday"
+            }, {
+              "name": "Thursday",
+              "id": "thursday"
+            }, {
+              "name": "Friday",
+              "id": "friday"
+            }, {
+              "name": "Saturday",
+              "id": "saturday"
+          }]
+        },  {
+          "name": "How much in total did you earn at your job(s) the last week you worked, including all wages or salaries, commissions, bonuses, and tips?",
+          "id": "last-week-paid",
+          "required": true,
+          "type": "dollar-amount"
+        }, {
+          "name": "How many hours in total did you work during the last week you worked, in total across all jobs?",
+          "id": "last-week-hours",
+          "required": true,
+          "type": "decimal"
+        }
+      ]
     }, {
       "title": "Skills",
-      "questions": [{
-        "name": "What do you consider your main job?",
-        "id": "skills-main-job",
-        "required": true,
-        "type": "longtext"
-      }, {
-        "name": "Which industry do you think best describes your main job?",
-        "id": "skills-industry",
-        "required": true,
-        "type": "dropdown",
-        "options": [{
-            "name": "Agriculture, forestry, fishing, and hunting (ex. dairy farmer, small agriculture business owner)",
-            "id": "ag"
-          }, {
-            "name": "Armed forces (ex. the US Air Force, the U.S. Coast Guard)",
-            "id": "armed-forces"
-          }, {
-            "name": "Construction (ex. independent contractor, residential construction company owner)",
-            "id": "construction"
-          }, {
-            "name": "Educational services (ex. elementary school teacher, independent tutor, sports coach)",
-            "id": "education"
-          }, {
-            "name": "Entertainment (ex. musician, actor)",
-            "id": "entertainment"
-          }, {
-            "name": "Financial activities (ex. bank employee, realtor, independent contractor)",
-            "id": "finance"
-          }, {
-            "name": "Food service, leisure, and hospitality (ex. hotel employee, food delivery, barber)",
-            "id": "hospitality"
-          }, {
-            "name": "Government (ex. Federal contractor)",
-            "id": "government"
-          }, {
-            "name": "Health care and social assistance (ex. nursing home aide, personal caregiver)",
-            "id": "healthcare"
-          }, {
-            "name": "Information (ex. radio broadcaster, journalist)",
-            "id": "information"
-          }, {
-            "name": "Manufacturing (ex. factory employee, independent contractor)",
-            "id": "manufacturing"
-          }, {
-            "name": "Mining (ex. coal miner, independent contractor)",
-            "id": "mining"
-          }, {
-            "name": "Professional and business services (ex. accountant, independent consultant, freelance web designer)",
-            "id": "prof-services"
-          }, {
-            "name": "Retail trade (ex. grocery store employee, clothing store employee, small business owner)",
-            "id": "retail"
-          }, {
-            "name": "Transportation and warehousing (ex. truck driver, ride share driver, warehouse employee)",
-            "id": "transportion"
-          }, {
-            "name": "Utilities (ex. water processing plant employee, independent contractor)",
-            "id": "utilities"
-          }, {
-            "name": "Wholesale trade (ex. motor vehicle part wholesaler, apparel wholesaler)",
-            "id": "wholesale"
-          }, {
-            "name": "Other",
-            "id": "other"
-          }]
+      "heading": "Tell us about your professional skills",
+      "questions": [
+        {
+          "name": "What do you consider your main job?",
+          "id": "skills-main-job",
+          "required": true,
+          "type": "longtext"
+        }, {
+          "name": "Which industry do you think best describes your main job?",
+          "id": "skills-industry",
+          "required": true,
+          "type": "dropdown",
+          "options": [{
+              "name": "Agriculture, forestry, fishing, and hunting (ex. dairy farmer, small agriculture business owner)",
+              "id": "ag"
+            }, {
+              "name": "Armed forces (ex. the US Air Force, the U.S. Coast Guard)",
+              "id": "armed-forces"
+            }, {
+              "name": "Construction (ex. independent contractor, residential construction company owner)",
+              "id": "construction"
+            }, {
+              "name": "Educational services (ex. elementary school teacher, independent tutor, sports coach)",
+              "id": "education"
+            }, {
+              "name": "Entertainment (ex. musician, actor)",
+              "id": "entertainment"
+            }, {
+              "name": "Financial activities (ex. bank employee, realtor, independent contractor)",
+              "id": "finance"
+            }, {
+              "name": "Food service, leisure, and hospitality (ex. hotel employee, food delivery, barber)",
+              "id": "hospitality"
+            }, {
+              "name": "Government (ex. Federal contractor)",
+              "id": "government"
+            }, {
+              "name": "Health care and social assistance (ex. nursing home aide, personal caregiver)",
+              "id": "healthcare"
+            }, {
+              "name": "Information (ex. radio broadcaster, journalist)",
+              "id": "information"
+            }, {
+              "name": "Manufacturing (ex. factory employee, independent contractor)",
+              "id": "manufacturing"
+            }, {
+              "name": "Mining (ex. coal miner, independent contractor)",
+              "id": "mining"
+            }, {
+              "name": "Professional and business services (ex. accountant, independent consultant, freelance web designer)",
+              "id": "prof-services"
+            }, {
+              "name": "Retail trade (ex. grocery store employee, clothing store employee, small business owner)",
+              "id": "retail"
+            }, {
+              "name": "Transportation and warehousing (ex. truck driver, ride share driver, warehouse employee)",
+              "id": "transportion"
+            }, {
+              "name": "Utilities (ex. water processing plant employee, independent contractor)",
+              "id": "utilities"
+            }, {
+              "name": "Wholesale trade (ex. motor vehicle part wholesaler, apparel wholesaler)",
+              "id": "wholesale"
+            }, {
+              "name": "Other",
+              "id": "other"
+            }
+          ]
       }, {
         "name": "Has the Coronavirus (COVID-19) crisis made you want to change your main job or sector of employment in the future?",
         "id": "covid-job-change",
@@ -914,8 +939,9 @@
       }]
     }, {
       "title": "Tax Info",
+      "heading": "We need to know about your recent tax status.",
       "questions": [{
-        "name": "We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?*",
+        "name": "We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?",
         "id": "tax-info-have-tax-return",
         "required": true,
         "type": "boolean",
@@ -928,7 +954,7 @@
           }]
         }
       }, {
-        "name": "For your most recent tax filing, were you married filing jointly, married filing separately, or single?*",
+        "name": "For your most recent tax filing, were you married filing jointly, married filing separately, or single?",
         "id": "tax-info-married",
         "required": true,
         "type": "dropdown",
@@ -979,6 +1005,7 @@
       }]
     }, {
       "title": "Unemployment Benefits",
+      "heading": "Tell us about any existing unemployment benefits you're receiving.",
       "questions": [{
         "name": "Have you applied for or received Unemployment Benefits in a state that is NOT ${state_name} the last 12 months?",
         "id": "unemployment-in-another-state",
@@ -1005,6 +1032,7 @@
       }]
     }, {
       "title": "Other Income",
+      "heading": "Do you have any other income of these types?",
       "questions": [{
           "name": "Are you or anyone in your household receiving Public Assistance?",
           "id": "other-income-public-assistance",
@@ -1063,8 +1091,9 @@
         }]
     }, {
       "title": "Payment Info",
+      "heading": "Let's talk about how we can pay you!",
       "questions": [{
-        "name": "Do you wish to have Income Taxes withheld from your Unemployment Compensation?*",
+        "name": "Do you wish to have Income Taxes withheld from your Unemployment Compensation?",
         "instructions": "Unemployment is taxable income. If you do not withhold state or federal taxes from your benefits, you will be responsible to pay them when you file your tax return. Everyone who collects unemployment benefits will receive a 1099 detailing the total payments received and any taxes paid on that income. You may request changes to your claim’s tax deductions anytime.",
         "id": "payment-income-withheld",
         "required": true,
@@ -1083,7 +1112,7 @@
           "id": "none"
         }]
       }, {
-        "name": "Please select a payment option.*",
+        "name": "Please select a payment option.",
         "instructions": "There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:\n\nDirect Deposit (DD), which deposits your unemployment benefits into your checking or savings account.\n\nElectronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.",
         "id": "payment-option",
         "required": true,
@@ -1123,7 +1152,7 @@
             "type": "integer",
             "required": true
           }, {
-            "name": "Confirm Account Number*",
+            "name": "Confirm Account Number",
             "instructions": "Please re-type the account number for the account where you would like your benefits to be deposited.",
             "id": "payment-account-number-confirm",
             "type": "integer",
@@ -1140,7 +1169,7 @@
             "type": "integer",
             "required": true
           }, {
-            "name": "Confirm Routing Number*",
+            "name": "Confirm Routing Number",
             "id": "payment-routing-number-confirm",
             "type": "integer",
             "required": true,
