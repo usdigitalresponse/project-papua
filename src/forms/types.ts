@@ -3,18 +3,26 @@ export interface Form {
   pages: Page[]
 }
 
-interface Page {
+export interface Page {
+  title: string
   questions: Question[]
 }
 
 export interface Question {
   name: string
-  description?: string
+  instructions?: string
   required?: boolean
   type?: QuestionType
   validation?: QuestionValidation
+  id?: string
+  options?: Option[]
 }
 
-type QuestionType = 'text' | 'date' | 'email'
+interface Option {
+  name: string
+  id: string
+}
+
+type QuestionType = 'text' | 'date_picker' | 'email' | 'select' | 'ssn' | 'address_picker' | 'phone' | 'boolean' | string
 
 type QuestionValidation = boolean | 're-enter'

@@ -1,6 +1,6 @@
 import validator from 'validator'
 
-import form from '../../form.json'
+import form from '../form.json'
 import { Form, Question } from './types'
 
 export function initializeForm(): Form {
