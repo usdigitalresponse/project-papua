@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, majorScale, Pane, Heading, Paragraph, Strong, OrderedList, ListItem, Button } from 'evergreen-ui'
+import { Card, majorScale, Pane, Button } from 'evergreen-ui'
 import { initializeForm } from '../forms'
 import Sidebar from './Sidebar'
 import Introduction from './Introduction'

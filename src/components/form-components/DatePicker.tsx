@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react'
+import React, { useState } from 'react'
 import ReactDatePicker from 'react-date-picker'
 import "./date-picker.css"
 import { Icon } from 'evergreen-ui'

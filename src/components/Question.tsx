@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { useState } from 'react'
 import { Question as QuestionInterface } from '../forms/types'
 import { Pane, Heading, Text, majorScale } from 'evergreen-ui'
 import { getComponent } from '../forms'
