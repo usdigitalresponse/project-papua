@@ -1,0 +1,35 @@
+.date-picker {
+  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #425A70;
+}
+
+.date-picker .react-date-picker__wrapper{
+  border: none;
+  background-color: white;
+  box-shadow: inset 0 0 0 1px rgba(67, 90, 111, 0.3), inset 0 1px 2px rgba(67, 90, 111, 0.14);
+  border-radius: 3px;
+  padding: 0px 10px 0px 10px;
+  height: 32px;
+}
+
+.date-picker .react-date-picker__wrapper *, .react-calendar * {
+  font-size: 12px;
+  color: #425A70;
+}
+
+.react-calendar__tile--now, .react-calendar__tile--now:hover{
+  background: #E5E5E5 !important;
+}
+
+.react-calendar__tile--active, .react-calendar__tile--active:hover, .react-calendar__tile--hasActive, .react-calendar__tile--hasActive:hover {
+  background: #008060 !important;
+}
+
+.react-calendar__tile--active abbr, .react-calendar__tile--hasActive  {
+  color: white !important;
+}
+
+.react-calendar__navigation__label {
+  font-size: 16px;
+  font-weight: 600;
+}

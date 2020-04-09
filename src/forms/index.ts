@@ -3,6 +3,7 @@ import validator from 'validator'
 import form from '../form.json'
 import { Form, Question, QuestionType } from './types'
 import { TextInput } from 'evergreen-ui'
+import DatePicker from '../components/form-components/DatePicker'
 
 export function initializeForm(): Form {
   const baseForm: Form = form
@@ -26,7 +27,8 @@ export function isValid(question: Question, answer: string | undefined, secondAn
 }
 
 const typeComponentMappings: { [type: string]: React.FC } = {
-  'text': (TextInput as unknown) as React.FC
+  'text': (TextInput as unknown) as React.FC,
+  'date_picker': DatePicker as React.FC
 }
 
 export function getComponent(type: QuestionType): React.FC {
