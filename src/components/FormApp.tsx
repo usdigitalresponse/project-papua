@@ -15,17 +15,20 @@ const FormApp: React.FC<{}> = () => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
-  const onClickNext = () => {
-    setCurrentIndex(currentIndex + 1)
+  const setNextPage = (index: number) => {
+    setCurrentIndex(index)
     window.scrollTo(0, 0)
   }
+
+  const onClickNext = () => setNextPage(currentIndex + 1)
+  const onClickBack = () => setNextPage(currentIndex - 1)
 
   return (
     <Pane justifyContent="center" padding={majorScale(8)} display="flex">
       <Card height="0%" width="50%" background="white" display="flex" justifyContent="space-between" flexDirection="column" textAlign="left">
         {pageComponents[currentIndex]}
         <Pane display="flex" justifyContent="space-between" padding={majorScale(4)}>
-          {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={() => setCurrentIndex(currentIndex - 1)}>{'Go Back'}
+          {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickBack}>{'Go Back'}
           </Button>}
           {(currentIndex + 1 < pageTitles.length) &&
             <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickNext}>
@@ -34,7 +37,7 @@ const FormApp: React.FC<{}> = () => {
           }
         </Pane>
       </Card>
-      <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+      <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setNextPage} />
     </Pane >
   )
 }

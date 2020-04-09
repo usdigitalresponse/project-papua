@@ -5,6 +5,7 @@ import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
 import SingleSelect from '../components/form-components/SingleSelect'
+import Boolean from '../components/form-components/Boolean'
 
 
 export function initializeForm(): Form {
@@ -32,7 +33,8 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   'text': TextInput as React.FC,
   'datepicker': DatePicker as React.FC,
   'dropdown': Select as React.FC,
-  'singleselect': SingleSelect as React.FC
+  'singleselect': SingleSelect as React.FC,
+  'boolean': Boolean as React.FC
 }
 
 export function getComponent(type: QuestionType): React.FC {
