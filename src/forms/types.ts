@@ -1,4 +1,5 @@
 export interface Form {
+  state: string
   pages: Page[]
 }
 
