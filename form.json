@@ -634,7 +634,7 @@
           "required": true,
           "type": "datepicker"
         }, {
-          "name": "Last actual Day of Work*",
+          "name": "Last actual Day of Work",
           "instructions": "Please provide the last day you actually performed work for your employer.",
           "id": "employer-last-day-of-work",
           "required": true,
@@ -755,6 +755,215 @@
           "type": "boolean"
         }
       ]
+    },
+    {
+      "title": "Recent Employment",
+      "instructions": "You are filing this claim because you have experienced a change in your employment. The following questions are about your most recent work/employment.",
+      "questions": [{
+        "name": "Enter your last day of work.",
+        "id": "last-day-of-work",
+        "required": true,
+        "type": "datepicker"
+      }]
+    }, {
+      "title": "Skills",
+      "questions": [{
+        "name": "What do you consider your main job?",
+        "id": "skills-main-job",
+        "required": true,
+        "type": "longtext"
+      }, {
+        "name": "Which industry do you think best describes your main job?",
+        "id": "skills-industry",
+        "required": true,
+        "type": "dropdown",
+        "options": [{
+            "name": "Agriculture, forestry, fishing, and hunting (ex. dairy farmer, small agriculture business owner)",
+            "id": "ag"
+          }, {
+            "name": "Armed forces (ex. the US Air Force, the U.S. Coast Guard)",
+            "id": "armed-forces"
+          }, {
+            "name": "Construction (ex. independent contractor, residential construction company owner)",
+            "id": "construction"
+          }, {
+            "name": "Educational services (ex. elementary school teacher, independent tutor, sports coach)",
+            "id": "education"
+          }, {
+            "name": "Entertainment (ex. musician, actor)",
+            "id": "entertainment"
+          }, {
+            "name": "Financial activities (ex. bank employee, realtor, independent contractor)",
+            "id": "finance"
+          }, {
+            "name": "Food service, leisure, and hospitality (ex. hotel employee, food delivery, barber)",
+            "id": "hospitality"
+          }, {
+            "name": "Government (ex. Federal contractor)",
+            "id": "government"
+          }, {
+            "name": "Health care and social assistance (ex. nursing home aide, personal caregiver)",
+            "id": "healthcare"
+          }, {
+            "name": "Information (ex. radio broadcaster, journalist)",
+            "id": "information"
+          }, {
+            "name": "Manufacturing (ex. factory employee, independent contractor)",
+            "id": "manufacturing"
+          }, {
+            "name": "Mining (ex. coal miner, independent contractor)",
+            "id": "mining"
+          }, {
+            "name": "Professional and business services (ex. accountant, independent consultant, freelance web designer)",
+            "id": "prof-services"
+          }, {
+            "name": "Retail trade (ex. grocery store employee, clothing store employee, small business owner)",
+            "id": "retail"
+          }, {
+            "name": "Transportation and warehousing (ex. truck driver, ride share driver, warehouse employee)",
+            "id": "transportion"
+          }, {
+            "name": "Utilities (ex. water processing plant employee, independent contractor)",
+            "id": "utilities"
+          }, {
+            "name": "Wholesale trade (ex. motor vehicle part wholesaler, apparel wholesaler)",
+            "id": "wholesale"
+          }, {
+            "name": "Other",
+            "id": "other"
+          }]
+      }, {
+        "name": "Has the Coronavirus (COVID-19) crisis made you want to change your main job or sector of employment in the future?",
+        "id": "covid-job-change",
+        "required": true,
+        "type": "dropdown",
+        "options": [{
+          "name": "Yes, I want to change both my main job and sector of employment.",
+          "id": "yes-sector-and-main-job"
+        },{
+          "name": "Yes, I want to change my main job.",
+          "id": "yes-main-job"
+        }, {
+          "name": "Yes, I want to change my sector of employment.",
+          "id": "yes-sector"
+        }, {
+          "name": "No, I do want to change my main job or sector of employment.",
+          "id": "no"
+        }],
+        "switch": {
+          "yes-sector-and-main-job": [{
+            "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+            "id": "covid-job-change-desc",
+            "type": "longtext"
+          }],
+          "yes-main-job": [{
+            "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+            "id": "covid-job-change-desc",
+            "type": "longtext"
+          }],
+          "yes-sector": [{
+            "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+            "id": "covid-job-change-desc",
+            "type": "longtext"
+          }]
+        }
+      }, {
+        "name": "Do you want the Department of Labor and Training to reach out to you in the future on how to enroll in a skills training program?",
+        "instructions": "${state_name} offers many skills training programs to help workers gain the skills they need for a promising career. Recent studies suggest that these programs have successfully increased earnings of enrollees by 13% in the year after training. For the typical enrollee, that has meant an extra $325 a month.",
+        "id": "skills-training-signup",
+        "required": true,
+        "type": "boolean"
+      }]
+    }, {
+      "title": "Tax Info",
+      "questions": []
+    }, {
+      "title": "Unemployment Benefits",
+      "questions": [{
+        "name": "Have you applied for or received Unemployment Benefits in a state that is NOT ${state_name} the last 12 months?",
+        "id": "unemployment-in-another-state",
+        "required": true,
+        "type": "boolean",
+        "switch": {
+          "true": [{
+            "name": "Select the state where you filed a claim for benefits within the last 12 months",
+            "id": "unemployment-in-another-state-state",
+            "type": "state-picker",
+            "required": true
+          }, {
+            "name": "What date did you file an Unemployment Insurance claim in that state?",
+            "id": "unemployment-in-another-state-date",
+            "type": "datepicker",
+            "required": true
+          }, {
+            "name": "Have you had any employment since you last filed a claim?",
+            "id": "unemployment-in-another-state-employment-since",
+            "type": "boolean",
+            "required": true
+          }]
+        }
+      }]
+    }, {
+      "title": "Other Income",
+      "questions": [{
+          "name": "Are you or anyone in your household receiving Public Assistance?",
+          "id": "other-income-public-assistance",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?",
+          "id": "other-income-dhs-work",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?",
+          "id": "other-income-snap",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Are you a Migrant Worker?",
+          "id": "other-income-migrant-worker",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Are you a person with a disability?",
+          "id": "other-income-disability",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Have you applied for or received Temporary Disability Insurance in the last 2 years?",
+          "id": "other-income-temp-disability-insurance",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Have you applied for or received Workers’ Compensation in the last 2 years?",
+          "id": "other-income-workers-comp",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Have you applied for or received other Disability Payments in the last 2 years?",
+          "id": "other-income-disability-payments",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Are you now, or during the next year, will you be collecting a Retirement Pension?",
+          "id": "other-income-retirement-pension",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Are you now, or during the next year, will you be collecting a Retirement Annuity?",
+          "id": "other-income-retirement annuity",
+          "required": true,
+          "type": "boolean"
+        }, {
+          "name": "Are you now, or during the next year, will you be collecting Social Security?",
+          "id": "other-income-social-security",
+          "required": true,
+          "type": "boolean"
+        }]
+    }, {
+      "title": "Payment Info",
+      "questions": []
     }
   ]
 }
