@@ -1,9 +1,11 @@
 import React from 'react'
-import { Card, majorScale, Strong, Select, Pane, Text } from 'evergreen-ui'
+import { Card, majorScale, Strong, Pane, Text, Image } from 'evergreen-ui'
+import Select from './form-components/Select'
 
 interface Props {
   pages: string[]
   currentIndex: number
+  seal?: string
 }
 
 const languages = [
@@ -22,12 +24,13 @@ const languages = [
 ]
 
 const Sidebar: React.FC<Props> = (props) => {
-  const { pages, currentIndex } = props
+  const { pages, seal, currentIndex } = props
   const currentPage = pages[currentIndex]
   const percent = Math.floor((currentIndex + 1) / pages.length * 100)
 
   return (
     <Card marginLeft={majorScale(2)} textAlign="left" justifyContent="flex-start" display="flex" flexDirection="column" height="0%" background="white" padding={majorScale(4)} >
+      {seal && <Image marginBottom={majorScale(2)} height={125} src={seal} />}
       <Pane>
         <Strong color="black">Language</Strong>
         <br />

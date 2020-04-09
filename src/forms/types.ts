@@ -1,6 +1,7 @@
 export interface Form {
   state: string
   pages: Page[]
+  seal: string
 }
 
 export interface Page {
