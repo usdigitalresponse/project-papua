@@ -5,6 +5,7 @@ export interface Form {
 
 export interface Page {
   title: string
+  heading: string
   questions: Question[]
 }
 

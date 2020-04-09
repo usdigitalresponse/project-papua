@@ -1,4 +1,5 @@
 {
+  "state": "CA",
   "pages": [
     {
       "title": "Name",
@@ -1356,6 +1357,7 @@
           "instructions": "There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:\n\nDirect Deposit (DD), which deposits your unemployment benefits into your checking or savings account.\n\nElectronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.",
           "id": "payment-option",
           "required": true,
+          "type": "dropdown",
           "options": [
             {
               "name": "Direct Deposit",
