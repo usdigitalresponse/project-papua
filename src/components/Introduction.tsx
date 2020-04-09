@@ -23,7 +23,7 @@ const Introduction: React.FC<Props> = (props) => {
           <OrderedList color="black">
             <ListItem color="black">Your Social Security Number (SSN)</ListItem>
             <ListItem color="black"> Your Adjusted Gross Income from your most recent tax return</ListItem>
-            <ListItem color="black">The names, addresses, phone numbers, and dates of employmeny for all employers where you have worked in the last 18 months.</ListItem>
+            <ListItem color="black">The names, addresses, phone numbers, and dates of employment for all employers where you have worked in the last 18 months.</ListItem>
             <ListItem color="black">Your Alien Registration Number, if applicable.</ListItem>
             <ListItem color="black">The names, Social Security Numbers and dates of birth for all dependent children.</ListItem>
             <ListItem color="black">Your driver's license or state-issued ID number.</ListItem>
@@ -37,7 +37,7 @@ const Introduction: React.FC<Props> = (props) => {
           <Paragraph color="black">
             <Strong color="black"> Warning: </Strong>
             <br />
-              Unless you receive a confirmatin number, your claim will not be processed. The {state} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.
+              Unless you receive a confirmation number, your claim will not be processed. The {state} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.
               <br /><br />
               Please print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.
             </Paragraph>
