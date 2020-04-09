@@ -1,0 +1,7 @@
+.single-select-border {
+  border: black 1px solid;
+}
+
+.single-select:hover {
+  background: #F7F5F4;
+}

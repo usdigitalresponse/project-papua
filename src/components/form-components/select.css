@@ -1,0 +1,6 @@
+.styled-select select, .styled-select select:focus, .styled-select select:hover {
+  background-image: none !important;
+  color: black;
+  border: black 1px solid;
+  padding: 8px;
+}

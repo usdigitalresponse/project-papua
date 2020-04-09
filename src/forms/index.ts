@@ -1,7 +1,11 @@
 import validator from 'validator'
+import form from '../form.json'
+import { Form, Question, QuestionType } from './types'
+import DatePicker from '../components/form-components/DatePicker'
+import TextInput from '../components/form-components/TextInput'
+import Select from '../components/form-components/Select'
+import SingleSelect from '../components/form-components/SingleSelect'
 
-import form from '../../form.json'
-import { Form, Question } from './types'
 
 export function initializeForm(): Form {
   const baseForm: Form = form
@@ -22,4 +26,15 @@ export function isValid(question: Question, answer: string | undefined, secondAn
   }
 
   return { valid: true }
+}
+
+const typeComponentMappings: { [type: string]: React.FC } = {
+  'text': TextInput as React.FC,
+  'datepicker': DatePicker as React.FC,
+  'dropdown': Select as React.FC,
+  'singleselect': SingleSelect as React.FC
+}
+
+export function getComponent(type: QuestionType): React.FC {
+  return typeComponentMappings[type] || TextInput
 }
