@@ -26,7 +26,7 @@ const FormApp: React.FC<{}> = () => {
   return (
     <Pane alignItems="center" padding={majorScale(8)} display="flex" flexDirection="column" >
       <Card marginBottom={majorScale(2)} padding={majorScale(2)} background="white">This is for demo purposes only.</Card>
-      <Pane display="flex" height="100%" justifyContent="center">
+      <Pane display="flex" width="100%" height="100%" justifyContent="center">
         <Card width="50%" background="white" display="flex" justifyContent="space-between" flexDirection="column" textAlign="left">
           {pageComponents[currentIndex]}
           <Pane display="flex" justifyContent="space-between" padding={majorScale(4)}>
