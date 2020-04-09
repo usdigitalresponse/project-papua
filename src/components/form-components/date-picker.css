@@ -14,7 +14,7 @@
 
 .date-picker .react-date-picker__wrapper *, .react-calendar * {
   font-size: 12px;
-  color: #425A70;
+  color: black;
 }
 
 .react-calendar__tile--now, .react-calendar__tile--now:hover{

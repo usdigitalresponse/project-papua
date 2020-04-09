@@ -16,7 +16,7 @@ const Question: React.FC<Props> = (props) => {
         <Heading color="black" size={400}>{question.name}</Heading>
         {question.instructions && <Text color="black" size={300}>{question.instructions}</Text>}
       </Pane>
-      <Component width="100%" />
+      <Component width="100%" question={question} />
     </Pane>
   )
 }

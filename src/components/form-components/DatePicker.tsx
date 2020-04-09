@@ -12,7 +12,7 @@ const DatePicker: React.FC<{}> = () => {
       className="date-picker"
       onChange={date => setStartDate(date as Date)}
       value={startDate}
-      calendarIcon={<Icon icon="calendar" color="muted" />}
+      calendarIcon={<Icon icon="calendar" color="black" />}
       clearIcon={null}
     />
   );
