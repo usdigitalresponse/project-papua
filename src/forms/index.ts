@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import validator from 'validator'
 import form from '../form.json'
 import { Form, Question, QuestionType } from './types'

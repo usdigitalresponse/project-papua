@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pane, majorScale, Strong, OrderedList, ListItem, Button, Paragraph, Heading } from 'evergreen-ui'
+import { Pane, majorScale, Strong, OrderedList, ListItem, Paragraph, Heading } from 'evergreen-ui'
 
 interface Props {
   state: string
