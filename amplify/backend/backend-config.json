@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"papuastorage6a9bbdc2": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

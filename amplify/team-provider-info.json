@@ -1,0 +1,20 @@
+{
+    "storage": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-papua-storage-storage-130537-authRole",
+            "UnauthRoleArn": "arn:aws:iam::032158857762:role/amplify-papua-storage-storage-130537-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::032158857762:role/amplify-papua-storage-storage-130537-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-papua-storage-storage-130537-deployment",
+            "UnauthRoleName": "amplify-papua-storage-storage-130537-unauthRole",
+            "StackName": "amplify-papua-storage-storage-130537",
+            "StackId": "arn:aws:cloudformation:us-west-2:032158857762:stack/amplify-papua-storage-storage-130537/d0984a50-7c2f-11ea-9191-02f90cd818d0",
+            "AmplifyAppId": "d1fsuq04o84eji"
+        },
+        "categories": {
+            "auth": {
+                "papuastorage6a9bbdc2": {}
+            }
+        }
+    }
+}
