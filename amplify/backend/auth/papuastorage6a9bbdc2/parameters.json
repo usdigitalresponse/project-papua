@@ -1,6 +1,6 @@
 {
     "identityPoolName": "papuastorage6a9bbdc2_identitypool_6a9bbdc2",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "papuas6a9bbdc2",
     "userPoolName": "papuastorage6a9bbdc2_userpool_6a9bbdc2",
     "autoVerifiedAttributes": [
