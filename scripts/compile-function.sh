@@ -37,7 +37,7 @@ yarn
 tsc -p backend/functions/${FUNCTION_NAME}
 
 # Copy over the compiled JS + package.json + yarn.lock files.
-cp backend/functions/${FUNCTION_NAME}/dist/* amplify/backend/function/${FUNCTION_NAME}/src
+cp backend/functions/${FUNCTION_NAME}/dist/**/* amplify/backend/function/${FUNCTION_NAME}/src
 cp backend/functions/${FUNCTION_NAME}/package.json amplify/backend/function/${FUNCTION_NAME}/src/package.json
 cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCTION_NAME}/src/yarn.lock
 
