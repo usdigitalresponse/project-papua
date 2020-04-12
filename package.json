@@ -24,8 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
-    "compile": "run-p compile:*"
+    "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
+    "compile": "run-p amplify:*"
   },
   "eslintConfig": {
     "extends": "react-app"
