@@ -32,12 +32,12 @@ mkdir -p amplify/backend/function/${FUNCTION_NAME}/src
 rm -rf amplify/backend/function/${FUNCTION_NAME}/src/*
 
 # Compile the TS into JS.
-tsc -p backend/transformers/csv
+tsc -p backend/functions/${FUNCTION_NAME}
 
 # Copy over the compiled JS + package.json + yarn.lock files.
-cp backend/transformers/csv/dist/* amplify/backend/function/${FUNCTION_NAME}/src
-cp backend/transformers/csv/package.json amplify/backend/function/${FUNCTION_NAME}/src/package.json
-cp backend/transformers/csv/yarn.lock amplify/backend/function/${FUNCTION_NAME}/src/yarn.lock
+cp backend/functions/${FUNCTION_NAME}/dist/* amplify/backend/function/${FUNCTION_NAME}/src
+cp backend/functions/${FUNCTION_NAME}/package.json amplify/backend/function/${FUNCTION_NAME}/src/package.json
+cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCTION_NAME}/src/yarn.lock
 
 # Install dependencies based on the updated package.json
 yarn --cwd=amplify/backend/function/${FUNCTION_NAME}/src install

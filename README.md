@@ -38,8 +38,6 @@ TBD, see: https://docs.google.com/document/d/1LJku-oOiclh6SW04nSMNv70yDbmPM3hDd_
 
 ## One-Click Deploy
 
-This doesn't yet work. We'll need to enable forking of this repo first.
-
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/usdigitalresponse/project-papua)
 
 ## Manual Deploy

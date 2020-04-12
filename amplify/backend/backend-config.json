@@ -7,7 +7,7 @@
 		}
 	},
 	"function": {
-		"csvtransformer": {
+		"transformer": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
