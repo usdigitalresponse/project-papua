@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/claim",
+            "lambdaFunction": "submitClaim",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "submitClaim",
+    "apiName": "submitClaim",
+    "functionArns": [
+        {
+            "lambdaFunction": "submitClaim"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-project-papua-colin-100903-authRole",
+        "unAuthRoleName": "amplify-project-papua-colin-100903-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "submitClaim",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
