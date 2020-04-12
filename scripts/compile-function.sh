@@ -32,8 +32,10 @@ mkdir -p amplify/backend/function/${FUNCTION_NAME}/src
 rm -rf amplify/backend/function/${FUNCTION_NAME}/src/*
 
 # Compile the TS into JS.
-yarn --cwd=backend/functions/${FUNCTION_NAME} install
-tsc -p backend/functions/${FUNCTION_NAME}
+cd backend/functions/${FUNCTION_NAME}
+yarn
+yarn tsc
+cd -
 
 # Copy over the compiled JS + package.json + yarn.lock files.
 cp backend/functions/${FUNCTION_NAME}/dist/**/* amplify/backend/function/${FUNCTION_NAME}/src
