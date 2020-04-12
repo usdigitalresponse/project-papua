@@ -12,6 +12,56 @@
     },
     "env": {
       "Type": "String"
+    },
+    "materializedRawBucketName": {
+      "Type": "String",
+      "Default": {
+        "Fn::If": [
+          "ShouldNotCreateEnvResources",
+          {
+            "Ref": "rawBucketName"
+          },
+          {
+            "Fn::Join": [
+              "-",
+              [
+                {
+                  "Ref": "rawBucketName"
+                },
+                {
+                  "Fn::Select": [
+                    3,
+                    {
+                      "Fn::Split": [
+                        "-",
+                        {
+                          "Ref": "AWS::StackName"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    4,
+                    {
+                      "Fn::Split": [
+                        "-",
+                        {
+                          "Ref": "AWS::StackName"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Ref": "env"
+                }
+              ]
+            ]
+          }
+        ]
+      }
     }
   },
   "Conditions": {
@@ -60,51 +110,7 @@
               "Ref": "AWS::Region"
             },
             "RAW_S3_BUCKET_NAME": {
-              "Fn::If": [
-                "ShouldNotCreateEnvResources",
-                {
-                  "Ref": "rawBucketName"
-                },
-                {
-                  "Fn::Join": [
-                    "-",
-                    [
-                      {
-                        "Ref": "rawBucketName"
-                      },
-                      {
-                        "Fn::Select": [
-                          3,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::StackName"
-                              }
-                            ]
-                          }
-                        ]
-                      },
-                      {
-                        "Fn::Select": [
-                          4,
-                          {
-                            "Fn::Split": [
-                              "-",
-                              {
-                                "Ref": "AWS::StackName"
-                              }
-                            ]
-                          }
-                        ]
-                      },
-                      {
-                        "Ref": "env"
-                      }
-                    ]
-                  ]
-                }
-              ]
+              "Ref": "materializedRawBucketName"
             }
           }
         },
@@ -190,6 +196,11 @@
                   }
                 ]
               }
+            },
+            {
+              "Effect": "Allow",
+              "Action": ["s3:*"],
+              "Resource": "*"
             }
           ]
         }
