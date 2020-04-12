@@ -2,5 +2,8 @@
   "name": "transformer",
   "version": "0.0.1",
   "description": "Applies state-specific transformations on raw data on a regular basis",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "@aws-sdk/client-s3-node": "^0.1.0-preview.2"
+  }
 }
