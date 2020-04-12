@@ -10,11 +10,10 @@ import { getTransformer } from "./transformers";
 // Import build-time environment variables from the .env
 // See: scripts/compile-function.sh
 import { config } from "dotenv";
-console.log(config());
-
-console.log(process.env);
 
 export async function handler() {
+  console.log(config());
+
   console.log("env: ", process.env);
 
   const transformer = getTransformer();
