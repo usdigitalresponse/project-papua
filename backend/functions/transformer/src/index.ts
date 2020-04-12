@@ -5,17 +5,16 @@ var region = process.env.REGION
 
 Amplify Params - DO NOT EDIT */
 
+import {getTransformer} from './transformers'
+
 export async function handler() {
-  // TODO implement
+  console.log('env: ', process.env)
 
-  const version = "v0.0.3";
+  const transformer = getTransformer()
+  const result = await transformer()
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(`Hello from Lambda! (version=${version})`),
+  return {
+    rawBucket: process.env.RAW_S3_BUCKET_NAME,
+    result
   };
-
-  console.log(`responding to a lambda invocation! (version=${version}; raw-bucket=${process.env.RAW_S3_BUCKET_NAME})`);
-
-  return response;
 }
