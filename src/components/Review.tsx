@@ -8,22 +8,27 @@ import '@aws-amplify/ui/dist/style.css';
 
 Storage.configure({ level: 'private' });
 
-const sendData = () => (
-        // const file = evt.target.files[0];
-        // const name = file.name;
-
-        Storage.put('test.txt', 'hello')
-            .then (result => console.log(result))
-            .catch(err => console.log(err))
-)
+function sendData ({data}: { data: any }) {
+    Storage.put(`${Math.floor(Math.random() * 100)}.json`, JSON.stringify(data))
+        .then(result => console.log(result))
+        .catch(err => console.log(err))
+}
 
 const Review: React.FC<{}> = () => {
+    const data = {
+        uuid: 0,
+        first: "Tom",
+        last: "Nook",
+        employment: "Nook Inc",
+        lastWorked: "2020-04-01",
+        income: 1000000000
+    }
 
 
   return (
     <Pane padding={majorScale(4)} display="flex" flexDirection="column">
       <Heading>Review & Submit</Heading>
-        <Button appearance="primary" onClick={sendData}>Hi Evergreen!</Button>
+        <Button appearance="primary" onClick={sendData({data: data})}>Send Valid</Button>
     </Pane>
   )
 }
