@@ -1,1 +1,26 @@
-{}
+{
+    "colin": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-project-papua-colin-95937-authRole",
+            "UnauthRoleArn": "arn:aws:iam::826846518439:role/amplify-project-papua-colin-95937-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::826846518439:role/amplify-project-papua-colin-95937-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-project-papua-colin-95937-deployment",
+            "UnauthRoleName": "amplify-project-papua-colin-95937-unauthRole",
+            "StackName": "amplify-project-papua-colin-95937",
+            "StackId": "arn:aws:cloudformation:us-west-2:826846518439:stack/amplify-project-papua-colin-95937/fef90ce0-7cde-11ea-a4df-0222bb28abfe",
+            "AmplifyAppId": "dw0fytu9xcbpk"
+        },
+        "categories": {
+            "function": {
+                "transformer": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dw0fytu9xcbpk",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}
