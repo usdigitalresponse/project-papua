@@ -22,18 +22,5 @@
             ]
         }
     },
-    "Resources": {
-        "AmplifyBranch": {
-            "Condition": "isManual",
-            "Type": "AWS::Amplify::Branch",
-            "Properties": {
-                "BranchName": {
-                    "Ref": "env"
-                },
-                "AppId": {
-                    "Ref": "appId"
-                }
-            }
-        }
-    }
+    "Resources": {}
 }
