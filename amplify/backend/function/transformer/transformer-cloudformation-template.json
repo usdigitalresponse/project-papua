@@ -28,9 +28,6 @@
 				"aws:asset:path": "./src",
 				"aws:asset:property": "Code"
 			},
-			"DependsOn": [
-				"RawS3Bucket"
-			],
 			"Properties": {
 				"Handler": "index.handler",
 				"FunctionName": {
@@ -59,7 +56,41 @@
 						"REGION": {
 							"Ref": "AWS::Region"
 						},
-						"RAW_S3_BUCKET_NAME": "TODO"
+						"RAW_S3_BUCKET_NAME": {
+							"Fn::If": [
+								"ShouldNotCreateEnvResources",
+								{
+									"Ref": "bucketName"
+								},
+								{
+									"Fn::Join": [
+										"",
+										[
+											{
+												"Ref": "bucketName"
+											},
+											{
+												"Fn::Select": [
+													3,
+													{
+														"Fn::Split": [
+															"-",
+															{
+																"Ref": "AWS::StackName"
+															}
+														]
+													}
+												]
+											},
+											"-",
+											{
+												"Ref": "env"
+											}
+										]
+									]
+								}
+							]
+						}
 					}
 				},
 				"Role": {
