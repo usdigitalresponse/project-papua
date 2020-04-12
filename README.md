@@ -34,9 +34,27 @@ $ yarn test
 
 # Deploying
 
-[add deployment instructions here]
+TBD, see: https://docs.google.com/document/d/1LJku-oOiclh6SW04nSMNv70yDbmPM3hDd_NPADV7DHU/edit#heading=h.j8g2w65tqlms
+
+## One-Click Deploy
+
+This doesn't yet work. We'll need to enable forking of this repo first.
 
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/usdigitalresponse/project-papua)
+
+## Manual Deploy
+
+```sh
+# Open this repo on your local machine.
+git clone git@github.com:usdigitalresponse/project-papua.git
+# Install the Amplify CLI
+yarn global add @aws-amplify/cli
+# Configure a local AWS profile to use for Amplify.
+# Make sure to save the secret access key!
+amplify configure
+# Publish to your AWS account.
+amplify publish
+```
 
 # Contributing
 
