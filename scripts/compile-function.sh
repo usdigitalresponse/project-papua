@@ -42,5 +42,9 @@ cp -r backend/functions/${FUNCTION_NAME}/dist/* amplify/backend/function/${FUNCT
 cp backend/functions/${FUNCTION_NAME}/package.json amplify/backend/function/${FUNCTION_NAME}/src/package.json
 cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCTION_NAME}/src/yarn.lock
 
+# The STATE_CODE is set as an Amplify Environment Variable. But those envs are only available
+# at build-time so we copy it over.
+echo "STATE_CODE=${STATE_CODE}" > amplify/backend/function/${FUNCTION_NAME}/src/.env
+
 # Install dependencies based on the updated package.json
 yarn --cwd=amplify/backend/function/${FUNCTION_NAME}/src install

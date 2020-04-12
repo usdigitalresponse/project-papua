@@ -5,16 +5,21 @@ var region = process.env.REGION
 
 Amplify Params - DO NOT EDIT */
 
-import {getTransformer} from './transformers'
+import { getTransformer } from "./transformers";
+
+// Import build-time environment variables from the .env
+// See: scripts/compile-function.sh
+import { load } from "dotenv";
+load();
 
 export async function handler() {
-  console.log('env: ', process.env)
+  console.log("env: ", process.env);
 
-  const transformer = getTransformer()
-  const result = await transformer()
+  const transformer = getTransformer();
+  const result = await transformer();
 
   return {
     rawBucket: process.env.RAW_S3_BUCKET_NAME,
-    result
+    result,
   };
 }
