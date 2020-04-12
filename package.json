@@ -24,6 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
+    "amplify:submitClaim": "FUNCTION_NAME=submitClaim scripts/compile-function.sh",
     "compile": "run-p amplify:*"
   },
   "eslintConfig": {
