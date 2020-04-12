@@ -27,14 +27,14 @@
           "Fn::If": [
             "ShouldNotCreateEnvResources",
             {
-              "Ref": "bucketName"
+              "Ref": "rawBucketName"
             },
             {
               "Fn::Join": [
                 "",
                 [
                   {
-                    "Ref": "bucketName"
+                    "Ref": "rawBucketName"
                   },
                   {
                     "Fn::Select": [
