@@ -40,8 +40,8 @@ amplifyxc.config
 
 # Amplify resources we're manually ignoring. May break things.
 
-# There's a bunch of AWS-account specific data in here. Seems to be used
-# to specify each of your backends. Not sure we need to commit this.
+# We don't need to check in environments:
+# https://aws-amplify.github.io/docs/cli-toolchain/quickstart#teamprovider
 amplify/team-provider-info.json
 
 # We compile JS into this folder so that the Amplify CLI can produce a JS bundle.
