@@ -32,8 +32,7 @@ mkdir -p amplify/backend/function/${FUNCTION_NAME}/src
 rm -rf amplify/backend/function/${FUNCTION_NAME}/src/*
 
 # Compile the TS into JS.
-# First, we run yarn in order to install tsc for Amplify CD.
-yarn
+yarn --cwd=backend/functions/${FUNCTION_NAME} install
 tsc -p backend/functions/${FUNCTION_NAME}
 
 # Copy over the compiled JS + package.json + yarn.lock files.

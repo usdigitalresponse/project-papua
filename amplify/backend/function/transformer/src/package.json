@@ -5,5 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "@aws-sdk/client-s3-node": "^0.1.0-preview.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
   }
 }
