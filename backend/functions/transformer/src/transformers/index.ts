@@ -19,7 +19,7 @@ export function getTransformer(): Transformer {
   // in this folder. We then select one of them based on the STATE_CODE variable.
   //
   // We have a special transformer (csv) as a demo.
-  const transformer = transformers[stateCode];
+  const transformer = transformers[stateCode.toLowerCase()];
   if (!transformer) {
     console.log("Known state codes: ", Object.keys(transformers));
     throw new Error(`Unknown state code (${stateCode})`);
