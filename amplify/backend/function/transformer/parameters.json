@@ -1,3 +1,4 @@
 {
+  "rawBucketName": "papua-raw-storage",
   "CloudWatchRule": "rate(1 hour)"
 }
