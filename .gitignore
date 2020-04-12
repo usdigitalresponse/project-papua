@@ -41,7 +41,7 @@ amplifyxc.config
 # Amplify resources we're manually ignoring. May break things.
 
 # There's a bunch of AWS-account specific data in here. Curious if we need to commit this:
-# amplify/team-provider-info.json
+amplify/team-provider-info.json
 
 # We compile JS into this folder so that the Amplify CLI can produce a JS bundle.
 amplify/backend/function/*/src
