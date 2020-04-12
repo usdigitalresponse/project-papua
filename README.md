@@ -52,6 +52,8 @@ yarn global add @aws-amplify/cli
 # Configure a local AWS profile to use for Amplify.
 # Make sure to save the secret access key!
 amplify configure
+# Compile all functions
+yarn compile
 # Publish to your AWS account.
 amplify publish
 ```

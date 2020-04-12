@@ -1,0 +1,6 @@
+{
+  "name": "csvtransformer",
+  "version": "0.0.1",
+  "description": "An example transformation that produces an hourly CSV output",
+  "main": "index.js"
+}
