@@ -7,11 +7,13 @@ interface Props {
   question: QuestionInterface
 }
 
+type Value = string | string[] | undefined
+
 const Question: React.FC<Props> = (props) => {
   const { question } = props
   const Component: React.FC<{ [key: string]: any }> = getComponent(question.type)
 
-  const [value, setValue] = useState<string>('')
+  const [value, setValue] = useState<Value>(undefined)
 
   return (
     <Pane display="flex" flexDirection="column" marginBottom={majorScale(2)}>
@@ -20,7 +22,7 @@ const Question: React.FC<Props> = (props) => {
         {question.instructions && <Text color="black" size={300}>{question.instructions}</Text>}
       </Pane>
       <Component width="100%" value={value} question={question} onChange={(e: React.ChangeEvent<HTMLInputElement> | string) => {
-        if (typeof e === 'string') {
+        if (typeof e === 'string' || Array.isArray(e)) {
           setValue(e)
         } else {
           setValue(e.target.value)
