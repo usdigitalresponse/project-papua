@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "S3Bucket": {
+    "RawS3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "BucketName": {
@@ -64,7 +64,7 @@
   "Outputs": {
     "BucketName": {
       "Value": {
-        "Ref": "S3Bucket"
+        "Ref": "RawS3Bucket"
       },
       "Description": "Bucket name for the S3 bucket"
     },
