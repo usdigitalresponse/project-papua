@@ -31,7 +31,7 @@
             },
             {
               "Fn::Join": [
-                "",
+                "-",
                 [
                   {
                     "Ref": "rawBucketName"
@@ -49,7 +49,19 @@
                       }
                     ]
                   },
-                  "-",
+                  {
+                    "Fn::Select": [
+                      4,
+                      {
+                        "Fn::Split": [
+                          "-",
+                          {
+                            "Ref": "AWS::StackName"
+                          }
+                        ]
+                      }
+                    ]
+                  },
                   {
                     "Ref": "env"
                   }
