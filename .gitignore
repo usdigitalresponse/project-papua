@@ -45,8 +45,3 @@ amplify/team-provider-info.json
 
 # We compile JS into this folder so that the Amplify CLI can produce a JS bundle.
 amplify/backend/function/*/src
-# We keep the package.json around though, because amplify only lets us hook in after
-# it runs npm install, so it needs a package.json or else it errors.
-# If the flow we use works well, we should open an upstream PR to amplify to make it
-# just print a warning if there is no package.json.
-!amplify/backend/function/*/src/package.json
