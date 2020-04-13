@@ -15,6 +15,8 @@ const Question: React.FC<Props> = (props) => {
 
   const [value, setValue] = useState<Value>(undefined)
 
+  const hasSwitch = question.switch && value && typeof value === 'string' && question.switch[value]
+
   return (
     <Pane display="flex" flexDirection="column" marginBottom={majorScale(2)}>
       <Pane marginBottom={majorScale(1)}>
@@ -28,6 +30,9 @@ const Question: React.FC<Props> = (props) => {
           setValue(e.target.value)
         }
       }} />
+      <Pane display="flex" flexDirection="column" marginTop={majorScale(1)}>
+        {hasSwitch && question.switch![value as string]?.map(q => <Question question={q} />)}
+      </Pane>
     </Pane>
   )
 }

@@ -13,7 +13,7 @@ const FormApp: React.FC<{}> = () => {
   const pageTitles = ["Introduction", ...pages.map(page => page.title), "Review & Submit"]
   const pageComponents = [<Introduction state={state} />, ...pages.map(page => <Form page={page} />), <Review />]
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0)
+  const [currentIndex, setCurrentIndex] = useState<number>(7)
 
   const setNextPage = (index: number) => {
     setCurrentIndex(index)
