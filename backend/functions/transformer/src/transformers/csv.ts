@@ -2,17 +2,22 @@ import { Transformer } from "./index";
 import { S3Client } from "@aws-sdk/client-s3-node/S3Client";
 import { ListObjectsV2Command } from "@aws-sdk/client-s3-node/commands/ListObjectsV2Command";
 import { GetObjectCommand } from "@aws-sdk/client-s3-node/commands/GetObjectCommand";
+import { PutObjectCommand } from "@aws-sdk/client-s3-node/commands/PutObjectCommand";
 import pMap from "p-map";
+import { join } from "path";
 
 export const csv: Transformer = async () => {
-  const path = getPath();
-  const claims = await downloadClaims(path);
+  const input = getPath("claims");
+  const output = getPath("csv");
 
-  // TODO: upload as CSV
-  console.log(claims);
+  const claims = await downloadClaims(input);
+  await uploadClaims(output, claims);
 
   return {
-    path,
+    paths: {
+      input,
+      output,
+    },
     numClaims: claims.length,
   };
 };
@@ -72,14 +77,14 @@ async function downloadClaims(path: string): Promise<object[]> {
   return claims;
 }
 
-function getPath(): string {
+function getPath(prefix: string): string {
   const now = new Date();
   const day = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(
     now.getUTCDate()
   )}`;
   const hour = pad(now.getUTCHours());
 
-  return `claims/day=${day}/hour=${hour}/`;
+  return join(prefix, `day=${day}/hour=${hour}/`);
 }
 
 function pad(n: number): string {
@@ -93,4 +98,22 @@ async function streamToString(stream: NodeJS.ReadableStream): Promise<string> {
     stream.on("error", reject);
     stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
   });
+}
+
+async function uploadClaims(path: string, claims: object[]): Promise<void> {
+  // TODO: encode as CSV instead of JSON
+  const body = JSON.stringify(claims);
+
+  const s3 = new S3Client({});
+  await s3.send(
+    new PutObjectCommand({
+      Bucket: process.env.RAW_S3_BUCKET_NAME || "",
+      Key: join(path, "claims.json"),
+      Body: body,
+      ACL: "private",
+      ContentType: "application/json; charset=utf-8",
+    })
+  );
+
+  return;
 }
