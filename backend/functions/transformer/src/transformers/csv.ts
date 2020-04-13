@@ -25,6 +25,7 @@ export const csv: Transformer = async () => {
 
 async function downloadClaims(path: string): Promise<object[]> {
   const s3 = new S3Client({});
+  const bucket = process.env.RAW_S3_BUCKET_NAME || "";
 
   // Iterate through all keys in this path:
   let nextToken: string | undefined;
@@ -33,7 +34,7 @@ async function downloadClaims(path: string): Promise<object[]> {
   while (!done) {
     const resp = await s3.send(
       new ListObjectsV2Command({
-        Bucket: process.env.RAW_S3_BUCKET_NAME || "",
+        Bucket: bucket,
         Prefix: path,
         ContinuationToken: nextToken,
       })
@@ -54,6 +55,8 @@ async function downloadClaims(path: string): Promise<object[]> {
     }
   }
 
+  console.log(keys);
+
   // Download and parse all of those claims from S3 (with some parallelism):
   const claims: object[] = [];
   await pMap(
@@ -61,19 +64,23 @@ async function downloadClaims(path: string): Promise<object[]> {
     async (key) => {
       const resp = await s3.send(
         new GetObjectCommand({
-          Bucket: process.env.RAW_S3_BUCKET_NAME || "",
+          Bucket: bucket,
           Key: key,
         })
       );
       if (resp.Body) {
         const body = await streamToString(resp.Body);
         claims.push(JSON.parse(body));
+      } else {
+        throw new Error(`failed to fetch key (bucket=${bucket}, key=${key})`);
       }
     },
     {
       concurrency: 5,
     }
   );
+
+  console.log(claims);
 
   return claims;
 }
