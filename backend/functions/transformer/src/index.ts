@@ -12,7 +12,7 @@ import { getTransformer } from "./transformers";
 import { config } from "dotenv";
 
 export async function handler() {
-  console.log(config());
+  console.log(".env config: ", config());
 
   const transformer = getTransformer();
   const result = await transformer();

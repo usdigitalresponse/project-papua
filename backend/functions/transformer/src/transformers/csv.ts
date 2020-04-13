@@ -55,8 +55,6 @@ async function downloadClaims(path: string): Promise<object[]> {
     }
   }
 
-  console.log(keys);
-
   // Download and parse all of those claims from S3 (with some parallelism):
   const claims: object[] = [];
   await pMap(
@@ -79,8 +77,6 @@ async function downloadClaims(path: string): Promise<object[]> {
       concurrency: 5,
     }
   );
-
-  console.log(claims);
 
   return claims;
 }
@@ -109,7 +105,6 @@ async function streamToString(stream: NodeJS.ReadableStream): Promise<string> {
 }
 
 async function uploadClaims(path: string, claims: object[]): Promise<void> {
-  // TODO: encode as CSV instead of JSON
   const headerset = new Set<string>();
   for (const claim of claims) {
     for (const header of Object.keys(claim)) {
@@ -121,7 +116,8 @@ async function uploadClaims(path: string, claims: object[]): Promise<void> {
   const csv = createObjectCsvStringifier({
     header: headers,
   });
-  const body = csv.stringifyRecords(claims);
+  const headerString = headers.join(",");
+  const body = headerString + "\n" + csv.stringifyRecords(claims);
 
   const s3 = new S3Client({});
   await s3.send(
