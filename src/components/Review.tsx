@@ -8,9 +8,14 @@ Amplify.configure(awsconfig);
 function sendData () {
     let myInit = {
         body: {
-            uuid: Math.floor(Math.random() * 10),
-            name: "Tom Nook",
-            occupation: "slumlord",
+            metadata: {
+                uuid: Math.floor(Math.random() * 10),
+            },
+            questions: {
+                "first-name": "Tom",
+                "last-name": "Nook",
+                "occupation": "slumlord"
+            }
         }, // replace this with form data
     }
 
