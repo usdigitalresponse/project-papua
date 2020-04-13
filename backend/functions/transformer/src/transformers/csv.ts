@@ -75,15 +75,15 @@ async function downloadClaims(path: string): Promise<object[]> {
 function getPath(): string {
   const now = new Date();
   const day = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(
-    now.getUTCDate() - 1
+    now.getUTCDate()
   )}`;
-  const hour = now.getHours();
+  const hour = pad(now.getUTCHours());
 
   return `claims/day=${day}/hour=${hour}/`;
 }
 
 function pad(n: number): string {
-  return ("0" + n).slice(-2);
+  return ("0" + String(n)).slice(-2);
 }
 
 async function streamToString(stream: NodeJS.ReadableStream): Promise<string> {
