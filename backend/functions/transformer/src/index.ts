@@ -14,8 +14,6 @@ import { config } from "dotenv";
 export async function handler() {
   console.log(config());
 
-  console.log("env: ", process.env);
-
   const transformer = getTransformer();
   const result = await transformer();
 
