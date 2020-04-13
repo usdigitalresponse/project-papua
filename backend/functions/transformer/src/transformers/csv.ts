@@ -45,8 +45,12 @@ async function downloadClaims(path: string): Promise<object[]> {
 
 function getPath(): string {
   const now = new Date()
-  const day = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()-1}`
+  const day = `${now.getUTCFullYear()}-${pad(now.getUTCMonth()+1)}-${pad(now.getUTCDate()-1)}`
   const hour = now.getHours()
 
   return `claims/day=${day}/hour=${hour}/`
+}
+
+function pad(n: number): string {
+  return ('0' + n).slice(-2)
 }
