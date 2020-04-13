@@ -5,6 +5,7 @@ import { GetObjectCommand } from "@aws-sdk/client-s3-node/commands/GetObjectComm
 import { PutObjectCommand } from "@aws-sdk/client-s3-node/commands/PutObjectCommand";
 import pMap from "p-map";
 import { join } from "path";
+import { createObjectCsvStringifier } from "csv-writer";
 
 export const csv: Transformer = async () => {
   const input = getPath("claims");
@@ -102,16 +103,27 @@ async function streamToString(stream: NodeJS.ReadableStream): Promise<string> {
 
 async function uploadClaims(path: string, claims: object[]): Promise<void> {
   // TODO: encode as CSV instead of JSON
-  const body = JSON.stringify(claims);
+  const headerset = new Set<string>();
+  for (const claim of claims) {
+    for (const header of Object.keys(claim)) {
+      headerset.add(header);
+    }
+  }
+  const headers = [...headerset].sort();
+
+  const csv = createObjectCsvStringifier({
+    header: headers,
+  });
+  const body = csv.stringifyRecords(claims);
 
   const s3 = new S3Client({});
   await s3.send(
     new PutObjectCommand({
       Bucket: process.env.RAW_S3_BUCKET_NAME || "",
-      Key: join(path, "claims.json"),
+      Key: join(path, "claims.csv"),
       Body: body,
       ACL: "private",
-      ContentType: "application/json; charset=utf-8",
+      ContentType: "application/csv; charset=utf-8",
     })
   );
 
