@@ -5,19 +5,16 @@ import awsconfig from '../aws-exports';
 
 Amplify.configure(awsconfig);
 
-// const onClickNext = () => setNextPage(currentIndex + 1)
 function sendData () {
-    // uuid: `${Math.floor(Math.random() * 100)}.json`
     let myInit = {
         body: {
             uuid: Math.floor(Math.random() * 10),
             name: "Tom Nook",
             occupation: "slumlord",
-        }, // replace this with attributes you need
+        }, // replace this with form data
     }
 
     API.post('resolver','/claims', myInit).then(response => {
-        // Add your code here
         console.log("rsp:", response)
     }).catch(error => {
         console.log(error.response)
