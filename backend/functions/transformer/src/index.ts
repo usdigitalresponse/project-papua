@@ -9,16 +9,49 @@ import { getTransformer } from "./transformers";
 
 // Import build-time environment variables from the .env
 // See: scripts/compile-function.sh
-import { config } from "dotenv";
+import { config as dotenv } from "dotenv";
+import { downloadClaims } from "./download";
 
-export async function handler() {
-  console.log(".env config: ", config());
+export interface Config {
+  // "2020-04-12"
+  // Defaults to the current day in UTC.
+  day: string;
+  // "04"
+  // Defaults to the previous hour in UTC.
+  hour: string;
+}
+
+export async function handler(event: Partial<Config>) {
+  const env = dotenv();
+
+  // By default, we'll run on claims from the previous hour.
+  // However, we can override this with the Lambda's input event.
+  const now = new Date();
+  now.setHours(now.getHours() - 1);
+  const defaultDay = `${now.getUTCFullYear()}-${pad(
+    now.getUTCMonth() + 1
+  )}-${pad(now.getUTCDate())}`;
+  const defaultHour = pad(now.getUTCHours() - 1);
+
+  const cfg: Config = {
+    day: event.day || defaultDay,
+    hour: event.hour || defaultHour,
+  };
 
   const transformer = getTransformer();
-  const result = await transformer();
+
+  const claims = await downloadClaims(cfg);
+  const result = await transformer(cfg, claims);
 
   return {
     rawBucket: process.env.RAW_S3_BUCKET_NAME,
     result,
+    env,
+    event,
+    cfg,
   };
+}
+
+function pad(n: number): string {
+  return ("0" + String(n)).slice(-2);
 }

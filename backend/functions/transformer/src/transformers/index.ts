@@ -1,6 +1,7 @@
 import { csv } from "./csv";
+import { Config } from '../index'
 
-export declare type Transformer = () => Promise<object>;
+export declare type Transformer = (cfg: Config, claims: object[]) => Promise<object>;
 
 const transformers: Record<string, Transformer> = {
   csv,
