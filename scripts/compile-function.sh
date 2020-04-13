@@ -32,14 +32,19 @@ mkdir -p amplify/backend/function/${FUNCTION_NAME}/src
 rm -rf amplify/backend/function/${FUNCTION_NAME}/src/*
 
 # Compile the TS into JS.
-# First, we run yarn in order to install tsc for Amplify CD.
+cd backend/functions/${FUNCTION_NAME}
 yarn
-tsc -p backend/functions/${FUNCTION_NAME}
+yarn tsc
+cd -
 
 # Copy over the compiled JS + package.json + yarn.lock files.
-cp backend/functions/${FUNCTION_NAME}/dist/* amplify/backend/function/${FUNCTION_NAME}/src
+cp -r backend/functions/${FUNCTION_NAME}/dist/* amplify/backend/function/${FUNCTION_NAME}/src
 cp backend/functions/${FUNCTION_NAME}/package.json amplify/backend/function/${FUNCTION_NAME}/src/package.json
 cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCTION_NAME}/src/yarn.lock
+
+# The STATE_CODE is set as an Amplify Environment Variable. But those envs are only available
+# at build-time so we copy it over.
+echo "STATE_CODE=${STATE_CODE}" > amplify/backend/function/${FUNCTION_NAME}/src/.env
 
 # Install dependencies based on the updated package.json
 yarn --cwd=amplify/backend/function/${FUNCTION_NAME}/src install
