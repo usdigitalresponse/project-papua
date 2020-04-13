@@ -5,11 +5,17 @@ import pMap from "p-map";
 import {Config} from "./index"
 import { toPath } from './path'
 
-export async function downloadClaims(cfg: Config): Promise<object[]> {
+interface Output {
+  path: string
+  claims: object[]
+}
+
+export async function downloadClaims(cfg: Config): Promise<Output> {
   const s3 = new S3Client({});
   const bucket = process.env.RAW_S3_BUCKET_NAME || "";
 
   // Iterate through all keys in this path:
+  const path = toPath('claims', cfg)
   let nextToken: string | undefined;
   let done = false;
   const keys: string[] = [];
@@ -17,7 +23,7 @@ export async function downloadClaims(cfg: Config): Promise<object[]> {
     const resp = await s3.send(
       new ListObjectsV2Command({
         Bucket: bucket,
-        Prefix: toPath('claims', cfg),
+        Prefix: path,
         ContinuationToken: nextToken,
       })
     );
@@ -60,7 +66,7 @@ export async function downloadClaims(cfg: Config): Promise<object[]> {
     }
   );
 
-  return claims;
+  return { path, claims };
 }
 
 async function streamToString(stream: NodeJS.ReadableStream): Promise<string> {

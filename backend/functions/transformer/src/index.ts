@@ -34,17 +34,19 @@ export async function handler(event: Partial<Config>) {
   const defaultHour = pad(now.getUTCHours() - 1);
 
   const cfg: Config = {
-    day: event.day || defaultDay,
-    hour: event.hour || defaultHour,
+    day: event.day === undefined ? defaultDay : event.day,
+    hour: event.hour === undefined ? defaultHour : event.hour,
   };
 
   const transformer = getTransformer();
 
-  const claims = await downloadClaims(cfg);
+  const { path, claims } = await downloadClaims(cfg);
   const result = await transformer(cfg, claims);
 
   return {
     rawBucket: process.env.RAW_S3_BUCKET_NAME,
+    claimsPath: path,
+    numClaims: claims.length,
     result,
     env,
     event,
