@@ -10,25 +10,13 @@ function sendData () {
     // uuid: `${Math.floor(Math.random() * 100)}.json`
     let myInit = {
         body: {
+            uuid: Math.floor(Math.random() * 10),
+            name: "Tom Nook",
+            occupation: "slumlord",
         }, // replace this with attributes you need
     }
 
     API.post('resolver','/claims', myInit).then(response => {
-        // Add your code here
-        console.log("rsp:", response)
-    }).catch(error => {
-        console.log(error.response)
-    });
-}
-
-function deleteData () {
-    // @ts-ignore             uuid: `${Math.floor(Math.random() * 100)}.json`
-    let myInit = {
-        body: {
-        }, // replace this with attributes you need
-    }
-
-    API.del('resolver','/claims', myInit).then(response => {
         // Add your code here
         console.log("rsp:", response)
     }).catch(error => {

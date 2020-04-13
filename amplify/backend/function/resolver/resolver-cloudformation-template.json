@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-project-papua-api-124803-deployment",
-					"S3Key": "amplify-builds/resolver-76452f456f304670586f-build.zip"
+					"S3Key": "amplify-builds/resolver-6f624b473753376b735a-build.zip"
 				}
 			}
 		},
