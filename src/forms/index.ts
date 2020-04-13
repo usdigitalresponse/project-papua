@@ -7,6 +7,8 @@ import Select from '../components/form-components/Select'
 import SingleSelect from '../components/form-components/SingleSelect'
 import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
+import PhoneNumber from '../components/form-components/PhoneNumber'
+import TextArea from '../components/form-components/TextArea'
 
 
 export function initializeForm(): Form {
@@ -36,10 +38,13 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   'dropdown': Select as React.FC,
   'singleselect': SingleSelect as React.FC,
   'boolean': Boolean as React.FC,
-  'multiselect': Multiselect as React.FC
+  'multiselect': Multiselect as React.FC,
+  'email': TextInput as React.FC,
+  'phone': PhoneNumber as React.FC,
+  'longtext': TextArea as React.FC
 }
 
-//   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount' | 'longtext' | 'multiselect' | 'email' | string
+//   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount' | 'longtext' 
 
 export function getComponent(type: QuestionType): React.FC {
   return typeComponentMappings[type] || TextInput
