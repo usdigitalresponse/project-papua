@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/claims",
+            "lambdaFunction": "resolver",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "resolver",
+    "apiName": "resolver",
+    "functionArns": [
+        {
+            "lambdaFunction": "resolver"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-project-papua-api-124803-authRole",
+        "unAuthRoleName": "amplify-project-papua-api-124803-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "resolver",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

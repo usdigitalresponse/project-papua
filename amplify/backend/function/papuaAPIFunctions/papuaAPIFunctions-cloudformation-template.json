@@ -33,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"transformer",
+						"papuaAPIFunction",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"transformer",
+									"papuaAPIFunction",
 									"-",
 									{
 										"Ref": "env"
@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-project-papua-api-124803-deployment",
-					"S3Key": "amplify-builds/transformer-4c4e6b4830523458465a-build.zip"
+					"S3Key": "amplify-builds/papuaAPIFunctions-48787150324a4c455a72-build.zip"
 				}
 			}
 		},
@@ -78,12 +78,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"projectpapuaLambdaRole390ad57f",
+						"projectpapuaLambdaRoleb0cbdb2f",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"projectpapuaLambdaRole390ad57f",
+									"projectpapuaLambdaRoleb0cbdb2f",
 									"-",
 									{
 										"Ref": "env"
@@ -153,45 +153,6 @@
 					]
 				}
 			}
-		},
-		"CloudWatchEvent": {
-			"Type": "AWS::Events::Rule",
-			"Properties": {
-				"Description": "Schedule rule for Lambda",
-				"ScheduleExpression": {
-					"Ref": "CloudWatchRule"
-				},
-				"State": "ENABLED",
-				"Targets": [
-					{
-						"Arn": {
-							"Fn::GetAtt": [
-								"LambdaFunction",
-								"Arn"
-							]
-						},
-						"Id": {
-							"Ref": "LambdaFunction"
-						}
-					}
-				]
-			}
-		},
-		"PermissionForEventsToInvokeLambda": {
-			"Type": "AWS::Lambda::Permission",
-			"Properties": {
-				"FunctionName": {
-					"Ref": "LambdaFunction"
-				},
-				"Action": "lambda:InvokeFunction",
-				"Principal": "events.amazonaws.com",
-				"SourceArn": {
-					"Fn::GetAtt": [
-						"CloudWatchEvent",
-						"Arn"
-					]
-				}
-			}
 		}
 	},
 	"Outputs": {
@@ -216,11 +177,6 @@
 		"LambdaExecutionRole": {
 			"Value": {
 				"Ref": "LambdaExecutionRole"
-			}
-		},
-		"CloudWatchEventRule": {
-			"Value": {
-				"Ref": "CloudWatchEvent"
 			}
 		}
 	}

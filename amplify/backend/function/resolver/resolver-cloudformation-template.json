@@ -33,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"transformer",
+						"resolver",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"transformer",
+									"resolver",
 									"-",
 									{
 										"Ref": "env"
@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-project-papua-api-124803-deployment",
-					"S3Key": "amplify-builds/transformer-4c4e6b4830523458465a-build.zip"
+					"S3Key": "amplify-builds/resolver-76452f456f304670586f-build.zip"
 				}
 			}
 		},
@@ -78,12 +78,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"projectpapuaLambdaRole390ad57f",
+						"projectpapuaLambdaRole7014e524",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"projectpapuaLambdaRole390ad57f",
+									"projectpapuaLambdaRole7014e524",
 									"-",
 									{
 										"Ref": "env"
@@ -149,46 +149,14 @@
 									}
 								]
 							}
-						}
-					]
-				}
-			}
-		},
-		"CloudWatchEvent": {
-			"Type": "AWS::Events::Rule",
-			"Properties": {
-				"Description": "Schedule rule for Lambda",
-				"ScheduleExpression": {
-					"Ref": "CloudWatchRule"
-				},
-				"State": "ENABLED",
-				"Targets": [
-					{
-						"Arn": {
-							"Fn::GetAtt": [
-								"LambdaFunction",
-								"Arn"
-							]
 						},
-						"Id": {
-							"Ref": "LambdaFunction"
+						{
+							"Effect": "Allow",
+							"Action": [
+								"s3:*"
+							],
+							"Resource": "*"
 						}
-					}
-				]
-			}
-		},
-		"PermissionForEventsToInvokeLambda": {
-			"Type": "AWS::Lambda::Permission",
-			"Properties": {
-				"FunctionName": {
-					"Ref": "LambdaFunction"
-				},
-				"Action": "lambda:InvokeFunction",
-				"Principal": "events.amazonaws.com",
-				"SourceArn": {
-					"Fn::GetAtt": [
-						"CloudWatchEvent",
-						"Arn"
 					]
 				}
 			}
@@ -216,11 +184,6 @@
 		"LambdaExecutionRole": {
 			"Value": {
 				"Ref": "LambdaExecutionRole"
-			}
-		},
-		"CloudWatchEventRule": {
-			"Value": {
-				"Ref": "CloudWatchEvent"
 			}
 		}
 	}
