@@ -5,17 +5,55 @@ var region = process.env.REGION
 
 Amplify Params - DO NOT EDIT */
 
-export async function handler() {
-  // TODO implement
+import { getTransformer } from "./transformers";
 
-  const version = "v0.0.3";
+// Import build-time environment variables from the .env
+// See: scripts/compile-function.sh
+import { config as dotenv } from "dotenv";
+import { downloadClaims } from "./download";
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(`Hello from Lambda! (version=${version})`),
+export interface Config {
+  // "2020-04-12"
+  // Defaults to the current day in UTC.
+  day: string;
+  // "04"
+  // Defaults to the previous hour in UTC.
+  hour: string;
+}
+
+export async function handler(event: Partial<Config>) {
+  const env = dotenv();
+
+  // By default, we'll run on claims from the previous hour.
+  // However, we can override this with the Lambda's input event.
+  const now = new Date();
+  now.setHours(now.getHours() - 1);
+  const defaultDay = `${now.getUTCFullYear()}-${pad(
+    now.getUTCMonth() + 1
+  )}-${pad(now.getUTCDate())}`;
+  const defaultHour = pad(now.getUTCHours() - 1);
+
+  const cfg: Config = {
+    day: event.day === undefined ? defaultDay : event.day,
+    hour: event.hour === undefined ? defaultHour : event.hour,
   };
 
-  console.log(`responding to a lambda invocation! (version=${version}; raw-bucket=${process.env.RAW_S3_BUCKET_NAME})`);
+  const transformer = getTransformer();
 
-  return response;
+  const { path, claims } = await downloadClaims(cfg);
+  const result = await transformer(cfg, claims);
+
+  return {
+    rawBucket: process.env.RAW_S3_BUCKET_NAME,
+    claimsPath: path,
+    numClaims: claims.length,
+    result,
+    env,
+    event,
+    cfg,
+  };
+}
+
+function pad(n: number): string {
+  return ("0" + String(n)).slice(-2);
 }
