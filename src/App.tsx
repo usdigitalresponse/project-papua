@@ -1,13 +1,24 @@
 import React from 'react';
+import { Grommet } from 'grommet'
 import './App.css';
 import FormApp from './components/FormApp'
 
+const theme = {
+  global: {
+    font: {
+      family: 'IBM Plex Sans',
+      size: '14px'
+    },
+  },
+};
+
+
 function App() {
   return (
-    <div className="App">
+    <Grommet className="App" theme={theme}>
       <FormApp />
-    </div>
-  );
+    </Grommet>
+  )
 }
 
 export default App;
