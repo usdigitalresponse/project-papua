@@ -9,6 +9,14 @@
 		},
 		"env": {
 			"Type": "String"
+		},
+		"apiresolverApiName": {
+			"Type": "String",
+			"Default": "apiresolverApiName"
+		},
+		"apiresolverApiId": {
+			"Type": "String",
+			"Default": "apiresolverApiId"
 		}
 	},
 	"Conditions": {
@@ -55,6 +63,12 @@
 						},
 						"REGION": {
 							"Ref": "AWS::Region"
+						},
+						"API_RESOLVER_APINAME": {
+							"Ref": "apiresolverApiName"
+						},
+						"API_RESOLVER_APIID": {
+							"Ref": "apiresolverApiId"
 						}
 					}
 				},
@@ -156,6 +170,50 @@
 								"s3:*"
 							],
 							"Resource": "*"
+						}
+					]
+				}
+			}
+		},
+		"AmplifyResourcesPolicy": {
+			"DependsOn": [
+				"LambdaExecutionRole"
+			],
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyName": "amplify-lambda-execution-policy",
+				"Roles": [
+					{
+						"Ref": "LambdaExecutionRole"
+					}
+				],
+				"PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Action": [
+								"apigateway:POST",
+								"apigateway:PUT"
+							],
+							"Resource": [
+								{
+									"Fn::Join": [
+										"",
+										[
+											"arn:aws:apigateway:",
+											{
+												"Ref": "AWS::Region"
+											},
+											"::/restapis/",
+											{
+												"Ref": "apiresolverApiName"
+											},
+											"/*"
+										]
+									]
+								}
+							]
 						}
 					]
 				}
