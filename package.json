@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
-    "amplify:resolver": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
+    "amplify:resolverFunctions": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
     "compile": "run-p amplify:*"
   },
   "eslintConfig": {
