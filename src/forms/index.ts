@@ -44,7 +44,7 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   'longtext': TextArea as React.FC
 }
 
-//   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount' | 'longtext' 
+//   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount'
 
 export function getComponent(type: QuestionType): React.FC {
   return typeComponentMappings[type] || TextInput
