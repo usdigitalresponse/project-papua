@@ -4,29 +4,9 @@
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
-		},
-		"resolver": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda"
 		}
 	},
-	"api": {
-		"resolver": {
-			"service": "API Gateway",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "resolver",
-					"attributes": [
-						"Name",
-						"Arn"
-					]
-				}
-			]
-		}
-	},
+	"api": {},
 	"storage": {
 		"raw": {
 			"service": "S3",
