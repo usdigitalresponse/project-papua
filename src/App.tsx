@@ -19,6 +19,11 @@ const theme = {
       border: {
         color: 'none'
       }
+    },
+    control: {
+      border: {
+        color: 'black'
+      }
     }
   },
   select: {

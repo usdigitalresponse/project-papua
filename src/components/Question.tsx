@@ -22,8 +22,8 @@ const Question: React.FC<Props> = (props) => {
       <Box fill={true} margin={{ bottom: 'small' }}>
         <Heading style={{
           maxWidth: 'none'
-        }} color="black" level={4} margin={{ bottom: 'xsmall', top: 'medium' }}>{question.name}</Heading>
-        {question.instructions && <Text size="small" color="black" >{question.instructions}</Text>}
+        }} color="black" level={4} margin="none">{question.name}</Heading>
+        {question.instructions && <Text size="small" color="black" margin={{ top: 'xsmall' }} >{question.instructions}</Text>}
       </Box>
       <Component width="100%" value={value} question={question} onChange={(e: React.ChangeEvent<HTMLInputElement> | string) => {
         if (typeof e === 'string' || Array.isArray(e)) {

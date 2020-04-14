@@ -23,6 +23,7 @@ const Sidebar: React.FC<Props> = (props) => {
       <Box>
         <Text weight={600} color="black">Language</Text>
         <Select
+          a11yTitle="select language"
           margin={{ top: 'xsmall' }}
           options={languages}
           value={language}

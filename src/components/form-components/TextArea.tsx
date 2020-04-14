@@ -1,16 +1,16 @@
 import React from 'react'
-import { Textarea as EvergreenTextArea } from 'evergreen-ui'
 import { Question } from '../../forms/types'
+import { TextArea as GrommetTextArea } from 'grommet'
 
 interface Props {
   value: string
   question: Question
-  onChange: (val: string) => void
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   [key: string]: any
 }
 
 const TextArea: React.FC<Props> = (props) => {
-  return <EvergreenTextArea {...props} border="black 1px solid !important" />
+  return <GrommetTextArea {...props} />
 }
 
 export default TextArea
