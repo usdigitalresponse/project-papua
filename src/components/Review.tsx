@@ -22,7 +22,7 @@ function sendData () {
     API.post('resolver','/claims', myInit).then(response => {
         console.log("rsp:", response)
     }).catch(error => {
-        console.log(error.response)
+        console.log("error: ", error)
     });
 }
 
@@ -30,8 +30,7 @@ const Review: React.FC<{}> = () => {
   return (
     <Pane padding={majorScale(4)} display="flex" flexDirection="column">
       <Heading>Review & Submit</Heading>
-        <Button appearance="primary" onClick={sendData()}>Post</Button>
-        {/*<Button onClick={deleteData()}>Delete</Button>*/}
+        <Button appearance="primary" onClick={sendData}>Post</Button>
     </Pane>
   )
 }
