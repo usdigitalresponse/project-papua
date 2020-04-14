@@ -11,7 +11,7 @@ const Form: React.FC<Props> = (props) => {
   const { page } = props
   return (
     <Box pad='medium' direction="column" justify="start">
-      <Heading color="black" margin={{ top: 'none' }} level={3}>{page.heading}</Heading>
+      <Heading color="black" margin='none' level={3}>{page.heading}</Heading>
       {page.questions.map(question => <Question question={question} key={question.name} />)}
     </Box>
   )

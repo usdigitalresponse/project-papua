@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Question as QuestionInterface } from '../forms/types'
-import { Pane, Heading, Text, majorScale } from 'evergreen-ui'
 import { getComponent } from '../forms'
+import { Box, Heading, Text } from 'grommet'
 
 interface Props {
   question: QuestionInterface
@@ -18,11 +18,13 @@ const Question: React.FC<Props> = (props) => {
   const hasSwitch = question.switch && value && typeof value === 'string' && question.switch[value]
 
   return (
-    <Pane display="flex" flexDirection="column" marginBottom={majorScale(2)}>
-      <Pane marginBottom={majorScale(1)}>
-        <Heading color="black" size={400}>{question.name}</Heading>
-        {question.instructions && <Text color="black" size={300}>{question.instructions}</Text>}
-      </Pane>
+    <Box direction="column" margin={{ bottom: 'small' }}>
+      <Box fill={true} margin={{ bottom: 'small' }}>
+        <Heading style={{
+          maxWidth: 'none'
+        }} color="black" level={4} margin={{ bottom: 'xsmall', top: 'medium' }}>{question.name}</Heading>
+        {question.instructions && <Text size="small" color="black" >{question.instructions}</Text>}
+      </Box>
       <Component width="100%" value={value} question={question} onChange={(e: React.ChangeEvent<HTMLInputElement> | string) => {
         if (typeof e === 'string' || Array.isArray(e)) {
           setValue(e)
@@ -30,10 +32,10 @@ const Question: React.FC<Props> = (props) => {
           setValue(e.target.value)
         }
       }} />
-      <Pane display="flex" flexDirection="column" marginTop={majorScale(1)}>
+      <Box margin={{ top: 'xsmall' }}>
         {hasSwitch && question.switch![value as string]?.map(q => <Question question={q} />)}
-      </Pane>
-    </Pane>
+      </Box>
+    </Box>
   )
 }
 

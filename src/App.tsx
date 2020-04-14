@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Grommet } from 'grommet'
 import './App.css';
@@ -11,13 +12,20 @@ const theme = {
     font: {
       size: '14px'
     },
-    '.card': {
-      background: "white"
+    selected: {
+      background: '#008060'
     },
-    '.button': {
-      border: "black 1px solid !important"
+    focus: {
+      border: {
+        color: 'none'
+      }
     }
   },
+  select: {
+    icons: {
+      color: '#000000'
+    }
+  }
 };
 
 
