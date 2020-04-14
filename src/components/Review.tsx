@@ -16,7 +16,7 @@ function sendData () {
                 "last-name": "Nook",
                 "occupation": "slumlord"
             }
-        }, // replace this with form data
+        },
     }
 
     API.post('resolverAPI','/claims', myInit).then(response => {

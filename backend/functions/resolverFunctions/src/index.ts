@@ -5,14 +5,5 @@ const server = awsServerlessExpress.createServer(app);
 
 export async function handler(event: any, context: any) {
     console.log(`EVENT: ${JSON.stringify(event)}`);
-    awsServerlessExpress.proxy(server, event, context);
-
-    const response = {
-        statusCode: 200,
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        },
-        body: JSON.stringify(event)
-    };
-    context.succeed(response);
+    return await awsServerlessExpress.proxy(server, event, context, 'PROMISE').promise
 }

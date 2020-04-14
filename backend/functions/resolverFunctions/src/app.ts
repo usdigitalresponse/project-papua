@@ -23,13 +23,13 @@ app.post('/claims', async function(req, res) {
     const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`;
     const defaultHour = pad(now.getUTCHours() - 1);
 
-    const uuid = req.body.uuid
+    const uuid = req.body.metadata.uuid
     const key = `claims/day=${defaultDay}/hour=${defaultHour}/${uuid}.json`
 
     const putObjectCommand = new PutObjectCommand({
         Bucket: bucket,
         Key: key,
-        Body: JSON.stringify(req.body),
+        Body: JSON.stringify(req.body, null,  2),
         ACL: "private",
         ContentType: "application/json; charset=utf-8",
     });
