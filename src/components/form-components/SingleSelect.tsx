@@ -18,7 +18,7 @@ const SingleSelect: React.FC<Props> = (props) => {
   return (
     <Box>
       {question.options.map(o => (
-        <Box onClick={() => onChange(o.id)} background={value === o.id ? "#EBFFFA" : "white"} key={o.id} margin={{ bottom: 'xsmall' }} direction="row" className="single-select-border single-select" pad='xsmall'>
+        <Box onClick={() => onChange(o.id)} background={value === o.id ? "#EBFFFA" : "white"} key={o.id} margin={{ bottom: 'xsmall' }} style={{ borderRadius: '4px' }} direction="row" className="single-select-border single-select" pad='small'>
           <Box background={value === o.id ? "#008060" : "white"} margin={{ right: 'small' }} flex={{ shrink: 0 }} style={{ height: 20, width: 20, borderRadius: '50%' }} className="single-select-border" />
           <Text>{o.name}</Text>
         </Box>
