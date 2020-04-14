@@ -128,12 +128,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"projectpapuaLambdaRole390ad57f",
+						"projectpapuaLambdaRole390ad57e",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"projectpapuaLambdaRole390ad57f",
+									"projectpapuaLambdaRole390ad57e",
 									"-",
 									{
 										"Ref": "env"
