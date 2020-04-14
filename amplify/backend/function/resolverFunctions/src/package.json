@@ -1,0 +1,17 @@
+{
+  "name": "resolver",
+  "version": "0.0.1",
+  "description": "Performs validation and CRUD operations on S3 objects",
+  "main": "index.js",
+  "dependencies": {
+    "@aws-sdk/client-s3-node": "^0.1.0-preview.2",
+    "aws-serverless-express": "^3.3.8",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/aws-serverless-express": "^3.3.3",
+    "@types/node": "^13.11.1",
+    "typescript": "^3.8.3"
+  }
+}
