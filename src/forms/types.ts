@@ -21,9 +21,10 @@ export interface Question {
   switch?: Switch
 }
 
-interface Option {
+export interface Option {
   name: string
   id: string
+  value?: string
 }
 interface Switch {
   [option: string]: Question[] | null
