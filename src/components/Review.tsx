@@ -19,7 +19,7 @@ function sendData () {
         }, // replace this with form data
     }
 
-    API.post('resolver','/claims', myInit).then(response => {
+    API.post('resolverAPI','/claims', myInit).then(response => {
         console.log("rsp:", response)
     }).catch(error => {
         console.log("error: ", error)

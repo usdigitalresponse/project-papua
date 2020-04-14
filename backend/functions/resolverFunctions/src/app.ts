@@ -5,7 +5,6 @@ import { S3Client } from "@aws-sdk/client-s3-node/S3Client";
 import {PutObjectCommand} from "@aws-sdk/client-s3-node/commands/PutObjectCommand";
 
 const s3 = new S3Client({});
-// const bucket = process.env.RAW_S3_BUCKET_NAME || "papua-verified";
 const bucket = process.env.RAW_S3_BUCKET_NAME || "papua-verified";
 
 const app = express();
@@ -18,6 +17,7 @@ app.use(function(req, res, next) {
 });
 
 app.post('/claims', async function(req, res) {
+    console.log(`APP EVENT: ${req}`);
     const now = new Date();
     now.setHours(now.getHours() - 1);
     const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`;
