@@ -5,10 +5,18 @@ import FormApp from './components/FormApp'
 
 const theme = {
   global: {
+    text: {
+      align: 'left'
+    },
     font: {
-      family: 'IBM Plex Sans',
       size: '14px'
     },
+    '.card': {
+      background: "white"
+    },
+    '.button': {
+      border: "black 1px solid !important"
+    }
   },
 };
 
