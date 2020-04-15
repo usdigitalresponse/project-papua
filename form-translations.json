@@ -205,7 +205,9 @@
             "false": null,
             "true": [
               {
-                "name": "Home Address",
+                "name": {
+                  "en": "Home Address"
+                },
                 "id": "home_address",
                 "required": true,
                 "type": "address_picker"
@@ -415,13 +417,17 @@
             "false": null,
             "true": [
               {
-                "name": "Enter your Driver's License or state-issued Identification (ID) number",
+                "name": {
+                  "en": "Enter your Driver's License or state-issued Identification (ID) number"
+                },
                 "id": "dl_or_state_id",
                 "required": true,
                 "type": "shorttext"
               },
               {
-                "name": "What is the expiration date for your driver's license or state-issued ID?",
+                "name": {
+                  "en": "What is the expiration date for your driver's license or state-issued ID?"
+                },
                 "id": "dl_or_state_id_exp",
                 "required": true,
                 "type": "datepicker"
@@ -439,7 +445,9 @@
           "switch": {
             "false": [
               {
-                "name": "Please enter your Alien Registration Number:",
+                "name": {
+                  "en": "Please enter your Alien Registration Number:"
+                },
                 "id": "alien_reg_number",
                 "required": true,
                 "type": "shorttext",
@@ -452,7 +460,9 @@
                 ]
               },
               {
-                "name": "Re-enter your Alien Registration Number:",
+                "name": {
+                  "en": "Re-enter your Alien Registration Number:"
+                },
                 "id": "alien_reg_number_confirm",
                 "required": true,
                 "type": "shorttext",
@@ -465,7 +475,9 @@
                 ]
               },
               {
-                "name": "Please enter the country of your citizenship or the country from which your permit was issued.",
+                "name": {
+                  "en": "Please enter the country of your citizenship or the country from which your permit was issued."
+                },
                 "id": "citizenship_country",
                 "required": true,
                 "type": "shorttext"
@@ -562,7 +574,9 @@
             "false": null,
             "true": [
               {
-                "name": "Please enter the type of certificate (ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc)",
+                "name": {
+                  "en": "Please enter the type of certificate (ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc)"
+                },
                 "id": "post-secondary-certificate",
                 "required": true,
                 "type": "shorttext"
@@ -599,113 +613,163 @@
             "false": null,
             "true": [
               {
-                "name": "Active duty start date",
+                "name": {
+                  "en": "Active duty start date"
+                },
                 "required": true,
                 "id": "active-duty-start",
                 "type": "datepicker"
               },
               {
-                "name": "Active duty end date",
+                "name": {
+                  "en": "Active duty end date"
+                },
                 "required": true,
                 "id": "active-duty-end",
                 "type": "datepicker"
               },
               {
-                "name": "Disability status",
+                "name": {
+                  "en": "Disability status"
+                },
                 "required": true,
                 "id": "military-disability",
                 "type": "singleselect",
                 "options": [
                   {
-                    "name": "Veteran with no disability",
+                    "name": {
+                      "en": "Veteran with no disability"
+                    },
                     "id": "no-disability"
                   },
                   {
-                    "name": "Veteran with Service-Connected Disability rated at less than 30%?",
+                    "name": {
+                      "en": "Veteran with Service-Connected Disability rated at less than 30%?"
+                    },
                     "id": "disability-less-than-30"
                   },
                   {
-                    "name": "Veteran with Service-Connected Disability rated at 30% or more?",
+                    "name": {
+                      "en": "Veteran with Service-Connected Disability rated at 30% or more?"
+                    },
                     "id": "disability-more-than-30"
                   }
                 ]
               },
               {
-                "name": "Have you performed active military service during the last 2 years?",
+                "name": {
+                  "en": "Have you performed active military service during the last 2 years?"
+                },
                 "required": true,
                 "id": "military-active-last-two-years",
                 "type": "boolean",
                 "switch": {
                   "true": [
                     {
-                      "name": "Last pay grade (Box #4b)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #4b",
+                      "name": {
+                        "en": "Last pay grade (Box #4b)"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #4b"
+                      },
                       "required": true,
                       "id": "military-last-pay-grade",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Net service for this period (Box #12c)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #12c",
+                      "name": {
+                        "en": "Net service for this period (Box #12c)"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #12c"
+                      },
                       "required": true,
                       "id": "military-net-service",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Number of days of accrued paid leave (Box #16)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #16",
+                      "name": {
+                        "en": "Number of days of accrued paid leave (Box #16)"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #16"
+                      },
                       "required": true,
                       "id": "military-accured-paid-leave",
                       "type": "decimal"
                     },
                     {
-                      "name": "Character of Service (Box #24)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #24",
+                      "name": {
+                        "en": "Character of Service (Box #24)"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #24"
+                      },
                       "required": true,
                       "id": "military-character-of-service",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Reason for Separation (Box #28)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #28",
+                      "name": {
+                        "en": "Reason for Separation (Box #28)"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #28"
+                      },
                       "required": true,
                       "id": "military-reason-for-separation",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Branch of Service",
+                      "name": {
+                        "en": "Branch of Service"
+                      },
                       "required": true,
                       "id": "military-branch",
                       "type": "dropdown",
                       "options": [
                         {
-                          "name": "Army",
+                          "name": {
+                            "en": "Army"
+                          },
                           "id": "army"
                         },
                         {
-                          "name": "Navy",
+                          "name": {
+                            "en": "Navy"
+                          },
                           "id": "navy"
                         },
                         {
-                          "name": "Air Force",
+                          "name": {
+                            "en": "Air Force"
+                          },
                           "id": "air-force"
                         },
                         {
-                          "name": "Marines",
+                          "name": {
+                            "en": "Marines"
+                          },
                           "id": "marines"
                         },
                         {
-                          "name": "Coast Guard",
+                          "name": {
+                            "en": "Coast Guard"
+                          },
                           "id": "coast-guard"
                         },
                         {
-                          "name": "Atmospheric Administration",
+                          "name": {
+                            "en": "Atmospheric Administration"
+                          },
                           "id": "atmospheric"
                         }
                       ]
                     },
                     {
-                      "name": "Last Actual Day of Work with Military Employer",
+                      "name": {
+                        "en": "Last Actual Day of Work with Military Employer"
+                      },
                       "required": true,
                       "id": "military-work-end",
                       "type": "datepicker"
@@ -820,13 +884,17 @@
           "switch": {
             "true": [
               {
-                "name": "Please enter start date you were employed outside of ${state_name}.",
+                "name": {
+                  "en": "Please enter start date you were employed outside of ${state_name}."
+                },
                 "id": "employment-work-outside-state-start",
                 "required": true,
                 "type": "datepicker"
               },
               {
-                "name": "Please enter stop date you were employed outside of ${state_name}.",
+                "name": {
+                  "en": "Please enter stop date you were employed outside of ${state_name}."
+                },
                 "id": "employment-work-outside-state-stop",
                 "required": true,
                 "type": "datepicker"
@@ -863,7 +931,9 @@
           "switch": {
             "true": [
               {
-                "name": "Please enter the last actual day of work with Federal Employer",
+                "name": {
+                  "en": "Please enter the last actual day of work with Federal Employer"
+                },
                 "id": "employment-federal-employee-last-date",
                 "required": true,
                 "type": "datepicker"
@@ -881,48 +951,68 @@
           "switch": {
             "true": [
               {
-                "name": "Please select the Trade Union you belong to.",
+                "name": {
+                  "en": "Please select the Trade Union you belong to."
+                },
                 "id": "employment-trade-union",
                 "required": true,
                 "type": "dropdown",
                 "options": [
                   {
-                    "name": "Local 1196 Brotherhood of Electrical Workers",
+                    "name": {
+                      "en": "Local 1196 Brotherhood of Electrical Workers"
+                    },
                     "id": "1196"
                   },
                   {
-                    "name": "Local 94 Carpenters",
+                    "name": {
+                      "en": "Local 94 Carpenters"
+                    },
                     "id": "94"
                   },
                   {
-                    "name": "Local 99 Electricians",
+                    "name": {
+                      "en": "Local 99 Electricians"
+                    },
                     "id": "99"
                   },
                   {
-                    "name": "Local 1033 Laborers International",
+                    "name": {
+                      "en": "Local 1033 Laborers International"
+                    },
                     "id": "1033"
                   },
                   {
-                    "name": "Local 57 Operating Engineers",
+                    "name": {
+                      "en": "Local 57 Operating Engineers"
+                    },
                     "id": "57"
                   },
                   {
-                    "name": "Local 51 Plumbers & Pipefitters",
+                    "name": {
+                      "en": "Local 51 Plumbers & Pipefitters"
+                    },
                     "id": "51"
                   },
                   {
-                    "name": "Local 251 Teamsters",
+                    "name": {
+                      "en": "Local 251 Teamsters"
+                    },
                     "id": "251"
                   },
                   {
-                    "name": "Other",
+                    "name": {
+                      "en": "Other"
+                    },
                     "id": "other"
                   }
                 ],
                 "switch": {
                   "other": [
                     {
-                      "name": "List other Trade Union you're a member of",
+                      "name": {
+                        "en": "List other Trade Union you're a member of"
+                      },
                       "id": "employer-trade-union-other",
                       "required": true,
                       "type": "shorttext"
@@ -1100,7 +1190,9 @@
           "switch": {
             "other": [
               {
-                "name": "Describe pay unit",
+                "name": {
+                  "en": "Describe pay unit"
+                },
                 "id": "employer-pay-unit-other",
                 "required": true,
                 "type": "shorttext"
@@ -1468,21 +1560,27 @@
           "switch": {
             "yes-sector-and-main-job": [
               {
-                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "name": {
+                  "en": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?"
+                },
                 "id": "covid-job-change-desc",
                 "type": "longtext"
               }
             ],
             "yes-main-job": [
               {
-                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "name": {
+                  "en": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?"
+                },
                 "id": "covid-job-change-desc",
                 "type": "longtext"
               }
             ],
             "yes-sector": [
               {
-                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "name": {
+                  "en": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?"
+                },
                 "id": "covid-job-change-desc",
                 "type": "longtext"
               }
@@ -1520,7 +1618,9 @@
           "switch": {
             "false": [
               {
-                "name": "TODO",
+                "name": {
+                  "en": "TODO"
+                },
                 "id": "TODO",
                 "required": true,
                 "type": "longtext"
@@ -1642,19 +1742,25 @@
           "switch": {
             "true": [
               {
-                "name": "Select the state where you filed a claim for benefits within the last 12 months",
+                "name": {
+                  "en": "Select the state where you filed a claim for benefits within the last 12 months"
+                },
                 "id": "unemployment-in-another-state-state",
                 "type": "state-picker",
                 "required": true
               },
               {
-                "name": "What date did you file an Unemployment Insurance claim in that state?",
+                "name": {
+                  "en": "What date did you file an Unemployment Insurance claim in that state?"
+                },
                 "id": "unemployment-in-another-state-date",
                 "type": "datepicker",
                 "required": true
               },
               {
-                "name": "Have you had any employment since you last filed a claim?",
+                "name": {
+                  "en": "Have you had any employment since you last filed a claim?"
+                },
                 "id": "unemployment-in-another-state-employment-since",
                 "type": "boolean",
                 "required": true
@@ -1833,43 +1939,62 @@
           "switch": {
             "electronic-payment-card": [
               {
-                "instructions": "Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees.\n\nThe monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees.",
-                "type": "instructions-only"
+                "instructions": {
+                  "en": "Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees.\n\nThe monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees."
+                },
+                "type": "instructions-only",
+                "name": {}
               }
             ],
             "direct-deposit": [
               {
-                "name": "Bank Name",
+                "name": {
+                  "en": "Bank Name"
+                },
                 "id": "payment-bank-name",
                 "type": "shorttext",
                 "required": true
               },
               {
-                "name": "Account Type",
+                "name": {
+                  "en": "Account Type"
+                },
                 "id": "payment-account-type",
                 "type": "singleselect",
                 "required": true,
                 "options": [
                   {
-                    "name": "Checking account",
+                    "name": {
+                      "en": "Checking account"
+                    },
                     "id": "checking"
                   },
                   {
-                    "name": "Savings account",
+                    "name": {
+                      "en": "Savings account"
+                    },
                     "id": "savings"
                   }
                 ]
               },
               {
-                "name": "Account Number",
-                "instructions": "Please type the account number for the account where you would like your benefits to be deposited.",
+                "name": {
+                  "en": "Account Number"
+                },
+                "instructions": {
+                  "en": "Please type the account number for the account where you would like your benefits to be deposited."
+                },
                 "id": "payment-account-number",
                 "type": "integer",
                 "required": true
               },
               {
-                "name": "Confirm Account Number",
-                "instructions": "Please re-type the account number for the account where you would like your benefits to be deposited.",
+                "name": {
+                  "en": "Confirm Account Number"
+                },
+                "instructions": {
+                  "en": "Please re-type the account number for the account where you would like your benefits to be deposited."
+                },
                 "id": "payment-account-number-confirm",
                 "type": "integer",
                 "required": true,
@@ -1882,14 +2007,20 @@
                 ]
               },
               {
-                "name": "Routing Number",
-                "instructions": "Please type the routing number of your bank.",
+                "name": {
+                  "en": "Routing Number"
+                },
+                "instructions": {
+                  "en": "Please type the routing number of your bank."
+                },
                 "id": "payment-routing-number",
                 "type": "integer",
                 "required": true
               },
               {
-                "name": "Confirm Routing Number",
+                "name": {
+                  "en": "Confirm Routing Number"
+                },
                 "id": "payment-routing-number-confirm",
                 "type": "integer",
                 "required": true,

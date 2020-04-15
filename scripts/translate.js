@@ -5,7 +5,6 @@ const f = fs.readFileSync('form.json', {
 })
 
 const form = JSON.parse(f)
-console.log(form)
 
 const pages = form.pages
 
@@ -23,26 +22,41 @@ for (let i = 0; i < pages.length; i++) {
 
   // Update the question's copy:
   for (let j = 0; j < pages[i].questions.length; j++) {
-    // Update the question's name
-    pages[i].questions[j].name = { en: pages[i].questions[j].name }
+    pages[i].questions[j] = updateQuestion(pages[i].questions[j])
+  }
+}
 
-    // Update the question's instructions, if any
-    if (pages[i].questions[j].instructions) {
-      pages[i].questions[j].instructions = { en: pages[i].questions[j].instructions }
+function updateQuestion(question) {
+  // Update the question's name
+  question.name = { en: question.name }
+
+  // Update the question's instructions, if any
+  if (question.instructions) {
+    question.instructions = { en: question.instructions }
+  }
+
+  // Update the question's options, if any
+  if (question.options) {
+    for (let i = 0; i < question.options.length; i++) {
+      // Update the option's name
+      question.options[i].name = { en: question.options[i].name }
     }
+  }
 
-    // Update the question's options, if any
-    if (pages[i].questions[j].options) {
-      for (let k = 0; k < pages[i].questions[j].options.length; k++) {
-        // Update the option's name
-        pages[i].questions[j].options[k].name = { en: pages[i].questions[j].options[k].name }
+  // Update the questions's switches, if any
+  if (question.switch) {
+    for (const field of Object.keys(question.switch)) {
+      if (question.switch[field]) {
+        for (let j = 0; j < question.switch[field].length; j++) {
+          question.switch[field][j] = updateQuestion(question.switch[field][j])
+        }
       }
     }
-
-    // Update the questions's switches, if any
-
-    // Update the validation errors, if any
   }
+
+  // Update the validation errors, if any
+
+  return question
 }
 
 // Write back the updated pages
