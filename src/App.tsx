@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Grommet } from 'grommet'
 import './App.css';
@@ -36,6 +35,7 @@ const theme = {
 
 function App() {
   return (
+    // @ts-ignore: grommet has incomplete type definitions 
     <Grommet className="App" theme={theme}>
       <FormApp />
     </Grommet>
