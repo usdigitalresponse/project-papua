@@ -5,7 +5,6 @@ import { S3Client } from "@aws-sdk/client-s3-node/S3Client";
 import {PutObjectCommand} from "@aws-sdk/client-s3-node/commands/PutObjectCommand";
 
 const s3 = new S3Client({});
-const bucket = process.env.RAW_S3_BUCKET_NAME || "papua-verified";
 
 const app = express();
 app.use(bodyParser.json());
@@ -26,7 +25,7 @@ app.post('/claims', async function(req, res) {
     const key = `claims/day=${defaultDay}/hour=${defaultHour}/${uuid}.json`
 
     const putObjectCommand = new PutObjectCommand({
-        Bucket: bucket,
+        Bucket: "papua-data-dev", // placeholder literal. Should be "papua-data-ENV" or "papua-data-ACCTID"
         Key: key,
         Body: JSON.stringify(req.body, null,  2),
         ACL: "private",
@@ -41,7 +40,7 @@ app.post('/claims', async function(req, res) {
 });
 
 app.post('/claims/*', function(req, res) {
-    res.json({success: `claim received`})
+    res.json({success: `claim received (no action taken)`})
 });
 
 function pad(n: number): string {

@@ -32,7 +32,7 @@ async function uploadClaims(path: string, claims: object[]): Promise<void> {
   const s3 = new S3Client({});
   await s3.send(
     new PutObjectCommand({
-      Bucket: process.env.RAW_S3_BUCKET_NAME || "",
+      Bucket: `papua-data-${process.env.ACCT_NUMBER}`,
       Key: join(path, "claims.csv"),
       Body: body,
       ACL: "private",

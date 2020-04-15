@@ -55,6 +55,9 @@
 						},
 						"REGION": {
 							"Ref": "AWS::Region"
+						},
+						"ACCT_NUMBER": {
+							"Ref" : "AWS::AccountNumber"
 						}
 					}
 				},
