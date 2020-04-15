@@ -1,15 +1,12 @@
 import React from 'react'
 import { Question } from '../../forms/types'
-import { TextInput, Pane } from 'evergreen-ui'
+import TextInput from './TextInput'
+
 interface Props {
   value: string
   question: Question
   onChange: (val: string) => void
   [key: string]: any
-}
-
-interface FocusComponent extends TextInput {
-  current: { focus: () => void }
 }
 
 const PhoneNumber: React.FC<Props> = (props) => {

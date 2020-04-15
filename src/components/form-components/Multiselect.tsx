@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Question } from '../../forms/types'
-import { Pane, majorScale } from 'evergreen-ui'
+import { Box, Text } from 'grommet'
 import './single-select.css'
 
 interface Props {
@@ -28,21 +28,21 @@ const Multiselect: React.FC<Props> = (props) => {
   }
 
   if (!question || !question.options) {
-    return <Pane />
+    return <Box />
   }
 
   return (
-    <Pane>
+    <Box>
       {question.options.map(o => {
         const isSelected = value && value.includes(o.id)
         return (
-          <Pane onClick={() => onSelectValue(o.id)} cursor="pointer" background={isSelected ? "#EBFFFA" : "white"} alignItems="flex-start" display="flex" key={o.id} marginBottom={majorScale(1)} className="single-select-border single-select" padding={majorScale(1)}>
-            <Pane background={isSelected ? "#008060" : "white"} borderRadius="50%" marginRight={majorScale(2)} flexBasis={20} flexShrink={0} height={20} width={20} className="single-select-border" />
-            <Pane>{o.name}</Pane>
-          </Pane>
+          <Box onClick={() => onSelectValue(o.id)} style={{ background: isSelected ? "#EBFFFA" : "white" }} align="start" key={o.id} margin={{ bottom: 'xsmall' }} pad='small' className="single-select-border single-select" direction="row">
+            <Box style={{ background: isSelected ? "#008060" : "white", height: 20, width: 20, borderRadius: '50%', flexShrink: 0 }} margin={{ right: 'small' }} className="single-select-border" />
+            <Text>{o.name}</Text>
+          </Box>
         )
       })}
-    </Pane>
+    </Box>
   )
 }
 

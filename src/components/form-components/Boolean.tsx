@@ -11,11 +11,11 @@ const Boolean: React.FC<Props> = (props) => {
   const { onChange, value } = props
   const question = props.question
   question.options = [{
-    id: 'yes',
+    id: 'true',
     name: 'Yes'
   },
   {
-    id: 'no',
+    id: 'false',
     name: 'No'
   }]
 
