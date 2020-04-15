@@ -33,7 +33,7 @@
             { "Fn::Join": [ "-",
               [
                 { "Ref": "rawBucketName" },
-                { "Ref" : "AWS::AccountNumber" }
+                { "Ref" : "AWS::AccountId" }
               ]
             ]
             }
