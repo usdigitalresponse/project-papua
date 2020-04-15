@@ -60,7 +60,7 @@
 							"Ref": "AWS::Region"
 						},
 						"ACCT_NUMBER": {
-							"Ref" : "AWS::AccountId"
+							"Ref": "AWS::AccountId"
 						}
 					}
 				},
@@ -73,8 +73,8 @@
 				"Runtime": "nodejs12.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-project-papua-api-124803-deployment",
-					"S3Key": "amplify-builds/transformer-3067576b5754774a7664-build.zip"
+					"S3Bucket": "amplify-project-papua-develop-100022-deployment",
+					"S3Key": "amplify-builds/transformer-34306e6e46632b4d584c-build.zip"
 				}
 			}
 		},
