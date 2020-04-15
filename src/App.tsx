@@ -1,13 +1,45 @@
 import React from 'react';
+import { Grommet } from 'grommet'
 import './App.css';
 import FormApp from './components/FormApp'
 
+const theme = {
+  global: {
+    text: {
+      align: 'left'
+    },
+    font: {
+      size: '14px'
+    },
+    selected: {
+      background: '#008060'
+    },
+    focus: {
+      border: {
+        color: 'none'
+      }
+    },
+    control: {
+      border: {
+        color: 'black'
+      }
+    }
+  },
+  select: {
+    icons: {
+      color: '#000000'
+    }
+  }
+};
+
+
 function App() {
   return (
-    <div className="App">
+    // @ts-ignore: grommet has incomplete type definitions 
+    <Grommet className="App" theme={theme}>
       <FormApp />
-    </div>
-  );
+    </Grommet>
+  )
 }
 
 export default App;

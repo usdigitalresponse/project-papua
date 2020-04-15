@@ -1,11 +1,11 @@
 import React from 'react'
-import { Pane, Heading, majorScale } from 'evergreen-ui'
+import { Box, Heading } from 'grommet'
 
 const Review: React.FC<{}> = () => {
   return (
-    <Pane padding={majorScale(4)} display="flex" flexDirection="column">
-      <Heading>Review & Submit</Heading>
-    </Pane>
+    <Box pad="medium">
+      <Heading margin="none" level={3}>Review & Submit</Heading>
+    </Box>
   )
 }
 

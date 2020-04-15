@@ -1372,8 +1372,10 @@
           "switch": {
             "electronic-payment-card": [
               {
+                "name": "Electronic Payment Card",
                 "instructions": "Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees.\n\nThe monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees.",
-                "type": "instructions-only"
+                "type": "instructions-only",
+                "id": "electronic-payment-card"
               }
             ],
             "direct-deposit": [
