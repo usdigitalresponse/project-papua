@@ -44,7 +44,7 @@ export async function handler(event: Partial<Config>) {
   const result = await transformer(cfg, claims);
 
   return {
-    rawBucket: `papua-data-${process.env.ACCT_NUMBER}`,
+    rawBucket: `papua-data-${process.env.ACCT_ID}`,
     claimsPath: path,
     numClaims: claims.length,
     result,

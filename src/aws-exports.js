@@ -5,12 +5,10 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "resolverAPI",
-            "endpoint": "https://jlhxjjdjgc.execute-api.us-west-2.amazonaws.com/develop",
+            "endpoint": "https://suvdirvej7.execute-api.us-west-2.amazonaws.com/develop",
             "region": "us-west-2"
         }
-    ],
-    "aws_user_files_s3_bucket": "papua-data-032158857762",
-    "aws_user_files_s3_bucket_region": "us-west-2"
+    ]
 };
 
 
