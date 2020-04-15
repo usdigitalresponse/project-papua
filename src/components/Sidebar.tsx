@@ -1,6 +1,6 @@
-import React from 'react'
-import { Card, majorScale, Strong, Pane, Text, Image } from 'evergreen-ui'
-import Select from './form-components/Select'
+import React, { useState } from 'react'
+import { Card } from './helper-components'
+import { Box, Text, Select, Image } from 'grommet'
 
 interface Props {
   pages: string[]
@@ -9,49 +9,39 @@ interface Props {
   setCurrentIndex: (index: number) => void
 }
 
-const languages = [
-  {
-    "name": "English",
-    "id": "english"
-  },
-  {
-    "name": "Chinese",
-    "id": "chinese"
-  },
-  {
-    "name": "Spanish",
-    "id": "spanish"
-  }
-]
+const languages = ['English', 'Chinese', 'Spanish']
 
 const Sidebar: React.FC<Props> = (props) => {
   const { pages, seal, currentIndex, setCurrentIndex } = props
   const currentPage = pages[currentIndex]
   const percent = Math.floor((currentIndex + 1) / pages.length * 100)
+  const [language, setLanguage] = useState<string>(languages[0])
 
   return (
-    <Card marginLeft={majorScale(2)} textAlign="left" justifyContent="flex-start" display="flex" flexDirection="column" height="0%" background="white" padding={majorScale(4)} >
-      {seal && <Image marginBottom={majorScale(2)} height={125} src={seal} />}
-      <Pane>
-        <Strong color="black">Language</Strong>
-        <br />
-        <Select marginTop={majorScale(1)} width={200}>
-          {languages.map(l => <option id={l.id} key={l.id}>{l.name}</option>)}
-        </Select>
-      </Pane>
-      <Pane marginTop={majorScale(2)}>
-        <Strong color="black">Progress</Strong>
-        <br />
-        <Pane marginTop={majorScale(1)} background="#F7F5F4" width="100%" height={majorScale(1)} borderRadius={12}>
-          <Pane borderRadius={12} height="100%" width={`${percent}%`} background="#008060" />
-        </Pane>
-        <Pane textAlign="center"> <Text color="black" size={300}>{percent}% complete</Text> </Pane>
-      </Pane>
-      <Pane marginTop={majorScale(2)} display="flex" flexDirection="column">
+    <Card pad="medium" margin={{ left: 'small' }} textAlign="left" height="0%" background="white">
+      {seal && <Image margin={{ bottom: 'small' }} src={seal} style={{ height: '175px' }} />}
+      <Box>
+        <Text weight={600} color="black">Language</Text>
+        <Select
+          a11yTitle="select language"
+          margin={{ top: 'xsmall' }}
+          options={languages}
+          value={language}
+          onChange={({ option }: { option: string }) => setLanguage(option)}
+        />
+      </Box>
+      <Box margin={{ top: 'medium' }}>
+        <Text weight={600} color="black">Progress</Text>
+        <Box margin={{ top: 'xsmall' }} style={{ width: '100%', height: '8px', borderRadius: '12px', background: "#E4E7EB" }}>
+          <Box style={{ width: `${percent}%`, height: '100%', borderRadius: '12px', background: "#008060" }} />
+        </Box>
+        <Box align="center"> <Text color="black" weight={300} size="xsmall">{percent}% complete</Text> </Box>
+      </Box>
+      <Box margin={{ top: 'small' }}>
         {pages.map((page, i) =>
-          <Text cursor="pointer" onClick={() => setCurrentIndex(i)} color={currentPage === page ? 'black' : 'muted'} display="block" marginBottom={majorScale(1)} key={page}>{page}</Text>
+          <Text style={{ cursor: 'pointer' }} onClick={() => setCurrentIndex(i)} color={currentPage === page ? 'black' : '#66788A'} margin={{ bottom: 'xsmall' }} key={page}>{page}</Text>
         )}
-      </Pane>
+      </Box>
     </Card >
   )
 }

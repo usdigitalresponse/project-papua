@@ -7,13 +7,12 @@
   border: none;
   background-color: white;
   border: black 1px solid;
-  border-radius: 3px;
-  padding: 0px 10px 0px 10px;
-  height: 32px;
+  border-radius: 4px;
+  padding: 10px;
 }
 
 .date-picker .react-date-picker__wrapper *, .react-calendar * {
-  font-size: 12px;
+  font-size: 14px;
   color: black;
 }
 
