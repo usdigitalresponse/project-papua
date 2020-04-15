@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading } from 'grommet'
+import { Box, Heading, Button } from 'grommet'
 import Amplify, { API } from 'aws-amplify'
 import awsconfig from '../aws-exports';
 
@@ -30,7 +30,7 @@ const Review: React.FC<{}> = () => {
   return (
     <Box pad="medium">
       <Heading margin="none" level={3}>Review & Submit</Heading>
-      <Button appearance="primary" onClick={sendData}>Post</Button>
+      <Button color="black !important" onClick={sendData}>Post</Button>
     </Box>
   )
 }

@@ -73,7 +73,7 @@
 				"Runtime": "nodejs12.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-project-papua-develop-120953-deployment",
+					"S3Bucket": "amplify-project-papua-usdr-130650-deployment",
 					"S3Key": "amplify-builds/transformer-66415432324535585944-build.zip"
 				}
 			}
