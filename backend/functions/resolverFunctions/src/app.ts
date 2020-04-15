@@ -17,7 +17,6 @@ app.use(function(req, res, next) {
 });
 
 app.post('/claims', async function(req, res) {
-    console.log(`APP EVENT: ${req}`);
     const now = new Date();
     now.setHours(now.getHours() - 1);
     const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`;
