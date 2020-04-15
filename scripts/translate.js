@@ -36,7 +36,7 @@ const fs = require("fs");
 const { Translate } = require("@google-cloud/translate").v2;
 const translater = new Translate();
 
-const f = fs.readFileSync("form.json", {
+const f = fs.readFileSync("src/form.json", {
   encoding: "utf-8",
 });
 
@@ -138,13 +138,19 @@ function translate(languageCode) {
 }
 
 (async () => {
+  // We originally stored copy in forms like `title: "Foo"` but
+  // when we introduced i18n, we moved to a format like `title: { en: "Foo" }`
+  // If you need to convert a form from the former to the latter, then 
+  // uncomment the following line.
+  // await map(copy => ({ en: copy}));
+  
   // Add spanish translations
   await map(translate("es"));
 
   // Add chinese translations
   await map(translate("zh"));
 
-  fs.writeFileSync("form.json", JSON.stringify(form, null, 2), {
+  fs.writeFileSync("src/form.json", JSON.stringify(form, null, 2), {
     encoding: "utf-8",
   });
 })().catch((err) => {
