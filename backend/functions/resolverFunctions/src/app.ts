@@ -23,9 +23,11 @@ app.post('/claims', async function(req, res) {
 
     const uuid = req.body.metadata.uuid
     const key = `claims/day=${defaultDay}/hour=${defaultHour}/${uuid}.json`
+    // const bucket = `papua-data-${process.env.ACCT_NUMBER}`
+    const bucket = `papua-data`
 
     const putObjectCommand = new PutObjectCommand({
-        Bucket: `papua-data-${process.env.ACCT_NUMBER}`,
+        Bucket: bucket,
         Key: key,
         Body: JSON.stringify(req.body, null,  2),
         ACL: "private",

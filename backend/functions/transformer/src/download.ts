@@ -12,7 +12,8 @@ interface Output {
 
 export async function downloadClaims(cfg: Config): Promise<Output> {
   const s3 = new S3Client({});
-  const bucket = `papua-data-${process.env.ACCT_NUMBER}`;
+  // const bucket = `papua-data-${process.env.ACCT_NUMBER}`;
+  const bucket = `papua-data}`;
 
   // Iterate through all keys in this path:
   const path = toPath('claims', cfg)
