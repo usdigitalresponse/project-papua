@@ -1,0 +1,15 @@
+{
+  "function": {
+    "transformer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "storage": {
+    "raw": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}

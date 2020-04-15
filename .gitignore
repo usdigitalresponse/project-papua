@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Env vars
+.env
+
 # dependencies
 /node_modules
 /.pnp
@@ -21,3 +24,37 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Amplify resources that are auto-ignored by the Amplify CLI:
+amplify/\#current-cloud-backend
+amplify/.config/local-*
+amplify/mock-data
+amplify/backend/amplify-meta.json
+amplify/backend/awscloudformation
+build/
+dist/
+node_modules/
+aws-exports.js
+awsconfiguration.json
+amplifyconfiguration.json
+amplify-build-config.json
+amplify-gradle-config.json
+amplifyxc.config
+
+# Amplify resources we're manually ignoring. May break things.
+
+# We don't need to check in environments:
+# https://aws-amplify.github.io/docs/cli-toolchain/quickstart#teamprovider
+amplify/team-provider-info.json
+
+# We compile JS into this folder so that the Amplify CLI can produce a JS bundle.
+amplify/backend/function/*/src
+# When you push a new build, which kicks of Amplify CD, it's going to run
+# `yarn install` in each function's src folder. That can't fail, so we need
+# a package.json in that folder. After that happens, it'll run a corresponding
+# `amplify:<function name>` hook from the root `package.json` in this repo,
+# if one exists. That's what is going to compile our functions from TS to JS.
+# 
+# In the future, it may be nice to upstream support for customizing the
+# src folder for functions in amplify.
+!amplify/backend/function/*/src/package.json
