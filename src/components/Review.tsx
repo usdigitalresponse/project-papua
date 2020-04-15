@@ -14,9 +14,9 @@ function sendData () {
             questions: {
                 "first-name": "Tom",
                 "last-name": "Nook",
-                "occupation": "slumlord"
+                "occupation": "Real estate tycoon"
             }
-        },
+        }
     }
 
     API.post('resolverAPI','/claims', myInit).then(response => {
