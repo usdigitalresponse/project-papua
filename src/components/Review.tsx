@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pane, Heading, majorScale, Button } from 'evergreen-ui'
+import { Box, Heading } from 'grommet'
 import Amplify, { API } from 'aws-amplify'
 import awsconfig from '../aws-exports';
 
@@ -28,10 +28,10 @@ function sendData () {
 
 const Review: React.FC<{}> = () => {
   return (
-    <Pane padding={majorScale(4)} display="flex" flexDirection="column">
-      <Heading>Review & Submit</Heading>
-        <Button appearance="primary" onClick={sendData}>Post</Button>
-    </Pane>
+    <Box pad="medium">
+      <Heading margin="none" level={3}>Review & Submit</Heading>
+      <Button appearance="primary" onClick={sendData}>Post</Button>
+    </Box>
   )
 }
 
