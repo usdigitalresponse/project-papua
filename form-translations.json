@@ -1,0 +1,1446 @@
+{
+  "pages": [
+    {
+      "title": "Name",
+      "heading": "What is your name?",
+      "questions": [
+        {
+          "name": "First Name",
+          "id": "first_name",
+          "required": true,
+          "type": "shorttext"
+        },
+        {
+          "name": "Middle Name",
+          "id": "middle_name",
+          "type": "shorttext"
+        },
+        {
+          "name": "Last Name",
+          "id": "last_name",
+          "required": true,
+          "type": "shorttext"
+        },
+        {
+          "name": "Enter any other name you are known by",
+          "id": "known_as_name",
+          "type": "shorttext",
+          "instructions": "For example, if your name is “Sandra” and you go by “Sandy,” or your name is “Robert” and you go by “Rob,” write it down here."
+        }
+      ]
+    },
+    {
+      "title": "Birthday and gender",
+      "heading": "More about you",
+      "questions": [
+        {
+          "name": "When were you born?",
+          "id": "dob",
+          "required": true,
+          "type": "datepicker"
+        },
+        {
+          "name": "What is your gender?",
+          "id": "gender",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "Male",
+              "id": "male"
+            },
+            {
+              "name": "Female",
+              "id": "female"
+            },
+            {
+              "name": "Decline to state",
+              "id": "decline"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Eligibility",
+      "heading": "Eligibility",
+      "questions": [
+        {
+          "name": "Please select one of the following reasons why you are applying for Pandemic Unemployment Assistance",
+          "instructions": "If none of the following are true, you can't apply for unemployment through this form. Please look into your state unemployment insurance application for further options.",
+          "id": "reason",
+          "required": true,
+          "type": "singleselect",
+          "options": [
+            {
+              "name": "You are unable to work because you have been diagnosed with COVID-19 or are experiencing symptoms of COVID-19 and are seeking a medical diagnosis.",
+              "id": "diagnosed"
+            },
+            {
+              "name": "You are unable to work because a member of your household has been diagnosed with COVID-19.",
+              "id": "household_diagnosed"
+            },
+            {
+              "name": "You are unable to work because you are providing critical care for a family member or a member of the individual’s household who has been diagnosed with COVID-19.",
+              "id": "critical_care"
+            },
+            {
+              "name": "You are unable to work because a child or other person in the household for which you have primary caregiving responsibility is unable to attend school or another facility that is closed as a direct result of the COVID-19 public health emergency and such school or facility care is required for you to work.",
+              "id": "caregiving"
+            },
+            {
+              "name": "You are unable to reach your place of employment because of a quarantine imposed as a direct result of the COVID-19 public health emergency.",
+              "id": "quarantine"
+            },
+            {
+              "name": "You are unable to reach your place of employment because you have been advised by a health care provider to self-quarantine due to concerns related to COVID-19.",
+              "id": "self-quarantine"
+            },
+            {
+              "name": "You were scheduled to begin employment and are no longer able to do so as a direct result of COVID-19.",
+              "id": "scheduled"
+            },
+            {
+              "name": "You have become the breadwinner after the primary head of household passed away as a direct result of COVID-19.",
+              "id": "breadwinner"
+            },
+            {
+              "name": "You have had to quit your job as a direct result of COVID-19.",
+              "id": "quit"
+            },
+            {
+              "name": "Your place of employment is closed as a direct result of the COVID-19 public health emergency.",
+              "id": "closed"
+            },
+            {
+              "name": "You are an individual who works as an independent contractor with reportable income and are unemployed, partially employed, or unable or unavailable to work because the COVID-19 public health emergency has severely limited your ability to continue performing your customary work activities, and has thereby forced you to suspend such activities.",
+              "id": "independent-contractor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Address",
+      "heading": "What is your address?",
+      "questions": [
+        {
+          "name": "Address",
+          "id": "mailing_address",
+          "required": true,
+          "type": "address_picker"
+        },
+        {
+          "name": "Is your mailing address the same as your home address?",
+          "id": "mailing_home_address_same",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "false": null,
+            "true": [
+              {
+                "name": "Home Address",
+                "id": "home_address",
+                "required": true,
+                "type": "address_picker"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Contact Information",
+      "heading": "How can we get in touch?",
+      "questions": [
+        {
+          "name": "Telephone number",
+          "instructions": "Provide the telephone number where we can best reach you with questions about your claim.",
+          "id": "telephone",
+          "required": true,
+          "type": "phone"
+        },
+        {
+          "name": "Preferred language",
+          "instructions": "What language should we use in followup communications?",
+          "id": "preferred_language",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "English",
+              "id": "en"
+            },
+            {
+              "name": "Spanish",
+              "id": "es"
+            },
+            {
+              "name": "Chinese",
+              "id": "zh"
+            }
+          ]
+        },
+        {
+          "name": "Cell phone number",
+          "instructions": "This is optional. By providing your cell phone number, you agree to allow the Department to send you communications which may include: important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available skills training opportunities.",
+          "id": "cellphone",
+          "required": false,
+          "type": "phone"
+        },
+        {
+          "name": "Email address",
+          "instructions": "This is optional. By providing your email, you agree to allow the Department to send you communications which may include: questions relative to the Unemployment Insurance claim you filed, important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available training opportunities. Your email, if provided, will also be used to send you your confirmation code for your Unemployment Insurance application. Please double-check that it is correct.",
+          "id": "cellphone",
+          "required": false,
+          "type": "phone"
+        }
+      ]
+    },
+    {
+      "title": "Demographic Information",
+      "heading": "Which which groups do you identify?",
+      "questions": [
+        {
+          "name": "Race",
+          "id": "race",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "White",
+              "id": "white"
+            },
+            {
+              "name": "Black",
+              "id": "black"
+            },
+            {
+              "name": "Asian",
+              "id": "asian"
+            },
+            {
+              "name": "American Indian / Alaskan Native",
+              "id": "aian"
+            },
+            {
+              "name": "Native Hawaiian / Pacific Islander",
+              "id": "nhpi"
+            },
+            {
+              "name": "Decline to state",
+              "id": "decline"
+            }
+          ]
+        },
+        {
+          "name": "Ethnicity",
+          "id": "ethnicity",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "Hispanic or Latino",
+              "id": "hispanic"
+            },
+            {
+              "name": "Not hispanic or Latino",
+              "id": "non-hispanic"
+            },
+            {
+              "name": "Decline to State",
+              "id": "decline"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Identification and Citizenship Information",
+      "heading": "What are your government document IDs?",
+      "questions": [
+        {
+          "name": "Please enter your 9-digit Social Security Number",
+          "id": "ssn",
+          "required": true,
+          "type": "ssn"
+        },
+        {
+          "name": "Re-enter your 9-digit Social Security Number",
+          "id": "ssn_confirm",
+          "required": true,
+          "type": "ssn",
+          "validate": [
+            {
+              "type": "matches_field",
+              "value": "ssn",
+              "error": "Social Security Numbers do not match"
+            }
+          ]
+        },
+        {
+          "name": "Do you have a Driver's License or state ID?",
+          "id": "has_dl_or_state_id",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "false": null,
+            "true": [
+              {
+                "name": "Enter your Driver's License or state-issued Identification (ID) number",
+                "id": "dl_or_state_id",
+                "required": true,
+                "type": "shorttext"
+              },
+              {
+                "name": "What is the expiration date for your driver's license or state-issued ID?",
+                "id": "dl_or_state_id_exp",
+                "required": true,
+                "type": "datepicker"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Are you a U.S. Citizen?",
+          "id": "is_us_citizen",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "false": [
+              {
+                "name": "Please enter your Alien Registration Number:",
+                "id": "alien_reg_number",
+                "required": true,
+                "type": "shorttext",
+                "validate": [
+                  {
+                    "type": "regex",
+                    "value": "^A(\\d){7,9}$",
+                    "error": "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
+                  }
+                ]
+              },
+              {
+                "name": "Re-enter your Alien Registration Number:",
+                "id": "alien_reg_number_confirm",
+                "required": true,
+                "type": "shorttext",
+                "validate": [
+                  {
+                    "type": "matches_field",
+                    "value": "alien_reg_number",
+                    "error": "Alien Registration Numbers do not match"
+                  }
+                ]
+              },
+              {
+                "name": "Please enter the country of your citizenship or the country from which your permit was issued.",
+                "id": "citizenship_country",
+                "required": true,
+                "type": "shorttext"
+              }
+            ],
+            "true": null
+          }
+        }
+      ]
+    },
+    {
+      "title": "Education",
+      "heading": "Please tell us about your education",
+      "questions": [
+        {
+          "name": "Please select the highest grade that you completed in school.",
+          "id": "highest_grade",
+          "required": true,
+          "type": "singleselect",
+          "options": [
+            {
+              "name": "Elementary School or less",
+              "id": "elementary"
+            },
+            {
+              "name": "Middle School",
+              "id": "middle"
+            },
+            {
+              "name": "High School (no diploma or G.E.D. equivalent)",
+              "id": "some-highschool"
+            },
+            {
+              "name": "High School Diploma or G.E.D. equivalent",
+              "id": "highschool"
+            },
+            {
+              "name": "Some College (no degree)",
+              "id": "some-college"
+            },
+            {
+              "name": "Associate's Degree",
+              "id": "associates"
+            },
+            {
+              "name": "Bachelor's Degree",
+              "id": "bachelors"
+            },
+            {
+              "name": "Some Graduate School (no degree)",
+              "id": "some-graduate"
+            },
+            {
+              "name": "Advanced degree (e.g. master's degree, professional degree, or doctorate)",
+              "id": "graduate"
+            }
+          ]
+        },
+        {
+          "name": "Do you have a Post-Secondary Certificate?",
+          "id": "has-post-secondary-certificate",
+          "instructions": "Ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc.",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "false": null,
+            "true": [
+              {
+                "name": "Please enter the type of certificate (ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc)",
+                "id": "post-secondary-certificate",
+                "required": true,
+                "type": "shorttext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Are you currently attending school?",
+          "id": "in-school",
+          "required": true,
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "title": "Military Service",
+      "heading": "Please tell us about any military service",
+      "questions": [
+        {
+          "name": "Are you a Military veteran?",
+          "id": "military-veteran",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "false": null,
+            "true": [
+              {
+                "name": "Active duty start date",
+                "required": true,
+                "id": "active-duty-start",
+                "type": "datepicker"
+              },
+              {
+                "name": "Active duty end date",
+                "required": true,
+                "id": "active-duty-end",
+                "type": "datepicker"
+              },
+              {
+                "name": "Disability status",
+                "required": true,
+                "id": "military-disability",
+                "type": "singleselect",
+                "options": [
+                  {
+                    "name": "Veteran with no disability",
+                    "id": "no-disability"
+                  },
+                  {
+                    "name": "Veteran with Service-Connected Disability rated at less than 30%?",
+                    "id": "disability-less-than-30"
+                  },
+                  {
+                    "name": "Veteran with Service-Connected Disability rated at 30% or more?",
+                    "id": "disability-more-than-30"
+                  }
+                ]
+              },
+              {
+                "name": "Have you performed active military service during the last 2 years?",
+                "required": true,
+                "id": "military-active-last-two-years",
+                "type": "boolean",
+                "switch": {
+                  "true": [
+                    {
+                      "name": "Last pay grade (Box #4b)",
+                      "instructions": "Please enter the following data from your DD214-Member 4, Box #4b",
+                      "required": true,
+                      "id": "military-last-pay-grade",
+                      "type": "shorttext"
+                    },
+                    {
+                      "name": "Net service for this period (Box #12c)",
+                      "instructions": "Please enter the following data from your DD214-Member 4, Box #12c",
+                      "required": true,
+                      "id": "military-net-service",
+                      "type": "shorttext"
+                    },
+                    {
+                      "name": "Number of days of accrued paid leave (Box #16)",
+                      "instructions": "Please enter the following data from your DD214-Member 4, Box #16",
+                      "required": true,
+                      "id": "military-accured-paid-leave",
+                      "type": "decimal"
+                    },
+                    {
+                      "name": "Character of Service (Box #24)",
+                      "instructions": "Please enter the following data from your DD214-Member 4, Box #24",
+                      "required": true,
+                      "id": "military-character-of-service",
+                      "type": "shorttext"
+                    },
+                    {
+                      "name": "Reason for Separation (Box #28)",
+                      "instructions": "Please enter the following data from your DD214-Member 4, Box #28",
+                      "required": true,
+                      "id": "military-reason-for-separation",
+                      "type": "shorttext"
+                    },
+                    {
+                      "name": "Branch of Service",
+                      "required": true,
+                      "id": "military-branch",
+                      "type": "dropdown",
+                      "options": [
+                        {
+                          "name": "Army",
+                          "id": "army"
+                        },
+                        {
+                          "name": "Navy",
+                          "id": "navy"
+                        },
+                        {
+                          "name": "Air Force",
+                          "id": "air-force"
+                        },
+                        {
+                          "name": "Marines",
+                          "id": "marines"
+                        },
+                        {
+                          "name": "Coast Guard",
+                          "id": "coast-guard"
+                        },
+                        {
+                          "name": "Atmospheric Administration",
+                          "id": "atmospheric"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Last Actual Day of Work with Military Employer",
+                      "required": true,
+                      "id": "military-work-end",
+                      "type": "datepicker"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Employment Status",
+      "heading": "Please tell us about your recent employment status",
+      "questions": [
+        {
+          "name": "Are you currently working?",
+          "id": "employment-currently-working",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you able to work?",
+          "id": "employment-able-to-work",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you available to work in the coming year?",
+          "id": "employment-available-to-work",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Have you been employed in the last 12 months?",
+          "id": "employment-last-12-months",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "How many employers have you had in the last 18 months?",
+          "id": "employment-employers-in-last-18-months",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "I am self-employed",
+              "id": "self-employed"
+            },
+            {
+              "name": "1",
+              "id": "1"
+            },
+            {
+              "name": "2",
+              "id": "2"
+            },
+            {
+              "name": "3",
+              "id": "3"
+            },
+            {
+              "name": "4",
+              "id": "4"
+            },
+            {
+              "name": "5 or more",
+              "id": "5-or-more"
+            },
+            {
+              "name": "I have not worked in the past 18 months",
+              "id": "no-work-in-last-18-months"
+            }
+          ]
+        },
+        {
+          "name": "Have you worked in another state(s) during the last 2 years?",
+          "id": "employment-other-states",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "true": [
+              {
+                "name": "Please enter start date you were employed outside of ${state_name}.",
+                "id": "employment-work-outside-state-start",
+                "required": true,
+                "type": "datepicker"
+              },
+              {
+                "name": "Please enter stop date you were employed outside of ${state_name}.",
+                "id": "employment-work-outside-state-stop",
+                "required": true,
+                "type": "datepicker"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Prior to becoming unemployed due to COVID-19, were you employed or self-employed as a part of a family unit (or in the same self-employment business as your family members)?",
+          "id": "employment-family-unit",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "In your present, or most recent employment, are you also a Corporate Officer?",
+          "instructions": "A corporate officer is a high-level management official of a corporation or an unincorporated business, such as a president, vice president, secretary, financial officer or chief executive officer (CEO).",
+          "id": "employment-corporate-officer",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Have you been employed by the Federal Government as a civilian (not active military) during the last 2 years?",
+          "id": "employment-federal-employee",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "true": [
+              {
+                "name": "Please enter the last actual day of work with Federal Employer",
+                "id": "employment-federal-employee-last-date",
+                "required": true,
+                "type": "datepicker"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Are you a member of a Hiring Hall Trade Union?",
+          "id": "employment-in-trade-union",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "true": [
+              {
+                "name": "Please select the Trade Union you belong to.",
+                "id": "employment-trade-union",
+                "required": true,
+                "type": "dropdown",
+                "options": [
+                  {
+                    "name": "Local 1196 Brotherhood of Electrical Workers",
+                    "id": "1196"
+                  },
+                  {
+                    "name": "Local 94 Carpenters",
+                    "id": "94"
+                  },
+                  {
+                    "name": "Local 99 Electricians",
+                    "id": "99"
+                  },
+                  {
+                    "name": "Local 1033 Laborers International",
+                    "id": "1033"
+                  },
+                  {
+                    "name": "Local 57 Operating Engineers",
+                    "id": "57"
+                  },
+                  {
+                    "name": "Local 51 Plumbers & Pipefitters",
+                    "id": "51"
+                  },
+                  {
+                    "name": "Local 251 Teamsters",
+                    "id": "251"
+                  },
+                  {
+                    "name": "Other",
+                    "id": "other"
+                  }
+                ],
+                "switch": {
+                  "other": [
+                    {
+                      "name": "List other Trade Union you're a member of",
+                      "id": "employer-trade-union-other",
+                      "required": true,
+                      "type": "shorttext"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Employment History",
+      "heading": "Tell us more about your employment history",
+      "instructions": "Please provide your employment history for your most relevant employer (such as your largest or most common client or business in your capacity as a gig worker, contract worker, small business owner, worker for hire, or self-employed individual) during the last 18 months.\nIf you're self-employed, you are your own employer and should enter that information.",
+      "questions": [
+        {
+          "name": "Employer name",
+          "instructions": "This may be the Corporate name; verify name on pay stub.",
+          "id": "employer-name",
+          "required": true,
+          "type": "shorttext"
+        },
+        {
+          "name": "Employer address",
+          "id": "employer-address",
+          "required": true,
+          "type": "address"
+        },
+        {
+          "name": "Employer phone number",
+          "id": "employer-phone-number",
+          "required": true,
+          "type": "phone"
+        },
+        {
+          "name": "Your Job Title",
+          "id": "employer-job-title",
+          "required": true,
+          "type": "shorttext"
+        },
+        {
+          "name": "How many of the last 18 months were you working for this employer?",
+          "id": "employer-how-many-months",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "First Day of Work",
+          "id": "employer-first-day-of-work",
+          "required": true,
+          "type": "datepicker"
+        },
+        {
+          "name": "Last actual Day of Work",
+          "instructions": "Please provide the last day you actually performed work for your employer.",
+          "id": "employer-last-day-of-work",
+          "required": true,
+          "type": "datepicker"
+        },
+        {
+          "name": "Was your work performed in {state_name}?",
+          "id": "employer-in-state",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Did you work for this employer full-time, part-time or on a staggered schedule?",
+          "id": "employer-type",
+          "required": true,
+          "type": "singleselect",
+          "options": [
+            {
+              "name": "I work or worked for this employer full-time.",
+              "id": "fulltime"
+            },
+            {
+              "name": "I work or worked for this employer part-time.",
+              "id": "parttime"
+            },
+            {
+              "name": "I work or worked for this employer on a staggered schedule.",
+              "id": "staggered"
+            }
+          ]
+        },
+        {
+          "name": "What was your rate of pay?",
+          "id": "employer-pay-rate",
+          "required": true,
+          "type": "dollar-amount"
+        },
+        {
+          "name": "Pay Unit",
+          "id": "employer-pay-unit",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "Per Hour",
+              "id": "per-hour"
+            },
+            {
+              "name": "Per Day",
+              "id": "per-day"
+            },
+            {
+              "name": "Per Week",
+              "id": "per-week"
+            },
+            {
+              "name": "Per Month",
+              "id": "per-month"
+            },
+            {
+              "name": "Per Year",
+              "id": "per-year"
+            },
+            {
+              "name": "Other",
+              "id": "other"
+            }
+          ],
+          "switch": {
+            "other": [
+              {
+                "name": "Describe pay unit",
+                "id": "employer-pay-unit-other",
+                "required": true,
+                "type": "shorttext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Reason for separation",
+          "id": "employer-reason-for-separation",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "COVID-19",
+              "id": "COVID"
+            },
+            {
+              "name": "Layoff/Lack of Work (not COVID-19 related)",
+              "id": "layoff"
+            },
+            {
+              "name": "Quit/Voluntary Leaving (not COVID-19 related)",
+              "id": "quit"
+            },
+            {
+              "name": "Retired (not COVID-19 related)",
+              "id": "retired"
+            },
+            {
+              "name": "Fired/Suspension (not COVID-19 related)",
+              "id": "fired"
+            },
+            {
+              "name": "Strike/Lockout (not COVID-19 related)",
+              "id": "strike"
+            },
+            {
+              "name": "Work Part-Time (not COVID-19 related)",
+              "id": "part-time"
+            },
+            {
+              "name": "Stagger (not COVID-19 related)",
+              "id": "stagger"
+            },
+            {
+              "name": "Company Vacation (not COVID-19 related)",
+              "id": "vacation"
+            }
+          ]
+        },
+        {
+          "name": "Please provide a detailed description of your job duties with this employer (including machines and equipment used, etc.).",
+          "id": "employer-description",
+          "required": true,
+          "type": "longtext"
+        },
+        {
+          "name": "Are you currently receiving sick leave, paid time off, or other benefits from your employer equal to your normal salary or pay?",
+          "id": "employer-current-benefits",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you currently teleworking for this employer and receiving your full salary or pay?",
+          "id": "employer-current-teleworking",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Did you work for this employer for at least four (4) weeks and did you earn at least $[TODO: insert value] per week?",
+          "id": "employer-at-least-four-weeks",
+          "required": true,
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "title": "Recent Employment",
+      "heading": "Please tell us more about your last job",
+      "instructions": "You are filing this claim because you have experienced a change in your employment. The following questions are about your most recent work/employment.",
+      "questions": [
+        {
+          "name": "Enter your last day of work.",
+          "id": "last-day-of-work",
+          "required": true,
+          "type": "datepicker"
+        },
+        {
+          "name": "Please select ALL the DAYS you actually worked during the last week of your employment. Please include the last day that you actually performed work for your employer.",
+          "instructions": "For the purposes of this question a week starts on Sunday and ends on Saturday.\nEx. If the last day you worked was a Tuesday, and you work on weekends, you should select Sunday, Monday, and Tuesday.\nIf the last day you worked was a Friday, and you do not work on weekends, you should select Monday, Tuesday, Wednesday, Thursday, and Friday.",
+          "id": "last-week-days-worked",
+          "required": true,
+          "type": "multiselect",
+          "options": [
+            {
+              "name": "Sunday",
+              "id": "sunday"
+            },
+            {
+              "name": "Monday",
+              "id": "monday"
+            },
+            {
+              "name": "Tuesday",
+              "id": "tuesday"
+            },
+            {
+              "name": "Wednesday",
+              "id": "wednesday"
+            },
+            {
+              "name": "Thursday",
+              "id": "thursday"
+            },
+            {
+              "name": "Friday",
+              "id": "friday"
+            },
+            {
+              "name": "Saturday",
+              "id": "saturday"
+            }
+          ]
+        },
+        {
+          "name": "How much in total did you earn at your job(s) the last week you worked, including all wages or salaries, commissions, bonuses, and tips?",
+          "id": "last-week-paid",
+          "required": true,
+          "type": "dollar-amount"
+        },
+        {
+          "name": "How many hours in total did you work during the last week you worked, in total across all jobs?",
+          "id": "last-week-hours",
+          "required": true,
+          "type": "decimal"
+        }
+      ]
+    },
+    {
+      "title": "Skills",
+      "heading": "Tell us about your professional skills",
+      "questions": [
+        {
+          "name": "What do you consider your main job?",
+          "id": "skills-main-job",
+          "required": true,
+          "type": "longtext"
+        },
+        {
+          "name": "Which industry do you think best describes your main job?",
+          "id": "skills-industry",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "Agriculture, forestry, fishing, and hunting (ex. dairy farmer, small agriculture business owner)",
+              "id": "ag"
+            },
+            {
+              "name": "Armed forces (ex. the US Air Force, the U.S. Coast Guard)",
+              "id": "armed-forces"
+            },
+            {
+              "name": "Construction (ex. independent contractor, residential construction company owner)",
+              "id": "construction"
+            },
+            {
+              "name": "Educational services (ex. elementary school teacher, independent tutor, sports coach)",
+              "id": "education"
+            },
+            {
+              "name": "Entertainment (ex. musician, actor)",
+              "id": "entertainment"
+            },
+            {
+              "name": "Financial activities (ex. bank employee, realtor, independent contractor)",
+              "id": "finance"
+            },
+            {
+              "name": "Food service, leisure, and hospitality (ex. hotel employee, food delivery, barber)",
+              "id": "hospitality"
+            },
+            {
+              "name": "Government (ex. Federal contractor)",
+              "id": "government"
+            },
+            {
+              "name": "Health care and social assistance (ex. nursing home aide, personal caregiver)",
+              "id": "healthcare"
+            },
+            {
+              "name": "Information (ex. radio broadcaster, journalist)",
+              "id": "information"
+            },
+            {
+              "name": "Manufacturing (ex. factory employee, independent contractor)",
+              "id": "manufacturing"
+            },
+            {
+              "name": "Mining (ex. coal miner, independent contractor)",
+              "id": "mining"
+            },
+            {
+              "name": "Professional and business services (ex. accountant, independent consultant, freelance web designer)",
+              "id": "prof-services"
+            },
+            {
+              "name": "Retail trade (ex. grocery store employee, clothing store employee, small business owner)",
+              "id": "retail"
+            },
+            {
+              "name": "Transportation and warehousing (ex. truck driver, ride share driver, warehouse employee)",
+              "id": "transportion"
+            },
+            {
+              "name": "Utilities (ex. water processing plant employee, independent contractor)",
+              "id": "utilities"
+            },
+            {
+              "name": "Wholesale trade (ex. motor vehicle part wholesaler, apparel wholesaler)",
+              "id": "wholesale"
+            },
+            {
+              "name": "Other",
+              "id": "other"
+            }
+          ]
+        },
+        {
+          "name": "Has the Coronavirus (COVID-19) crisis made you want to change your main job or sector of employment in the future?",
+          "id": "covid-job-change",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "Yes, I want to change both my main job and sector of employment.",
+              "id": "yes-sector-and-main-job"
+            },
+            {
+              "name": "Yes, I want to change my main job.",
+              "id": "yes-main-job"
+            },
+            {
+              "name": "Yes, I want to change my sector of employment.",
+              "id": "yes-sector"
+            },
+            {
+              "name": "No, I do want to change my main job or sector of employment.",
+              "id": "no"
+            }
+          ],
+          "switch": {
+            "yes-sector-and-main-job": [
+              {
+                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "id": "covid-job-change-desc",
+                "type": "longtext"
+              }
+            ],
+            "yes-main-job": [
+              {
+                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "id": "covid-job-change-desc",
+                "type": "longtext"
+              }
+            ],
+            "yes-sector": [
+              {
+                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "id": "covid-job-change-desc",
+                "type": "longtext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Do you want the Department of Labor and Training to reach out to you in the future on how to enroll in a skills training program?",
+          "instructions": "${state_name} offers many skills training programs to help workers gain the skills they need for a promising career. Recent studies suggest that these programs have successfully increased earnings of enrollees by 13% in the year after training. For the typical enrollee, that has meant an extra $325 a month.",
+          "id": "skills-training-signup",
+          "required": true,
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "title": "Tax Info",
+      "heading": "We need to know about your recent tax status.",
+      "questions": [
+        {
+          "name": "We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?",
+          "id": "tax-info-have-tax-return",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "false": [
+              {
+                "name": "TODO",
+                "id": "TODO",
+                "required": true,
+                "type": "longtext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "For your most recent tax filing, were you married filing jointly, married filing separately, or single?",
+          "id": "tax-info-married",
+          "required": true,
+          "type": "dropdown",
+          "options": [
+            {
+              "name": "Married filing jointly",
+              "id": "married-jointly"
+            },
+            {
+              "name": "Married filing separately",
+              "id": "married-separately"
+            },
+            {
+              "name": "Single",
+              "id": "single"
+            }
+          ]
+        },
+        {
+          "name": "What was your Adjusted Gross Income on your most recently filed federal tax return?",
+          "instructions": "You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted:\n\nLine 8b on Form 1040 (for tax year 2019)\nLine 8b on Form 1040-SR (for tax year 2019)\nLine 7 on Form 1040 (for tax year 2018)\nLine 21 on Form 1040A (for tax years before 2018)\nLine 4 on Form 1040EZ (for tax years before 2018)\nLine 35 on Form 1040NR (for tax year 2019 or 2019)",
+          "id": "tax-info-agi",
+          "required": true,
+          "type": "dollar-amount"
+        },
+        {
+          "name": "How many dependent children do you have?",
+          "instructions": "You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return.\n\nA dependent child must be:\n\n1) A natural, adopted, or step-child under the age of 18 whom you support.\n2) A child under the age of 18 for whom you are the court-appointed guardian.\n3) A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.\n\nNOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.",
+          "id": "tax-info-dependents",
+          "required": true,
+          "type": "singleselect",
+          "options": [
+            {
+              "name": "0",
+              "id": "0"
+            },
+            {
+              "name": "1",
+              "id": "1"
+            },
+            {
+              "name": "2",
+              "id": "2"
+            },
+            {
+              "name": "3",
+              "id": "3"
+            },
+            {
+              "name": "4",
+              "id": "4"
+            },
+            {
+              "name": "5 or more",
+              "id": "5-or-more"
+            },
+            {
+              "name": "All dependents are already claimed by another parent or guardians' unemployment benefits.",
+              "id": "already-getting-benefit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Unemployment Benefits",
+      "heading": "Tell us about any existing unemployment benefits you're receiving.",
+      "questions": [
+        {
+          "name": "Have you applied for or received Unemployment Benefits in a state that is NOT ${state_name} the last 12 months?",
+          "id": "unemployment-in-another-state",
+          "required": true,
+          "type": "boolean",
+          "switch": {
+            "true": [
+              {
+                "name": "Select the state where you filed a claim for benefits within the last 12 months",
+                "id": "unemployment-in-another-state-state",
+                "type": "state-picker",
+                "required": true
+              },
+              {
+                "name": "What date did you file an Unemployment Insurance claim in that state?",
+                "id": "unemployment-in-another-state-date",
+                "type": "datepicker",
+                "required": true
+              },
+              {
+                "name": "Have you had any employment since you last filed a claim?",
+                "id": "unemployment-in-another-state-employment-since",
+                "type": "boolean",
+                "required": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Other Income",
+      "heading": "Do you have any other income of these types?",
+      "questions": [
+        {
+          "name": "Are you or anyone in your household receiving Public Assistance?",
+          "id": "other-income-public-assistance",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?",
+          "id": "other-income-dhs-work",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?",
+          "id": "other-income-snap",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you a Migrant Worker?",
+          "id": "other-income-migrant-worker",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you a person with a disability?",
+          "id": "other-income-disability",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Have you applied for or received Temporary Disability Insurance in the last 2 years?",
+          "id": "other-income-temp-disability-insurance",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Have you applied for or received Workers’ Compensation in the last 2 years?",
+          "id": "other-income-workers-comp",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Have you applied for or received other Disability Payments in the last 2 years?",
+          "id": "other-income-disability-payments",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you now, or during the next year, will you be collecting a Retirement Pension?",
+          "id": "other-income-retirement-pension",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you now, or during the next year, will you be collecting a Retirement Annuity?",
+          "id": "other-income-retirement annuity",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "name": "Are you now, or during the next year, will you be collecting Social Security?",
+          "id": "other-income-social-security",
+          "required": true,
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "title": "Payment Info",
+      "heading": "Let's talk about how we can pay you!",
+      "questions": [
+        {
+          "name": "Do you wish to have Income Taxes withheld from your Unemployment Compensation?",
+          "instructions": "Unemployment is taxable income. If you do not withhold state or federal taxes from your benefits, you will be responsible to pay them when you file your tax return. Everyone who collects unemployment benefits will receive a 1099 detailing the total payments received and any taxes paid on that income. You may request changes to your claim’s tax deductions anytime.",
+          "id": "payment-income-withheld",
+          "required": true,
+          "type": "singleselect",
+          "options": [
+            {
+              "name": "Yes, I would like both ${state_name} and Federal Income Taxes withheld",
+              "id": "state-and-fed"
+            },
+            {
+              "name": "Yes, I would like only Federal Income Tax withheld",
+              "id": "fed"
+            },
+            {
+              "name": "Yes, I would like only ${state_name} Income Tax withheld",
+              "id": "state"
+            },
+            {
+              "name": "No, I do not want any Income Taxes withheld",
+              "id": "none"
+            }
+          ]
+        },
+        {
+          "name": "Please select a payment option.",
+          "instructions": "There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:\n\nDirect Deposit (DD), which deposits your unemployment benefits into your checking or savings account.\n\nElectronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.",
+          "id": "payment-option",
+          "required": true,
+          "options": [
+            {
+              "name": "Direct Deposit",
+              "id": "direct-deposit"
+            },
+            {
+              "name": "Electronic Payment Card",
+              "id": "electronic-payment-card"
+            }
+          ],
+          "switch": {
+            "electronic-payment-card": [
+              {
+                "instructions": "Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees.\n\nThe monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees.",
+                "type": "instructions-only"
+              }
+            ],
+            "direct-deposit": [
+              {
+                "name": "Bank Name",
+                "id": "payment-bank-name",
+                "type": "shorttext",
+                "required": true
+              },
+              {
+                "name": "Account Type",
+                "id": "payment-account-type",
+                "type": "singleselect",
+                "required": true,
+                "options": [
+                  {
+                    "name": "Checking account",
+                    "id": "checking"
+                  },
+                  {
+                    "name": "Savings account",
+                    "id": "savings"
+                  }
+                ]
+              },
+              {
+                "name": "Account Number",
+                "instructions": "Please type the account number for the account where you would like your benefits to be deposited.",
+                "id": "payment-account-number",
+                "type": "integer",
+                "required": true
+              },
+              {
+                "name": "Confirm Account Number",
+                "instructions": "Please re-type the account number for the account where you would like your benefits to be deposited.",
+                "id": "payment-account-number-confirm",
+                "type": "integer",
+                "required": true,
+                "validate": [
+                  {
+                    "type": "matches_field",
+                    "value": "payment-account-number",
+                    "error": "Account numbers do not match"
+                  }
+                ]
+              },
+              {
+                "name": "Routing Number",
+                "instructions": "Please type the routing number of your bank.",
+                "id": "payment-routing-number",
+                "type": "integer",
+                "required": true
+              },
+              {
+                "name": "Confirm Routing Number",
+                "id": "payment-routing-number-confirm",
+                "type": "integer",
+                "required": true,
+                "validate": [
+                  {
+                    "type": "matches_field",
+                    "value": "payment-routing-number",
+                    "error": "Routing numbers do not match"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
