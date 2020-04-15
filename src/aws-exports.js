@@ -5,7 +5,7 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "resolverAPI",
-            "endpoint": "https://n2sp1zyn93.execute-api.us-west-2.amazonaws.com/usdr",
+            "endpoint": "https://kk1sk59fwa.execute-api.us-west-2.amazonaws.com/usdr",
             "region": "us-west-2"
         }
     ]
