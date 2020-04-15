@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Card, majorScale, Pane, Button } from 'evergreen-ui'
+import { Card, Button } from './helper-components/index'
+import { Box } from 'grommet'
 import { initializeForm } from '../forms'
 import Sidebar from './Sidebar'
 import Introduction from './Introduction'
@@ -24,24 +25,21 @@ const FormApp: React.FC<{}> = () => {
   const onClickBack = () => setNextPage(currentIndex - 1)
 
   return (
-    <Pane alignItems="center" padding={majorScale(8)} display="flex" flexDirection="column" >
-      <Card marginBottom={majorScale(2)} padding={majorScale(2)} background="white">This is for demo purposes only.</Card>
-      <Pane display="flex" width="100%" height="100%" justifyContent="center">
-        <Card width="50%" background="white" display="flex" justifyContent="space-between" flexDirection="column" textAlign="left">
+    <Box align="center" pad="medium" direction="column">
+      <Card margin={{ bottom: 'small' }} pad='small' background="white">This is for demo purposes only.</Card>
+      <Box width="100%" height="100%" justify="center" direction="row">
+        <Card width="50%" background="white" display="flex" justify="between" flexDirection="column" textAlign="left">
           {pageComponents[currentIndex]}
-          <Pane display="flex" justifyContent="space-between" padding={majorScale(4)}>
-            {(currentIndex > 0) && <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickBack}>{'Go Back'}
-            </Button>}
+          <Box justify="between" pad="medium" direction="row">
+            {(currentIndex > 0) && <Button border={{ radius: 0 }} color="black !important" onClick={onClickBack} label='Go Back' />}
             {(currentIndex + 1 < pageTitles.length) &&
-              <Button border="black 1px solid !important" backgroundImage="none !important" color="black !important" width={125} display="flex" justifyContent="center" onClick={onClickNext}>
-                {currentIndex === 0 ? 'Get Started' : 'Next'}
-              </Button>
+              <Button color="black !important" onClick={onClickNext} label={currentIndex === 0 ? 'Get Started' : 'Next'} />
             }
-          </Pane>
+          </Box>
         </Card>
         <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setNextPage} />
-      </Pane>
-    </Pane >
+      </Box>
+    </Box>
   )
 }
 

@@ -18,13 +18,18 @@ export interface Question {
   validation?: QuestionValidation
   id?: string
   options?: Option[]
+  switch?: Switch
 }
 
-interface Option {
+export interface Option {
   name: string
   id: string
+  value?: string
+}
+interface Switch {
+  [option: string]: Question[] | null
 }
 
-export type QuestionType = 'text' | 'datepicker' | 'email' | 'select' | 'ssn' | 'address_picker' | 'phone' | 'boolean' | string
+export type QuestionType = 'shorttext' | 'datepicker' | 'dropdown' | 'singleselect' | 'address_picker' | 'boolean' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount' | 'longtext' | 'multiselect' | 'email' | string
 
 type QuestionValidation = boolean | 're-enter'
