@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
 import SingleSelect from './SingleSelect'
 import { getCopy } from '../../forms/index'
@@ -10,8 +10,7 @@ interface Props {
 }
 
 const Boolean: React.FC<Props> = (props) => {
-  const { onChange, value } = props
-  
+
   const question = props.question
   question.options = [{
     id: 'true',
@@ -22,7 +21,7 @@ const Boolean: React.FC<Props> = (props) => {
     name: getCopy("no")
   }]
 
-  return <SingleSelect onChange={onChange} value={value} question={question} />
+  return <SingleSelect question={question} />
 }
 
 export default Boolean

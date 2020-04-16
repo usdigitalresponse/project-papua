@@ -17,7 +17,7 @@ export interface Question {
   required?: boolean
   type: QuestionType
   validation?: QuestionValidation
-  id?: string
+  id: string
   options?: Option[]
   switch?: Switch
 }
