@@ -2,6 +2,7 @@ import React from 'react';
 import { Grommet } from 'grommet'
 import './App.css';
 import FormApp from './components/FormApp'
+import { LanguageProvider } from './contexts/language';
 
 const theme = {
   global: {
@@ -37,7 +38,9 @@ function App() {
   return (
     // @ts-ignore: grommet has incomplete type definitions 
     <Grommet className="App" theme={theme}>
-      <FormApp />
+      <LanguageProvider>
+        <FormApp />
+      </LanguageProvider>
     </Grommet>
   )
 }
