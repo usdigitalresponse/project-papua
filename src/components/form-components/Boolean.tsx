@@ -10,13 +10,14 @@ interface Props {
 const Boolean: React.FC<Props> = (props) => {
   const { onChange, value } = props
   const question = props.question
+  // TODO! embed this
   question.options = [{
     id: 'true',
-    name: 'Yes'
+    name: { en: 'Yes' }
   },
   {
     id: 'false',
-    name: 'No'
+    name: { en: 'No' }
   }]
 
   return <SingleSelect onChange={onChange} value={value} question={question} />

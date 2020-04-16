@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
 import { Box, Text } from 'grommet'
 import './single-select.css'
+import { LanguageContext } from '../../contexts/language'
 
 interface Props {
   value: string
@@ -12,6 +13,8 @@ interface Props {
 
 const SingleSelect: React.FC<Props> = (props) => {
   const { question, onChange, value } = props
+  const { language } = useContext(LanguageContext)
+
   if (!question || !question.options) {
     return <Box />
   }
@@ -20,7 +23,7 @@ const SingleSelect: React.FC<Props> = (props) => {
       {question.options.map(o => (
         <Box onClick={() => onChange(o.id)} background={value === o.id ? "#EBFFFA" : "white"} key={o.id} margin={{ bottom: 'xsmall' }} style={{ borderRadius: '4px' }} direction="row" className="single-select-border single-select" pad='small'>
           <Box background={value === o.id ? "#008060" : "white"} margin={{ right: 'small' }} flex={{ shrink: 0 }} style={{ height: 20, width: 20, borderRadius: '50%' }} className="single-select-border" />
-          <Text>{o.name}</Text>
+          <Text>{o.name[language]}</Text>
         </Box>
       ))}
     </Box>

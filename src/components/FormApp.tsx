@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Card, Button } from './helper-components/index'
 import { Box } from 'grommet'
 import { initializeForm } from '../forms'
@@ -6,12 +6,15 @@ import Sidebar from './Sidebar'
 import Introduction from './Introduction'
 import Review from './Review'
 import Form from './Form'
+import { LanguageContext } from '../contexts/language'
 
 const FormApp: React.FC<{}> = () => {
+  const { language } = useContext(LanguageContext)
+
   const form = initializeForm()
   const { pages, state, seal } = form
 
-  const pageTitles = ["Introduction", ...pages.map(page => page.title), "Review & Submit"]
+  const pageTitles = ["Introduction", ...pages.map(page => page.title[language]), "Review & Submit"]
   const pageComponents = [<Introduction state={state} />, ...pages.map(page => <Form page={page} />), <Review />]
 
   const [currentIndex, setCurrentIndex] = useState<number>(0)

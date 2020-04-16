@@ -1,6 +1,6 @@
 import validator from 'validator'
 import form from '../form.json'
-import { Form, Question, QuestionType } from './types'
+import { Form, Question, QuestionType } from './types';
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -17,12 +17,13 @@ export function initializeForm(): Form {
 }
 
 export function isValid(question: Question, answer: string | undefined, secondAnswer?: string): { valid: boolean, reason?: string } {
+  // TODO: translate these validation warningss
   if (question.required && !answer) {
-    return { valid: false, reason: `"${question.name}" is a required field.` }
+    return { valid: false, reason: `"${question.name.en}" is a required field.` }
   }
 
   if (question.validation === 're-enter' && answer !== secondAnswer) {
-    return { valid: false, reason: `The two values for "${question.name}" must match.` }
+    return { valid: false, reason: `The two values for "${question.name.en}" must match.` }
   }
 
   if (question.validation && question.type === 'email' && (!answer || !validator.isEmail(answer))) {

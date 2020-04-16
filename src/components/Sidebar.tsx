@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Card } from './helper-components'
 import { Box, Text, Select, Image } from 'grommet'
+import { LanguageContext } from '../contexts/language'
 
 interface Props {
   pages: string[]
@@ -9,13 +10,17 @@ interface Props {
   setCurrentIndex: (index: number) => void
 }
 
-const languages = ['English', 'Chinese', 'Spanish']
+const languages = [
+  {title: 'English', value: 'en'},
+  {title: '中文', value: 'zh'},
+  {title: 'Español', value: 'es'},
+]
 
 const Sidebar: React.FC<Props> = (props) => {
   const { pages, seal, currentIndex, setCurrentIndex } = props
   const currentPage = pages[currentIndex]
   const percent = Math.floor((currentIndex + 1) / pages.length * 100)
-  const [language, setLanguage] = useState<string>(languages[0])
+  const { language, setLanguage } = useContext(LanguageContext)
 
   return (
     <Card pad="medium" margin={{ left: 'small' }} textAlign="left" height="0%" background="white">
@@ -26,8 +31,10 @@ const Sidebar: React.FC<Props> = (props) => {
           a11yTitle="select language"
           margin={{ top: 'xsmall' }}
           options={languages}
+          labelKey="title"
+          valueKey="value"
           value={language}
-          onChange={({ option }: { option: string }) => setLanguage(option)}
+          onChange={({ option }: { option: { title: string, value: string} }) => setLanguage(option.value)}
         />
       </Box>
       <Box margin={{ top: 'medium' }}>
