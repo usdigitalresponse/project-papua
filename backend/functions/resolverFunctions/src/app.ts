@@ -37,7 +37,9 @@ app.post('/claims', async function(req: Request, res: Response) {
         ContentType: "application/json; charset=utf-8",
     });
 
-    const upload = await s3.send(putObjectCommand)
+    const upload = await s3.send(putObjectCommand).catch(err => {
+        res.status(500).json({message: 'error putting object to s3', bucket: bucket, error: err})
+    })
 
     console.log(upload)
 
