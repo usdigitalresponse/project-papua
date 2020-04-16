@@ -25,7 +25,8 @@ app.post('/claims', async function(req: Request, res: Response) {
         console.log("bad payload: ", JSON.stringify(req.body))
 
         // why isnt this firing now?
-        res.status(422).json({message: `malformed payload`, body: req.body})
+        // res.status(422).json({message: `malformed payload`, body: req.body})
+        res.sendStatus(422)
     }
 
     const uuid = req.body.metadata.uuid
