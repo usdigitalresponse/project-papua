@@ -16,9 +16,9 @@
       "zh": "{{STATE_CODE}} COVID-19紧急失业保险金互联网索赔申请应用于以{{STATE_CODE}}的状态针对已获得或预期获得的收入要求失业金。"
     },
     "intro-2": {
-      "en": "If you have worked in another state and have not worked in {state} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.",
+      "en": "If you have worked in another state and have not worked in {{STATE_CODE}} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.",
       "es": "Si ha trabajado en otro estado y no ha trabajado en {estado} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.",
-      "zh": "如果您在过去18个月内在另一个州工作，而在{state}内没有工作，则必须与最近18个月从事工作的州的失业办公室联系。"
+      "zh": "如果您在过去18个月内在另一个州工作，而在{{STATE_CODE}}内没有工作，则必须与最近18个月从事工作的州的失业办公室联系。"
     },
     "intro-3": {
       "en": "Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
