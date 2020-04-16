@@ -4,6 +4,7 @@ import { Box, Text } from 'grommet'
 import './single-select.css'
 import { LanguageContext } from '../../contexts/language'
 import { translate } from '../../forms/index'
+import { FormContext } from '../../contexts/form'
 
 interface Props {
   value: string[]
@@ -13,21 +14,24 @@ interface Props {
 }
 
 const Multiselect: React.FC<Props> = (props) => {
-  const { question, onChange, value } = props
+  const { question } = props
   const { language } = useContext(LanguageContext)
+  const { values, setValue } = useContext(FormContext)
+  const value = values[question.id] as string[] | string
+
 
   const onSelectValue = (option: string) => {
     if (!value) {
-      return onChange([option])
+      return setValue(question.id, [option])
     }
     if (!Array.isArray(value)) {
-      return onChange([value, option])
+      return setValue(question.id, [value, option])
     }
     if (value.includes(option)) {
-      return onChange(value.filter(val => val !== option))
+      return setValue(question.id, value.filter(val => val !== option))
     }
 
-    onChange([...value, option])
+    setValue(question.id, [...value, option])
   }
 
   if (!question || !question.options) {

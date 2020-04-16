@@ -9,10 +9,16 @@ import Form from "./Form";
 import { LanguageContext } from "../contexts/language";
 import { translate, getCopy } from "../forms/index";
 
+import { FormContext, Values, Errors, Value } from '../contexts/form'
+
+interface FormValues {
+  [questionId: string]: string
+}
+
 const FormApp: React.FC<{}> = () => {
   const { language } = useContext(LanguageContext);
-
   const form = initializeForm();
+
   const { pages, seal } = form;
 
   const pageTitles = [
@@ -27,6 +33,11 @@ const FormApp: React.FC<{}> = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [formValues, setFormValues] = useState<Values>({});
+  const [formErrors, setFormErrors] = useState<Errors>({})
+
+  const setFormValue = (key: string, value: Value) => setFormValues({ ...formValues, [key]: value })
+  const setFormError = (key: string, value: string) => setFormErrors({ ...formErrors, [key]: value })
 
   const setNextPage = (index: number) => {
     setCurrentIndex(index);
@@ -50,7 +61,9 @@ const FormApp: React.FC<{}> = () => {
           flexDirection="column"
           textAlign="left"
         >
-          {pageComponents[currentIndex]}
+          <FormContext.Provider value={{ setError: setFormError, setValue: setFormValue, values: formValues, errors: formErrors }}>
+            {pageComponents[currentIndex]}
+          </FormContext.Provider>
           <Box justify="between" pad="medium" direction="row">
             {currentIndex > 0 && (
               <Button
