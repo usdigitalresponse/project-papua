@@ -1,62 +1,253 @@
 {
-  "state": "CA",
   "seal": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Seal_of_California.svg",
+  "variables": {
+    "STATE_CODE": "CA",
+    "STATE_NAME": "California"
+  },
+  "instructions": {
+    "welcome": {
+      "en": "Welcome to the {{STATE_CODE}} Claims System",
+      "es": "Bienvenido al sistema de reclamos de {{STATE_CODE}}",
+      "zh": "欢迎使用{{STATE_CODE}}索赔系统"
+    },
+    "intro-1": {
+      "en": "The {{STATE_CODE}} COVID-19 Emergency Unemployment Insurance Benefits Internet Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.",
+      "es": "La Solicitud de reclamos por Internet de {{STATE_CODE}} COVID-19 Beneficios de seguro de desempleo de emergencia se debe utilizar para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.",
+      "zh": "{{STATE_CODE}} COVID-19紧急失业保险金互联网索赔申请应用于以{{STATE_CODE}}的状态针对已获得或预期获得的收入要求失业金。"
+    },
+    "intro-2": {
+      "en": "If you have worked in another state and have not worked in {state} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.",
+      "es": "Si ha trabajado en otro estado y no ha trabajado en {estado} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.",
+      "zh": "如果您在过去18个月内在另一个州工作，而在{state}内没有工作，则必须与最近18个月从事工作的州的失业办公室联系。"
+    },
+    "intro-3": {
+      "en": "Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
+      "es": "Los beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.",
+      "zh": "福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。"
+    },
+    "prereqs": {
+      "en": "Please note you may need the following information before filing your claim:",
+      "es": "Tenga en cuenta que puede necesitar la siguiente información antes de presentar su reclamo:",
+      "zh": "请注意，在提出索赔之前，您可能需要以下信息："
+    },
+    "prereqs:ssn": {
+      "en": "Your Social Security Number (SSN)",
+      "es": "Su número de seguro social (SSN)",
+      "zh": "您的社会安全号码（SSN）"
+    },
+    "prereqs:agi": {
+      "en": "Your Adjusted Gross Income from your most recent tax return",
+      "es": "Su ingreso bruto ajustado de su declaración de impuestos más reciente",
+      "zh": "最近一次纳税申报表的调整后总收入"
+    },
+    "prereqs:employment": {
+      "en": "The names, addresses, phone numbers, and dates of employment for all employers where you have worked in the last 18 months.",
+      "es": "Los nombres, direcciones, números de teléfono y fechas de empleo de todos los empleadores en los que ha trabajado en los últimos 18 meses.",
+      "zh": "您过去18个月内工作过的所有雇主的姓名，地址，电话号码和工作日期。"
+    },
+    "prereqs:arn": {
+      "en": "Your Alien Registration Number, if applicable.",
+      "es": "Su número de registro de extranjero, si corresponde.",
+      "zh": "您的外国人注册号（如果适用）。"
+    },
+    "prereqs:children": {
+      "en": "The names, Social Security Numbers and dates of birth for all dependent children.",
+      "es": "Los nombres, números de seguro social y fechas de nacimiento de todos los hijos dependientes.",
+      "zh": "所有受抚养子女的姓名，社会安全号码和出生日期。"
+    },
+    "prereqs:license": {
+      "en": "Your driver's license or state-issued ID number.",
+      "es": "Su licencia de conducir o número de identificación emitido por el estado.",
+      "zh": "您的驾驶执照或国家签发的身份证号。"
+    },
+    "prereqs:bank": {
+      "en": "Your bank account and routing number (if you choose direct deposit as your payment option).",
+      "es": "Su cuenta bancaria y número de ruta (si elige el depósito directo como opción de pago).",
+      "zh": "您的银行帐户和银行转帐号码（如果您选择直接存款作为付款方式）。"
+    },
+    "warning": {
+      "en": "Warning",
+      "es": "Advertencia",
+      "zh": "警告"
+    },
+    "warning:content-1": {
+      "en": "Unless you receive a confirmation number, your claim will not be processed. The {{STATE_CODE}} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.",
+      "es": "A menos que reciba un número de confirmación, su reclamo no será procesado. El {{STATE_CODE}} Departamento de Trabajo y Capacitación no retendrá la información que ingrese para presentar su reclamo hasta que reciba su número de confirmación. La última página de la aplicación de Internet indicará que su reclamo se ha completado y le dará un número de confirmación.",
+      "zh": "除非您收到确认号码，否则您的索偿将不会得到处理。在收到确认号码之前，{{STATE_CODE}}劳工和培训部不会保留您输入的任何用于提出索赔的信息。 Internet应用程序的最后一页将说明您的索赔已经完成，并会给您一个确认号。"
+    },
+    "warning:content-2": {
+      "en": "Please print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.",
+      "es": "Imprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.",
+      "zh": "请打印或记录您的确认号码，并将其保存在安全的地方。如果您提供了与部门联系的电子邮件，则系统最多可能需要72个小时才能将您的唯一确认号码通过电子邮件发送给您。如果您在收到确认码之前退出或刷新页面，则您输入的任何信息都将被丢弃。"
+    },
+    "get-started": {
+      "en": "Get Started",
+      "es": "Empezar",
+      "zh": "开始使用"
+    },
+    "next": {
+      "en": "Next",
+      "es": "próximo",
+      "zh": "下一个"
+    },
+    "yes": {
+      "en": "Yes",
+      "es": "Si",
+      "zh": "是"
+    },
+    "no": {
+      "en": "No",
+      "es": "No",
+      "zh": "没有"
+    },
+    "introduction": {
+      "en": "Introduction",
+      "es": "Introducción",
+      "zh": "介绍"
+    },
+    "submit": {
+      "en": "Review & Submit",
+      "es": "Revisar y enviar",
+      "zh": "审查并提交"
+    },
+    "demo-warning": {
+      "en": "This is for demo purposes only.",
+      "es": "Esto es solo para fines de demostración.",
+      "zh": "这仅用于演示目的。"
+    },
+    "back": {
+      "en": "Go Back",
+      "es": "Regresa",
+      "zh": "回去"
+    },
+    "language": {
+      "en": "Language",
+      "es": "Idioma",
+      "zh": "语言"
+    },
+    "progress": {
+      "en": "Progress",
+      "es": "Progreso",
+      "zh": "进展"
+    },
+    "complete": {
+      "en": "complete",
+      "es": "completar",
+      "zh": "完成"
+    }
+  },
   "pages": [
     {
-      "title": "Name",
-      "heading": "What is your name?",
+      "title": {
+        "en": "Name",
+        "es": "Nombre",
+        "zh": "名称"
+      },
+      "heading": {
+        "en": "What is your name?",
+        "es": "¿Cuál es tu nombre?",
+        "zh": "你叫什么名字？"
+      },
       "questions": [
         {
-          "name": "First Name",
+          "name": {
+            "en": "First Name",
+            "es": "Nombre de pila",
+            "zh": "名字"
+          },
           "id": "first_name",
           "required": true,
           "type": "shorttext"
         },
         {
-          "name": "Middle Name",
+          "name": {
+            "en": "Middle Name",
+            "es": "Segundo nombre",
+            "zh": "中间名字"
+          },
           "id": "middle_name",
           "type": "shorttext"
         },
         {
-          "name": "Last Name",
+          "name": {
+            "en": "Last Name",
+            "es": "Apellido",
+            "zh": "姓"
+          },
           "id": "last_name",
           "required": true,
           "type": "shorttext"
         },
         {
-          "name": "Enter any other name you are known by",
+          "name": {
+            "en": "Enter any other name you are known by",
+            "es": "Ingrese cualquier otro nombre por el que sea conocido",
+            "zh": "输入您知道的其他任何名称"
+          },
           "id": "known_as_name",
           "type": "shorttext",
-          "instructions": "For example, if your name is “Sandra” and you go by “Sandy,” or your name is “Robert” and you go by “Rob,” write it down here."
+          "instructions": {
+            "en": "For example, if your name is “Sandra” and you go by “Sandy,” or your name is “Robert” and you go by “Rob,” write it down here.",
+            "es": "Por ejemplo, si tu nombre es \"Sandra\" y vas por \"Sandy\", o tu nombre es \"Robert\" y vas por \"Rob\", escríbelo aquí.",
+            "zh": "例如，如果您的名字是“ Sandra”，而您的名字是“ Sandy”，或者您的名字是“ Robert”，而您的名字是“ Rob”，请在此处写下。"
+          }
         }
       ]
     },
     {
-      "title": "Birthday and gender",
-      "heading": "More about you",
+      "title": {
+        "en": "Birthday and gender",
+        "es": "Cumpleaños y género",
+        "zh": "生日和性别"
+      },
+      "heading": {
+        "en": "More about you",
+        "es": "Mas sobre ti",
+        "zh": "有关您的更多信息"
+      },
       "questions": [
         {
-          "name": "When were you born?",
+          "name": {
+            "en": "When were you born?",
+            "es": "¿Cuándo naciste?",
+            "zh": "你是什么时候出生的？"
+          },
           "id": "dob",
           "required": true,
           "type": "datepicker"
         },
         {
-          "name": "What is your gender?",
+          "name": {
+            "en": "What is your gender?",
+            "es": "¿Cuál es su género?",
+            "zh": "你的性别是什么？"
+          },
           "id": "gender",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "Male",
+              "name": {
+                "en": "Male",
+                "es": "Masculino",
+                "zh": "男"
+              },
               "id": "male"
             },
             {
-              "name": "Female",
+              "name": {
+                "en": "Female",
+                "es": "Hembra",
+                "zh": "女"
+              },
               "id": "female"
             },
             {
-              "name": "Decline to state",
+              "name": {
+                "en": "Decline to state",
+                "es": "Rechazo de declarar",
+                "zh": "拒绝声明"
+              },
               "id": "decline"
             }
           ]
@@ -64,58 +255,118 @@
       ]
     },
     {
-      "title": "Eligibility",
-      "heading": "Eligibility",
+      "title": {
+        "en": "Eligibility",
+        "es": "Elegibilidad",
+        "zh": "合格"
+      },
+      "heading": {
+        "en": "Eligibility",
+        "es": "Elegibilidad",
+        "zh": "合格"
+      },
       "questions": [
         {
-          "name": "Please select one of the following reasons why you are applying for Pandemic Unemployment Assistance",
-          "instructions": "If none of the following are true, you can't apply for unemployment through this form. Please look into your state unemployment insurance application for further options.",
+          "name": {
+            "en": "Please select one of the following reasons why you are applying for Pandemic Unemployment Assistance",
+            "es": "Seleccione uno de los siguientes motivos por los que solicita la Asistencia de desempleo pandémico",
+            "zh": "请选择以下原因之一，以申请大流行性失业援助"
+          },
+          "instructions": {
+            "en": "If none of the following are true, you can't apply for unemployment through this form. Please look into your state unemployment insurance application for further options.",
+            "es": "Si nada de lo siguiente es cierto, no puede solicitar el desempleo a través de este formulario. Consulte las solicitudes de seguro de desempleo de su estado para obtener más opciones.",
+            "zh": "如果以下任何一项都不成立，则无法通过此表格申请失业。请查看您所在州的失业保险申请表，以了解更多选择。"
+          },
           "id": "reason",
           "required": true,
           "type": "singleselect",
           "options": [
             {
-              "name": "You are unable to work because you have been diagnosed with COVID-19 or are experiencing symptoms of COVID-19 and are seeking a medical diagnosis.",
+              "name": {
+                "en": "You are unable to work because you have been diagnosed with COVID-19 or are experiencing symptoms of COVID-19 and are seeking a medical diagnosis.",
+                "es": "No puede trabajar porque le diagnosticaron COVID-19 o está experimentando síntomas de COVID-19 y está buscando un diagnóstico médico.",
+                "zh": "您无法工作，因为您已被诊断出患有COVID-19或正在出现COVID-19的症状并正在寻求医疗诊断。"
+              },
               "id": "diagnosed"
             },
             {
-              "name": "You are unable to work because a member of your household has been diagnosed with COVID-19.",
+              "name": {
+                "en": "You are unable to work because a member of your household has been diagnosed with COVID-19.",
+                "es": "No puede trabajar porque un miembro de su hogar ha sido diagnosticado con COVID-19.",
+                "zh": "您无法工作，因为您的家庭成员已被诊断出COVID-19。"
+              },
               "id": "household_diagnosed"
             },
             {
-              "name": "You are unable to work because you are providing critical care for a family member or a member of the individual’s household who has been diagnosed with COVID-19.",
+              "name": {
+                "en": "You are unable to work because you are providing critical care for a family member or a member of the individual’s household who has been diagnosed with COVID-19.",
+                "es": "No puede trabajar porque está brindando atención crítica a un miembro de la familia o un miembro del hogar de la persona que ha sido diagnosticado con COVID-19.",
+                "zh": "您无法工作，因为您正在为被诊断出COVID-19的家庭成员或个人家庭成员提供重症监护。"
+              },
               "id": "critical_care"
             },
             {
-              "name": "You are unable to work because a child or other person in the household for which you have primary caregiving responsibility is unable to attend school or another facility that is closed as a direct result of the COVID-19 public health emergency and such school or facility care is required for you to work.",
+              "name": {
+                "en": "You are unable to work because a child or other person in the household for which you have primary caregiving responsibility is unable to attend school or another facility that is closed as a direct result of the COVID-19 public health emergency and such school or facility care is required for you to work.",
+                "es": "No puede trabajar porque un niño u otra persona en el hogar para el cual tiene la responsabilidad principal de cuidar no puede asistir a la escuela u otra instalación que está cerrada como resultado directo de la emergencia de salud pública COVID-19 y la atención de dicha escuela o instalación Se requiere para que usted trabaje.",
+                "zh": "您无法工作，因为您的主要照料责任家庭中的儿童或其他人无法上学或因COVID-19公共卫生紧急情况以及此类学校或设施护理而直接关闭的其他设施是您工作所必需的。"
+              },
               "id": "caregiving"
             },
             {
-              "name": "You are unable to reach your place of employment because of a quarantine imposed as a direct result of the COVID-19 public health emergency.",
+              "name": {
+                "en": "You are unable to reach your place of employment because of a quarantine imposed as a direct result of the COVID-19 public health emergency.",
+                "es": "No puede llegar a su lugar de trabajo debido a una cuarentena impuesta como resultado directo de la emergencia de salud pública COVID-19.",
+                "zh": "由于COVID-19公共卫生紧急事件的直接结果是隔离检疫，因此您无法到达工作地点。"
+              },
               "id": "quarantine"
             },
             {
-              "name": "You are unable to reach your place of employment because you have been advised by a health care provider to self-quarantine due to concerns related to COVID-19.",
+              "name": {
+                "en": "You are unable to reach your place of employment because you have been advised by a health care provider to self-quarantine due to concerns related to COVID-19.",
+                "es": "No puede llegar a su lugar de trabajo porque un proveedor de atención médica le ha aconsejado que se auto-ponga en cuarentena debido a preocupaciones relacionadas con COVID-19.",
+                "zh": "您无法到达您的工作地点，因为由于与COVID-19有关的问题，卫生保健提供者建议您进行自我检疫。"
+              },
               "id": "self-quarantine"
             },
             {
-              "name": "You were scheduled to begin employment and are no longer able to do so as a direct result of COVID-19.",
+              "name": {
+                "en": "You were scheduled to begin employment and are no longer able to do so as a direct result of COVID-19.",
+                "es": "Estaba programado para comenzar a trabajar y ya no puede hacerlo como resultado directo de COVID-19.",
+                "zh": "您原本打算开始工作的，而由于COVID-19的直接结果，您不再能够这样做。"
+              },
               "id": "scheduled"
             },
             {
-              "name": "You have become the breadwinner after the primary head of household passed away as a direct result of COVID-19.",
+              "name": {
+                "en": "You have become the breadwinner after the primary head of household passed away as a direct result of COVID-19.",
+                "es": "Usted se convirtió en el sostén de la familia después de que falleció el jefe de familia principal como resultado directo de COVID-19.",
+                "zh": "在COVID-19的直接结果下，主要一家之主去世后，您已经成为养家糊口的人。"
+              },
               "id": "breadwinner"
             },
             {
-              "name": "You have had to quit your job as a direct result of COVID-19.",
+              "name": {
+                "en": "You have had to quit your job as a direct result of COVID-19.",
+                "es": "Ha tenido que renunciar a su trabajo como resultado directo de COVID-19.",
+                "zh": "由于COVID-19的直接结果，您不得不辞职。"
+              },
               "id": "quit"
             },
             {
-              "name": "Your place of employment is closed as a direct result of the COVID-19 public health emergency.",
+              "name": {
+                "en": "Your place of employment is closed as a direct result of the COVID-19 public health emergency.",
+                "es": "Su lugar de trabajo está cerrado como resultado directo de la emergencia de salud pública COVID-19.",
+                "zh": "COVID-19公共卫生突发事件直接导致您的工作地点关闭。"
+              },
               "id": "closed"
             },
             {
-              "name": "You are an individual who works as an independent contractor with reportable income and are unemployed, partially employed, or unable or unavailable to work because the COVID-19 public health emergency has severely limited your ability to continue performing your customary work activities, and has thereby forced you to suspend such activities.",
+              "name": {
+                "en": "You are an individual who works as an independent contractor with reportable income and are unemployed, partially employed, or unable or unavailable to work because the COVID-19 public health emergency has severely limited your ability to continue performing your customary work activities, and has thereby forced you to suspend such activities.",
+                "es": "Usted es una persona que trabaja como contratista independiente con ingresos declarables y está desempleado, parcialmente empleado, o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad para continuar realizando sus actividades laborales habituales, y por lo tanto te obligó a suspender tales actividades.",
+                "zh": "您是作为独立承包商的人，收入可报告，并且由于COVID-19公共卫生突发事件严重限制了您继续开展常规工作的能力，因此失业，半就业，无法工作或无法工作。强迫您暂停此类活动。"
+              },
               "id": "independent-contractor"
             }
           ]
@@ -123,17 +374,33 @@
       ]
     },
     {
-      "title": "Address",
-      "heading": "What is your address?",
+      "title": {
+        "en": "Address",
+        "es": "Habla a",
+        "zh": "地址"
+      },
+      "heading": {
+        "en": "What is your address?",
+        "es": "¿Cual es tu dirección?",
+        "zh": "你的地址是什么？"
+      },
       "questions": [
         {
-          "name": "Address",
+          "name": {
+            "en": "Address",
+            "es": "Habla a",
+            "zh": "地址"
+          },
           "id": "mailing_address",
           "required": true,
           "type": "address_picker"
         },
         {
-          "name": "Is your mailing address the same as your home address?",
+          "name": {
+            "en": "Is your mailing address the same as your home address?",
+            "es": "¿Su dirección postal es la misma que su domicilio?",
+            "zh": "你的通信地址和家庭住址一样吗？"
+          },
           "id": "mailing_home_address_same",
           "required": true,
           "type": "boolean",
@@ -141,7 +408,11 @@
             "false": null,
             "true": [
               {
-                "name": "Home Address",
+                "name": {
+                  "en": "Home Address",
+                  "es": "Direccion de casa",
+                  "zh": "家庭地址"
+                },
                 "id": "home_address",
                 "required": true,
                 "type": "address_picker"
@@ -152,47 +423,99 @@
       ]
     },
     {
-      "title": "Contact Information",
-      "heading": "How can we get in touch?",
+      "title": {
+        "en": "Contact Information",
+        "es": "Información del contacto",
+        "zh": "联系信息"
+      },
+      "heading": {
+        "en": "How can we get in touch?",
+        "es": "¿Cómo podemos ponernos en contacto?",
+        "zh": "我们如何取得联系？"
+      },
       "questions": [
         {
-          "name": "Telephone number",
-          "instructions": "Provide the telephone number where we can best reach you with questions about your claim.",
+          "name": {
+            "en": "Telephone number",
+            "es": "Número de teléfono",
+            "zh": "电话号码"
+          },
+          "instructions": {
+            "en": "Provide the telephone number where we can best reach you with questions about your claim.",
+            "es": "Proporcione el número de teléfono donde podamos comunicarnos con usted con preguntas sobre su reclamo.",
+            "zh": "提供电话号码，以使我们可以最好地联系您有关您的索赔的问题。"
+          },
           "id": "telephone",
           "required": true,
           "type": "phone"
         },
         {
-          "name": "Preferred language",
-          "instructions": "What language should we use in followup communications?",
+          "name": {
+            "en": "Preferred language",
+            "es": "Idioma preferido",
+            "zh": "首选语言"
+          },
+          "instructions": {
+            "en": "What language should we use in followup communications?",
+            "es": "¿Qué idioma debemos usar en las comunicaciones de seguimiento?",
+            "zh": "在后续交流中应该使用什么语言？"
+          },
           "id": "preferred_language",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "English",
+              "name": {
+                "en": "English",
+                "es": "Inglés",
+                "zh": "英语"
+              },
               "id": "en"
             },
             {
-              "name": "Spanish",
+              "name": {
+                "en": "Spanish",
+                "es": "Español",
+                "zh": "西班牙文"
+              },
               "id": "es"
             },
             {
-              "name": "Chinese",
+              "name": {
+                "en": "Chinese",
+                "es": "chino",
+                "zh": "中文"
+              },
               "id": "zh"
             }
           ]
         },
         {
-          "name": "Cell phone number",
-          "instructions": "This is optional. By providing your cell phone number, you agree to allow the Department to send you communications which may include: important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available skills training opportunities.",
+          "name": {
+            "en": "Cell phone number",
+            "es": "Número Celular",
+            "zh": "手机号码"
+          },
+          "instructions": {
+            "en": "This is optional. By providing your cell phone number, you agree to allow the Department to send you communications which may include: important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available skills training opportunities.",
+            "es": "Esto es opcional Al proporcionar su número de teléfono celular, acepta permitir que el Departamento le envíe comunicaciones que pueden incluir: información importante sobre los programas de Seguro de Desempleo, oportunidades de reclutamiento de trabajo que pueden ser adecuadas para usted, información sobre trabajos disponibles que pueden ser adecuados para usted y Oportunidades de entrenamiento de habilidades disponibles.",
+            "zh": "这是可选的。通过提供您的手机号码，您同意允许美国商务部向您发送通讯，其中可能包括：有关失业保险计划的重要信息，可能适合您的招聘机会，有关可能适合您的可用职位的信息以及现有的技能培训机会。"
+          },
           "id": "cellphone",
           "required": false,
           "type": "phone"
         },
         {
-          "name": "Email address",
-          "instructions": "This is optional. By providing your email, you agree to allow the Department to send you communications which may include: questions relative to the Unemployment Insurance claim you filed, important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available training opportunities. Your email, if provided, will also be used to send you your confirmation code for your Unemployment Insurance application. Please double-check that it is correct.",
+          "name": {
+            "en": "Email address",
+            "es": "Dirección de correo electrónico",
+            "zh": "电子邮件地址"
+          },
+          "instructions": {
+            "en": "This is optional. By providing your email, you agree to allow the Department to send you communications which may include: questions relative to the Unemployment Insurance claim you filed, important information regarding Unemployment Insurance programs, job recruitment opportunities that may be suitable for you, information on available jobs that may be suitable for you, and available training opportunities. Your email, if provided, will also be used to send you your confirmation code for your Unemployment Insurance application. Please double-check that it is correct.",
+            "es": "Esto es opcional Al proporcionar su correo electrónico, acepta permitir que el Departamento le envíe comunicaciones que pueden incluir: preguntas relacionadas con el reclamo de seguro de desempleo que presentó, información importante sobre los programas de seguro de desempleo, oportunidades de contratación de empleo que pueden ser adecuadas para usted, información sobre trabajos disponibles eso puede ser adecuado para usted y las oportunidades de capacitación disponibles. Su correo electrónico, si se proporciona, también se utilizará para enviarle su código de confirmación para su solicitud de seguro de desempleo. Por favor, verifique que sea correcto.",
+            "zh": "这是可选的。提供您的电子邮件，即表示您同意美国商务部向您发送信函，其中可能包括：与您提出的失业保险索赔有关的问题，有关失业保险计划的重要信息，可能适合您的工作招聘机会，有关可用工作的信息可能适合您，并提供培训机会。您的电子邮件（如果提供）还将用于向您发送失业保险申请的确认码。请仔细检查是否正确。"
+          },
           "id": "cellphone",
           "required": false,
           "type": "phone"
@@ -200,57 +523,109 @@
       ]
     },
     {
-      "title": "Demographic Information",
-      "heading": "Which which groups do you identify?",
+      "title": {
+        "en": "Demographic Information",
+        "es": "Información demográfica",
+        "zh": "人口统计信息"
+      },
+      "heading": {
+        "en": "Which which groups do you identify?",
+        "es": "¿Qué grupos identificas?",
+        "zh": "您确定哪些小组？"
+      },
       "questions": [
         {
-          "name": "Race",
+          "name": {
+            "en": "Race",
+            "es": "Raza",
+            "zh": "种族"
+          },
           "id": "race",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "White",
+              "name": {
+                "en": "White",
+                "es": "Blanco",
+                "zh": "白色"
+              },
               "id": "white"
             },
             {
-              "name": "Black",
+              "name": {
+                "en": "Black",
+                "es": "Negro",
+                "zh": "黑色"
+              },
               "id": "black"
             },
             {
-              "name": "Asian",
+              "name": {
+                "en": "Asian",
+                "es": "asiático",
+                "zh": "亚洲人"
+              },
               "id": "asian"
             },
             {
-              "name": "American Indian / Alaskan Native",
+              "name": {
+                "en": "American Indian / Alaskan Native",
+                "es": "Indio Americano / Nativo de Alaska",
+                "zh": "美洲印第安人/阿拉斯加原住民"
+              },
               "id": "aian"
             },
             {
-              "name": "Native Hawaiian / Pacific Islander",
+              "name": {
+                "en": "Native Hawaiian / Pacific Islander",
+                "es": "Nativo de Hawái / Isleño del Pacífico",
+                "zh": "夏威夷原住民/太平洋岛民"
+              },
               "id": "nhpi"
             },
             {
-              "name": "Decline to state",
+              "name": {
+                "en": "Decline to state",
+                "es": "Rechazo de declarar",
+                "zh": "拒绝声明"
+              },
               "id": "decline"
             }
           ]
         },
         {
-          "name": "Ethnicity",
+          "name": {
+            "en": "Ethnicity",
+            "es": "Etnicidad",
+            "zh": "种族"
+          },
           "id": "ethnicity",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "Hispanic or Latino",
+              "name": {
+                "en": "Hispanic or Latino",
+                "es": "hispano o latino",
+                "zh": "西班牙裔或拉丁裔"
+              },
               "id": "hispanic"
             },
             {
-              "name": "Not hispanic or Latino",
+              "name": {
+                "en": "Not hispanic or Latino",
+                "es": "No Hispano o Latino",
+                "zh": "不是西班牙裔或拉丁裔"
+              },
               "id": "non-hispanic"
             },
             {
-              "name": "Decline to State",
+              "name": {
+                "en": "Decline to State",
+                "es": "Rechazo al estado",
+                "zh": "拒绝陈述"
+              },
               "id": "decline"
             }
           ]
@@ -258,17 +633,33 @@
       ]
     },
     {
-      "title": "Identification and Citizenship Information",
-      "heading": "What are your government document IDs?",
+      "title": {
+        "en": "Identification and Citizenship Information",
+        "es": "Identificación e información de ciudadanía",
+        "zh": "身份证明和公民信息"
+      },
+      "heading": {
+        "en": "What are your government document IDs?",
+        "es": "¿Cuáles son sus identificaciones de documentos del gobierno?",
+        "zh": "您的政府文件ID是什么？"
+      },
       "questions": [
         {
-          "name": "Please enter your 9-digit Social Security Number",
+          "name": {
+            "en": "Please enter your 9-digit Social Security Number",
+            "es": "Ingrese su número de seguro social de 9 dígitos",
+            "zh": "请输入您的9位数社会保险号"
+          },
           "id": "ssn",
           "required": true,
           "type": "ssn"
         },
         {
-          "name": "Re-enter your 9-digit Social Security Number",
+          "name": {
+            "en": "Re-enter your 9-digit Social Security Number",
+            "es": "Vuelva a ingresar su número de seguro social de 9 dígitos",
+            "zh": "重新输入您的9位数社会保险号"
+          },
           "id": "ssn_confirm",
           "required": true,
           "type": "ssn",
@@ -276,12 +667,20 @@
             {
               "type": "matches_field",
               "value": "ssn",
-              "error": "Social Security Numbers do not match"
+              "error": {
+                "en": "Social Security Numbers do not match",
+                "es": "Los números de la seguridad social no coinciden",
+                "zh": "社会保险号不匹配"
+              }
             }
           ]
         },
         {
-          "name": "Do you have a Driver's License or state ID?",
+          "name": {
+            "en": "Do you have a Driver's License or state ID?",
+            "es": "¿Tiene una licencia de conducir o una identificación estatal?",
+            "zh": "您有驾驶执照或州ID吗？"
+          },
           "id": "has_dl_or_state_id",
           "required": true,
           "type": "boolean",
@@ -289,13 +688,21 @@
             "false": null,
             "true": [
               {
-                "name": "Enter your Driver's License or state-issued Identification (ID) number",
+                "name": {
+                  "en": "Enter your Driver's License or state-issued Identification (ID) number",
+                  "es": "Ingrese su licencia de conducir o número de identificación (ID) emitido por el estado",
+                  "zh": "输入您的驾驶执照或国家签发的身份证（ID）号"
+                },
                 "id": "dl_or_state_id",
                 "required": true,
                 "type": "shorttext"
               },
               {
-                "name": "What is the expiration date for your driver's license or state-issued ID?",
+                "name": {
+                  "en": "What is the expiration date for your driver's license or state-issued ID?",
+                  "es": "¿Cuál es la fecha de vencimiento de su licencia de conducir o identificación emitida por el estado?",
+                  "zh": "您的驾驶执照或州签发的身份证件的到期日期是什么？"
+                },
                 "id": "dl_or_state_id_exp",
                 "required": true,
                 "type": "datepicker"
@@ -304,14 +711,22 @@
           }
         },
         {
-          "name": "Are you a U.S. Citizen?",
+          "name": {
+            "en": "Are you a U.S. Citizen?",
+            "es": "¿Eres un ciudadano de los Estados Unidos?",
+            "zh": "您是美国公民吗？"
+          },
           "id": "is_us_citizen",
           "required": true,
           "type": "boolean",
           "switch": {
             "false": [
               {
-                "name": "Please enter your Alien Registration Number:",
+                "name": {
+                  "en": "Please enter your Alien Registration Number:",
+                  "es": "Ingrese su número de registro de extranjero:",
+                  "zh": "请输入您的外国人注册号："
+                },
                 "id": "alien_reg_number",
                 "required": true,
                 "type": "shorttext",
@@ -319,12 +734,20 @@
                   {
                     "type": "regex",
                     "value": "^A(\\d){7,9}$",
-                    "error": "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
+                    "error": {
+                      "en": "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits.",
+                      "es": "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos.",
+                      "zh": "所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。"
+                    }
                   }
                 ]
               },
               {
-                "name": "Re-enter your Alien Registration Number:",
+                "name": {
+                  "en": "Re-enter your Alien Registration Number:",
+                  "es": "Vuelva a ingresar su número de registro de extranjero:",
+                  "zh": "重新输入您的外国人注册号："
+                },
                 "id": "alien_reg_number_confirm",
                 "required": true,
                 "type": "shorttext",
@@ -332,12 +755,20 @@
                   {
                     "type": "matches_field",
                     "value": "alien_reg_number",
-                    "error": "Alien Registration Numbers do not match"
+                    "error": {
+                      "en": "Alien Registration Numbers do not match",
+                      "es": "Los números de registro de extranjeros no coinciden",
+                      "zh": "外籍人注册号不匹配"
+                    }
                   }
                 ]
               },
               {
-                "name": "Please enter the country of your citizenship or the country from which your permit was issued.",
+                "name": {
+                  "en": "Please enter the country of your citizenship or the country from which your permit was issued.",
+                  "es": "Ingrese el país de su ciudadanía o el país desde el cual se emitió su permiso.",
+                  "zh": "请输入您的国籍国家或您的许可证签发国家。"
+                },
                 "id": "citizenship_country",
                 "required": true,
                 "type": "shorttext"
@@ -349,64 +780,124 @@
       ]
     },
     {
-      "title": "Education",
-      "heading": "Please tell us about your education",
+      "title": {
+        "en": "Education",
+        "es": "Educación",
+        "zh": "教育"
+      },
+      "heading": {
+        "en": "Please tell us about your education",
+        "es": "Cuéntanos sobre tu educación",
+        "zh": "请告诉我们您的学历"
+      },
       "questions": [
         {
-          "name": "Please select the highest grade that you completed in school.",
+          "name": {
+            "en": "Please select the highest grade that you completed in school.",
+            "es": "Seleccione la calificación más alta que completó en la escuela.",
+            "zh": "请选择您在学校完成的最高成绩。"
+          },
           "id": "highest_grade",
           "required": true,
           "type": "singleselect",
           "options": [
             {
-              "name": "Elementary School or less",
+              "name": {
+                "en": "Elementary School or less",
+                "es": "Escuela primaria o menos",
+                "zh": "小学以下"
+              },
               "id": "elementary"
             },
             {
-              "name": "Middle School",
+              "name": {
+                "en": "Middle School",
+                "es": "Escuela intermedia",
+                "zh": "初中"
+              },
               "id": "middle"
             },
             {
-              "name": "High School (no diploma or G.E.D. equivalent)",
+              "name": {
+                "en": "High School (no diploma or G.E.D. equivalent)",
+                "es": "Preparatoria (sin diploma o equivalente G.E.D.)",
+                "zh": "高中（无文凭或同等学历）"
+              },
               "id": "some-highschool"
             },
             {
-              "name": "High School Diploma or G.E.D. equivalent",
+              "name": {
+                "en": "High School Diploma or G.E.D. equivalent",
+                "es": "Diploma de secundaria o G.E.D. equivalente",
+                "zh": "高中文凭或G.E.D.当量"
+              },
               "id": "highschool"
             },
             {
-              "name": "Some College (no degree)",
+              "name": {
+                "en": "Some College (no degree)",
+                "es": "Alguna universidad (sin título)",
+                "zh": "一些大学（没有学位）"
+              },
               "id": "some-college"
             },
             {
-              "name": "Associate's Degree",
+              "name": {
+                "en": "Associate's Degree",
+                "es": "Grado Asociado",
+                "zh": "副学士学位"
+              },
               "id": "associates"
             },
             {
-              "name": "Bachelor's Degree",
+              "name": {
+                "en": "Bachelor's Degree",
+                "es": "Licenciatura",
+                "zh": "学士学位"
+              },
               "id": "bachelors"
             },
             {
-              "name": "Some Graduate School (no degree)",
+              "name": {
+                "en": "Some Graduate School (no degree)",
+                "es": "Alguna escuela de posgrado (sin título)",
+                "zh": "一些研究生院（无学位）"
+              },
               "id": "some-graduate"
             },
             {
-              "name": "Advanced degree (e.g. master's degree, professional degree, or doctorate)",
+              "name": {
+                "en": "Advanced degree (e.g. master's degree, professional degree, or doctorate)",
+                "es": "Título avanzado (por ejemplo, maestría, título profesional o doctorado)",
+                "zh": "高级学位（例如，硕士学位，专业学位或博士学位）"
+              },
               "id": "graduate"
             }
           ]
         },
         {
-          "name": "Do you have a Post-Secondary Certificate?",
+          "name": {
+            "en": "Do you have a Post-Secondary Certificate?",
+            "es": "¿Tiene un certificado postsecundario?",
+            "zh": "您有中学后证书吗？"
+          },
           "id": "has-post-secondary-certificate",
-          "instructions": "Ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc.",
+          "instructions": {
+            "en": "Ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc.",
+            "es": "Ex. Asistente de Enfermería Certificado (CNA), Licencia de peluquero, Licencia de electricista, etc.",
+            "zh": "例如认证的护理助理（CNA），美发师执照，电工执照等"
+          },
           "required": true,
           "type": "boolean",
           "switch": {
             "false": null,
             "true": [
               {
-                "name": "Please enter the type of certificate (ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc)",
+                "name": {
+                  "en": "Please enter the type of certificate (ex. Certified Nursing Assistant (CNA), Hairdresser License, Electrician License, etc)",
+                  "es": "Ingrese el tipo de certificado (ej. Asistente de enfermería certificada (CNA), Licencia de peluquero, Licencia de electricista, etc.)",
+                  "zh": "请输入证书类型（例如，认证的护理助理（CNA），美发师执照，电工执照等）"
+                },
                 "id": "post-secondary-certificate",
                 "required": true,
                 "type": "shorttext"
@@ -415,7 +906,11 @@
           }
         },
         {
-          "name": "Are you currently attending school?",
+          "name": {
+            "en": "Are you currently attending school?",
+            "es": "¿Actualmente asistes a la escuela?",
+            "zh": "您正在上学吗？"
+          },
           "id": "in-school",
           "required": true,
           "type": "boolean"
@@ -423,11 +918,23 @@
       ]
     },
     {
-      "title": "Military Service",
-      "heading": "Please tell us about any military service",
+      "title": {
+        "en": "Military Service",
+        "es": "Servicio militar",
+        "zh": "兵役"
+      },
+      "heading": {
+        "en": "Please tell us about any military service",
+        "es": "Cuéntanos sobre cualquier servicio militar",
+        "zh": "请告诉我们任何服兵役的情况"
+      },
       "questions": [
         {
-          "name": "Are you a Military veteran?",
+          "name": {
+            "en": "Are you a Military veteran?",
+            "es": "¿Eres un veterano militar?",
+            "zh": "你是退伍军人吗？"
+          },
           "id": "military-veteran",
           "required": true,
           "type": "boolean",
@@ -435,113 +942,213 @@
             "false": null,
             "true": [
               {
-                "name": "Active duty start date",
+                "name": {
+                  "en": "Active duty start date",
+                  "es": "Fecha de inicio del servicio activo",
+                  "zh": "现役开始日期"
+                },
                 "required": true,
                 "id": "active-duty-start",
                 "type": "datepicker"
               },
               {
-                "name": "Active duty end date",
+                "name": {
+                  "en": "Active duty end date",
+                  "es": "Fecha de finalización del servicio activo",
+                  "zh": "现役结束日期"
+                },
                 "required": true,
                 "id": "active-duty-end",
                 "type": "datepicker"
               },
               {
-                "name": "Disability status",
+                "name": {
+                  "en": "Disability status",
+                  "es": "Estado de Discapacidad",
+                  "zh": "残疾状况"
+                },
                 "required": true,
                 "id": "military-disability",
                 "type": "singleselect",
                 "options": [
                   {
-                    "name": "Veteran with no disability",
+                    "name": {
+                      "en": "Veteran with no disability",
+                      "es": "Veterano sin discapacidad",
+                      "zh": "没有残疾的老兵"
+                    },
                     "id": "no-disability"
                   },
                   {
-                    "name": "Veteran with Service-Connected Disability rated at less than 30%?",
+                    "name": {
+                      "en": "Veteran with Service-Connected Disability rated at less than 30%?",
+                      "es": "¿Veterano con discapacidad relacionada con el servicio calificado en menos del 30%?",
+                      "zh": "退伍军人的服务相关残障率低于30％？"
+                    },
                     "id": "disability-less-than-30"
                   },
                   {
-                    "name": "Veteran with Service-Connected Disability rated at 30% or more?",
+                    "name": {
+                      "en": "Veteran with Service-Connected Disability rated at 30% or more?",
+                      "es": "¿Veterano con discapacidad relacionada con el servicio con una calificación del 30% o más?",
+                      "zh": "具有与服务有关的残疾的退伍军人的评分达到或超过30％？"
+                    },
                     "id": "disability-more-than-30"
                   }
                 ]
               },
               {
-                "name": "Have you performed active military service during the last 2 years?",
+                "name": {
+                  "en": "Have you performed active military service during the last 2 years?",
+                  "es": "¿Has realizado un servicio militar activo durante los últimos 2 años?",
+                  "zh": "在过去的两年中，您是否参加过现役？"
+                },
                 "required": true,
                 "id": "military-active-last-two-years",
                 "type": "boolean",
                 "switch": {
                   "true": [
                     {
-                      "name": "Last pay grade (Box #4b)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #4b",
+                      "name": {
+                        "en": "Last pay grade (Box #4b)",
+                        "es": "Última calificación salarial (Casilla # 4b)",
+                        "zh": "最后薪资等级（方框4b）"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #4b",
+                        "es": "Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 4b",
+                        "zh": "请从DD214-成员4，框＃4b输入以下数据"
+                      },
                       "required": true,
                       "id": "military-last-pay-grade",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Net service for this period (Box #12c)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #12c",
+                      "name": {
+                        "en": "Net service for this period (Box #12c)",
+                        "es": "Servicio neto para este período (Cuadro # 12c)",
+                        "zh": "此期间的净服务（方框12c）"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #12c",
+                        "es": "Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 12c",
+                        "zh": "请从DD214-成员4，框＃12c中输入以下数据"
+                      },
                       "required": true,
                       "id": "military-net-service",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Number of days of accrued paid leave (Box #16)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #16",
+                      "name": {
+                        "en": "Number of days of accrued paid leave (Box #16)",
+                        "es": "Número de días de vacaciones pagadas acumuladas (Casilla # 16)",
+                        "zh": "应计带薪休假天数（方框16）"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #16",
+                        "es": "Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 16",
+                        "zh": "请从DD214-成员4，框＃16中输入以下数据"
+                      },
                       "required": true,
                       "id": "military-accured-paid-leave",
                       "type": "decimal"
                     },
                     {
-                      "name": "Character of Service (Box #24)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #24",
+                      "name": {
+                        "en": "Character of Service (Box #24)",
+                        "es": "Carácter del servicio (casilla n. ° 24)",
+                        "zh": "服务性质（第24号方框）"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #24",
+                        "es": "Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 24",
+                        "zh": "请从DD214-成员4，方框＃24中输入以下数据"
+                      },
                       "required": true,
                       "id": "military-character-of-service",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Reason for Separation (Box #28)",
-                      "instructions": "Please enter the following data from your DD214-Member 4, Box #28",
+                      "name": {
+                        "en": "Reason for Separation (Box #28)",
+                        "es": "Motivo de la separación (casilla # 28)",
+                        "zh": "分离原因（第28号方框）"
+                      },
+                      "instructions": {
+                        "en": "Please enter the following data from your DD214-Member 4, Box #28",
+                        "es": "Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 28",
+                        "zh": "请从DD214成员4，第28栏中输入以下数据"
+                      },
                       "required": true,
                       "id": "military-reason-for-separation",
                       "type": "shorttext"
                     },
                     {
-                      "name": "Branch of Service",
+                      "name": {
+                        "en": "Branch of Service",
+                        "es": "Rama de servicio",
+                        "zh": "服务分支"
+                      },
                       "required": true,
                       "id": "military-branch",
                       "type": "dropdown",
                       "options": [
                         {
-                          "name": "Army",
+                          "name": {
+                            "en": "Army",
+                            "es": "Ejército",
+                            "zh": "军队"
+                          },
                           "id": "army"
                         },
                         {
-                          "name": "Navy",
+                          "name": {
+                            "en": "Navy",
+                            "es": "Armada",
+                            "zh": "海军"
+                          },
                           "id": "navy"
                         },
                         {
-                          "name": "Air Force",
+                          "name": {
+                            "en": "Air Force",
+                            "es": "Fuerza Aerea",
+                            "zh": "空军"
+                          },
                           "id": "air-force"
                         },
                         {
-                          "name": "Marines",
+                          "name": {
+                            "en": "Marines",
+                            "es": "Infantería de marina",
+                            "zh": "海军陆战队"
+                          },
                           "id": "marines"
                         },
                         {
-                          "name": "Coast Guard",
+                          "name": {
+                            "en": "Coast Guard",
+                            "es": "guardacostas",
+                            "zh": "海岸警卫队"
+                          },
                           "id": "coast-guard"
                         },
                         {
-                          "name": "Atmospheric Administration",
+                          "name": {
+                            "en": "Atmospheric Administration",
+                            "es": "Administración atmosférica",
+                            "zh": "大气管理"
+                          },
                           "id": "atmospheric"
                         }
                       ]
                     },
                     {
-                      "name": "Last Actual Day of Work with Military Employer",
+                      "name": {
+                        "en": "Last Actual Day of Work with Military Employer",
+                        "es": "Último día real de trabajo con el empleador militar",
+                        "zh": "与军事雇主的最后实际工作日"
+                      },
                       "required": true,
                       "id": "military-work-end",
                       "type": "datepicker"
@@ -555,84 +1162,152 @@
       ]
     },
     {
-      "title": "Employment Status",
-      "heading": "Please tell us about your recent employment status",
+      "title": {
+        "en": "Employment Status",
+        "es": "Estado de Empleo",
+        "zh": "就业状况"
+      },
+      "heading": {
+        "en": "Please tell us about your recent employment status",
+        "es": "Cuéntenos sobre su reciente estado de empleo",
+        "zh": "请告诉我们您最近的就业状况"
+      },
       "questions": [
         {
-          "name": "Are you currently working?",
+          "name": {
+            "en": "Are you currently working?",
+            "es": "Estas trabajando?",
+            "zh": "你现在在工作吗"
+          },
           "id": "employment-currently-working",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you able to work?",
+          "name": {
+            "en": "Are you able to work?",
+            "es": "¿Eres capaz de trabajar?",
+            "zh": "你可以工作吗？"
+          },
           "id": "employment-able-to-work",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you available to work in the coming year?",
+          "name": {
+            "en": "Are you available to work in the coming year?",
+            "es": "¿Estás disponible para trabajar el próximo año?",
+            "zh": "您明年有空工作吗？"
+          },
           "id": "employment-available-to-work",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Have you been employed in the last 12 months?",
+          "name": {
+            "en": "Have you been employed in the last 12 months?",
+            "es": "¿Has estado empleado en los últimos 12 meses?",
+            "zh": "您最近十二个月有工作吗？"
+          },
           "id": "employment-last-12-months",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "How many employers have you had in the last 18 months?",
+          "name": {
+            "en": "How many employers have you had in the last 18 months?",
+            "es": "¿Cuántos empleadores ha tenido en los últimos 18 meses?",
+            "zh": "在过去的18个月中，您有多少个雇主？"
+          },
           "id": "employment-employers-in-last-18-months",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "I am self-employed",
+              "name": {
+                "en": "I am self-employed",
+                "es": "Soy trabajador por cuenta propia",
+                "zh": "我是个体经营者"
+              },
               "id": "self-employed"
             },
             {
-              "name": "1",
+              "name": {
+                "en": "1",
+                "es": "1",
+                "zh": "1个"
+              },
               "id": "1"
             },
             {
-              "name": "2",
+              "name": {
+                "en": "2",
+                "es": "2",
+                "zh": "2"
+              },
               "id": "2"
             },
             {
-              "name": "3",
+              "name": {
+                "en": "3",
+                "es": "3",
+                "zh": "3"
+              },
               "id": "3"
             },
             {
-              "name": "4",
+              "name": {
+                "en": "4",
+                "es": "4 4",
+                "zh": "4"
+              },
               "id": "4"
             },
             {
-              "name": "5 or more",
+              "name": {
+                "en": "5 or more",
+                "es": "5 o más",
+                "zh": "5以上"
+              },
               "id": "5-or-more"
             },
             {
-              "name": "I have not worked in the past 18 months",
+              "name": {
+                "en": "I have not worked in the past 18 months",
+                "es": "No he trabajado en los últimos 18 meses.",
+                "zh": "我过去18个月没有工作"
+              },
               "id": "no-work-in-last-18-months"
             }
           ]
         },
         {
-          "name": "Have you worked in another state(s) during the last 2 years?",
+          "name": {
+            "en": "Have you worked in another state(s) during the last 2 years?",
+            "es": "¿Ha trabajado en otro estado (s) durante los últimos 2 años?",
+            "zh": "在过去的两年中，您是否在其他州工作过？"
+          },
           "id": "employment-other-states",
           "required": true,
           "type": "boolean",
           "switch": {
             "true": [
               {
-                "name": "Please enter start date you were employed outside of ${state_name}.",
+                "name": {
+                  "en": "Please enter start date you were employed outside of {{STATE_NAME}}.",
+                  "es": "Ingrese la fecha de inicio en la que trabajó fuera de {{STATE_NAME}}.",
+                  "zh": "请输入您在{{STATE_NAME}}之外受雇的开始日期。"
+                },
                 "id": "employment-work-outside-state-start",
                 "required": true,
                 "type": "datepicker"
               },
               {
-                "name": "Please enter stop date you were employed outside of ${state_name}.",
+                "name": {
+                  "en": "Please enter stop date you were employed outside of {{STATE_NAME}}.",
+                  "es": "Ingrese la fecha de finalización de su empleo fuera de {{STATE_NAME}}.",
+                  "zh": "请输入您在{{STATE_NAME}}之外工作的终止日期。"
+                },
                 "id": "employment-work-outside-state-stop",
                 "required": true,
                 "type": "datepicker"
@@ -641,27 +1316,47 @@
           }
         },
         {
-          "name": "Prior to becoming unemployed due to COVID-19, were you employed or self-employed as a part of a family unit (or in the same self-employment business as your family members)?",
+          "name": {
+            "en": "Prior to becoming unemployed due to COVID-19, were you employed or self-employed as a part of a family unit (or in the same self-employment business as your family members)?",
+            "es": "Antes de quedar desempleado debido a COVID-19, ¿trabajaba o trabajaba por cuenta propia como parte de una unidad familiar (o en el mismo negocio de trabajo por cuenta propia que los miembros de su familia)?",
+            "zh": "在因COVID-19失业之前，您是作为家庭部门的一部分受雇或自雇的（或与您的家庭成员从事相同的自雇业务）？"
+          },
           "id": "employment-family-unit",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "In your present, or most recent employment, are you also a Corporate Officer?",
-          "instructions": "A corporate officer is a high-level management official of a corporation or an unincorporated business, such as a president, vice president, secretary, financial officer or chief executive officer (CEO).",
+          "name": {
+            "en": "In your present, or most recent employment, are you also a Corporate Officer?",
+            "es": "En su empleo actual o más reciente, ¿es usted también un oficial corporativo?",
+            "zh": "在您目前或最近的工作中，您也是公司主管吗？"
+          },
+          "instructions": {
+            "en": "A corporate officer is a high-level management official of a corporation or an unincorporated business, such as a president, vice president, secretary, financial officer or chief executive officer (CEO).",
+            "es": "Un funcionario corporativo es un funcionario administrativo de alto nivel de una corporación o empresa no incorporada, como un presidente, vicepresidente, secretario, funcionario financiero o director ejecutivo (CEO).",
+            "zh": "公司官员是公司或非法人企业的高级管理人员，例如总裁，副总裁，秘书，财务官员或首席执行官（CEO）。"
+          },
           "id": "employment-corporate-officer",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Have you been employed by the Federal Government as a civilian (not active military) during the last 2 years?",
+          "name": {
+            "en": "Have you been employed by the Federal Government as a civilian (not active military) during the last 2 years?",
+            "es": "¿Ha estado empleado por el gobierno federal como civil (no militar activo) durante los últimos 2 años?",
+            "zh": "在过去的两年中，您是否曾被联邦政府雇用为文职人员（非现役军人）？"
+          },
           "id": "employment-federal-employee",
           "required": true,
           "type": "boolean",
           "switch": {
             "true": [
               {
-                "name": "Please enter the last actual day of work with Federal Employer",
+                "name": {
+                  "en": "Please enter the last actual day of work with Federal Employer",
+                  "es": "Ingrese el último día real de trabajo con el empleador federal",
+                  "zh": "请输入与联邦雇主的最后实际工作日"
+                },
                 "id": "employment-federal-employee-last-date",
                 "required": true,
                 "type": "datepicker"
@@ -670,55 +1365,99 @@
           }
         },
         {
-          "name": "Are you a member of a Hiring Hall Trade Union?",
+          "name": {
+            "en": "Are you a member of a Hiring Hall Trade Union?",
+            "es": "¿Eres miembro de un sindicato Hiring Hall?",
+            "zh": "您是招聘大厅工会的成员吗？"
+          },
           "id": "employment-in-trade-union",
           "required": true,
           "type": "boolean",
           "switch": {
             "true": [
               {
-                "name": "Please select the Trade Union you belong to.",
+                "name": {
+                  "en": "Please select the Trade Union you belong to.",
+                  "es": "Seleccione el Sindicato al que pertenece.",
+                  "zh": "请选择您所属的工会。"
+                },
                 "id": "employment-trade-union",
                 "required": true,
                 "type": "dropdown",
                 "options": [
                   {
-                    "name": "Local 1196 Brotherhood of Electrical Workers",
+                    "name": {
+                      "en": "Local 1196 Brotherhood of Electrical Workers",
+                      "es": "Local 1196 Hermandad de Trabajadores Eléctricos",
+                      "zh": "当地的1196年电气工人兄弟会"
+                    },
                     "id": "1196"
                   },
                   {
-                    "name": "Local 94 Carpenters",
+                    "name": {
+                      "en": "Local 94 Carpenters",
+                      "es": "94 carpinteros locales",
+                      "zh": "本地94名木匠"
+                    },
                     "id": "94"
                   },
                   {
-                    "name": "Local 99 Electricians",
+                    "name": {
+                      "en": "Local 99 Electricians",
+                      "es": "Electricistas locales 99",
+                      "zh": "本地99名电工"
+                    },
                     "id": "99"
                   },
                   {
-                    "name": "Local 1033 Laborers International",
+                    "name": {
+                      "en": "Local 1033 Laborers International",
+                      "es": "Local 1033 Obreros Internacional",
+                      "zh": "本地1033国际劳工组织"
+                    },
                     "id": "1033"
                   },
                   {
-                    "name": "Local 57 Operating Engineers",
+                    "name": {
+                      "en": "Local 57 Operating Engineers",
+                      "es": "Ingenieros de operaciones locales 57",
+                      "zh": "本地57名运营工程师"
+                    },
                     "id": "57"
                   },
                   {
-                    "name": "Local 51 Plumbers & Pipefitters",
+                    "name": {
+                      "en": "Local 51 Plumbers & Pipefitters",
+                      "es": "Fontaneros y fontaneros locales 51",
+                      "zh": "本地51水管工和管道工"
+                    },
                     "id": "51"
                   },
                   {
-                    "name": "Local 251 Teamsters",
+                    "name": {
+                      "en": "Local 251 Teamsters",
+                      "es": "251 Teamsters locales",
+                      "zh": "当地251名队友"
+                    },
                     "id": "251"
                   },
                   {
-                    "name": "Other",
+                    "name": {
+                      "en": "Other",
+                      "es": "Otro",
+                      "zh": "其他"
+                    },
                     "id": "other"
                   }
                 ],
                 "switch": {
                   "other": [
                     {
-                      "name": "List other Trade Union you're a member of",
+                      "name": {
+                        "en": "List other Trade Union you're a member of",
+                        "es": "Enumere otro Sindicato del que sea miembro",
+                        "zh": "列出您所属的其他工会"
+                      },
                       "id": "employer-trade-union-other",
                       "required": true,
                       "type": "shorttext"
@@ -732,121 +1471,225 @@
       ]
     },
     {
-      "title": "Employment History",
-      "heading": "Tell us more about your employment history",
-      "instructions": "Please provide your employment history for your most relevant employer (such as your largest or most common client or business in your capacity as a gig worker, contract worker, small business owner, worker for hire, or self-employed individual) during the last 18 months.\nIf you're self-employed, you are your own employer and should enter that information.",
+      "title": {
+        "en": "Employment History",
+        "es": "Historial de empleo",
+        "zh": "工作经历"
+      },
+      "heading": {
+        "en": "Tell us more about your employment history",
+        "es": "Cuéntanos más sobre tu historial laboral",
+        "zh": "告诉我们更多关于您的工作经历"
+      },
+      "instructions": {
+        "en": "Please provide your employment history for your most relevant employer (such as your largest or most common client or business in your capacity as a gig worker, contract worker, small business owner, worker for hire, or self-employed individual) during the last 18 months.\nIf you're self-employed, you are your own employer and should enter that information.",
+        "es": "Proporcione su historial de empleo para su empleador más relevante (como su cliente o negocio más grande o más común en su calidad de trabajador por cuenta propia, trabajador por contrato, propietario de una pequeña empresa, trabajador por cuenta ajena o autónomo) durante los últimos 18 meses.\nSi trabaja por cuenta propia, es su propio empleador y debe ingresar esa información.",
+        "zh": "请提供过去18年来您最相关的雇主（例如，以零工，合同工，小企业主，待租工人或个体经营者身份担任的最大或最普通客户或企业）的工作经历。几个月。\n如果您是自雇人士，则您是自己的雇主，应输入该信息。"
+      },
       "questions": [
         {
-          "name": "Employer name",
-          "instructions": "This may be the Corporate name; verify name on pay stub.",
+          "name": {
+            "en": "Employer name",
+            "es": "Nombre del empleador",
+            "zh": "雇主名称"
+          },
+          "instructions": {
+            "en": "This may be the Corporate name; verify name on pay stub.",
+            "es": "Este puede ser el nombre corporativo; verificar el nombre en el talón de pago.",
+            "zh": "这可能是公司名称；验证工资单上的姓名。"
+          },
           "id": "employer-name",
           "required": true,
           "type": "shorttext"
         },
         {
-          "name": "Employer address",
+          "name": {
+            "en": "Employer address",
+            "es": "Dirección del empleado",
+            "zh": "雇主地址"
+          },
           "id": "employer-address",
           "required": true,
           "type": "address"
         },
         {
-          "name": "Employer phone number",
+          "name": {
+            "en": "Employer phone number",
+            "es": "Número de teléfono del empleador",
+            "zh": "雇主电话号码"
+          },
           "id": "employer-phone-number",
           "required": true,
           "type": "phone"
         },
         {
-          "name": "Your Job Title",
+          "name": {
+            "en": "Your Job Title",
+            "es": "Su puesto de trabajo",
+            "zh": "你的工作职位"
+          },
           "id": "employer-job-title",
           "required": true,
           "type": "shorttext"
         },
         {
-          "name": "How many of the last 18 months were you working for this employer?",
+          "name": {
+            "en": "How many of the last 18 months were you working for this employer?",
+            "es": "¿Cuántos de los últimos 18 meses trabajó para este empleador?",
+            "zh": "您过去18个月中有多少为该雇主工作？"
+          },
           "id": "employer-how-many-months",
           "required": true,
           "type": "integer"
         },
         {
-          "name": "First Day of Work",
+          "name": {
+            "en": "First Day of Work",
+            "es": "Primer día de trabajo",
+            "zh": "工作的第一天"
+          },
           "id": "employer-first-day-of-work",
           "required": true,
           "type": "datepicker"
         },
         {
-          "name": "Last actual Day of Work",
-          "instructions": "Please provide the last day you actually performed work for your employer.",
+          "name": {
+            "en": "Last actual Day of Work",
+            "es": "Último día real de trabajo",
+            "zh": "最后实际工作日"
+          },
+          "instructions": {
+            "en": "Please provide the last day you actually performed work for your employer.",
+            "es": "Indique el último día en que realizó el trabajo para su empleador.",
+            "zh": "请提供您实际为雇主执行工作的最后一天。"
+          },
           "id": "employer-last-day-of-work",
           "required": true,
           "type": "datepicker"
         },
         {
-          "name": "Was your work performed in {state_name}?",
+          "name": {
+            "en": "Was your work performed in {{STATE_NAME}}?",
+            "es": "¿Tu trabajo se realizó en {{STATE_NAME}}?",
+            "zh": "您的工作是在{{STATE_NAME}}中进行的吗？"
+          },
           "id": "employer-in-state",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Did you work for this employer full-time, part-time or on a staggered schedule?",
+          "name": {
+            "en": "Did you work for this employer full-time, part-time or on a staggered schedule?",
+            "es": "¿Trabajó para este empleador a tiempo completo, a tiempo parcial o en un horario escalonado?",
+            "zh": "您是为该雇主全职，兼职还是按时间表工作？"
+          },
           "id": "employer-type",
           "required": true,
           "type": "singleselect",
           "options": [
             {
-              "name": "I work or worked for this employer full-time.",
+              "name": {
+                "en": "I work or worked for this employer full-time.",
+                "es": "Trabajo o trabajé para este empleador a tiempo completo.",
+                "zh": "我全职工作或为该雇主工作。"
+              },
               "id": "fulltime"
             },
             {
-              "name": "I work or worked for this employer part-time.",
+              "name": {
+                "en": "I work or worked for this employer part-time.",
+                "es": "Trabajo o trabajé para este empleador a tiempo parcial.",
+                "zh": "我在该雇主工作或兼职。"
+              },
               "id": "parttime"
             },
             {
-              "name": "I work or worked for this employer on a staggered schedule.",
+              "name": {
+                "en": "I work or worked for this employer on a staggered schedule.",
+                "es": "Trabajo o trabajé para este empleador en un horario escalonado.",
+                "zh": "我在这个雇主那里工作或工作时间错乱。"
+              },
               "id": "staggered"
             }
           ]
         },
         {
-          "name": "What was your rate of pay?",
+          "name": {
+            "en": "What was your rate of pay?",
+            "es": "¿Cuál fue su tasa de pago?",
+            "zh": "你的薪水是多少？"
+          },
           "id": "employer-pay-rate",
           "required": true,
           "type": "dollar-amount"
         },
         {
-          "name": "Pay Unit",
+          "name": {
+            "en": "Pay Unit",
+            "es": "Unidad de pago",
+            "zh": "支付单位"
+          },
           "id": "employer-pay-unit",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "Per Hour",
+              "name": {
+                "en": "Per Hour",
+                "es": "Por hora",
+                "zh": "每小时"
+              },
               "id": "per-hour"
             },
             {
-              "name": "Per Day",
+              "name": {
+                "en": "Per Day",
+                "es": "Por día",
+                "zh": "每天"
+              },
               "id": "per-day"
             },
             {
-              "name": "Per Week",
+              "name": {
+                "en": "Per Week",
+                "es": "Por semana",
+                "zh": "每周"
+              },
               "id": "per-week"
             },
             {
-              "name": "Per Month",
+              "name": {
+                "en": "Per Month",
+                "es": "Por mes",
+                "zh": "每月"
+              },
               "id": "per-month"
             },
             {
-              "name": "Per Year",
+              "name": {
+                "en": "Per Year",
+                "es": "Por año",
+                "zh": "每年"
+              },
               "id": "per-year"
             },
             {
-              "name": "Other",
+              "name": {
+                "en": "Other",
+                "es": "Otro",
+                "zh": "其他"
+              },
               "id": "other"
             }
           ],
           "switch": {
             "other": [
               {
-                "name": "Describe pay unit",
+                "name": {
+                  "en": "Describe pay unit",
+                  "es": "Describir la unidad de pago.",
+                  "zh": "描述工资单位"
+                },
                 "id": "employer-pay-unit-other",
                 "required": true,
                 "type": "shorttext"
@@ -855,69 +1698,125 @@
           }
         },
         {
-          "name": "Reason for separation",
+          "name": {
+            "en": "Reason for separation",
+            "es": "Motivo de la separación.",
+            "zh": "离职原因"
+          },
           "id": "employer-reason-for-separation",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "COVID-19",
+              "name": {
+                "en": "COVID-19",
+                "es": "COVID-19",
+                "zh": "新冠肺炎"
+              },
               "id": "COVID"
             },
             {
-              "name": "Layoff/Lack of Work (not COVID-19 related)",
+              "name": {
+                "en": "Layoff/Lack of Work (not COVID-19 related)",
+                "es": "Despido / falta de trabajo (no relacionado con COVID-19)",
+                "zh": "裁员/缺工（与COVID-19不相关）"
+              },
               "id": "layoff"
             },
             {
-              "name": "Quit/Voluntary Leaving (not COVID-19 related)",
+              "name": {
+                "en": "Quit/Voluntary Leaving (not COVID-19 related)",
+                "es": "Renuncia / Salida voluntaria (no relacionado con COVID-19)",
+                "zh": "退出/自愿离开（与COVID-19不相关）"
+              },
               "id": "quit"
             },
             {
-              "name": "Retired (not COVID-19 related)",
+              "name": {
+                "en": "Retired (not COVID-19 related)",
+                "es": "Retirado (no relacionado con COVID-19)",
+                "zh": "退休（与COVID-19不相关）"
+              },
               "id": "retired"
             },
             {
-              "name": "Fired/Suspension (not COVID-19 related)",
+              "name": {
+                "en": "Fired/Suspension (not COVID-19 related)",
+                "es": "Despedido / Suspensión (no relacionado con COVID-19)",
+                "zh": "解雇/停职（与COVID-19不相关）"
+              },
               "id": "fired"
             },
             {
-              "name": "Strike/Lockout (not COVID-19 related)",
+              "name": {
+                "en": "Strike/Lockout (not COVID-19 related)",
+                "es": "Huelga / Bloqueo (no relacionado con COVID-19)",
+                "zh": "罢工/停工（与COVID-19不相关）"
+              },
               "id": "strike"
             },
             {
-              "name": "Work Part-Time (not COVID-19 related)",
+              "name": {
+                "en": "Work Part-Time (not COVID-19 related)",
+                "es": "Trabajo a tiempo parcial (no relacionado con COVID-19)",
+                "zh": "兼职工作（与COVID-19不相关）"
+              },
               "id": "part-time"
             },
             {
-              "name": "Stagger (not COVID-19 related)",
+              "name": {
+                "en": "Stagger (not COVID-19 related)",
+                "es": "Stagger (no relacionado con COVID-19)",
+                "zh": "交错（与COVID-19不相关）"
+              },
               "id": "stagger"
             },
             {
-              "name": "Company Vacation (not COVID-19 related)",
+              "name": {
+                "en": "Company Vacation (not COVID-19 related)",
+                "es": "Vacaciones de empresa (no relacionadas con COVID-19)",
+                "zh": "公司休假（与COVID-19不相关）"
+              },
               "id": "vacation"
             }
           ]
         },
         {
-          "name": "Please provide a detailed description of your job duties with this employer (including machines and equipment used, etc.).",
+          "name": {
+            "en": "Please provide a detailed description of your job duties with this employer (including machines and equipment used, etc.).",
+            "es": "Proporcione una descripción detallada de sus tareas laborales con este empleador (incluidas las máquinas y equipos utilizados, etc.).",
+            "zh": "请详细说明您在该雇主处的工作职责（包括使用的机器和设备等）。"
+          },
           "id": "employer-description",
           "required": true,
           "type": "longtext"
         },
         {
-          "name": "Are you currently receiving sick leave, paid time off, or other benefits from your employer equal to your normal salary or pay?",
+          "name": {
+            "en": "Are you currently receiving sick leave, paid time off, or other benefits from your employer equal to your normal salary or pay?",
+            "es": "¿Actualmente recibe licencia por enfermedad, tiempo libre remunerado u otros beneficios de su empleador equivalentes a su salario o paga normal?",
+            "zh": "您当前是否正在从雇主那里获得请病假，带薪休假或其他与您的正常工资相同的福利？"
+          },
           "id": "employer-current-benefits",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you currently teleworking for this employer and receiving your full salary or pay?",
+          "name": {
+            "en": "Are you currently teleworking for this employer and receiving your full salary or pay?",
+            "es": "¿Actualmente está teletrabajando para este empleador y recibe su salario completo o paga?",
+            "zh": "您当前正在为该雇主进行远程办公并收到全薪或薪水吗？"
+          },
           "id": "employer-current-teleworking",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Did you work for this employer for at least four (4) weeks and did you earn at least $[TODO: insert value] per week?",
+          "name": {
+            "en": "Did you work for this employer for at least four (4) weeks and did you earn at least $[TODO: insert value] per week?",
+            "es": "¿Trabajó para este empleador durante al menos cuatro (4) semanas y ganó al menos $ [TODO: insertar valor] por semana?",
+            "zh": "您是否为该雇主工作了至少四（4）周，并且您每周赚取至少$ [TODO：插入价值]？"
+          },
           "id": "employer-at-least-four-weeks",
           "required": true,
           "type": "boolean"
@@ -925,61 +1824,121 @@
       ]
     },
     {
-      "title": "Recent Employment",
-      "heading": "Please tell us more about your last job",
-      "instructions": "You are filing this claim because you have experienced a change in your employment. The following questions are about your most recent work/employment.",
+      "title": {
+        "en": "Recent Employment",
+        "es": "Empleo reciente",
+        "zh": "最近的工作"
+      },
+      "heading": {
+        "en": "Please tell us more about your last job",
+        "es": "Cuéntanos más sobre tu último trabajo",
+        "zh": "请告诉我们更多关于您的上一份工作"
+      },
+      "instructions": {
+        "en": "You are filing this claim because you have experienced a change in your employment. The following questions are about your most recent work/employment.",
+        "es": "Está presentando este reclamo porque ha experimentado un cambio en su empleo. Las siguientes preguntas son sobre su trabajo / empleo más reciente.",
+        "zh": "您正在提出此索赔，因为您的工作经历了变化。以下问题与您最近的工作/工作有关。"
+      },
       "questions": [
         {
-          "name": "Enter your last day of work.",
+          "name": {
+            "en": "Enter your last day of work.",
+            "es": "Ingrese su último día de trabajo.",
+            "zh": "输入您的最后工作日。"
+          },
           "id": "last-day-of-work",
           "required": true,
           "type": "datepicker"
         },
         {
-          "name": "Please select ALL the DAYS you actually worked during the last week of your employment. Please include the last day that you actually performed work for your employer.",
-          "instructions": "For the purposes of this question a week starts on Sunday and ends on Saturday.\nEx. If the last day you worked was a Tuesday, and you work on weekends, you should select Sunday, Monday, and Tuesday.\nIf the last day you worked was a Friday, and you do not work on weekends, you should select Monday, Tuesday, Wednesday, Thursday, and Friday.",
+          "name": {
+            "en": "Please select ALL the DAYS you actually worked during the last week of your employment. Please include the last day that you actually performed work for your employer.",
+            "es": "Seleccione TODOS LOS DÍAS en los que trabajó durante la última semana de su empleo. Incluya el último día que realmente realizó el trabajo para su empleador.",
+            "zh": "请选择在工作的最后一周中您实际工作的所有日子。请附上您实际为雇主执行工作的最后一天。"
+          },
+          "instructions": {
+            "en": "For the purposes of this question a week starts on Sunday and ends on Saturday.\nEx. If the last day you worked was a Tuesday, and you work on weekends, you should select Sunday, Monday, and Tuesday.\nIf the last day you worked was a Friday, and you do not work on weekends, you should select Monday, Tuesday, Wednesday, Thursday, and Friday.",
+            "es": "A los fines de esta pregunta, una semana comienza el domingo y termina el sábado.\nEx. Si el último día que trabajó fue un martes y trabaja los fines de semana, debe seleccionar domingo, lunes y martes.\nSi el último día que trabajó fue un viernes y no trabaja los fines de semana, debe seleccionar lunes, martes, miércoles, jueves y viernes.",
+            "zh": "为了这个问题，一周从星期日开始，到星期六结束。\n例如如果工作的最后一天是星期二，而周末工作，则应选择星期日，星期一和星期二。\n如果您上班的最后一天是星期五，而您不在周末工作，则应选择星期一，星期二，星期三，星期四和星期五。"
+          },
           "id": "last-week-days-worked",
           "required": true,
           "type": "multiselect",
           "options": [
             {
-              "name": "Sunday",
+              "name": {
+                "en": "Sunday",
+                "es": "domingo",
+                "zh": "星期日"
+              },
               "id": "sunday"
             },
             {
-              "name": "Monday",
+              "name": {
+                "en": "Monday",
+                "es": "lunes",
+                "zh": "星期一"
+              },
               "id": "monday"
             },
             {
-              "name": "Tuesday",
+              "name": {
+                "en": "Tuesday",
+                "es": "martes",
+                "zh": "星期二"
+              },
               "id": "tuesday"
             },
             {
-              "name": "Wednesday",
+              "name": {
+                "en": "Wednesday",
+                "es": "miércoles",
+                "zh": "星期三"
+              },
               "id": "wednesday"
             },
             {
-              "name": "Thursday",
+              "name": {
+                "en": "Thursday",
+                "es": "jueves",
+                "zh": "星期四"
+              },
               "id": "thursday"
             },
             {
-              "name": "Friday",
+              "name": {
+                "en": "Friday",
+                "es": "viernes",
+                "zh": "星期五"
+              },
               "id": "friday"
             },
             {
-              "name": "Saturday",
+              "name": {
+                "en": "Saturday",
+                "es": "sábado",
+                "zh": "星期六"
+              },
               "id": "saturday"
             }
           ]
         },
         {
-          "name": "How much in total did you earn at your job(s) the last week you worked, including all wages or salaries, commissions, bonuses, and tips?",
+          "name": {
+            "en": "How much in total did you earn at your job(s) the last week you worked, including all wages or salaries, commissions, bonuses, and tips?",
+            "es": "¿Cuánto ganó en total en su (s) trabajo (s) la última semana que trabajó, incluidos todos los sueldos o salarios, comisiones, bonificaciones y propinas?",
+            "zh": "您上工作的最后一周在工作中赚了多少钱，包括所有工资或薪水，佣金，奖金和小费？"
+          },
           "id": "last-week-paid",
           "required": true,
           "type": "dollar-amount"
         },
         {
-          "name": "How many hours in total did you work during the last week you worked, in total across all jobs?",
+          "name": {
+            "en": "How many hours in total did you work during the last week you worked, in total across all jobs?",
+            "es": "¿Cuántas horas en total trabajó durante la última semana que trabajó, en total en todos los trabajos?",
+            "zh": "在您上一周的工作中，您总共工作了几个小时？"
+          },
           "id": "last-week-hours",
           "required": true,
           "type": "decimal"
@@ -987,136 +1946,256 @@
       ]
     },
     {
-      "title": "Skills",
-      "heading": "Tell us about your professional skills",
+      "title": {
+        "en": "Skills",
+        "es": "Habilidades",
+        "zh": "技能专长"
+      },
+      "heading": {
+        "en": "Tell us about your professional skills",
+        "es": "Cuéntanos sobre tus habilidades profesionales",
+        "zh": "告诉我们您的专业技能"
+      },
       "questions": [
         {
-          "name": "What do you consider your main job?",
+          "name": {
+            "en": "What do you consider your main job?",
+            "es": "¿Cuál consideras que es tu trabajo principal?",
+            "zh": "您认为您的主要工作是什么？"
+          },
           "id": "skills-main-job",
           "required": true,
           "type": "longtext"
         },
         {
-          "name": "Which industry do you think best describes your main job?",
+          "name": {
+            "en": "Which industry do you think best describes your main job?",
+            "es": "¿Qué industria crees que describe mejor tu trabajo principal?",
+            "zh": "您认为哪个行业最能描述您的主要工作？"
+          },
           "id": "skills-industry",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "Agriculture, forestry, fishing, and hunting (ex. dairy farmer, small agriculture business owner)",
+              "name": {
+                "en": "Agriculture, forestry, fishing, and hunting (ex. dairy farmer, small agriculture business owner)",
+                "es": "Agricultura, silvicultura, pesca y caza (por ejemplo, ganadero lechero, propietario de una pequeña empresa agrícola)",
+                "zh": "农业，林业，渔业和狩猎业（例如奶农，小型农业企业主）"
+              },
               "id": "ag"
             },
             {
-              "name": "Armed forces (ex. the US Air Force, the U.S. Coast Guard)",
+              "name": {
+                "en": "Armed forces (ex. the US Air Force, the U.S. Coast Guard)",
+                "es": "Fuerzas armadas (ej. La Fuerza Aérea de los EE. UU., La Guardia Costera de los EE. UU.)",
+                "zh": "武装部队（例如美国空军，美国海岸警卫队）"
+              },
               "id": "armed-forces"
             },
             {
-              "name": "Construction (ex. independent contractor, residential construction company owner)",
+              "name": {
+                "en": "Construction (ex. independent contractor, residential construction company owner)",
+                "es": "Construcción (ex. Contratista independiente, propietario de una empresa de construcción residencial)",
+                "zh": "建筑（例如独立承包商，住宅建筑公司所有者）"
+              },
               "id": "construction"
             },
             {
-              "name": "Educational services (ex. elementary school teacher, independent tutor, sports coach)",
+              "name": {
+                "en": "Educational services (ex. elementary school teacher, independent tutor, sports coach)",
+                "es": "Servicios educativos (por ejemplo, maestro de escuela primaria, tutor independiente, entrenador deportivo)",
+                "zh": "教育服务（例如小学老师，独立导师，体育教练）"
+              },
               "id": "education"
             },
             {
-              "name": "Entertainment (ex. musician, actor)",
+              "name": {
+                "en": "Entertainment (ex. musician, actor)",
+                "es": "Entretenimiento (ex. Músico, actor)",
+                "zh": "娱乐活动（例如音乐家，演员）"
+              },
               "id": "entertainment"
             },
             {
-              "name": "Financial activities (ex. bank employee, realtor, independent contractor)",
+              "name": {
+                "en": "Financial activities (ex. bank employee, realtor, independent contractor)",
+                "es": "Actividades financieras (ex. Empleado bancario, agente inmobiliario, contratista independiente)",
+                "zh": "财务活动（例如银行员工，房地产经纪人，独立承包商）"
+              },
               "id": "finance"
             },
             {
-              "name": "Food service, leisure, and hospitality (ex. hotel employee, food delivery, barber)",
+              "name": {
+                "en": "Food service, leisure, and hospitality (ex. hotel employee, food delivery, barber)",
+                "es": "Servicio de comida, ocio y hospitalidad (ej. Empleado del hotel, entrega de comida, barbero)",
+                "zh": "餐饮服务，休闲和招待（例如酒店员工，送餐，理发店）"
+              },
               "id": "hospitality"
             },
             {
-              "name": "Government (ex. Federal contractor)",
+              "name": {
+                "en": "Government (ex. Federal contractor)",
+                "es": "Gobierno (ex. Contratista federal)",
+                "zh": "政府（联邦承包商除外）"
+              },
               "id": "government"
             },
             {
-              "name": "Health care and social assistance (ex. nursing home aide, personal caregiver)",
+              "name": {
+                "en": "Health care and social assistance (ex. nursing home aide, personal caregiver)",
+                "es": "Atención médica y asistencia social (por ejemplo, asistente de hogar de ancianos, cuidador personal)",
+                "zh": "卫生保健和社会救助（例如疗养院助手，个人护理员）"
+              },
               "id": "healthcare"
             },
             {
-              "name": "Information (ex. radio broadcaster, journalist)",
+              "name": {
+                "en": "Information (ex. radio broadcaster, journalist)",
+                "es": "Información (por ejemplo, locutor de radio, periodista)",
+                "zh": "信息（例如广播电台，记者）"
+              },
               "id": "information"
             },
             {
-              "name": "Manufacturing (ex. factory employee, independent contractor)",
+              "name": {
+                "en": "Manufacturing (ex. factory employee, independent contractor)",
+                "es": "Fabricación (ex empleado de fábrica, contratista independiente)",
+                "zh": "制造业（例如工厂员工，独立承包商）"
+              },
               "id": "manufacturing"
             },
             {
-              "name": "Mining (ex. coal miner, independent contractor)",
+              "name": {
+                "en": "Mining (ex. coal miner, independent contractor)",
+                "es": "Minería (ex. Minero de carbón, contratista independiente)",
+                "zh": "采矿（例如煤矿工人，独立承包商）"
+              },
               "id": "mining"
             },
             {
-              "name": "Professional and business services (ex. accountant, independent consultant, freelance web designer)",
+              "name": {
+                "en": "Professional and business services (ex. accountant, independent consultant, freelance web designer)",
+                "es": "Servicios profesionales y comerciales (por ejemplo, contador, consultor independiente, diseñador web independiente)",
+                "zh": "专业和商业服务（例如会计师，独立顾问，自由网页设计师）"
+              },
               "id": "prof-services"
             },
             {
-              "name": "Retail trade (ex. grocery store employee, clothing store employee, small business owner)",
+              "name": {
+                "en": "Retail trade (ex. grocery store employee, clothing store employee, small business owner)",
+                "es": "Comercio minorista (por ejemplo, empleado de una tienda de comestibles, empleado de una tienda de ropa, propietario de una pequeña empresa)",
+                "zh": "零售业（例如杂货店员工，服装店员工，小企业主）"
+              },
               "id": "retail"
             },
             {
-              "name": "Transportation and warehousing (ex. truck driver, ride share driver, warehouse employee)",
+              "name": {
+                "en": "Transportation and warehousing (ex. truck driver, ride share driver, warehouse employee)",
+                "es": "Transporte y almacenamiento (por ejemplo, conductor de camión, conductor de viaje compartido, empleado de almacén)",
+                "zh": "运输和仓储（例如卡车司机，乘车司机，仓库员工）"
+              },
               "id": "transportion"
             },
             {
-              "name": "Utilities (ex. water processing plant employee, independent contractor)",
+              "name": {
+                "en": "Utilities (ex. water processing plant employee, independent contractor)",
+                "es": "Servicios públicos (por ejemplo, empleado de planta de procesamiento de agua, contratista independiente)",
+                "zh": "公用事业（例如水处理厂员工，独立承包商）"
+              },
               "id": "utilities"
             },
             {
-              "name": "Wholesale trade (ex. motor vehicle part wholesaler, apparel wholesaler)",
+              "name": {
+                "en": "Wholesale trade (ex. motor vehicle part wholesaler, apparel wholesaler)",
+                "es": "Comercio al por mayor (por ejemplo, mayorista de partes de vehículos de motor, mayorista de indumentaria)",
+                "zh": "批发贸易（例如汽车零件批发商，服装批发商）"
+              },
               "id": "wholesale"
             },
             {
-              "name": "Other",
+              "name": {
+                "en": "Other",
+                "es": "Otro",
+                "zh": "其他"
+              },
               "id": "other"
             }
           ]
         },
         {
-          "name": "Has the Coronavirus (COVID-19) crisis made you want to change your main job or sector of employment in the future?",
+          "name": {
+            "en": "Has the Coronavirus (COVID-19) crisis made you want to change your main job or sector of employment in the future?",
+            "es": "¿La crisis del Coronavirus (COVID-19) le ha hecho querer cambiar su trabajo principal o sector de empleo en el futuro?",
+            "zh": "冠状病毒（COVID-19）危机是否使您想在将来改变主要工作或就业部门？"
+          },
           "id": "covid-job-change",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "Yes, I want to change both my main job and sector of employment.",
+              "name": {
+                "en": "Yes, I want to change both my main job and sector of employment.",
+                "es": "Sí, quiero cambiar tanto mi trabajo principal como mi sector de empleo.",
+                "zh": "是的，我想同时改变我的主要工作和就业部门。"
+              },
               "id": "yes-sector-and-main-job"
             },
             {
-              "name": "Yes, I want to change my main job.",
+              "name": {
+                "en": "Yes, I want to change my main job.",
+                "es": "Sí, quiero cambiar mi trabajo principal.",
+                "zh": "是的，我想换主要工作。"
+              },
               "id": "yes-main-job"
             },
             {
-              "name": "Yes, I want to change my sector of employment.",
+              "name": {
+                "en": "Yes, I want to change my sector of employment.",
+                "es": "Sí, quiero cambiar mi sector de empleo.",
+                "zh": "是的，我想改变我的工作领域。"
+              },
               "id": "yes-sector"
             },
             {
-              "name": "No, I do want to change my main job or sector of employment.",
+              "name": {
+                "en": "No, I do want to change my main job or sector of employment.",
+                "es": "No, quiero cambiar mi trabajo principal o sector de empleo.",
+                "zh": "不，我确实想更改我的主要工作或就业部门。"
+              },
               "id": "no"
             }
           ],
           "switch": {
             "yes-sector-and-main-job": [
               {
-                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "name": {
+                  "en": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                  "es": "¿Cómo ha cambiado el Coronavirus (crisis COVID-19) sus futuros planes de carrera?",
+                  "zh": "冠状病毒（COVID-19危机）如何改变了您未来的职业计划？"
+                },
                 "id": "covid-job-change-desc",
                 "type": "longtext"
               }
             ],
             "yes-main-job": [
               {
-                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "name": {
+                  "en": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                  "es": "¿Cómo ha cambiado el Coronavirus (crisis COVID-19) sus futuros planes de carrera?",
+                  "zh": "冠状病毒（COVID-19危机）如何改变了您未来的职业计划？"
+                },
                 "id": "covid-job-change-desc",
                 "type": "longtext"
               }
             ],
             "yes-sector": [
               {
-                "name": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                "name": {
+                  "en": "How has the Coronavirus (COVID-19 crisis) changed your future career plans?",
+                  "es": "¿Cómo ha cambiado el Coronavirus (crisis COVID-19) sus futuros planes de carrera?",
+                  "zh": "冠状病毒（COVID-19危机）如何改变了您未来的职业计划？"
+                },
                 "id": "covid-job-change-desc",
                 "type": "longtext"
               }
@@ -1124,8 +2203,16 @@
           }
         },
         {
-          "name": "Do you want the Department of Labor and Training to reach out to you in the future on how to enroll in a skills training program?",
-          "instructions": "${state_name} offers many skills training programs to help workers gain the skills they need for a promising career. Recent studies suggest that these programs have successfully increased earnings of enrollees by 13% in the year after training. For the typical enrollee, that has meant an extra $325 a month.",
+          "name": {
+            "en": "Do you want the Department of Labor and Training to reach out to you in the future on how to enroll in a skills training program?",
+            "es": "¿Desea que el Departamento de Trabajo y Capacitación se comunique con usted en el futuro sobre cómo inscribirse en un programa de capacitación?",
+            "zh": "您是否希望劳工和培训部将来就如何加入技能培训计划与您联系？"
+          },
+          "instructions": {
+            "en": "{{STATE_NAME}} offers many skills training programs to help workers gain the skills they need for a promising career. Recent studies suggest that these programs have successfully increased earnings of enrollees by 13% in the year after training. For the typical enrollee, that has meant an extra $325 a month.",
+            "es": "{{STATE_NAME}} ofrece muchos programas de capacitación para ayudar a los trabajadores a adquirir las habilidades que necesitan para una carrera prometedora. Estudios recientes sugieren que estos programas han aumentado con éxito las ganancias de los afiliados en un 13% en el año posterior a la capacitación. Para el afiliado típico, eso ha significado un extra de $ 325 por mes.",
+            "zh": "{{STATE_NAME}}提供了许多技能培训计划，以帮助工人获得他们有前途的职业所需的技能。最近的研究表明，这些计划在培训后的一年中成功地将注册者的收入提高了13％。对于典型的入学者，这意味着每月要多付325美元。"
+          },
           "id": "skills-training-signup",
           "required": true,
           "type": "boolean"
@@ -1133,18 +2220,34 @@
       ]
     },
     {
-      "title": "Tax Info",
-      "heading": "We need to know about your recent tax status.",
+      "title": {
+        "en": "Tax Info",
+        "es": "Información fiscal",
+        "zh": "税务资讯"
+      },
+      "heading": {
+        "en": "We need to know about your recent tax status.",
+        "es": "Necesitamos saber sobre su estado fiscal reciente.",
+        "zh": "我们需要了解您最近的纳税状况。"
+      },
       "questions": [
         {
-          "name": "We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?",
+          "name": {
+            "en": "We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?",
+            "es": "Necesitamos su Ingreso Bruto Ajustado (AGI) de su declaración de impuestos más reciente para determinar sus beneficios. ¿Tiene a mano su formulario de ingreso bruto ajustado?",
+            "zh": "我们需要您最近的纳税申报单中的调整后总收入（AGI）来确定您的权益。您手头有“调整后的总收入”表格吗？"
+          },
           "id": "tax-info-have-tax-return",
           "required": true,
           "type": "boolean",
           "switch": {
             "false": [
               {
-                "name": "TODO",
+                "name": {
+                  "en": "TODO",
+                  "es": "TODO",
+                  "zh": "全部"
+                },
                 "id": "TODO",
                 "required": true,
                 "type": "longtext"
@@ -1153,65 +2256,125 @@
           }
         },
         {
-          "name": "For your most recent tax filing, were you married filing jointly, married filing separately, or single?",
+          "name": {
+            "en": "For your most recent tax filing, were you married filing jointly, married filing separately, or single?",
+            "es": "Para su declaración de impuestos más reciente, ¿estuvo casado presentando una declaración conjunta, casada declarando por separado o soltera?",
+            "zh": "对于您最近的纳税申报表，您是已婚夫妻共同申报，已婚夫妻分开申报还是单身？"
+          },
           "id": "tax-info-married",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "Married filing jointly",
+              "name": {
+                "en": "Married filing jointly",
+                "es": "Casado que presenta una declaración conjunta",
+                "zh": "共同结婚"
+              },
               "id": "married-jointly"
             },
             {
-              "name": "Married filing separately",
+              "name": {
+                "en": "Married filing separately",
+                "es": "Casado que presenta por separado",
+                "zh": "已婚备案"
+              },
               "id": "married-separately"
             },
             {
-              "name": "Single",
+              "name": {
+                "en": "Single",
+                "es": "Soltero",
+                "zh": "单"
+              },
               "id": "single"
             }
           ]
         },
         {
-          "name": "What was your Adjusted Gross Income on your most recently filed federal tax return?",
-          "instructions": "You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted:\n\nLine 8b on Form 1040 (for tax year 2019)\nLine 8b on Form 1040-SR (for tax year 2019)\nLine 7 on Form 1040 (for tax year 2018)\nLine 21 on Form 1040A (for tax years before 2018)\nLine 4 on Form 1040EZ (for tax years before 2018)\nLine 35 on Form 1040NR (for tax year 2019 or 2019)",
+          "name": {
+            "en": "What was your Adjusted Gross Income on your most recently filed federal tax return?",
+            "es": "¿Cuál fue su ingreso bruto ajustado en su declaración de impuestos federales presentada más recientemente?",
+            "zh": "您最近提交的联邦纳税申报表上的调整后总收入是多少？"
+          },
+          "instructions": {
+            "en": "You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted:\n\nLine 8b on Form 1040 (for tax year 2019)\nLine 8b on Form 1040-SR (for tax year 2019)\nLine 7 on Form 1040 (for tax year 2018)\nLine 21 on Form 1040A (for tax years before 2018)\nLine 4 on Form 1040EZ (for tax years before 2018)\nLine 35 on Form 1040NR (for tax year 2019 or 2019)",
+            "es": "Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, dependiendo del formulario que haya enviado:\n\nLínea 8b en el Formulario 1040 (para el año fiscal 2019)\nLínea 8b en el Formulario 1040-SR (para el año fiscal 2019)\nLínea 7 en el Formulario 1040 (para el año fiscal 2018)\nLínea 21 en el Formulario 1040A (para años fiscales antes de 2018)\nLínea 4 en el Formulario 1040EZ (para años fiscales antes de 2018)\nLínea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)",
+            "zh": "您可以在最近提交的1040表格中找到调整后的总收入。它位于不同的行，具体取决于您提交的表单：\n\n1040表格上的8b行（适用于2019纳税年度）\n1040-SR表格上的第8b行（适用于2019纳税年度）\n表格1040的第7行（适用于2018纳税年度）\n1040A表格上的第21行（适用于2018之前的纳税年度）\n1040EZ表格上的第4行（适用于2018年之前的纳税年度）\n1040NR表格上的第35行（适用于2019或2019纳税年度）"
+          },
           "id": "tax-info-agi",
           "required": true,
           "type": "dollar-amount"
         },
         {
-          "name": "How many dependent children do you have?",
-          "instructions": "You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return.\n\nA dependent child must be:\n\n1) A natural, adopted, or step-child under the age of 18 whom you support.\n2) A child under the age of 18 for whom you are the court-appointed guardian.\n3) A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.\n\nNOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.",
+          "name": {
+            "en": "How many dependent children do you have?",
+            "es": "¿Cuántos hijos dependientes tienes?",
+            "zh": "您有几个受抚养子女？"
+          },
+          "instructions": {
+            "en": "You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return.\n\nA dependent child must be:\n\n1) A natural, adopted, or step-child under the age of 18 whom you support.\n2) A child under the age of 18 for whom you are the court-appointed guardian.\n3) A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.\n\nNOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.",
+            "es": "Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos.\n\nUn hijo dependiente debe ser:\n\n1) Un hijo natural, adoptado o hijastro menor de 18 años a quien usted apoya.\n2) Un niño menor de 18 años para quien usted es el tutor designado por el tribunal.\n3) Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios.\n\nNOTA: Solo uno de los padres o tutores tiene derecho a recibir la asignación de dependientes por cualquier semana de beneficios de desempleo.",
+            "zh": "无论该孩子与您同住还是您在所得税申报表中要求该孩子，您都有权为任何被抚养的孩子获得其他福利。\n\n受抚养子女必须是：\n\n1）您支持的18岁以下的自然，收养或继子女。\n2）您是法院指定的监护人的18岁以下儿童。\n3）年龄在18岁或以上的肢体或发育残疾且无工作/挣工资的儿童。\n\n注意：只有一位父母或监护人有权获得每周一周的失业救济金。"
+          },
           "id": "tax-info-dependents",
           "required": true,
           "type": "singleselect",
           "options": [
             {
-              "name": "0",
+              "name": {
+                "en": "0",
+                "es": "0",
+                "zh": "0"
+              },
               "id": "0"
             },
             {
-              "name": "1",
+              "name": {
+                "en": "1",
+                "es": "1",
+                "zh": "1"
+              },
               "id": "1"
             },
             {
-              "name": "2",
+              "name": {
+                "en": "2",
+                "es": "2",
+                "zh": "2"
+              },
               "id": "2"
             },
             {
-              "name": "3",
+              "name": {
+                "en": "3",
+                "es": "3",
+                "zh": "3"
+              },
               "id": "3"
             },
             {
-              "name": "4",
+              "name": {
+                "en": "4",
+                "es": "4",
+                "zh": "4"
+              },
               "id": "4"
             },
             {
-              "name": "5 or more",
+              "name": {
+                "en": "5 or more",
+                "es": "5 o más",
+                "zh": "5以上"
+              },
               "id": "5-or-more"
             },
             {
-              "name": "All dependents are already claimed by another parent or guardians' unemployment benefits.",
+              "name": {
+                "en": "All dependents are already claimed by another parent or guardians' unemployment benefits.",
+                "es": "Todos los dependientes ya son reclamados por los beneficios de desempleo de otro padre o tutor.",
+                "zh": "所有家属都已经获得另一位父母或监护人的失业救济金。"
+              },
               "id": "already-getting-benefit"
             }
           ]
@@ -1219,30 +2382,54 @@
       ]
     },
     {
-      "title": "Unemployment Benefits",
-      "heading": "Tell us about any existing unemployment benefits you're receiving.",
+      "title": {
+        "en": "Unemployment Benefits",
+        "es": "Beneficios de desempleado",
+        "zh": "失业救济金"
+      },
+      "heading": {
+        "en": "Tell us about any existing unemployment benefits you're receiving.",
+        "es": "Cuéntenos sobre cualquier beneficio de desempleo existente que esté recibiendo.",
+        "zh": "告诉我们您正在领取的任何现有失业救济金。"
+      },
       "questions": [
         {
-          "name": "Have you applied for or received Unemployment Benefits in a state that is NOT ${state_name} the last 12 months?",
+          "name": {
+            "en": "Have you applied for or received Unemployment Benefits in a state that is NOT {{STATE_NAME}} the last 12 months?",
+            "es": "¿Ha solicitado o recibido beneficios de desempleo en un estado que NO es {{STATE_NAME}} en los últimos 12 meses?",
+            "zh": "在过去的12个月中，您是否在非{{STATE_NAME}}的州申请或获得了失业救济金？"
+          },
           "id": "unemployment-in-another-state",
           "required": true,
           "type": "boolean",
           "switch": {
             "true": [
               {
-                "name": "Select the state where you filed a claim for benefits within the last 12 months",
+                "name": {
+                  "en": "Select the state where you filed a claim for benefits within the last 12 months",
+                  "es": "Seleccione el estado donde presentó un reclamo de beneficios en los últimos 12 meses",
+                  "zh": "选择最近12个月内您提出福利索赔的州"
+                },
                 "id": "unemployment-in-another-state-state",
                 "type": "state-picker",
                 "required": true
               },
               {
-                "name": "What date did you file an Unemployment Insurance claim in that state?",
+                "name": {
+                  "en": "What date did you file an Unemployment Insurance claim in that state?",
+                  "es": "¿En qué fecha presentó un reclamo de seguro de desempleo en ese estado?",
+                  "zh": "您在该州的哪个日期提出了失业保险索赔？"
+                },
                 "id": "unemployment-in-another-state-date",
                 "type": "datepicker",
                 "required": true
               },
               {
-                "name": "Have you had any employment since you last filed a claim?",
+                "name": {
+                  "en": "Have you had any employment since you last filed a claim?",
+                  "es": "¿Ha tenido empleo desde la última vez que presentó un reclamo?",
+                  "zh": "自您上次提出索赔以来，您有工作吗？"
+                },
                 "id": "unemployment-in-another-state-employment-since",
                 "type": "boolean",
                 "required": true
@@ -1253,71 +2440,123 @@
       ]
     },
     {
-      "title": "Other Income",
-      "heading": "Do you have any other income of these types?",
+      "title": {
+        "en": "Other Income",
+        "es": "Otros ingresos",
+        "zh": "其他的收入"
+      },
+      "heading": {
+        "en": "Do you have any other income of these types?",
+        "es": "¿Tiene algún otro ingreso de este tipo?",
+        "zh": "您还有其他这类收入吗？"
+      },
       "questions": [
         {
-          "name": "Are you or anyone in your household receiving Public Assistance?",
+          "name": {
+            "en": "Are you or anyone in your household receiving Public Assistance?",
+            "es": "¿Usted o alguien en su hogar recibe Asistencia Pública?",
+            "zh": "您或您家庭中的任何人都在接受公共援助吗？"
+          },
           "id": "other-income-public-assistance",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?",
+          "name": {
+            "en": "Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?",
+            "es": "¿Usted o alguien en su hogar participa en un programa de trabajo del Departamento de Servicios Humanos (DHS)?",
+            "zh": "您或您家庭中的任何人都参加了人类服务部（DHS）工作计划吗？"
+          },
           "id": "other-income-dhs-work",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?",
+          "name": {
+            "en": "Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?",
+            "es": "¿Usted o alguien en su hogar recibe beneficios de SNAP (también conocidos como cupones de alimentos)?",
+            "zh": "您或您家庭中的任何人都在享受SNAP福利（也称为食品券）吗？"
+          },
           "id": "other-income-snap",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you a Migrant Worker?",
+          "name": {
+            "en": "Are you a Migrant Worker?",
+            "es": "¿Eres un trabajador migrante?",
+            "zh": "您是农民工吗？"
+          },
           "id": "other-income-migrant-worker",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you a person with a disability?",
+          "name": {
+            "en": "Are you a person with a disability?",
+            "es": "¿Eres una persona con discapacidad?",
+            "zh": "您是残疾人吗？"
+          },
           "id": "other-income-disability",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Have you applied for or received Temporary Disability Insurance in the last 2 years?",
+          "name": {
+            "en": "Have you applied for or received Temporary Disability Insurance in the last 2 years?",
+            "es": "¿Ha solicitado o recibido un seguro de incapacidad temporal en los últimos 2 años?",
+            "zh": "您是否在过去两年中申请或收到了临时残疾保险？"
+          },
           "id": "other-income-temp-disability-insurance",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Have you applied for or received Workers’ Compensation in the last 2 years?",
+          "name": {
+            "en": "Have you applied for or received Workers’ Compensation in the last 2 years?",
+            "es": "¿Ha solicitado o recibido compensación laboral en los últimos 2 años?",
+            "zh": "您是否在过去两年中申请或获得了工人赔偿？"
+          },
           "id": "other-income-workers-comp",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Have you applied for or received other Disability Payments in the last 2 years?",
+          "name": {
+            "en": "Have you applied for or received other Disability Payments in the last 2 years?",
+            "es": "¿Ha solicitado o recibido otros pagos por discapacidad en los últimos 2 años?",
+            "zh": "在过去的两年中，您是否已申请或收到其他残疾补助？"
+          },
           "id": "other-income-disability-payments",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you now, or during the next year, will you be collecting a Retirement Pension?",
+          "name": {
+            "en": "Are you now, or during the next year, will you be collecting a Retirement Pension?",
+            "es": "¿Está usted ahora, o durante el próximo año, cobrará una Pensión de jubilación?",
+            "zh": "您是现在还是明年，您将要领取退休金吗？"
+          },
           "id": "other-income-retirement-pension",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you now, or during the next year, will you be collecting a Retirement Annuity?",
+          "name": {
+            "en": "Are you now, or during the next year, will you be collecting a Retirement Annuity?",
+            "es": "¿Está usted ahora, o durante el próximo año, cobrará una anualidad de jubilación?",
+            "zh": "您是现在还是明年，您将要收取退休年金吗？"
+          },
           "id": "other-income-retirement annuity",
           "required": true,
           "type": "boolean"
         },
         {
-          "name": "Are you now, or during the next year, will you be collecting Social Security?",
+          "name": {
+            "en": "Are you now, or during the next year, will you be collecting Social Security?",
+            "es": "¿Estás ahora, o durante el próximo año, estarás cobrando el Seguro Social?",
+            "zh": "您是现在还是明年，您将要收集社会保险吗？"
+          },
           "id": "other-income-social-security",
           "required": true,
           "type": "boolean"
@@ -1325,92 +2564,180 @@
       ]
     },
     {
-      "title": "Payment Info",
-      "heading": "Let's talk about how we can pay you!",
+      "title": {
+        "en": "Payment Info",
+        "es": "Información de pago",
+        "zh": "付款信息"
+      },
+      "heading": {
+        "en": "Let's talk about how we can pay you!",
+        "es": "¡Hablemos sobre cómo podemos pagarle!",
+        "zh": "让我们谈谈我们如何向您付款！"
+      },
       "questions": [
         {
-          "name": "Do you wish to have Income Taxes withheld from your Unemployment Compensation?",
-          "instructions": "Unemployment is taxable income. If you do not withhold state or federal taxes from your benefits, you will be responsible to pay them when you file your tax return. Everyone who collects unemployment benefits will receive a 1099 detailing the total payments received and any taxes paid on that income. You may request changes to your claim’s tax deductions anytime.",
+          "name": {
+            "en": "Do you wish to have Income Taxes withheld from your Unemployment Compensation?",
+            "es": "¿Desea que se le retengan los impuestos sobre la renta de su compensación por desempleo?",
+            "zh": "您是否希望从失业补偿金中扣除所得税？"
+          },
+          "instructions": {
+            "en": "Unemployment is taxable income. If you do not withhold state or federal taxes from your benefits, you will be responsible to pay them when you file your tax return. Everyone who collects unemployment benefits will receive a 1099 detailing the total payments received and any taxes paid on that income. You may request changes to your claim’s tax deductions anytime.",
+            "es": "El desempleo es renta imponible. Si no retiene impuestos estatales o federales de sus beneficios, será responsable de pagarlos cuando presente su declaración de impuestos. Todos los que cobran beneficios de desempleo recibirán un 1099 que detalla los pagos totales recibidos y los impuestos pagados sobre ese ingreso. Puede solicitar cambios en las deducciones de impuestos de su reclamo en cualquier momento.",
+            "zh": "失业是应税收入。如果您没有从福利中预扣州税或联邦税，则您有责任在提交纳税申报表时支付这些税。领取失业救济金的每个人都将收到1099，详细说明已收到的总付款以及对该收入支付的任何税款。您可以随时要求更改索赔的税款扣除额。"
+          },
           "id": "payment-income-withheld",
           "required": true,
           "type": "singleselect",
           "options": [
             {
-              "name": "Yes, I would like both ${state_name} and Federal Income Taxes withheld",
+              "name": {
+                "en": "Yes, I would like both {{STATE_NAME}} and Federal Income Taxes withheld",
+                "es": "Sí, me gustaría retener tanto {{STATE_NAME}} como los impuestos federales sobre la renta",
+                "zh": "是的，我希望同时预扣{{STATE_NAME}}和联邦所得税"
+              },
               "id": "state-and-fed"
             },
             {
-              "name": "Yes, I would like only Federal Income Tax withheld",
+              "name": {
+                "en": "Yes, I would like only Federal Income Tax withheld",
+                "es": "Sí, solo me gustaría retener el impuesto federal sobre la renta",
+                "zh": "是的，我只希望预扣联邦所得税"
+              },
               "id": "fed"
             },
             {
-              "name": "Yes, I would like only ${state_name} Income Tax withheld",
+              "name": {
+                "en": "Yes, I would like only {{STATE_NAME}} Income Tax withheld",
+                "es": "Sí, me gustaría solo {{STATE_NAME}} Impuesto sobre la renta retenido",
+                "zh": "是的，我只预扣{{STATE_NAME}}所得税"
+              },
               "id": "state"
             },
             {
-              "name": "No, I do not want any Income Taxes withheld",
+              "name": {
+                "en": "No, I do not want any Income Taxes withheld",
+                "es": "No, no quiero que se retengan impuestos sobre la renta",
+                "zh": "不，我不想预扣任何所得税"
+              },
               "id": "none"
             }
           ]
         },
         {
-          "name": "Please select a payment option.",
-          "instructions": "There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:\n\nDirect Deposit (DD), which deposits your unemployment benefits into your checking or savings account.\n\nElectronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.",
+          "name": {
+            "en": "Please select a payment option.",
+            "es": "Por favor seleccione una opción de pago.",
+            "zh": "请选择付款方式。"
+          },
+          "instructions": {
+            "en": "There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:\n\nDirect Deposit (DD), which deposits your unemployment benefits into your checking or savings account.\n\nElectronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.",
+            "es": "Hay dos opciones de pago para sus beneficios del Seguro de desempleo de emergencia COVID-19:\n\nDepósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.\n\nTarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo.",
+            "zh": "COVID-19紧急失业保险金有两种付款方式：\n\n直接存款（DD），用于将您的失业救济金存入您的支票或储蓄帐户。\n\n电子支付卡（EPC），其作用类似于借记卡。 EPC由摩根大通银行（J.P. Morgan Chase Bank）管理。如果您选择通过EPC领取保险金，则将从您的索赔处理之日起7-10天内以邮件方式收到您的卡。"
+          },
           "id": "payment-option",
           "required": true,
           "type": "dropdown",
           "options": [
             {
-              "name": "Direct Deposit",
+              "name": {
+                "en": "Direct Deposit",
+                "es": "Deposito directo",
+                "zh": "直接存款"
+              },
               "id": "direct-deposit"
             },
             {
-              "name": "Electronic Payment Card",
+              "name": {
+                "en": "Electronic Payment Card",
+                "es": "Tarjeta de pago electronico",
+                "zh": "电子支付卡"
+              },
               "id": "electronic-payment-card"
             }
           ],
           "switch": {
             "electronic-payment-card": [
               {
-                "name": "Electronic Payment Card",
-                "instructions": "Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees.\n\nThe monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees.",
+                "name": {
+                  "en": "Electronic Payment Card",
+                  "es": "Tarjeta de pago electronico",
+                  "zh": "电子支付卡"
+                },
+                "instructions": {
+                  "en": "Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees.\n\nThe monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees.",
+                  "es": "Visite este enlace para obtener información sobre cómo usar su tarjeta EPC, las tarifas / tarifas de la tarjeta EPC y cómo evitar tarifas innecesarias.\n\nLa tarifa mensual para su EPC es de $ 0. Cuesta $ 0 comprar artículos con su EPC. Las tarifas de retiro de cajeros automáticos son de $ 0 dentro de la red y $ 1.95 fuera de la red. No hay cargos por sobregiro.",
+                  "zh": "请访问此链接以获取有关如何使用EPC卡，EPC卡费用/费率以及如何避免不必要费用的信息。\n\n您的EPC的月费为$ 0。使用EPC购买商品的费用为$ 0。 ATM取款费在网络内为$ 0，在网络外为$ 1.95。没有透支费。"
+                },
                 "type": "instructions-only",
                 "id": "electronic-payment-card"
               }
             ],
             "direct-deposit": [
               {
-                "name": "Bank Name",
+                "name": {
+                  "en": "Bank Name",
+                  "es": "Nombre del banco",
+                  "zh": "银行的名字"
+                },
                 "id": "payment-bank-name",
                 "type": "shorttext",
                 "required": true
               },
               {
-                "name": "Account Type",
+                "name": {
+                  "en": "Account Type",
+                  "es": "Tipo de cuenta",
+                  "zh": "帐户类型"
+                },
                 "id": "payment-account-type",
                 "type": "singleselect",
                 "required": true,
                 "options": [
                   {
-                    "name": "Checking account",
+                    "name": {
+                      "en": "Checking account",
+                      "es": "Cuenta de cheques",
+                      "zh": "支票账户"
+                    },
                     "id": "checking"
                   },
                   {
-                    "name": "Savings account",
+                    "name": {
+                      "en": "Savings account",
+                      "es": "Cuenta de ahorros",
+                      "zh": "储蓄账户"
+                    },
                     "id": "savings"
                   }
                 ]
               },
               {
-                "name": "Account Number",
-                "instructions": "Please type the account number for the account where you would like your benefits to be deposited.",
+                "name": {
+                  "en": "Account Number",
+                  "es": "Número de cuenta",
+                  "zh": "账号"
+                },
+                "instructions": {
+                  "en": "Please type the account number for the account where you would like your benefits to be deposited.",
+                  "es": "Escriba el número de cuenta de la cuenta donde desea que se depositen sus beneficios.",
+                  "zh": "请输入您希望将福利存入的帐户的帐号。"
+                },
                 "id": "payment-account-number",
                 "type": "integer",
                 "required": true
               },
               {
-                "name": "Confirm Account Number",
-                "instructions": "Please re-type the account number for the account where you would like your benefits to be deposited.",
+                "name": {
+                  "en": "Confirm Account Number",
+                  "es": "Confirmar número de cuenta",
+                  "zh": "确认帐号"
+                },
+                "instructions": {
+                  "en": "Please re-type the account number for the account where you would like your benefits to be deposited.",
+                  "es": "Vuelva a escribir el número de cuenta para la cuenta donde desea que se depositen sus beneficios.",
+                  "zh": "请重新输入您想存入收益的帐户的帐号。"
+                },
                 "id": "payment-account-number-confirm",
                 "type": "integer",
                 "required": true,
@@ -1418,19 +2745,35 @@
                   {
                     "type": "matches_field",
                     "value": "payment-account-number",
-                    "error": "Account numbers do not match"
+                    "error": {
+                      "en": "Account numbers do not match",
+                      "es": "Los números de cuenta no coinciden",
+                      "zh": "帐号不匹配"
+                    }
                   }
                 ]
               },
               {
-                "name": "Routing Number",
-                "instructions": "Please type the routing number of your bank.",
+                "name": {
+                  "en": "Routing Number",
+                  "es": "Número de ruta",
+                  "zh": "路由号码"
+                },
+                "instructions": {
+                  "en": "Please type the routing number of your bank.",
+                  "es": "Escriba el número de ruta de su banco.",
+                  "zh": "请输入您的银行的转帐号码。"
+                },
                 "id": "payment-routing-number",
                 "type": "integer",
                 "required": true
               },
               {
-                "name": "Confirm Routing Number",
+                "name": {
+                  "en": "Confirm Routing Number",
+                  "es": "Confirmar número de ruta",
+                  "zh": "确认路由编号"
+                },
                 "id": "payment-routing-number-confirm",
                 "type": "integer",
                 "required": true,
@@ -1438,7 +2781,11 @@
                   {
                     "type": "matches_field",
                     "value": "payment-routing-number",
-                    "error": "Routing numbers do not match"
+                    "error": {
+                      "en": "Routing numbers do not match",
+                      "es": "Los números de ruta no coinciden",
+                      "zh": "路由号码不匹配"
+                    }
                   }
                 ]
               }

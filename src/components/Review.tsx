@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box, Heading, Button } from 'grommet'
+import { getCopy, translate } from '../forms/index';
+import { LanguageContext } from '../contexts/language'
 import Amplify, { API } from 'aws-amplify'
 import awsconfig from '../aws-exports';
 
@@ -27,9 +29,10 @@ function sendData () {
 }
 
 const Review: React.FC<{}> = () => {
+  const { language } = useContext(LanguageContext)
   return (
     <Box pad="medium">
-      <Heading margin="none" level={3}>Review & Submit</Heading>
+      <Heading margin="none" level={3}>{translate(getCopy('submit'), language)}</Heading>
       <Button color="black !important" onClick={sendData}>Post</Button>
     </Box>
   )
