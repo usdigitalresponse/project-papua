@@ -1,8 +1,8 @@
 {
-  "seal": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Seal_of_California.svg",
+  "seal": "/dc.png",
   "variables": {
-    "STATE_CODE": "CA",
-    "STATE_NAME": "California"
+    "STATE_CODE": "DC",
+    "STATE_NAME": "District of Columbia"
   },
   "instructions": {
     "welcome": {
