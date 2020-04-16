@@ -60,11 +60,11 @@ export function isValid(question: Question, answer: string | undefined, secondAn
     return { valid: false, reason: `"${question.name.en}" is a required field.` }
   }
 
-  if (question.validation === 're-enter' && answer !== secondAnswer) {
+  if (question.validate === 're-enter' && answer !== secondAnswer) {
     return { valid: false, reason: `The two values for "${question.name.en}" must match.` }
   }
 
-  if (question.validation && question.type === 'email' && (!answer || !validator.isEmail(answer))) {
+  if (question.validate && question.type === 'email' && (!answer || !validator.isEmail(answer))) {
     return { valid: false, reason: `Please enter a valid email.` }
   }
 
