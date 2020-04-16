@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import { S3Client } from "@aws-sdk/client-s3-node/S3Client";
@@ -6,16 +6,16 @@ import {PutObjectCommand} from "@aws-sdk/client-s3-node/commands/PutObjectComman
 
 const s3 = new S3Client({});
 
-const app = express();
+const app = express()
 app.use(bodyParser.json());
 app.use(awsServerlessExpressMiddleware.eventContext());
-app.use(function(req, res, next) {
+app.use(function(req: Request, res: Response, next: NextFunction) {
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
 });
 
-app.post('/claims', async function(req, res) {
+app.post('/claims', async function(req: Request, res: Response) {
     const now = new Date();
     now.setHours(now.getHours() - 1);
     const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`;
@@ -23,7 +23,7 @@ app.post('/claims', async function(req, res) {
 
     if (Object.keys(req.body).length === 0 || !req.body.metadata || !req.body.questions) {
         console.log("bad payload: ", JSON.stringify(req.body))
-        
+
         // why isnt this firing now?
         res.status(422).json({message: `malformed payload`, body: req.body})
     }
@@ -47,7 +47,7 @@ app.post('/claims', async function(req, res) {
     res.json({success: `claim received`, body: upload})
 });
 
-app.post('/claims/*', function(req, res) {
+app.post('/claims/*', function(req: Request, res: Response) {
     res.json({success: `claim received (no action taken)`})
 });
 
