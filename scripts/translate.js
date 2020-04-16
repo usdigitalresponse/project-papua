@@ -20,7 +20,7 @@
  * The free plan gives you about 500k chars of translations, so you'll be fine with that.
  *
  * Once you got through that setup, GCP will have you download a JSON key. You can then use that key
- * to run this script like so:
+ * to run this script like so (make sure to update your credentials path below!):
  *
  *   GOOGLE_APPLICATION_CREDENTIALS=~/Downloads/PAPUA-59beefc0cfb4.json node ./scripts/translate.js
  *

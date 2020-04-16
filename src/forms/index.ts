@@ -1,6 +1,6 @@
 import validator from 'validator'
 import form from '../form.json'
-import { Form, Question, QuestionType, Copy } from './types';
+import { FormSchema, Form, Question, QuestionType, Copy } from './types';
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -12,8 +12,27 @@ import TextArea from '../components/form-components/TextArea'
 
 
 export function initializeForm(): Form {
-  const baseForm: Form = form
-  return baseForm
+  const rawForm = form
+  
+  // Validate the schema against our Joi schema
+  // which makes it easier to identify issues in the form
+  // than standard TS type validation (which just prints the error
+  // without metadata like array index or object path).
+  if (process.env.NODE_ENV === "development") {
+    const result = FormSchema.validate(rawForm, {
+      abortEarly: false,
+      allowUnknown: false,
+      presence: "required",
+    });
+    if (result.error) {
+      console.error(
+        "form.json does not match the expected schema",
+        result.error
+      );
+    }
+  }
+
+  return rawForm as Form;
 }
 
 export const getCopy = (id: string) => {
