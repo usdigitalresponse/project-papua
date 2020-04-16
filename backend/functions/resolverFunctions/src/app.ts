@@ -21,12 +21,8 @@ app.post('/claims', async function(req: Request, res: Response) {
     const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`;
     const defaultHour = pad(now.getUTCHours() - 1);
 
-    if (Object.keys(req.body).length === 0 || !req.body.metadata || !req.body.questions) {
-        console.log("bad payload: ", JSON.stringify(req.body))
-
-        // why isnt this firing now?
-        // res.status(422).json({message: `malformed payload`, body: req.body})
-        res.sendStatus(422)
+    if (!req.body.metadata || !req.body.questions) {
+        res.status(422).json({message: `malformed payload`, body: req.body})
     }
 
     const uuid = req.body.metadata.uuid
