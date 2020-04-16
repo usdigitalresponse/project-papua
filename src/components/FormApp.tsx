@@ -13,10 +13,10 @@ const FormApp: React.FC<{}> = () => {
   const { language } = useContext(LanguageContext)
 
   const form = initializeForm()
-  const { pages, state, seal } = form
+  const { pages, seal } = form
 
   const pageTitles = [getInstructionalCopy("introduction")[language], ...pages.map(page => page.title[language]), getInstructionalCopy("submit")[language]]
-  const pageComponents = [<Introduction state={state} />, ...pages.map(page => <Form page={page} />), <Review />]
+  const pageComponents = [<Introduction />, ...pages.map(page => <Form page={page} />), <Review />]
 
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 

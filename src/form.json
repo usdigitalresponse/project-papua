@@ -1,16 +1,70 @@
 {
   "state": "CA",
   "seal": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Seal_of_California.svg",
+  "variables": {
+    "STATE_CODE": "CA",
+    "STATE_NAME": "California"
+  },
   "instructions": {
     "welcome": {
-      "en": "Welcome to the CA Claims System",
-      "es": "Bienvenido al sistema de reclamos de CA",
-      "zh": "欢迎使用CA索赔系统"
+      "en": "Welcome to the {{STATE_CODE}} Claims System",
+      "es": "Bienvenido al sistema de reclamos de {{STATE_CODE}}",
+      "zh": "欢迎使用{{STATE_CODE}}索赔系统"
     },
     "intro": {
-      "en": "The CA COVID-19 Emergency Unemployment Insurance Benefits Internet Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of CA.\nIf you have worked in another state and have not worked in CA in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.\nBenefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
-      "es": "La Solicitud de reclamos por Internet de beneficios de seguro de desempleo de emergencia CA COVID-19 debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de CA.\nSi ha trabajado en otro estado y no ha trabajado en CA en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.\nLos beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.",
-      "zh": "应当使用CA COVID-19紧急失业保险利益互联网索赔申请来针对在加利福尼亚州获得的或预期获得的收入索取失业救济。\n如果您在过去18个月内在另一个州工作，但没有在CA工作，则必须联系最近18个月内在您所在州的失业办公室。\n福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。"
+      "en": "The {{STATE_CODE}} COVID-19 Emergency Unemployment Insurance Benefits Internet Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.\nIf you have worked in another state and have not worked in {{STATE_CODE}} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.\nBenefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
+      "es": "La Solicitud de reclamos por Internet de beneficios de seguro de desempleo de emergencia {{STATE_CODE}} COVID-19 debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.\nSi ha trabajado en otro estado y no ha trabajado en {{STATE_CODE}} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.\nLos beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.",
+      "zh": "应当使用{{STATE_CODE}} COVID-19紧急失业保险利益互联网索赔申请来针对在加利福尼亚州获得的或预期获得的收入索取失业救济。\n如果您在过去18个月内在另一个州工作，但没有在{{STATE_CODE}}工作，则必须联系最近18个月内在您所在州的失业办公室。\n福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。"
+    },
+    "prereqs": {
+      "en": "Please note you may need the following information before filing your claim:",
+      "es": "Tenga en cuenta que puede necesitar la siguiente información antes de presentar su reclamo:",
+      "zh": "请注意，在提出索赔之前，您可能需要以下信息："
+    },
+    "prereqs:ssn": {
+      "en": "Your Social Security Number (SSN)",
+      "es": "Su número de seguro social (SSN)",
+      "zh": "您的社会安全号码（SSN）"
+    },
+    "prereqs:agi": {
+      "en": "Your Adjusted Gross Income from your most recent tax return",
+      "es": "Su ingreso bruto ajustado de su declaración de impuestos más reciente",
+      "zh": "最近一次纳税申报表的调整后总收入"
+    },
+    "prereqs:employment": {
+      "en": "The names, addresses, phone numbers, and dates of employment for all employers where you have worked in the last 18 months.",
+      "es": "Los nombres, direcciones, números de teléfono y fechas de empleo de todos los empleadores en los que ha trabajado en los últimos 18 meses.",
+      "zh": "您过去18个月内工作过的所有雇主的姓名，地址，电话号码和工作日期。"
+    },
+    "prereqs:arn": {
+      "en": "Your Alien Registration Number, if applicable.",
+      "es": "Su número de registro de extranjero, si corresponde.",
+      "zh": "您的外国人注册号（如果适用）。"
+    },
+    "prereqs:children": {
+      "en": "The names, Social Security Numbers and dates of birth for all dependent children.",
+      "es": "Los nombres, números de seguro social y fechas de nacimiento de todos los hijos dependientes.",
+      "zh": "所有受抚养子女的姓名，社会安全号码和出生日期。"
+    },
+    "prereqs:license": {
+      "en": "Your driver's license or state-issued ID number.",
+      "es": "Su licencia de conducir o número de identificación emitido por el estado.",
+      "zh": "您的驾驶执照或国家签发的身份证号。"
+    },
+    "prereqs:bank": {
+      "en": "Your bank account and routing number (if you choose direct deposit as your payment option).",
+      "es": "Su cuenta bancaria y número de ruta (si elige el depósito directo como opción de pago).",
+      "zh": "您的银行帐户和银行转帐号码（如果您选择直接存款作为付款方式）。"
+    },
+    "warning": {
+      "en": "Warning",
+      "es": "Advertencia",
+      "zh": "警告"
+    },
+    "warning:content": {
+      "en": "Unless you receive a confirmation number, your claim will not be processed. The {{STATE_CODE}} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.\nPlease print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.",
+      "es": "A menos que reciba un número de confirmación, su reclamo no será procesado. El {{STATE_CODE}} Departamento de Trabajo y Capacitación no retendrá la información que ingrese para presentar su reclamo hasta que reciba su número de confirmación. La última página de la aplicación de Internet indicará que su reclamo se ha completado y le dará un número de confirmación.\nImprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.",
+      "zh": "除非您收到确认号码，否则您的索偿将不会得到处理。在收到确认号码之前，{{STATE_CODE}}劳工和培训部不会保留您输入的任何用于提出索赔的信息。 Internet应用程序的最后一页将说明您的索赔已经完成，并会给您一个确认号。\n请打印或记录您的确认号码，并将其保存在安全的地方。如果您提供了与部门联系的电子邮件，则系统最多可能需要72个小时才能将您的唯一确认号码通过电子邮件发送给您。如果您在收到确认码之前退出或刷新页面，则您输入的任何信息都将被丢弃。"
     },
     "get-started": {
       "en": "Get Started",
@@ -1226,9 +1280,9 @@
             "true": [
               {
                 "name": {
-                  "en": "Please enter start date you were employed outside of ${state_name}.",
-                  "es": "Ingrese la fecha de inicio en la que trabajó fuera de $ {state_name}.",
-                  "zh": "请输入您在$ {state_name}之外受雇的开始日期。"
+                  "en": "Please enter start date you were employed outside of {{STATE_NAME}}.",
+                  "es": "Ingrese la fecha de inicio en la que trabajó fuera de {{STATE_NAME}}.",
+                  "zh": "请输入您在{{STATE_NAME}}之外受雇的开始日期。"
                 },
                 "id": "employment-work-outside-state-start",
                 "required": true,
@@ -1236,9 +1290,9 @@
               },
               {
                 "name": {
-                  "en": "Please enter stop date you were employed outside of ${state_name}.",
-                  "es": "Ingrese la fecha de finalización de su empleo fuera de $ {state_name}.",
-                  "zh": "请输入您在$ {state_name}之外工作的终止日期。"
+                  "en": "Please enter stop date you were employed outside of {{STATE_NAME}}.",
+                  "es": "Ingrese la fecha de finalización de su empleo fuera de {{STATE_NAME}}.",
+                  "zh": "请输入您在{{STATE_NAME}}之外工作的终止日期。"
                 },
                 "id": "employment-work-outside-state-stop",
                 "required": true,
@@ -1501,9 +1555,9 @@
         },
         {
           "name": {
-            "en": "Was your work performed in {state_name}?",
-            "es": "¿Tu trabajo se realizó en {state_name}?",
-            "zh": "您的工作是在{state_name}中进行的吗？"
+            "en": "Was your work performed in {{STATE_NAME}}?",
+            "es": "¿Tu trabajo se realizó en {{STATE_NAME}}?",
+            "zh": "您的工作是在{{STATE_NAME}}中进行的吗？"
           },
           "id": "employer-in-state",
           "required": true,
@@ -2141,9 +2195,9 @@
             "zh": "您是否希望劳工和培训部将来就如何加入技能培训计划与您联系？"
           },
           "instructions": {
-            "en": "${state_name} offers many skills training programs to help workers gain the skills they need for a promising career. Recent studies suggest that these programs have successfully increased earnings of enrollees by 13% in the year after training. For the typical enrollee, that has meant an extra $325 a month.",
-            "es": "$ {state_name} ofrece muchos programas de capacitación para ayudar a los trabajadores a adquirir las habilidades que necesitan para una carrera prometedora. Estudios recientes sugieren que estos programas han aumentado con éxito las ganancias de los afiliados en un 13% en el año posterior a la capacitación. Para el afiliado típico, eso ha significado un extra de $ 325 por mes.",
-            "zh": "$ {state_name}提供了许多技能培训计划，以帮助工人获得他们有前途的职业所需的技能。最近的研究表明，这些计划在培训后的一年中成功地将注册者的收入提高了13％。对于典型的入学者，这意味着每月要多付325美元。"
+            "en": "{{STATE_NAME}} offers many skills training programs to help workers gain the skills they need for a promising career. Recent studies suggest that these programs have successfully increased earnings of enrollees by 13% in the year after training. For the typical enrollee, that has meant an extra $325 a month.",
+            "es": "{{STATE_NAME}} ofrece muchos programas de capacitación para ayudar a los trabajadores a adquirir las habilidades que necesitan para una carrera prometedora. Estudios recientes sugieren que estos programas han aumentado con éxito las ganancias de los afiliados en un 13% en el año posterior a la capacitación. Para el afiliado típico, eso ha significado un extra de $ 325 por mes.",
+            "zh": "{{STATE_NAME}}提供了许多技能培训计划，以帮助工人获得他们有前途的职业所需的技能。最近的研究表明，这些计划在培训后的一年中成功地将注册者的收入提高了13％。对于典型的入学者，这意味着每月要多付325美元。"
           },
           "id": "skills-training-signup",
           "required": true,
@@ -2327,9 +2381,9 @@
       "questions": [
         {
           "name": {
-            "en": "Have you applied for or received Unemployment Benefits in a state that is NOT ${state_name} the last 12 months?",
-            "es": "¿Ha solicitado o recibido beneficios de desempleo en un estado que NO es $ {state_name} en los últimos 12 meses?",
-            "zh": "在过去的12个月中，您是否在非$ {state_name}的州申请或获得了失业救济金？"
+            "en": "Have you applied for or received Unemployment Benefits in a state that is NOT {{STATE_NAME}} the last 12 months?",
+            "es": "¿Ha solicitado o recibido beneficios de desempleo en un estado que NO es {{STATE_NAME}} en los últimos 12 meses?",
+            "zh": "在过去的12个月中，您是否在非{{STATE_NAME}}的州申请或获得了失业救济金？"
           },
           "id": "unemployment-in-another-state",
           "required": true,
@@ -2524,9 +2578,9 @@
           "options": [
             {
               "name": {
-                "en": "Yes, I would like both ${state_name} and Federal Income Taxes withheld",
-                "es": "Sí, me gustaría retener tanto $ {state_name} como los impuestos federales sobre la renta",
-                "zh": "是的，我希望同时预扣$ {state_name}和联邦所得税"
+                "en": "Yes, I would like both {{STATE_NAME}} and Federal Income Taxes withheld",
+                "es": "Sí, me gustaría retener tanto {{STATE_NAME}} como los impuestos federales sobre la renta",
+                "zh": "是的，我希望同时预扣{{STATE_NAME}}和联邦所得税"
               },
               "id": "state-and-fed"
             },
@@ -2540,9 +2594,9 @@
             },
             {
               "name": {
-                "en": "Yes, I would like only ${state_name} Income Tax withheld",
-                "es": "Sí, me gustaría solo $ {state_name} Impuesto sobre la renta retenido",
-                "zh": "是的，我只预扣$ {state_name}所得税"
+                "en": "Yes, I would like only {{STATE_NAME}} Income Tax withheld",
+                "es": "Sí, me gustaría solo {{STATE_NAME}} Impuesto sobre la renta retenido",
+                "zh": "是的，我只预扣{{STATE_NAME}}所得税"
               },
               "id": "state"
             },
