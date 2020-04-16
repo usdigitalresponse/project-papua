@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Question } from '../../forms/types'
 import SingleSelect from './SingleSelect'
 import { getCopy } from '../../forms/index'
