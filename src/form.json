@@ -11,10 +11,20 @@
       "es": "Bienvenido al sistema de reclamos de {{STATE_CODE}}",
       "zh": "欢迎使用{{STATE_CODE}}索赔系统"
     },
-    "intro": {
-      "en": "The {{STATE_CODE}} COVID-19 Emergency Unemployment Insurance Benefits Internet Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.\nIf you have worked in another state and have not worked in {{STATE_CODE}} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.\nBenefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
-      "es": "La Solicitud de reclamos por Internet de beneficios de seguro de desempleo de emergencia {{STATE_CODE}} COVID-19 debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.\nSi ha trabajado en otro estado y no ha trabajado en {{STATE_CODE}} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.\nLos beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.",
-      "zh": "应当使用{{STATE_CODE}} COVID-19紧急失业保险利益互联网索赔申请来针对在加利福尼亚州获得的或预期获得的收入索取失业救济。\n如果您在过去18个月内在另一个州工作，但没有在{{STATE_CODE}}工作，则必须联系最近18个月内在您所在州的失业办公室。\n福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。"
+    "intro-1": {
+      "en": "The {{STATE_CODE}} COVID-19 Emergency Unemployment Insurance Benefits Internet Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.",
+      "es": "La Solicitud de reclamos por Internet de {{STATE_CODE}} COVID-19 Beneficios de seguro de desempleo de emergencia se debe utilizar para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.",
+      "zh": "{{STATE_CODE}} COVID-19紧急失业保险金互联网索赔申请应用于以{{STATE_CODE}}的状态针对已获得或预期获得的收入要求失业金。"
+    },
+    "intro-2": {
+      "en": "If you have worked in another state and have not worked in {state} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.",
+      "es": "Si ha trabajado en otro estado y no ha trabajado en {estado} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.",
+      "zh": "如果您在过去18个月内在另一个州工作，而在{state}内没有工作，则必须与最近18个月从事工作的州的失业办公室联系。"
+    },
+    "intro-3": {
+      "en": "Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
+      "es": "Los beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.",
+      "zh": "福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。"
     },
     "prereqs": {
       "en": "Please note you may need the following information before filing your claim:",
@@ -61,10 +71,15 @@
       "es": "Advertencia",
       "zh": "警告"
     },
-    "warning:content": {
-      "en": "Unless you receive a confirmation number, your claim will not be processed. The {{STATE_CODE}} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.\nPlease print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.",
-      "es": "A menos que reciba un número de confirmación, su reclamo no será procesado. El {{STATE_CODE}} Departamento de Trabajo y Capacitación no retendrá la información que ingrese para presentar su reclamo hasta que reciba su número de confirmación. La última página de la aplicación de Internet indicará que su reclamo se ha completado y le dará un número de confirmación.\nImprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.",
-      "zh": "除非您收到确认号码，否则您的索偿将不会得到处理。在收到确认号码之前，{{STATE_CODE}}劳工和培训部不会保留您输入的任何用于提出索赔的信息。 Internet应用程序的最后一页将说明您的索赔已经完成，并会给您一个确认号。\n请打印或记录您的确认号码，并将其保存在安全的地方。如果您提供了与部门联系的电子邮件，则系统最多可能需要72个小时才能将您的唯一确认号码通过电子邮件发送给您。如果您在收到确认码之前退出或刷新页面，则您输入的任何信息都将被丢弃。"
+    "warning:content-1": {
+      "en": "Unless you receive a confirmation number, your claim will not be processed. The {{STATE_CODE}} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.",
+      "es": "A menos que reciba un número de confirmación, su reclamo no será procesado. El {{STATE_CODE}} Departamento de Trabajo y Capacitación no retendrá la información que ingrese para presentar su reclamo hasta que reciba su número de confirmación. La última página de la aplicación de Internet indicará que su reclamo se ha completado y le dará un número de confirmación.",
+      "zh": "除非您收到确认号码，否则您的索偿将不会得到处理。在收到确认号码之前，{{STATE_CODE}}劳工和培训部不会保留您输入的任何用于提出索赔的信息。 Internet应用程序的最后一页将说明您的索赔已经完成，并会给您一个确认号。"
+    },
+    "warning:content-2": {
+      "en": "Please print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.",
+      "es": "Imprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.",
+      "zh": "请打印或记录您的确认号码，并将其保存在安全的地方。如果您提供了与部门联系的电子邮件，则系统最多可能需要72个小时才能将您的唯一确认号码通过电子邮件发送给您。如果您在收到确认码之前退出或刷新页面，则您输入的任何信息都将被丢弃。"
     },
     "get-started": {
       "en": "Get Started",

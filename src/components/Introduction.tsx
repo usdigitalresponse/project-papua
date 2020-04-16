@@ -17,7 +17,14 @@ const Introduction: React.FC = () => {
           {translate(getCopy("welcome"), language)}
         </Heading>
         <Paragraph fill={true} color="black">
-          {translate(getCopy("intro"), language)}
+          {translate(getCopy("intro-1"), language)}
+          <br />
+          <br />
+          {translate(getCopy("intro-2"), language)}
+          <br />
+          <br />
+          {translate(getCopy("intro-3"), language)}
+          <br />
           <br />
           <Text weight={600}>{translate(getCopy("prereqs"), language)}</Text>
           <ol color="black">
@@ -54,7 +61,10 @@ const Introduction: React.FC = () => {
               {translate(getCopy("warning"), language)}:
             </Text>
             <br />
-            {translate(getCopy("warning:content"), language)}
+            {translate(getCopy("warning:content-1"), language)}
+            <br />
+            <br />
+            {translate(getCopy("warning:content-2"), language)}
           </Paragraph>
         </Box>
       </Box>
