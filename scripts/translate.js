@@ -147,7 +147,7 @@ function translate(languageCode) {
   // when we introduced i18n, we moved to a format like `title: { en: "Foo" }`
   // If you need to convert a form from the former to the latter, then 
   // uncomment the following line.
-  // await map(copy => ({ en: copy}));
+   await map(copy => ({ en: copy}));
   
   // Add spanish translations
   await map(translate("es"));
