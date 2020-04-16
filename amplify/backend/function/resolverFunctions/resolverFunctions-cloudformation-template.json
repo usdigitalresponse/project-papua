@@ -71,7 +71,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-project-papua-usdr-135250-deployment",
-					"S3Key": "amplify-builds/resolverFunctions-75475249504534646173-build.zip"
+					"S3Key": "amplify-builds/resolverFunctions-466e4932436162325073-build.zip"
 				}
 			}
 		},
