@@ -22,7 +22,9 @@ app.post('/claims', async function(req, res) {
     const defaultHour = pad(now.getUTCHours() - 1);
 
     if (Object.keys(req.body).length === 0 || !req.body.metadata || !req.body.questions) {
-        console.log("bad payload")
+        console.log("bad payload: ", JSON.stringify(req.body))
+        
+        // why isnt this firing now?
         res.status(422).json({message: `malformed payload`, body: req.body})
     }
 
