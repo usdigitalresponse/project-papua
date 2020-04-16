@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
 import { Box, Text } from 'grommet'
 import './single-select.css'
+import { LanguageContext } from '../../contexts/language'
+import { translate } from '../../forms/index'
+import { FormContext } from '../../contexts/form'
 
 interface Props {
   value: string[]
@@ -11,20 +14,24 @@ interface Props {
 }
 
 const Multiselect: React.FC<Props> = (props) => {
-  const { question, onChange, value } = props
+  const { question } = props
+  const { language } = useContext(LanguageContext)
+  const { values, setValue } = useContext(FormContext)
+  const value = values[question.id] as string[] | string
+
 
   const onSelectValue = (option: string) => {
     if (!value) {
-      return onChange([option])
+      return setValue(question.id, [option])
     }
     if (!Array.isArray(value)) {
-      return onChange([value, option])
+      return setValue(question.id, [value, option])
     }
     if (value.includes(option)) {
-      return onChange(value.filter(val => val !== option))
+      return setValue(question.id, value.filter(val => val !== option))
     }
 
-    onChange([...value, option])
+    setValue(question.id, [...value, option])
   }
 
   if (!question || !question.options) {
@@ -38,7 +45,7 @@ const Multiselect: React.FC<Props> = (props) => {
         return (
           <Box onClick={() => onSelectValue(o.id)} style={{ background: isSelected ? "#EBFFFA" : "white" }} align="start" key={o.id} margin={{ bottom: 'xsmall' }} pad='small' className="single-select-border single-select" direction="row">
             <Box style={{ background: isSelected ? "#008060" : "white", height: 20, width: 20, borderRadius: '50%', flexShrink: 0 }} margin={{ right: 'small' }} className="single-select-border" />
-            <Text>{o.name}</Text>
+            <Text>{translate(o.name, language)}</Text>
           </Box>
         )
       })}

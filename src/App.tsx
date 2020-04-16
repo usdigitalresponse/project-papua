@@ -2,6 +2,7 @@ import React from 'react';
 import { Grommet } from 'grommet'
 import './App.css';
 import FormApp from './components/FormApp'
+import { LanguageProvider } from './contexts/language';
 
 const theme = {
   global: {
@@ -34,10 +35,12 @@ const theme = {
 
 
 function App() {
+  // `theme as any` because grommet has incomplete TS definitions
   return (
-    // @ts-ignore: grommet has incomplete type definitions 
-    <Grommet className="App" theme={theme}>
-      <FormApp />
+    <Grommet className="App" theme={theme as any}>
+      <LanguageProvider>
+        <FormApp />
+      </LanguageProvider>
     </Grommet>
   )
 }

@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TextInput as GrommetTextInput } from 'grommet'
+import { FormContext } from '../../contexts/form'
 
-const TextInput: React.FC<any> = (props) => <GrommetTextInput {...props} color="black" border="black 1px solid !important" />
+const TextInput: React.FC<any> = (props) => {
+  const { question } = props
+  const { values, setValue } = useContext(FormContext)
+  return <GrommetTextInput value={values[question.id] as string} onChange={e => setValue(question.id, e.target.value)} color="black" />
+}
 
 export default TextInput

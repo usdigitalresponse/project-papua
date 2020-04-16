@@ -7,9 +7,6 @@
 			"Default": "NONE",
 			"Description": " Schedule Expression"
 		},
-		"rawBucketName": {
-			"Type": "String"
-		},
 		"env": {
 			"Type": "String"
 		}
@@ -36,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"transformer",
+						"resolver",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"transformer",
+									"resolver",
 									"-",
 									{
 										"Ref": "env"
@@ -66,7 +63,7 @@
 				},
 				"Role": {
 					"Fn::GetAtt": [
-						"LambdaExecutionRole",
+						"LambdaExecutionRoleResolver",
 						"Arn"
 					]
 				},
@@ -74,22 +71,22 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-project-papua-usdr-135250-deployment",
-					"S3Key": "amplify-builds/transformer-66415432324535585944-build.zip"
+					"S3Key": "amplify-builds/resolverFunctions-466e4932436162325073-build.zip"
 				}
 			}
 		},
-		"LambdaExecutionRole": {
+		"LambdaExecutionRoleResolver": {
 			"Type": "AWS::IAM::Role",
 			"Properties": {
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"projectpapuaLambdaRole390ad57g",
+						"projectpapuaLambdaRole2ed8ae7g",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"projectpapuaLambdaRole390ad57g",
+									"projectpapuaLambdaRole2ed8ae7g",
 									"-",
 									{
 										"Ref": "env"
@@ -119,14 +116,14 @@
 		},
 		"lambdaexecutionpolicy": {
 			"DependsOn": [
-				"LambdaExecutionRole"
+				"LambdaExecutionRoleResolver"
 			],
 			"Type": "AWS::IAM::Policy",
 			"Properties": {
 				"PolicyName": "lambda-execution-policy",
 				"Roles": [
 					{
-						"Ref": "LambdaExecutionRole"
+						"Ref": "LambdaExecutionRoleResolver"
 					}
 				],
 				"PolicyDocument": {
@@ -166,45 +163,6 @@
 					]
 				}
 			}
-		},
-		"CloudWatchEvent": {
-			"Type": "AWS::Events::Rule",
-			"Properties": {
-				"Description": "Schedule rule for Lambda",
-				"ScheduleExpression": {
-					"Ref": "CloudWatchRule"
-				},
-				"State": "ENABLED",
-				"Targets": [
-					{
-						"Arn": {
-							"Fn::GetAtt": [
-								"LambdaFunction",
-								"Arn"
-							]
-						},
-						"Id": {
-							"Ref": "LambdaFunction"
-						}
-					}
-				]
-			}
-		},
-		"PermissionForEventsToInvokeLambda": {
-			"Type": "AWS::Lambda::Permission",
-			"Properties": {
-				"FunctionName": {
-					"Ref": "LambdaFunction"
-				},
-				"Action": "lambda:InvokeFunction",
-				"Principal": "events.amazonaws.com",
-				"SourceArn": {
-					"Fn::GetAtt": [
-						"CloudWatchEvent",
-						"Arn"
-					]
-				}
-			}
 		}
 	},
 	"Outputs": {
@@ -226,14 +184,9 @@
 				"Ref": "AWS::Region"
 			}
 		},
-		"LambdaExecutionRole": {
+		"LambdaExecutionRoleResolver": {
 			"Value": {
-				"Ref": "LambdaExecutionRole"
-			}
-		},
-		"CloudWatchEventRule": {
-			"Value": {
-				"Ref": "CloudWatchEvent"
+				"Ref": "LambdaExecutionRoleResolver"
 			}
 		}
 	}

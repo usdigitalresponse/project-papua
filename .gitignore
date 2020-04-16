@@ -34,8 +34,8 @@ amplify/backend/awscloudformation
 build/
 dist/
 node_modules/
-aws-exports.js
 awsconfiguration.json
+#aws-exports.js
 amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json

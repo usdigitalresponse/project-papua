@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
 import { TextArea as GrommetTextArea } from 'grommet'
+import { FormContext } from '../../contexts/form'
 
 interface Props {
-  value: string
   question: Question
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   [key: string]: any
 }
 
 const TextArea: React.FC<Props> = (props) => {
-  return <GrommetTextArea {...props} />
+  const { question } = props
+  const { values, setValue } = useContext(FormContext)
+  return <GrommetTextArea value={values[question.id] as string} onChange={e => setValue(question.id, e.target.value)} />
 }
 
 export default TextArea

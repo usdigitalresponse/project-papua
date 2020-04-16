@@ -1,33 +1,38 @@
 export interface Form {
-  state: string
+  variables: Record<string, string>
+  instructions: Record<string, Copy>
   pages: Page[]
   seal: string
 }
 
 export interface Page {
-  title: string
-  heading: string
+  title: Copy
+  heading: Copy
   questions: Question[]
 }
 
 export interface Question {
-  name: string
-  instructions?: string
+  name: Copy
+  instructions?: Copy
   required?: boolean
   type: QuestionType
   validation?: QuestionValidation
-  id?: string
+  id: string
   options?: Option[]
   switch?: Switch
 }
 
 export interface Option {
-  name: string
+  name: Copy
   id: string
   value?: string
 }
 interface Switch {
   [option: string]: Question[] | null
+}
+
+export interface Copy {
+  [languageCode: string]: string
 }
 
 export type QuestionType = 'shorttext' | 'datepicker' | 'dropdown' | 'singleselect' | 'address_picker' | 'boolean' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount' | 'longtext' | 'multiselect' | 'email' | string
