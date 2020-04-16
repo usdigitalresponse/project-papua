@@ -35,9 +35,9 @@ const theme = {
 
 
 function App() {
+  // `theme as any` because grommet has incomplete TS definitions
   return (
-    // @ts-ignore: grommet has incomplete type definitions 
-    <Grommet className="App" theme={theme}>
+    <Grommet className="App" theme={theme as any}>
       <LanguageProvider>
         <FormApp />
       </LanguageProvider>
