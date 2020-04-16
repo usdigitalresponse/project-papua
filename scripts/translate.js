@@ -20,7 +20,7 @@
  * The free plan gives you about 500k chars of translations, so you'll be fine with that.
  *
  * Once you got through that setup, GCP will have you download a JSON key. You can then use that key
- * to run this script like so:
+ * to run this script like so (make sure to update your credentials path below!):
  *
  *   GOOGLE_APPLICATION_CREDENTIALS=~/Downloads/PAPUA-59beefc0cfb4.json node ./scripts/translate.js
  *
@@ -147,7 +147,7 @@ function translate(languageCode) {
   // when we introduced i18n, we moved to a format like `title: { en: "Foo" }`
   // If you need to convert a form from the former to the latter, then 
   // uncomment the following line.
-   await map(copy => ({ en: copy}));
+  // await map(copy => ({ en: copy}));
   
   // Add spanish translations
   await map(translate("es"));
