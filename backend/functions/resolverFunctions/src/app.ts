@@ -21,6 +21,10 @@ app.post('/claims', async function(req, res) {
     const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`;
     const defaultHour = pad(now.getUTCHours() - 1);
 
+    if (Object.keys(req.body).length === 0) {
+        res.json({failure: `body was empty, see:`, body: req.body})
+    }
+
     const uuid = req.body.metadata.uuid
     const key = `claims/day=${defaultDay}/hour=${defaultHour}/${uuid}.json`
     const bucket = `papua-data-${process.env.ACCT_ID}`
