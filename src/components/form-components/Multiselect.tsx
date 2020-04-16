@@ -3,6 +3,7 @@ import { Question } from '../../forms/types'
 import { Box, Text } from 'grommet'
 import './single-select.css'
 import { LanguageContext } from '../../contexts/language'
+import { translate } from '../../forms/index'
 
 interface Props {
   value: string[]
@@ -40,7 +41,7 @@ const Multiselect: React.FC<Props> = (props) => {
         return (
           <Box onClick={() => onSelectValue(o.id)} style={{ background: isSelected ? "#EBFFFA" : "white" }} align="start" key={o.id} margin={{ bottom: 'xsmall' }} pad='small' className="single-select-border single-select" direction="row">
             <Box style={{ background: isSelected ? "#008060" : "white", height: 20, width: 20, borderRadius: '50%', flexShrink: 0 }} margin={{ right: 'small' }} className="single-select-border" />
-            <Text>{o.name[language]}</Text>
+            <Text>{translate(o.name, language)}</Text>
           </Box>
         )
       })}

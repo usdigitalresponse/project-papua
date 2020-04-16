@@ -3,6 +3,7 @@ import { Question } from '../../forms/types'
 import { Box, Text } from 'grommet'
 import './single-select.css'
 import { LanguageContext } from '../../contexts/language'
+import { translate } from '../../forms/index';
 
 interface Props {
   value: string
@@ -23,7 +24,7 @@ const SingleSelect: React.FC<Props> = (props) => {
       {question.options.map(o => (
         <Box onClick={() => onChange(o.id)} background={value === o.id ? "#EBFFFA" : "white"} key={o.id} margin={{ bottom: 'xsmall' }} style={{ borderRadius: '4px' }} direction="row" className="single-select-border single-select" pad='small'>
           <Box background={value === o.id ? "#008060" : "white"} margin={{ right: 'small' }} flex={{ shrink: 0 }} style={{ height: 20, width: 20, borderRadius: '50%' }} className="single-select-border" />
-          <Text>{o.name[language]}</Text>
+          <Text>{translate(o.name, language)}</Text>
         </Box>
       ))}
     </Box>

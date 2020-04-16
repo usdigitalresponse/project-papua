@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Box, Heading } from 'grommet'
-import { getInstructionalCopy } from '../forms/index'
+import { getCopy, translate } from '../forms/index';
 import { LanguageContext } from '../contexts/language'
 
 const Review: React.FC<{}> = () => {
@@ -8,7 +8,7 @@ const Review: React.FC<{}> = () => {
 
   return (
     <Box pad="medium">
-      <Heading margin="none" level={3}>{getInstructionalCopy('submit')[language]}</Heading>
+      <Heading margin="none" level={3}>{translate(getCopy('submit'), language)}</Heading>
     </Box>
   )
 }

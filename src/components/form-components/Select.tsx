@@ -3,6 +3,7 @@ import './select.css'
 import { Question, Option } from '../../forms/types'
 import { Select as GrommetSelect, Box } from 'grommet'
 import { LanguageContext } from '../../contexts/language'
+import { translate } from '../../forms/index'
 
 
 interface Props {
@@ -17,7 +18,7 @@ const Select: React.FC<Props> = (props) => {
     return <Box />
   }
 
-  const options = props.question!.options!.map((option: Option) => option.name[language])
+  const options = props.question!.options!.map((option: Option) => translate(option.name, language))
 
   return (
     <GrommetSelect
@@ -28,7 +29,7 @@ const Select: React.FC<Props> = (props) => {
       value={props.value}
       onChange={({ option }) => props.onChange(option)}
       id={props.question.id}
-      name={props.question.name[language]}
+      name={translate(props.question.name, language)}
     />
   )
 }

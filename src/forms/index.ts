@@ -16,8 +16,23 @@ export function initializeForm(): Form {
   return baseForm
 }
 
-export const getInstructionalCopy = (id: string) => {
+export const getCopy = (id: string) => {
   return initializeForm().instructions[id]
+}
+
+export function translate(copy: Copy, language: string): string {
+  let text = copy[language]
+  
+  // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
+  text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
+    // `key` is the regex-captured value inside the curly braces:
+    const value = initializeForm().variables[key]
+    // If we don't recognize this variable, then default to rendering
+    // all of `{{VARIABLE_NAME}}` since that'll make the issue clearest.
+    return value ? value : m
+  })
+
+  return text
 }
 
 export function isValid(question: Question, answer: string | undefined, secondAnswer?: string): { valid: boolean, reason?: string } {
