@@ -21,6 +21,7 @@ const Select: React.FC<Props> = (props) => {
 
   return (
     <GrommetSelect
+      // TODO: we should translate these a11y titles if we want to use them
       a11yTitle="select language"
       margin={{ top: 'xsmall' }}
       options={options}

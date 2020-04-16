@@ -1,4 +1,5 @@
 export interface Form {
+  instructions: Record<string, Copy>
   state: string
   pages: Page[]
   seal: string

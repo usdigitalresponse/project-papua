@@ -1,6 +1,73 @@
 {
   "state": "CA",
   "seal": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Seal_of_California.svg",
+  "instructions": {
+    "welcome": {
+      "en": "Welcome to the CA Claims System",
+      "es": "Bienvenido al sistema de reclamos de CA",
+      "zh": "欢迎使用CA索赔系统"
+    },
+    "intro": {
+      "en": "The CA COVID-19 Emergency Unemployment Insurance Benefits Internet Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of CA.\nIf you have worked in another state and have not worked in CA in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.\nBenefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
+      "es": "La Solicitud de reclamos por Internet de beneficios de seguro de desempleo de emergencia CA COVID-19 debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de CA.\nSi ha trabajado en otro estado y no ha trabajado en CA en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.\nLos beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.",
+      "zh": "应当使用CA COVID-19紧急失业保险利益互联网索赔申请来针对在加利福尼亚州获得的或预期获得的收入索取失业救济。\n如果您在过去18个月内在另一个州工作，但没有在CA工作，则必须联系最近18个月内在您所在州的失业办公室。\n福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。"
+    },
+    "get-started": {
+      "en": "Get Started",
+      "es": "Empezar",
+      "zh": "开始使用"
+    },
+    "next": {
+      "en": "Next",
+      "es": "próximo",
+      "zh": "下一个"
+    },
+    "yes": {
+      "en": "Yes",
+      "es": "Si",
+      "zh": "是"
+    },
+    "no": {
+      "en": "No",
+      "es": "No",
+      "zh": "没有"
+    },
+    "introduction": {
+      "en": "Introduction",
+      "es": "Introducción",
+      "zh": "介绍"
+    },
+    "submit": {
+      "en": "Review & Submit",
+      "es": "Revisar y enviar",
+      "zh": "审查并提交"
+    },
+    "demo-warning": {
+      "en": "This is for demo purposes only.",
+      "es": "Esto es solo para fines de demostración.",
+      "zh": "这仅用于演示目的。"
+    },
+    "back": {
+      "en": "Go Back",
+      "es": "Regresa",
+      "zh": "回去"
+    },
+    "language": {
+      "en": "Language",
+      "es": "Idioma",
+      "zh": "语言"
+    },
+    "progress": {
+      "en": "Progress",
+      "es": "Progreso",
+      "zh": "进展"
+    },
+    "complete": {
+      "en": "complete",
+      "es": "completar",
+      "zh": "完成"
+    }
+  },
   "pages": [
     {
       "title": {

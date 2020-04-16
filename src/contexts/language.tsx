@@ -4,6 +4,7 @@ const initialState = { language: 'en', setLanguage: (language: string) => {}}
 export const LanguageContext = createContext(initialState);
 
 export const LanguageProvider: React.FC = props => {
+  // TODO: attempt to persist the language to the browser
   const [language, setLanguage] = useState(initialState.language)
 
   // Check the user's browser's language and automatically match that.

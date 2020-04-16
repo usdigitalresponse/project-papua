@@ -42,8 +42,6 @@ const f = fs.readFileSync("src/form.json", {
 
 const form = JSON.parse(f);
 
-const pages = form.pages;
-
 async function map(f) {
   const updateQuestion = async (question) => {
     // Update the question's name
@@ -85,6 +83,13 @@ async function map(f) {
     return question;
   };
 
+  // Update the top-level instructional copy:
+  for (const id of Object.keys(form.instructions)) {
+    form.instructions[id] = await f(form.instructions[id])
+  }
+
+  // Update the copy in each page:
+  const pages = form.pages;
   for (let i = 0; i < pages.length; i++) {
     // Update the title
     pages[i].title = await f(pages[i].title);

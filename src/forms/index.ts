@@ -1,6 +1,6 @@
 import validator from 'validator'
 import form from '../form.json'
-import { Form, Question, QuestionType } from './types';
+import { Form, Question, QuestionType, Copy } from './types';
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -14,6 +14,10 @@ import TextArea from '../components/form-components/TextArea'
 export function initializeForm(): Form {
   const baseForm: Form = form
   return baseForm
+}
+
+export const getInstructionalCopy = (id: string) => {
+  return initializeForm().instructions[id]
 }
 
 export function isValid(question: Question, answer: string | undefined, secondAnswer?: string): { valid: boolean, reason?: string } {
