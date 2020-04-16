@@ -1,11 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useEffect } from 'react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const initialState = { language: 'en', setLanguage: (language: string) => {}}
 export const LanguageContext = createContext(initialState);
 
 export const LanguageProvider: React.FC = props => {
-  // TODO: attempt to persist the language to the browser
-  const [language, setLanguage] = useState(initialState.language)
+  const [language, setLanguage] = useLocalStorage<string | undefined>('papua-selected-language', undefined)
 
   // Check the user's browser's language and automatically match that.
   useEffect(() => {
@@ -18,13 +18,13 @@ export const LanguageProvider: React.FC = props => {
     }
     const detectedLanguageCode = codeMap[navigator.language]
 
-    if (detectedLanguageCode) {
+    if (detectedLanguageCode && !language) {
       setLanguage(detectedLanguageCode)
     }
-  }, [])
+  }, [language, setLanguage])
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language: language || initialState.language, setLanguage }}>
       {props.children}
     </LanguageContext.Provider>
   )
