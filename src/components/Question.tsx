@@ -30,7 +30,7 @@ const Question: React.FC<Props> = (props) => {
       </Box>
       <Component width="100%" question={question} />
       <Box margin={{ top: 'medium' }}>
-        {hasSwitch && question.switch![value as string]?.map(q => <Question question={q} />)}
+        {hasSwitch && question.switch![value as string]?.map(q => <Question question={q} key={q.id} />)}
       </Box>
     </Box>
   )
