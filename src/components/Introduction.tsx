@@ -23,9 +23,13 @@ const Introduction: React.FC = () => {
           {translate(getCopy("intro-2"), language)}
           <br />
           <br />
-          {translate(getCopy("intro-3"), language)}
-          <br />
-          <br />
+          {getCopy("intro-3") &&
+            <>
+              {translate(getCopy("intro-3"), language)}
+              <br />
+              <br />
+            </>
+          }
           <Text weight={600}>{translate(getCopy("prereqs"), language)}</Text>
           <ol color="black">
             <li color="black">{translate(getCopy("prereqs:ssn"), language)}</li>

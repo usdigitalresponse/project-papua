@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Question as QuestionInterface } from '../forms/types'
 import { getComponent } from '../forms'
 import { Box, Heading, Text } from 'grommet'
@@ -29,7 +29,7 @@ const Question: React.FC<Props> = (props) => {
         {question.instructions && <Text size="small" color="black" margin={{ top: 'xsmall' }} >{translate(question.instructions, language)}</Text>}
       </Box>
       <Component width="100%" question={question} />
-      <Box margin={{ top: 'xsmall' }}>
+      <Box margin={{ top: 'medium' }}>
         {hasSwitch && question.switch![value as string]?.map(q => <Question question={q} />)}
       </Box>
     </Box>
