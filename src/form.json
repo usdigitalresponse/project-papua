@@ -5,62 +5,65 @@
     "STATE_NAME": "[State]"
   },
   "instructions": {
-    "welcome": {
-      "en": "Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System",
-      "es": "Bienvenido al sistema de reclamos de {{STATE_CODE}}",
+    "introduction:header": {
+      "en": "Instructions"
+    },
+    "introduction:welcome": {
+      "en": "Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System.",
+      "es": "Bienvenido al sistema de reclamos de {{STATE_CODE}}/",
       "zh": "欢迎使用{{STATE_CODE}}索赔系统"
     },
-    "intro-1": {
+    "introduction:background": {
       "en": "The {{STATE_CODE}} Unemployment Insurance Benefits Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.",
       "es": "La {{STATE_CODE}} Solicitud de reclamos de beneficios del seguro de desempleo se debe utilizar para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.",
       "zh": "{{STATE_CODE}}失业保险金索赔申请表应用于针对处于{{STATE_CODE}}状态的已获得或预期获得的收入索取失业救济。"
     },
-    "intro-2": {
+    "introduction:payment": {
       "en": "Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.",
       "es": "Los beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.",
       "zh": "福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。"
     },
-    "prereqs": {
+    "preparation:header": {
       "en": "Preparation",
       "es": "Preparación",
       "zh": "制备"
     },
-    "prereqs:instructions": {
+    "preparation:instructions": {
       "en": "Please note you may need the following information before filing your claim:",
       "es": "Tenga en cuenta que puede necesitar la siguiente información antes de presentar su reclamo:",
       "zh": "请注意，在提出索赔之前，您可能需要以下信息："
     },
-    "prereqs:ssn": {
+    "preparation:ssn": {
       "en": "Your Social Security Number (SSN)",
       "es": "Su número de seguro social (SSN)",
       "zh": "您的社会安全号码（SSN）"
     },
-    "prereqs:agi": {
+    "preparation:agi": {
       "en": "Your Adjusted Gross Income from your most recent tax return",
       "es": "Su ingreso bruto ajustado de su declaración de impuestos más reciente",
       "zh": "最近一次纳税申报表的调整后总收入"
     },
-    "prereqs:employment": {
+    "preparation:employment": {
       "en": "The names, addresses, phone numbers, and dates of employment for all employers where you have worked in the last 18 months.",
       "es": "Los nombres, direcciones, números de teléfono y fechas de empleo de todos los empleadores en los que ha trabajado en los últimos 18 meses.",
       "zh": "您过去18个月内工作过的所有雇主的姓名，地址，电话号码和工作日期。"
     },
-    "prereqs:arn": {
+    "preparation:arn": {
       "en": "Your Alien Registration Number, if applicable.",
       "es": "Su número de registro de extranjero, si corresponde.",
       "zh": "您的外国人注册号（如果适用）。"
     },
-    "prereqs:children": {
+    "preparation:children": {
       "en": "The names, Social Security Numbers and dates of birth for all dependent children.",
       "es": "Los nombres, números de seguro social y fechas de nacimiento de todos los hijos dependientes.",
       "zh": "所有受抚养子女的姓名，社会安全号码和出生日期。"
     },
-    "prereqs:license": {
+    "preparation:license": {
       "en": "Your driver's license or state-issued ID number.",
       "es": "Su licencia de conducir o número de identificación emitido por el estado.",
       "zh": "您的驾驶执照或国家签发的身份证号。"
     },
-    "prereqs:bank": {
+    "preparation:bank": {
       "en": "Your bank account and routing number (if you choose direct deposit as your payment option).",
       "es": "Su cuenta bancaria y número de ruta (si elige el depósito directo como opción de pago).",
       "zh": "您的银行帐户和银行转帐号码（如果您选择直接存款作为付款方式）。"
@@ -70,22 +73,22 @@
       "es": "Elegibilidad",
       "zh": "合格"
     },
-    "eligibility:list": {
+    "eligibility:instructions": {
       "en": "Unemployment insurance is temporary income:",
       "es": "El seguro de desempleo es un ingreso temporal:",
       "zh": "失业保险是临时收入："
     },
-    "eligibility:1": {
+    "eligibility:workers": {
       "en": "For eligible workers",
       "es": "Para trabajadores elegibles",
       "zh": "对于合格的工人"
     },
-    "eligibility:2": {
+    "eligibility:unemployed": {
       "en": "Who lose their jobs",
       "es": "Quienes pierden sus trabajos",
       "zh": "谁失去工作"
     },
-    "eligibility:3": {
+    "eligibility:no-fault": {
       "en": "Through no fault of their own",
       "es": "Sin culpa propia",
       "zh": "自己没有错"
@@ -95,7 +98,7 @@
       "es": "Si ha trabajado en otro estado y no ha trabajado en {estado} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.",
       "zh": "如果您在过去18个月内在另一个州工作，而在{state}内没有工作，则必须与最近18个月从事工作的州的失业办公室联系。"
     },
-    "pandemic-eligibility": {
+    "pandemic-eligibility:instructions": {
       "en": "In order to qualify for Pandemic Unemployment Assistance, you must fall into at least one of the following scenarios:",
       "es": "Para calificar para la Asistencia de desempleo pandémico, debe caer en al menos uno de los siguientes escenarios:",
       "zh": "为了获得大流行性失业援助的资格，您必须至少属于以下情况之一："
@@ -160,16 +163,6 @@
       "es": "Usted trabaja como contratista independiente con ingresos declarables y está desempleado, parcialmente empleado o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad de continuar realizando sus actividades laborales habituales, y por lo tanto lo ha obligado a suspender tales actividades",
       "zh": "您是可报告收入的独立承包商，由于COVID-19公共卫生突发事件严重限制了您继续进行常规工作的能力，因此失业，半就业或无法或无法工作，因此您被迫停职。这样的活动。"
     },
-    "agreement-header": {
-      "en": "Agreement",
-      "es": "Acuerdo",
-      "zh": "协议"
-    },
-    "agreement-instructions": {
-      "en": "I understand the eligibility requirements outlined above and confirm that I meet the minimum requirements to apply for either [State] State Unemployment Insurance Benefits or Pandemic Unemployment Assistance.",
-      "es": "Entiendo los requisitos de elegibilidad descritos anteriormente y confirmo que cumplo con los requisitos mínimos para solicitar los Beneficios del seguro de desempleo estatal [estatal] o la Asistencia de desempleo pandémico.",
-      "zh": "我了解上述资格要求，并确认我符合申请[州]州失业保险金或大流行性失业援助的最低要求。"
-    },
     "warning": {
       "en": "Warning",
       "es": "Advertencia",
@@ -184,6 +177,16 @@
       "en": "Please print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.",
       "es": "Imprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.",
       "zh": "请打印或记录您的确认号码，并将其保存在安全的地方。如果您提供了与部门联系的电子邮件，则系统最多可能需要72个小时才能将您的唯一确认号码通过电子邮件发送给您。如果您在收到确认码之前退出或刷新页面，则您输入的任何信息都将被丢弃。"
+    },
+    "agreement:header": {
+      "en": "Agreement",
+      "es": "Acuerdo",
+      "zh": "协议"
+    },
+    "agreement:instructions": {
+      "en": "I understand the eligibility requirements outlined above and confirm that I meet the minimum requirements to apply for either [State] State Unemployment Insurance Benefits or Pandemic Unemployment Assistance.",
+      "es": "Entiendo los requisitos de elegibilidad descritos anteriormente y confirmo que cumplo con los requisitos mínimos para solicitar los Beneficios del seguro de desempleo estatal [estatal] o la Asistencia de desempleo pandémico.",
+      "zh": "我了解上述资格要求，并确认我符合申请[州]州失业保险金或大流行性失业援助的最低要求。"
     },
     "get-started": {
       "en": "Get Started",
