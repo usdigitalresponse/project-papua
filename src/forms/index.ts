@@ -78,8 +78,10 @@ export function canContinue(page: Page, values: Values, errors: Errors): boolean
   if (!page) {
     return true
   }
+
+  const questionIds = page.questions.map(q => q.id)
   const requiredQuestions = page.questions.filter(q => q.required).map(q => q.id)
-  return requiredQuestions.every(id => values[id])
+  return requiredQuestions.every(id => values[id]) && !questionIds.some(id => errors[id])
 }
 
 const typeComponentMappings: { [type: string]: React.FC } = {
