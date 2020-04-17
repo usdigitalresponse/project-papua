@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Card, Button } from "./helper-components/index";
-import { Box } from "grommet";
+import { Box, ResponsiveContext } from "grommet";
 import { initializeForm } from "../forms";
 import Sidebar from "./Sidebar";
 import Introduction from "./Introduction";
@@ -11,12 +11,9 @@ import { translate, getCopy } from "../forms/index";
 
 import { FormContext, Values, Errors, Value } from '../contexts/form'
 
-interface FormValues {
-  [questionId: string]: string
-}
-
 const FormApp: React.FC<{}> = () => {
   const { language } = useContext(LanguageContext);
+  const size = useContext(ResponsiveContext)
   const form = initializeForm();
 
   const { pages, seal } = form;
@@ -86,12 +83,15 @@ const FormApp: React.FC<{}> = () => {
             )}
           </Box>
         </Card>
-        <Sidebar
-          seal={seal}
-          pages={pageTitles}
-          currentIndex={currentIndex}
-          setCurrentIndex={setNextPage}
-        />
+        {size !== 'small' &&
+          <Sidebar
+            seal={seal}
+            pages={pageTitles}
+            currentIndex={currentIndex}
+            setCurrentIndex={setNextPage}
+          />
+        }
+
       </Box>
     </Box>
   );
