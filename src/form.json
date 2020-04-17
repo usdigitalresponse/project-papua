@@ -6,7 +6,9 @@
   },
   "instructions": {
     "introduction:header": {
-      "en": "Instructions"
+      "en": "Instructions",
+      "es": "Instrucciones",
+      "zh": "使用说明"
     },
     "introduction:welcome": {
       "en": "Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System.",
