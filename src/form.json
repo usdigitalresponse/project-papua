@@ -1,5 +1,5 @@
 {
-  "seal": "/ec.png",
+  "seal": "/generic-state-seal.png",
   "variables": {
     "STATE_CODE": "[ST]",
     "STATE_NAME": "[State]"
