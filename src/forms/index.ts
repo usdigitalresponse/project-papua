@@ -1,6 +1,6 @@
 import validator from 'validator'
 import form from '../form.json'
-import { Form, Question, QuestionType, Copy } from './types';
+import { FormSchema, Form, Question, QuestionType, Copy } from './types';
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -13,8 +13,27 @@ import { Box } from 'grommet'
 
 
 export function initializeForm(): Form {
-  const baseForm: Form = (form as unknown) as Form
-  return baseForm
+  const rawForm = form
+
+  // Validate the schema against our Joi schema
+  // which makes it easier to identify issues in the form
+  // than standard TS type validation (which just prints the error
+  // without metadata like array index or object path).
+  if (process.env.NODE_ENV === "development") {
+    const result = FormSchema.validate(rawForm, {
+      abortEarly: false,
+      allowUnknown: false,
+      presence: "required",
+    });
+    if (result.error) {
+      console.error(
+        "form.json does not match the expected schema",
+        result.error
+      );
+    }
+  }
+
+  return rawForm as Form;
 }
 
 export const getCopy = (id: string) => {
@@ -42,11 +61,11 @@ export function isValid(question: Question, answer: string | undefined, secondAn
     return { valid: false, reason: `"${question.name.en}" is a required field.` }
   }
 
-  if (question.validation === 're-enter' && answer !== secondAnswer) {
+  if (question.validate === 're-enter' && answer !== secondAnswer) {
     return { valid: false, reason: `The two values for "${question.name.en}" must match.` }
   }
 
-  if (question.validation && question.type === 'email' && (!answer || !validator.isEmail(answer))) {
+  if (question.validate && question.type === 'email' && (!answer || !validator.isEmail(answer))) {
     return { valid: false, reason: `Please enter a valid email.` }
   }
 

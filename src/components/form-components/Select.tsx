@@ -24,9 +24,11 @@ const Select: React.FC<Props> = (props) => {
 
   const options = question.options!.map((option: Option) => translate(option.name, language))
 
+
   // Have to save value as the id of the option, not the translated name.
   const getId = (name: string): string => question.options!.find(o => translate(o.name, language) === name)?.id || ''
   const getValue = (id: string): string => value ? translate(question.options!.find(o => o.id === value)?.name!, language) : ''
+
 
   return (
     <GrommetSelect
@@ -34,8 +36,10 @@ const Select: React.FC<Props> = (props) => {
       a11yTitle="select language"
       margin={{ top: 'xsmall' }}
       options={options}
+
       value={getValue(value as string)}
       onChange={({ option }) => setValue(question.id, getId(option))}
+
       id={question.id}
       name={translate(question.name, language)}
     />

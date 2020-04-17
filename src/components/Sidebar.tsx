@@ -25,7 +25,11 @@ const Sidebar: React.FC<Props> = (props) => {
 
   return (
     <Card pad="medium" margin={{ left: 'small' }} textAlign="left" height="0%" background="white">
-      {seal && <Image margin={{ bottom: 'small' }} src={seal} style={{ height: '175px' }} />}
+      {seal && (
+        <Box height='175px' margin={{ bottom: 'medium' }}>
+          <Image src={seal} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+        </Box>
+      )}
       <Box>
         <Text weight={600} color="black">{translate(getCopy('language'), language)}</Text>
         <Select

@@ -1,5 +1,5 @@
 {
-  "seal": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Seal_of_California.svg",
+  "seal": "/ec.png",
   "variables": {
     "STATE_CODE": "[ST]",
     "STATE_NAME": "[State]"
