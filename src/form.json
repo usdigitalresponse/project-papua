@@ -1,8 +1,8 @@
 {
   "seal": "/dc.png",
   "variables": {
-    "STATE_CODE": "MR",
-    "STATE_NAME": "Mars"
+    "STATE_CODE": "EC",
+    "STATE_NAME": "East Carolina"
   },
   "instructions": {
     "welcome": {
