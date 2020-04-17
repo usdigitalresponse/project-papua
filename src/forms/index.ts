@@ -1,6 +1,5 @@
-import validator from 'validator'
 import form from '../form.json'
-import { FormSchema, Form, Question, QuestionType, Copy, Page } from './types';
+import { FormSchema, Form, Question, QuestionType, Copy, Page, ErrorMessage } from './types';
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -57,21 +56,24 @@ export function translate(copy: Copy, language: string): string {
   return text
 }
 
-export function isValid(question: Question, answer: string | undefined, secondAnswer?: string): { valid: boolean, reason?: string } {
-  // TODO: translate these validation warningss
-  if (question.required && !answer) {
-    return { valid: false, reason: `"${question.name.en}" is a required field.` }
-  }
+export function isValid(question: Question, values: Values, language: string): ErrorMessage[] {
+  const { validate } = question
+  const errors: ErrorMessage[] = []
 
-  if (question.validate === 're-enter' && answer !== secondAnswer) {
-    return { valid: false, reason: `The two values for "${question.name.en}" must match.` }
-  }
+  const value = values[question.id]
 
-  if (question.validate && question.type === 'email' && (!answer || !validator.isEmail(answer))) {
-    return { valid: false, reason: `Please enter a valid email.` }
-  }
+  validate?.forEach(validation => {
+    const { type, value: validationValue, error } = validation
+    if (type === 'regex') {
+      const regex = new RegExp(validationValue)
+      const isValid = typeof value === 'string' && regex.test(value)
 
-  return { valid: true }
+      if (!isValid) {
+        errors.push({ message: translate(error, language) })
+      }
+    }
+  })
+  return errors
 }
 
 /**

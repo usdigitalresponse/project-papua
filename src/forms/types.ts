@@ -56,7 +56,7 @@ export interface Question {
   instructions?: Copy
   required?: boolean
   type: QuestionType
-  validate?: QuestionValidation
+  validate?: QuestionValidation[]
   id: string
   options?: Option[]
   switch?: Switch
@@ -77,4 +77,10 @@ export interface Copy {
 
 export type QuestionType = 'shorttext' | 'datepicker' | 'dropdown' | 'singleselect' | 'address_picker' | 'boolean' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount' | 'longtext' | 'multiselect' | 'email' | string
 
-type QuestionValidation = boolean | 're-enter'
+export interface QuestionValidation {
+  type: string
+  value: string
+  error: Copy
+}
+
+export interface ErrorMessage { message: string }
