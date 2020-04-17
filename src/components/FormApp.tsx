@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Card, Button } from "./helper-components/index";
 import { Box } from "grommet";
-import { initializeForm, canContinue } from "../forms";
+import { initializeForm, canContinue, isValid } from "../forms";
 import Sidebar from "./Sidebar";
 import Introduction from "./Introduction";
 import Review from "./Review";
@@ -10,6 +10,9 @@ import { LanguageContext } from "../contexts/language";
 import { translate, getCopy } from "../forms/index";
 
 import { FormContext, Values, Errors, Value } from '../contexts/form'
+import { Question, ErrorMessage } from "../forms/types";
+
+import { omit } from 'lodash'
 
 interface FormValues {
   [questionId: string]: string
@@ -36,8 +39,17 @@ const FormApp: React.FC<{}> = () => {
   const [formValues, setFormValues] = useState<Values>({});
   const [formErrors, setFormErrors] = useState<Errors>({})
 
-  const setFormValue = (key: string, value: Value) => setFormValues({ ...formValues, [key]: value })
-  const setFormError = (key: string, value: string) => setFormErrors({ ...formErrors, [key]: value })
+  const setFormError = (key: string, value: ErrorMessage[]) => setFormErrors({ ...formErrors, [key]: value })
+  const setFormValue = (question: Question, value: Value) => {
+    const validationErrors = isValid(question, value, language)
+    setFormValues({ ...formValues, [question.id]: value })
+    if (validationErrors.length > 0) {
+      setFormError(question.id, validationErrors)
+    }
+    else {
+      setFormErrors(omit(formErrors, question.id))
+    }
+  }
 
   const setNextPage = (index: number) => {
     setCurrentIndex(index);

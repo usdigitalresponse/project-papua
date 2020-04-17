@@ -22,16 +22,16 @@ const Multiselect: React.FC<Props> = (props) => {
 
   const onSelectValue = (option: string) => {
     if (!value) {
-      return setValue(question.id, [option])
+      return setValue(question, [option])
     }
     if (!Array.isArray(value)) {
-      return setValue(question.id, [value, option])
+      return setValue(question, [value, option])
     }
     if (value.includes(option)) {
-      return setValue(question.id, value.filter(val => val !== option))
+      return setValue(question, value.filter(val => val !== option))
     }
 
-    setValue(question.id, [...value, option])
+    setValue(question, [...value, option])
   }
 
   if (!question || !question.options) {

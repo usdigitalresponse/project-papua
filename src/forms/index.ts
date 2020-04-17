@@ -10,7 +10,7 @@ import PhoneNumber from '../components/form-components/PhoneNumber'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
 import { Box } from 'grommet'
-import { Values, Errors } from '../contexts/form';
+import { Values, Errors, Value, } from '../contexts/form';
 
 
 export function initializeForm(): Form {
@@ -56,23 +56,26 @@ export function translate(copy: Copy, language: string): string {
   return text
 }
 
-export function isValid(question: Question, values: Values, language: string): ErrorMessage[] {
+export function isValid(question: Question, value: Value, language: string): ErrorMessage[] {
   const { validate } = question
   const errors: ErrorMessage[] = []
-
-  const value = values[question.id]
+  if (!validate) {
+    return errors
+  }
 
   validate?.forEach(validation => {
     const { type, value: validationValue, error } = validation
     if (type === 'regex') {
       const regex = new RegExp(validationValue)
       const isValid = typeof value === 'string' && regex.test(value)
-
+      console.log(validation)
+      console.log('isValid? ', isValid, ' value: ', value)
       if (!isValid) {
         errors.push({ message: translate(error, language) })
       }
     }
   })
+
   return errors
 }
 

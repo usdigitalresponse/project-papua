@@ -11,7 +11,7 @@ interface Props {
 const TextArea: React.FC<Props> = (props) => {
   const { question } = props
   const { values, setValue } = useContext(FormContext)
-  return <GrommetTextArea value={values[question.id] as string} onChange={e => setValue(question.id, e.target.value)} />
+  return <GrommetTextArea value={values[question.id] as string} onChange={e => setValue(question, e.target.value)} />
 }
 
 export default TextArea
