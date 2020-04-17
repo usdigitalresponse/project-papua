@@ -79,9 +79,29 @@ export function canContinue(page: Page, values: Values, errors: Errors): boolean
     return true
   }
 
-  const questionIds = page.questions.map(q => q.id)
-  const requiredQuestions = page.questions.filter(q => q.required).map(q => q.id)
+  const questions = getFlattenedQuestions(page.questions, values)
+  const questionIds = questions.map(q => q.id)
+  const requiredQuestions = questions.filter(q => q.required).map(q => q.id)
   return requiredQuestions.every(id => values[id]) && !questionIds.some(id => errors[id])
+}
+
+export function getFlattenedQuestions(questions: Question[], values: Values): Question[] {
+  let flattenedQuestions: Question[] = []
+
+  questions.forEach(question => {
+    flattenedQuestions.push(question)
+    const { id } = question
+
+    const value = values[id] as string
+    const hasSubQuestions = value && question.switch && typeof value === 'string' && question.switch[value]
+
+    if (hasSubQuestions) {
+      const subQuestions = question.switch![value]
+      flattenedQuestions = subQuestions ? flattenedQuestions.concat(getFlattenedQuestions(subQuestions, values)) : flattenedQuestions
+    }
+  })
+
+  return flattenedQuestions
 }
 
 const typeComponentMappings: { [type: string]: React.FC } = {
