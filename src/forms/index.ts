@@ -9,6 +9,7 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import PhoneNumber from '../components/form-components/PhoneNumber'
 import TextArea from '../components/form-components/TextArea'
+import StateSelect from '../components/form-components/StateSelect'
 import { Box } from 'grommet'
 
 
@@ -82,7 +83,8 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   'email': TextInput as React.FC,
   'phone': PhoneNumber as React.FC,
   'longtext': TextArea as React.FC,
-  'instructions-only': Box
+  'instructions-only': Box,
+  'state-picker': StateSelect as React.FC
 }
 
 //   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount'
