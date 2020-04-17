@@ -58,3 +58,6 @@ amplify/backend/function/*/src
 # In the future, it may be nice to upstream support for customizing the
 # src folder for functions in amplify.
 !amplify/backend/function/*/src/package.json
+
+# We use yarn instead:
+package-lock.json
