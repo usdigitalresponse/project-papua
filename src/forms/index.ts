@@ -74,6 +74,14 @@ export function isValid(question: Question, answer: string | undefined, secondAn
   return { valid: true }
 }
 
+/**
+ * Determines if a user can proceed to the next form, if they have:
+ * 1) Finished all required questions
+ * 2) There are no validation errors 
+ * @param page 
+ * @param values 
+ * @param errors 
+ */
 export function canContinue(page: Page, values: Values, errors: Errors): boolean {
   if (!page) {
     return true
@@ -85,6 +93,11 @@ export function canContinue(page: Page, values: Values, errors: Errors): boolean
   return requiredQuestions.every(id => values[id]) && !questionIds.some(id => errors[id])
 }
 
+/**
+ * Given a set of questions, generates a flattened list of 'relevant' questions, including subquestions from switches.
+ * @param questions 
+ * @param values 
+ */
 export function getFlattenedQuestions(questions: Question[], values: Values): Question[] {
   let flattenedQuestions: Question[] = []
 
