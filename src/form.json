@@ -12,7 +12,7 @@
     },
     "introduction:welcome": {
       "en": "Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System.",
-      "es": "Bienvenido al sistema de reclamos de {{STATE_CODE}}/",
+      "es": "Bienvenido al sistema de reclamos de {{STATE_CODE}}",
       "zh": "欢迎使用{{STATE_CODE}}索赔系统"
     },
     "introduction:background": {
