@@ -36,9 +36,7 @@ $ yarn test
 
 To deploy PAPUA for your state:
 
-1. Fork this repo under your state's GitHub account.
-
-2. Click the following button to deploy to your state's AWS account:
+1. Click the following button to deploy to your state's AWS account:
 
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/usdigitalresponse/project-papua)
 
