@@ -9,10 +9,11 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import PhoneNumber from '../components/form-components/PhoneNumber'
 import TextArea from '../components/form-components/TextArea'
+import { Box } from 'grommet'
 
 
 export function initializeForm(): Form {
-  const baseForm: Form = form
+  const baseForm: Form = (form as unknown) as Form
   return baseForm
 }
 
@@ -22,7 +23,7 @@ export const getCopy = (id: string) => {
 
 export function translate(copy: Copy, language: string): string {
   let text = copy[language]
-  
+
   // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
   text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
     // `key` is the regex-captured value inside the curly braces:
@@ -61,7 +62,8 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   'multiselect': Multiselect as React.FC,
   'email': TextInput as React.FC,
   'phone': PhoneNumber as React.FC,
-  'longtext': TextArea as React.FC
+  'longtext': TextArea as React.FC,
+  'instructions-only': Box
 }
 
 //   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount'
