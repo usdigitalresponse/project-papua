@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Card, Button } from "./helper-components/index";
 import { Box } from "grommet";
-import { initializeForm } from "../forms";
+import { initializeForm, canContinue } from "../forms";
 import Sidebar from "./Sidebar";
 import Introduction from "./Introduction";
 import Review from "./Review";
@@ -63,28 +63,29 @@ const FormApp: React.FC<{}> = () => {
         >
           <FormContext.Provider value={{ setError: setFormError, setValue: setFormValue, values: formValues, errors: formErrors }}>
             {pageComponents[currentIndex]}
+            <Box justify="between" pad="medium" direction="row">
+              {currentIndex > 0 && (
+                <Button
+                  border={{ radius: 0 }}
+                  color="black !important"
+                  onClick={onClickBack}
+                  label={translate(getCopy("back"), language)}
+                />
+              )}
+              {currentIndex + 1 < pageTitles.length && (
+                <Button
+                  color="black !important"
+                  onClick={onClickNext}
+                  disabled={!canContinue(pages[currentIndex - 1], formValues, formErrors)}
+                  label={
+                    currentIndex === 0
+                      ? translate(getCopy("get-started"), language)
+                      : translate(getCopy("next"), language)
+                  }
+                />
+              )}
+            </Box>
           </FormContext.Provider>
-          <Box justify="between" pad="medium" direction="row">
-            {currentIndex > 0 && (
-              <Button
-                border={{ radius: 0 }}
-                color="black !important"
-                onClick={onClickBack}
-                label={translate(getCopy("back"), language)}
-              />
-            )}
-            {currentIndex + 1 < pageTitles.length && (
-              <Button
-                color="black !important"
-                onClick={onClickNext}
-                label={
-                  currentIndex === 0
-                    ? translate(getCopy("get-started"), language)
-                    : translate(getCopy("next"), language)
-                }
-              />
-            )}
-          </Box>
         </Card>
         <Sidebar
           seal={seal}

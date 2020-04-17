@@ -23,9 +23,12 @@ const Question: React.FC<Props> = (props) => {
   return (
     <Box direction="column" margin={{ bottom: 'small' }}>
       <Box fill={true} margin={{ bottom: 'small' }}>
-        <Heading style={{
-          maxWidth: 'none'
-        }} color="black" level={4} margin="none">{translate(question.name, language)}</Heading>
+        <Box direction="row" align="start">
+          <Heading style={{
+            maxWidth: 'none'
+          }} color="black" level={4} margin="none">{translate(question.name, language)}</Heading>
+          {question.required && <Heading level={4} margin="none" color="#FF4040">*</Heading>}
+        </Box>
         {question.instructions && <Text size="small" color="black" margin={{ top: 'xsmall' }} >{translate(question.instructions, language)}</Text>}
       </Box>
       <Component width="100%" question={question} />

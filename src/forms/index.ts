@@ -1,6 +1,6 @@
 import validator from 'validator'
 import form from '../form.json'
-import { FormSchema, Form, Question, QuestionType, Copy } from './types';
+import { FormSchema, Form, Question, QuestionType, Copy, Page } from './types';
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -11,6 +11,7 @@ import PhoneNumber from '../components/form-components/PhoneNumber'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
 import { Box } from 'grommet'
+import { Values, Errors } from '../contexts/form';
 
 
 export function initializeForm(): Form {
@@ -71,6 +72,14 @@ export function isValid(question: Question, answer: string | undefined, secondAn
   }
 
   return { valid: true }
+}
+
+export function canContinue(page: Page, values: Values, errors: Errors): boolean {
+  if (!page) {
+    return true
+  }
+  const requiredQuestions = page.questions.filter(q => q.required).map(q => q.id)
+  return requiredQuestions.every(id => values[id])
 }
 
 const typeComponentMappings: { [type: string]: React.FC } = {

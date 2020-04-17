@@ -67,7 +67,7 @@ export const states: Option[] = initialStates.map(state => ({
   name: {
     'en': state.name,
     'es': state.name,
-    'zn': state.name
+    'zh': state.name
   },
   id: state.id
 }))
