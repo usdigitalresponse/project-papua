@@ -54,28 +54,22 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.json": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{yml,yaml}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.css": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.svg": [
-      "svgo",
-      "git add"
+      "svgo"
     ],
     "*.{png,jpeg,jpg,gif}": [
-      "imagemin-lint-staged",
-      "git add"
+      "imagemin-lint-staged"
     ]
   },
   "devDependencies": {
