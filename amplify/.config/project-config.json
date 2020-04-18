@@ -7,7 +7,7 @@
     "config": {
       "SourceDir": "src",
       "DistributionDir": "build",
-      "BuildCommand": "rm src/aws-exports.js && yarn build",
+      "BuildCommand": "yarn build",
       "StartCommand": "yarn start"
     }
   },
