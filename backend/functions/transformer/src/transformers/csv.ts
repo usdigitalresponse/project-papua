@@ -6,11 +6,6 @@ import { createObjectCsvStringifier } from 'csv-writer'
 import { toPath } from '../path'
 
 export const csv: Transformer = async (cfg, claims) => {
-  if (claims.length === 0) {
-    console.log(`No claims submitted for ${JSON.stringify(cfg)}. Skipping`)
-    return {}
-  }
-
   const path = toPath('csv', cfg)
   await uploadClaims(path, claims)
 
