@@ -10,8 +10,10 @@ interface Props {
 
 const TextArea: React.FC<Props> = (props) => {
   const { question } = props
-  const { values, setValue } = useContext(FormContext)
-  return <GrommetTextArea value={values[question.id] as string} onChange={e => setValue(question, e.target.value)} />
+  const { values, setValue, errors } = useContext(FormContext)
+  const hasError = errors[question.id]
+
+  return <GrommetTextArea value={values[question.id] as string} onChange={e => setValue(question, e.target.value)} style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid' }} />
 }
 
 export default TextArea

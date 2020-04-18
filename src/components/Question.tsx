@@ -15,9 +15,10 @@ const Question: React.FC<Props> = (props) => {
   const Component: React.FC<{ [key: string]: any }> = getComponent(question.type)
 
   const { language } = useContext(LanguageContext)
-  const { values } = useContext(FormContext)
+  const { values, errors } = useContext(FormContext)
 
   const value = values[question.id]
+  const error = errors[question.id]
   const hasSwitch = question.switch && value && typeof value === 'string'
 
   return (
@@ -32,6 +33,7 @@ const Question: React.FC<Props> = (props) => {
         {question.instructions && <Text size="small" color="black" margin={{ top: 'xsmall' }} >{translate(question.instructions, language)}</Text>}
       </Box>
       <Component width="100%" question={question} />
+      {error && <Box>{error.map(e => <Text margin={{ top: 'xsmall' }} color="#FF4040">{translate(e, language)}</Text>)}</Box>}
       <Box margin={{ top: 'medium' }}>
         {hasSwitch && question.switch![value as string]?.map(q => <Question question={q} key={q.id} />)}
       </Box>

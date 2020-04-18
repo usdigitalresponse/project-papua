@@ -1,9 +1,9 @@
 import { createContext } from 'react'
-import { Question, ErrorMessage } from '../forms/types'
+import { Question, Copy } from '../forms/types'
 
 interface FormState {
   setValue: (question: Question, value: Value) => void
-  setError: (id: string, value: ErrorMessage[]) => void
+  setError: (id: string, value: Copy[]) => void
   values: Values
   errors: Errors
 }
@@ -13,7 +13,7 @@ export interface Values {
 }
 
 export interface Errors {
-  [key: string]: ErrorMessage[]
+  [key: string]: Copy[]
 }
 
 export type Value = string | string[] | Date
@@ -23,7 +23,7 @@ const initialState: FormState = {
   values: {},
   errors: {},
   setValue: (question: Question, value: Value) => { },
-  setError: (id: string, value: ErrorMessage[]) => { }
+  setError: (id: string, value: Copy[]) => { }
 }
 
 export const FormContext = createContext(initialState)

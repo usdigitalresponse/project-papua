@@ -10,7 +10,7 @@ import { LanguageContext } from "../contexts/language";
 import { translate, getCopy } from "../forms/index";
 
 import { FormContext, Values, Errors, Value } from '../contexts/form'
-import { Question, ErrorMessage } from "../forms/types";
+import { Question, Copy } from "../forms/types";
 
 import { omit } from 'lodash'
 
@@ -39,7 +39,7 @@ const FormApp: React.FC<{}> = () => {
   const [formValues, setFormValues] = useState<Values>({});
   const [formErrors, setFormErrors] = useState<Errors>({})
 
-  const setFormError = (key: string, value: ErrorMessage[]) => setFormErrors({ ...formErrors, [key]: value })
+  const setFormError = (key: string, value: Copy[]) => setFormErrors({ ...formErrors, [key]: value })
   const setFormValue = (question: Question, value: Value) => {
     const validationErrors = isValid(question, value, language)
     setFormValues({ ...formValues, [question.id]: value })

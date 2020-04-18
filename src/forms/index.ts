@@ -6,7 +6,6 @@ import Select from '../components/form-components/Select'
 import SingleSelect from '../components/form-components/SingleSelect'
 import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
-import PhoneNumber from '../components/form-components/PhoneNumber'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
 import { Box } from 'grommet'
@@ -56,9 +55,9 @@ export function translate(copy: Copy, language: string): string {
   return text
 }
 
-export function isValid(question: Question, value: Value, language: string): ErrorMessage[] {
+export function isValid(question: Question, value: Value, language: string): Copy[] {
   const { validate } = question
-  const errors: ErrorMessage[] = []
+  const errors: Copy[] = []
   if (!validate) {
     return errors
   }
@@ -71,7 +70,7 @@ export function isValid(question: Question, value: Value, language: string): Err
       console.log(validation)
       console.log('isValid? ', isValid, ' value: ', value)
       if (!isValid) {
-        errors.push({ message: translate(error, language) })
+        errors.push(error)
       }
     }
   })
@@ -130,7 +129,6 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   'boolean': Boolean as React.FC,
   'multiselect': Multiselect as React.FC,
   'email': TextInput as React.FC,
-  'phone': PhoneNumber as React.FC,
   'longtext': TextArea as React.FC,
   'instructions-only': Box,
   'state-picker': StateSelect as React.FC
