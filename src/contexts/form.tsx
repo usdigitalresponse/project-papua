@@ -17,12 +17,13 @@ export interface Errors {
 
 export type Value = string | string[] | Date
 
-
 const initialState: FormState = {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
+  /* eslint-disable @typescript-eslint/no-empty-function */
   values: {},
   errors: {},
-  setValue: (id: string, value: Value) => { },
-  setError: (id: string, value: string) => { }
+  setValue: (id: string, value: Value) => {},
+  setError: (id: string, value: string) => {},
 }
 
 export const FormContext = createContext(initialState)

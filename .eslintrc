@@ -1,0 +1,58 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+    "prettier/standard",
+    "prettier/react"
+  ],
+  "plugins": ["prettier", "react", "react-hooks", "@typescript-eslint", "jest"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "es5"
+      }
+    ],
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": false
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "overrides": [
+    {
+      // Disable camelcase for the REST clients since we oftentimes interact
+      // with snakecase variable names when encoding/decoding from JSON.
+      "files": "src/clients/**/*",
+      "rules": {
+        "@typescript-eslint/camelcase": "off"
+      }
+    }
+  ]
+}

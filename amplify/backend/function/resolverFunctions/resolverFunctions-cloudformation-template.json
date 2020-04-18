@@ -1,193 +1,179 @@
 {
-	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "Lambda resource stack creation using Amplify CLI",
-	"Parameters": {
-		"CloudWatchRule": {
-			"Type": "String",
-			"Default": "NONE",
-			"Description": " Schedule Expression"
-		},
-		"env": {
-			"Type": "String"
-		}
-	},
-	"Conditions": {
-		"ShouldNotCreateEnvResources": {
-			"Fn::Equals": [
-				{
-					"Ref": "env"
-				},
-				"NONE"
-			]
-		}
-	},
-	"Resources": {
-		"LambdaFunction": {
-			"Type": "AWS::Lambda::Function",
-			"Metadata": {
-				"aws:asset:path": "./src",
-				"aws:asset:property": "Code"
-			},
-			"Properties": {
-				"Handler": "index.handler",
-				"FunctionName": {
-					"Fn::If": [
-						"ShouldNotCreateEnvResources",
-						"resolver",
-						{
-							"Fn::Join": [
-								"",
-								[
-									"resolver",
-									"-",
-									{
-										"Ref": "env"
-									}
-								]
-							]
-						}
-					]
-				},
-				"Environment": {
-					"Variables": {
-						"ENV": {
-							"Ref": "env"
-						},
-						"REGION": {
-							"Ref": "AWS::Region"
-						},
-						"ACCT_ID": {
-							"Ref": "AWS::AccountId"
-						}
-					}
-				},
-				"Role": {
-					"Fn::GetAtt": [
-						"LambdaExecutionRoleResolver",
-						"Arn"
-					]
-				},
-				"Runtime": "nodejs12.x",
-				"Timeout": "25",
-				"Code": {
-					"S3Bucket": "amplify-project-papua-usdr-135250-deployment",
-					"S3Key": "amplify-builds/resolverFunctions-466e4932436162325073-build.zip"
-				}
-			}
-		},
-		"LambdaExecutionRoleResolver": {
-			"Type": "AWS::IAM::Role",
-			"Properties": {
-				"RoleName": {
-					"Fn::If": [
-						"ShouldNotCreateEnvResources",
-						"projectpapuaLambdaRole2ed8ae7g",
-						{
-							"Fn::Join": [
-								"",
-								[
-									"projectpapuaLambdaRole2ed8ae7g",
-									"-",
-									{
-										"Ref": "env"
-									}
-								]
-							]
-						}
-					]
-				},
-				"AssumeRolePolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Principal": {
-								"Service": [
-									"lambda.amazonaws.com"
-								]
-							},
-							"Action": [
-								"sts:AssumeRole"
-							]
-						}
-					]
-				}
-			}
-		},
-		"lambdaexecutionpolicy": {
-			"DependsOn": [
-				"LambdaExecutionRoleResolver"
-			],
-			"Type": "AWS::IAM::Policy",
-			"Properties": {
-				"PolicyName": "lambda-execution-policy",
-				"Roles": [
-					{
-						"Ref": "LambdaExecutionRoleResolver"
-					}
-				],
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Action": [
-								"logs:CreateLogGroup",
-								"logs:CreateLogStream",
-								"logs:PutLogEvents"
-							],
-							"Resource": {
-								"Fn::Sub": [
-									"arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
-									{
-										"region": {
-											"Ref": "AWS::Region"
-										},
-										"account": {
-											"Ref": "AWS::AccountId"
-										},
-										"lambda": {
-											"Ref": "LambdaFunction"
-										}
-									}
-								]
-							}
-						},
-						{
-							"Effect": "Allow",
-							"Action": [
-								"s3:*"
-							],
-							"Resource": "*"
-						}
-					]
-				}
-			}
-		}
-	},
-	"Outputs": {
-		"Name": {
-			"Value": {
-				"Ref": "LambdaFunction"
-			}
-		},
-		"Arn": {
-			"Value": {
-				"Fn::GetAtt": [
-					"LambdaFunction",
-					"Arn"
-				]
-			}
-		},
-		"Region": {
-			"Value": {
-				"Ref": "AWS::Region"
-			}
-		},
-		"LambdaExecutionRoleResolver": {
-			"Value": {
-				"Ref": "LambdaExecutionRoleResolver"
-			}
-		}
-	}
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Lambda resource stack creation using Amplify CLI",
+  "Parameters": {
+    "CloudWatchRule": {
+      "Type": "String",
+      "Default": "NONE",
+      "Description": " Schedule Expression"
+    },
+    "env": {
+      "Type": "String"
+    }
+  },
+  "Conditions": {
+    "ShouldNotCreateEnvResources": {
+      "Fn::Equals": [
+        {
+          "Ref": "env"
+        },
+        "NONE"
+      ]
+    }
+  },
+  "Resources": {
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Metadata": {
+        "aws:asset:path": "./src",
+        "aws:asset:property": "Code"
+      },
+      "Properties": {
+        "Handler": "index.handler",
+        "FunctionName": {
+          "Fn::If": [
+            "ShouldNotCreateEnvResources",
+            "resolver",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "resolver",
+                  "-",
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        "Environment": {
+          "Variables": {
+            "ENV": {
+              "Ref": "env"
+            },
+            "REGION": {
+              "Ref": "AWS::Region"
+            },
+            "ACCT_ID": {
+              "Ref": "AWS::AccountId"
+            }
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": ["LambdaExecutionRoleResolver", "Arn"]
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": "25",
+        "Code": {
+          "S3Bucket": "amplify-project-papua-usdr-135250-deployment",
+          "S3Key": "amplify-builds/resolverFunctions-466e4932436162325073-build.zip"
+        }
+      }
+    },
+    "LambdaExecutionRoleResolver": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::If": [
+            "ShouldNotCreateEnvResources",
+            "projectpapuaLambdaRole2ed8ae7g",
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "projectpapuaLambdaRole2ed8ae7g",
+                  "-",
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": ["lambda.amazonaws.com"]
+              },
+              "Action": ["sts:AssumeRole"]
+            }
+          ]
+        }
+      }
+    },
+    "lambdaexecutionpolicy": {
+      "DependsOn": ["LambdaExecutionRoleResolver"],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRoleResolver"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
+                  {
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "lambda": {
+                      "Ref": "LambdaFunction"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Action": ["s3:*"],
+              "Resource": "*"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "Name": {
+      "Value": {
+        "Ref": "LambdaFunction"
+      }
+    },
+    "Arn": {
+      "Value": {
+        "Fn::GetAtt": ["LambdaFunction", "Arn"]
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "LambdaExecutionRoleResolver": {
+      "Value": {
+        "Ref": "LambdaExecutionRoleResolver"
+      }
+    }
+  }
 }
