@@ -14,9 +14,13 @@ const Form: React.FC<Props> = (props) => {
   const { language } = useContext(LanguageContext)
 
   return (
-    <Box pad='medium' direction="column" justify="start">
-      <Heading color="black" margin={{ bottom: 'medium', top: 'none' }} level={3}>{translate(page.heading, language)}</Heading>
-      {page.questions.map(question => <Question question={question} key={question.id} />)}
+    <Box pad="medium" direction="column" justify="start">
+      <Heading color="black" margin={{ bottom: 'medium', top: 'none' }} level={3}>
+        {translate(page.heading, language)}
+      </Heading>
+      {page.questions.map((question) => (
+        <Question question={question} key={question.id} />
+      ))}
     </Box>
   )
 }

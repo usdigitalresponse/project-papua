@@ -32,31 +32,33 @@
  *   FORCE=true GOOGLE_APPLICATION_CREDENTIALS=~/Downloads/PAPUA-59beefc0cfb4.json node ./scripts/translate.js
  */
 
-const fs = require("fs");
-const { Translate } = require("@google-cloud/translate").v2;
-const translater = new Translate();
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-const f = fs.readFileSync("src/form.json", {
-  encoding: "utf-8",
-});
+const fs = require('fs')
+const { Translate } = require('@google-cloud/translate').v2
+const translater = new Translate()
 
-const form = JSON.parse(f);
+const f = fs.readFileSync('src/form.json', {
+  encoding: 'utf-8',
+})
+
+const form = JSON.parse(f)
 
 async function map(f) {
   const updateQuestion = async (question) => {
     // Update the question's name
-    question.name = await f(question.name);
+    question.name = await f(question.name)
 
     // Update the question's instructions, if any
     if (question.instructions) {
-      question.instructions = await f(question.instructions);
+      question.instructions = await f(question.instructions)
     }
 
     // Update the question's options, if any
     if (question.options) {
       for (let i = 0; i < question.options.length; i++) {
         // Update the option's name
-        question.options[i].name = await f(question.options[i].name);
+        question.options[i].name = await f(question.options[i].name)
       }
     }
 
@@ -65,9 +67,7 @@ async function map(f) {
       for (const field of Object.keys(question.switch)) {
         if (question.switch[field]) {
           for (let j = 0; j < question.switch[field].length; j++) {
-            question.switch[field][j] = await updateQuestion(
-              question.switch[field][j]
-            );
+            question.switch[field][j] = await updateQuestion(question.switch[field][j])
           }
         }
       }
@@ -76,12 +76,12 @@ async function map(f) {
     // Update the validation errors, if any
     if (question.validate) {
       for (let j = 0; j < question.validate.length; j++) {
-        question.validate[j].error = await f(question.validate[j].error);
+        question.validate[j].error = await f(question.validate[j].error)
       }
     }
 
-    return question;
-  };
+    return question
+  }
 
   // Update the top-level instructional copy:
   for (const id of Object.keys(form.instructions)) {
@@ -89,76 +89,76 @@ async function map(f) {
   }
 
   // Update the copy in each page:
-  const pages = form.pages;
+  const pages = form.pages
   for (let i = 0; i < pages.length; i++) {
     // Update the title
-    pages[i].title = await f(pages[i].title);
+    pages[i].title = await f(pages[i].title)
 
     // Update the heading
-    pages[i].heading = await f(pages[i].heading);
+    pages[i].heading = await f(pages[i].heading)
 
     // Update the page's instructions, if any
     if (pages[i].instructions) {
-      pages[i].instructions = await f(pages[i].instructions);
+      pages[i].instructions = await f(pages[i].instructions)
     }
 
     // Update the question's copy:
     for (let j = 0; j < pages[i].questions.length; j++) {
-      pages[i].questions[j] = await updateQuestion(pages[i].questions[j]);
+      pages[i].questions[j] = await updateQuestion(pages[i].questions[j])
     }
   }
 
   // Write back the updated pages
-  form.pages = pages;
+  form.pages = pages
 }
 
 function translate(languageCode) {
   return async (copy) => {
     // Don't translate if we already have translated this field.
-    if (copy[languageCode] && process.env.FORCE !== "true") {
-      return copy;
+    if (copy[languageCode] && process.env.FORCE !== 'true') {
+      return copy
     }
 
     try {
       const result = await translater.translate(copy.en, {
         to: languageCode,
-      });
+      })
       if (result.length > 0 && result[0].length > 0) {
         return {
           ...copy,
           [languageCode]: result[0],
-        };
+        }
       }
     } catch (err) {
       // If we fail to query the Google Translate API, just skip this text
       console.error({
-        message: "Failed to translate text",
+        message: 'Failed to translate text',
         copy,
         error: err,
-      });
+      })
     }
 
-    return copy;
-  };
+    return copy
+  }
 }
 
-(async () => {
+;(async () => {
   // We originally stored copy in forms like `title: "Foo"` but
   // when we introduced i18n, we moved to a format like `title: { en: "Foo" }`
-  // If you need to convert a form from the former to the latter, then 
+  // If you need to convert a form from the former to the latter, then
   // uncomment the following line.
   // await map(copy => ({ en: copy}));
-  
+
   // Add spanish translations
-  await map(translate("es"));
+  await map(translate('es'))
 
   // Add chinese translations
-  await map(translate("zh"));
+  await map(translate('zh'))
 
-  fs.writeFileSync("src/form.json", JSON.stringify(form, null, 2), {
-    encoding: "utf-8",
-  });
+  fs.writeFileSync('src/form.json', JSON.stringify(form, null, 2), {
+    encoding: 'utf-8',
+  })
 })().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+  console.error(err)
+  process.exit(1)
+})

@@ -6,8 +6,8 @@ const Card: React.FC<any> = (props) => {
   return (
     <Box className="card" {...otherProps}>
       {children}
-    </Box >)
+    </Box>
+  )
 }
 
 export default Card
-

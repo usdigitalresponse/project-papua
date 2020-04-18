@@ -1,0 +1,7 @@
+node_modules/**
+build/**
+aws-exports.js
+backend/functions/**/node_modules
+amplify/#current-cloud-backend
+amplify/backend/function/**/**/*.js
+backend/functions/**/dist/**/*.js
