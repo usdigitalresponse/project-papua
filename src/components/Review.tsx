@@ -41,7 +41,7 @@ const Review: React.FC<{}> = () => {
       {/* TODO: programmatically render the form values here */}
 
       <br />
-      <Text>Your claim will not be filed unless you click Submit below.</Text>
+      <Text>{translate(getCopy('submit:instructions'), language)}</Text>
       <br />
 
       <Button
