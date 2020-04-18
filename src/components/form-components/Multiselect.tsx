@@ -19,7 +19,6 @@ const Multiselect: React.FC<Props> = (props) => {
   const { values, setValue } = useContext(FormContext)
   const value = values[question.id] as string[] | string
 
-
   const onSelectValue = (option: string) => {
     if (!value) {
       return setValue(question, [option])
@@ -40,11 +39,30 @@ const Multiselect: React.FC<Props> = (props) => {
 
   return (
     <Box>
-      {question.options.map(o => {
+      {question.options.map((o) => {
         const isSelected = value && value.includes(o.id)
         return (
-          <Box onClick={() => onSelectValue(o.id)} style={{ background: isSelected ? "#EBFFFA" : "white" }} align="start" key={o.id} margin={{ bottom: 'xsmall' }} pad='small' className="single-select-border single-select" direction="row">
-            <Box style={{ background: isSelected ? "#008060" : "white", height: 20, width: 20, borderRadius: '50%', flexShrink: 0 }} margin={{ right: 'small' }} className="single-select-border" />
+          <Box
+            onClick={() => onSelectValue(o.id)}
+            style={{ background: isSelected ? '#EBFFFA' : 'white' }}
+            align="start"
+            key={o.id}
+            margin={{ bottom: 'xsmall' }}
+            pad="small"
+            className="single-select-border single-select"
+            direction="row"
+          >
+            <Box
+              style={{
+                background: isSelected ? '#008060' : 'white',
+                height: 20,
+                width: 20,
+                borderRadius: '50%',
+                flexShrink: 0,
+              }}
+              margin={{ right: 'small' }}
+              className="single-select-border"
+            />
             <Text>{translate(o.name, language)}</Text>
           </Box>
         )

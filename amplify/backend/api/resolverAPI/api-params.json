@@ -1,34 +1,31 @@
 {
-    "paths": [
-        {
-            "name": "/claims",
-            "lambdaFunction": "resolverFunctions",
-            "privacy": {
-                "open": true
-            }
-        }
-    ],
-    "resourceName": "resolverAPI",
-    "apiName": "resolverAPI",
-    "functionArns": [
-        {
-            "lambdaFunction": "resolverFunctions"
-        }
-    ],
-    "privacy": {
-        "auth": 0,
-        "unauth": 0,
-        "authRoleName": "amplify-project-papua-api-124803-authRole",
-        "unAuthRoleName": "amplify-project-papua-api-124803-unauthRole"
-    },
-    "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "resolverFunctions",
-            "attributes": [
-                "Name",
-                "Arn"
-            ]
-        }
-    ]
+  "paths": [
+    {
+      "name": "/claims",
+      "lambdaFunction": "resolverFunctions",
+      "privacy": {
+        "open": true
+      }
+    }
+  ],
+  "resourceName": "resolverAPI",
+  "apiName": "resolverAPI",
+  "functionArns": [
+    {
+      "lambdaFunction": "resolverFunctions"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-project-papua-api-124803-authRole",
+    "unAuthRoleName": "amplify-project-papua-api-124803-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "resolverFunctions",
+      "attributes": ["Name", "Arn"]
+    }
+  ]
 }

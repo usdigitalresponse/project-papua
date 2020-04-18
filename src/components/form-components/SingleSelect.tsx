@@ -3,7 +3,7 @@ import { Question } from '../../forms/types'
 import { Box, Text } from 'grommet'
 import './single-select.css'
 import { LanguageContext } from '../../contexts/language'
-import { translate } from '../../forms/index';
+import { translate } from '../../forms/index'
 import { FormContext } from '../../contexts/form'
 
 interface Props {

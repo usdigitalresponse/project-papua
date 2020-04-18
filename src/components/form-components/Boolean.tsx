@@ -10,16 +10,17 @@ interface Props {
 }
 
 const Boolean: React.FC<Props> = (props) => {
-
   const question = props.question
-  question.options = [{
-    id: 'true',
-    name: getCopy("yes")
-  },
-  {
-    id: 'false',
-    name: getCopy("no")
-  }]
+  question.options = [
+    {
+      id: 'true',
+      name: getCopy('yes'),
+    },
+    {
+      id: 'false',
+      name: getCopy('no'),
+    },
+  ]
 
   return <SingleSelect question={question} />
 }

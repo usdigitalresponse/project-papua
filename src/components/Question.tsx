@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import { Question as QuestionInterface } from '../forms/types'
 import { getComponent } from '../forms'
 import { Box, Heading, Text } from 'grommet'
-import { LanguageContext } from '../contexts/language';
-import { translate } from '../forms/index';
-import { FormContext } from '../contexts/form';
+import { LanguageContext } from '../contexts/language'
+import { translate } from '../forms/index'
+import { FormContext } from '../contexts/form'
 
 interface Props {
   question: QuestionInterface
@@ -35,7 +35,7 @@ const Question: React.FC<Props> = (props) => {
       <Component width="100%" question={question} />
       {error && <Box>{error.map(e => <Text margin={{ top: 'xsmall' }} color="#FF4040">{translate(e, language)}</Text>)}</Box>}
       <Box margin={{ top: 'medium' }}>
-        {hasSwitch && question.switch![value as string]?.map(q => <Question question={q} key={q.id} />)}
+        {question.switch && question.switch[value as string]?.map((q) => <Question question={q} key={q.id} />)}
       </Box>
     </Box>
   )

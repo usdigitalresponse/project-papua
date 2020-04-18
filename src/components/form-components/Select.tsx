@@ -6,7 +6,6 @@ import { LanguageContext } from '../../contexts/language'
 import { translate } from '../../forms/index'
 import { FormContext } from '../../contexts/form'
 
-
 interface Props {
   [key: string]: any
   question: Question
@@ -16,13 +15,18 @@ const Select: React.FC<Props> = (props) => {
   const { question } = props
   const { language } = useContext(LanguageContext)
   const { values, setValue } = useContext(FormContext)
-  const value = values[question!.id]
+  const value = values[question.id]
 
   if (!props.question) {
     return <Box />
   }
 
-  const options = question.options!.map(option => ({ name: translate(option.name, language), id: option.id }))
+  if (!question.options) {
+    console.error('expected question to have options')
+    return null
+  }
+
+  const options = question.options.map((option) => ({ name: translate(option.name, language), id: option.id }))
 
   return (
     <GrommetSelect

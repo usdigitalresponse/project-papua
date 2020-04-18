@@ -1,38 +1,37 @@
-import React from 'react';
+import React from 'react'
 import { Grommet } from 'grommet'
-import './App.css';
+import './App.css'
 import FormApp from './components/FormApp'
-import { LanguageProvider } from './contexts/language';
+import { LanguageProvider } from './contexts/language'
 
 const theme = {
   global: {
     text: {
-      align: 'left'
+      align: 'left',
     },
     font: {
-      size: '14px'
+      size: '14px',
     },
     selected: {
-      background: '#008060'
+      background: '#008060',
     },
     focus: {
       border: {
-        color: 'none'
-      }
+        color: 'none',
+      },
     },
     control: {
       border: {
-        color: 'black'
-      }
-    }
+        color: 'black',
+      },
+    },
   },
   select: {
     icons: {
-      color: '#000000'
-    }
-  }
-};
-
+      color: '#000000',
+    },
+  },
+}
 
 function App() {
   // `theme as any` because grommet has incomplete TS definitions
@@ -45,4 +44,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

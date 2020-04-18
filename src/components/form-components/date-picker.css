@@ -1,9 +1,10 @@
 .date-picker {
-  font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: #425A70;
+  font-family: 'SF UI Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: #425a70;
 }
 
-.date-picker .react-date-picker__wrapper{
+.date-picker .react-date-picker__wrapper {
   border: none;
   background-color: white;
   border: black 1px solid;
@@ -11,20 +12,26 @@
   padding: 10px;
 }
 
-.date-picker .react-date-picker__wrapper *, .react-calendar * {
+.date-picker .react-date-picker__wrapper *,
+.react-calendar * {
   font-size: 14px;
   color: black;
 }
 
-.react-calendar__tile--now, .react-calendar__tile--now:hover{
-  background: #E5E5E5 !important;
+.react-calendar__tile--now,
+.react-calendar__tile--now:hover {
+  background: #e5e5e5 !important;
 }
 
-.react-calendar__tile--active, .react-calendar__tile--active:hover, .react-calendar__tile--hasActive, .react-calendar__tile--hasActive:hover {
+.react-calendar__tile--active,
+.react-calendar__tile--active:hover,
+.react-calendar__tile--hasActive,
+.react-calendar__tile--hasActive:hover {
   background: #008060 !important;
 }
 
-.react-calendar__tile--active abbr, .react-calendar__tile--hasActive  {
+.react-calendar__tile--active abbr,
+.react-calendar__tile--hasActive {
   color: white !important;
 }
 
