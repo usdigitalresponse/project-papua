@@ -24,7 +24,7 @@
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
     "amplify:resolverFunctions": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
     "compile": "run-p amplify:*",
-    "lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'"
+    "lint": "eslint --fix ."
   },
   "browserslist": {
     "production": [
