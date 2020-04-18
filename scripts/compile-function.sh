@@ -33,7 +33,7 @@ rm -rf amplify/backend/function/${FUNCTION_NAME}/src/*
 
 # Compile the TS into JS.
 cd backend/functions/${FUNCTION_NAME}
-yarn
+yarn --frozen-lockfile
 yarn tsc
 cd -
 
@@ -47,4 +47,4 @@ cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCT
 echo "STATE_CODE=${STATE_CODE}" > amplify/backend/function/${FUNCTION_NAME}/src/.env
 
 # Install dependencies based on the updated package.json
-yarn --cwd=amplify/backend/function/${FUNCTION_NAME}/src install
+yarn --frozen-lockfile --cwd=amplify/backend/function/${FUNCTION_NAME}/src install

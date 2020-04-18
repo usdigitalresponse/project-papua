@@ -28,7 +28,8 @@
     "amplify:resolverFunctions": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
     "compile": "run-p amplify:*",
     "lint": "eslint --fix .",
-    "backend": "cd backend/functions/resolverFunctions && yarn && yarn nodemon"
+    "backend": "cd backend/functions/resolverFunctions && yarn && yarn nodemon",
+    "transform": "STATE_CODE=csv yarn amplify:transformer && amplify mock function transformer --event ../../../../backend/functions/transformer/example.json"
   },
   "browserslist": {
     "production": [
