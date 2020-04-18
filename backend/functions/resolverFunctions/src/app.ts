@@ -1,14 +1,38 @@
-import express, { Request, Response } from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
 import { PutObjectCommand } from '@aws-sdk/client-s3-node/commands/PutObjectCommand'
 
-const s3 = new S3Client({})
+const s3 = new S3Client({
+  // Locally, we'll override the S3 endpoint to point at a local dockerized
+  // version of S3.
+  endpoint: process.env.S3_ENDPOINT || undefined,
+  // To override the endpoint, you have to force the path style
+  // so that it won't try and insert your bucket name as a subdomain
+  // ala `bucket.localhost:4572`.
+  forcePathStyle: true,
+})
 
 const app = express()
 app.use(bodyParser.json())
-app.use(awsServerlessExpressMiddleware.eventContext())
+
+// In production, this API runs behind API Gateway. In that case,
+// we need this middleware to extract the HTTP body from the Lambda
+// event. Locally, we're directly hitting this express app and therefore
+// do not need this middleware.s
+if (process.env.NODE_ENV === 'production') {
+  app.use(awsServerlessExpressMiddleware.eventContext())
+} else {
+  // However, when running locally, we don't have the CORS setup
+  // from API Gateway. Since the app is running on a different port
+  // than this API, we open up CORS locally.
+  app.use(function (req: Request, res: Response, next: NextFunction) {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    next()
+  })
+}
 
 app.post('/claims', async function (req: Request, res: Response) {
   const now = new Date()
@@ -34,10 +58,10 @@ app.post('/claims', async function (req: Request, res: Response) {
   try {
     const upload = await s3.send(putObjectCommand)
     console.log(`Wrote claim to S3 (${bucket})`, upload)
-    res.json({ success: `claim received` })
+    res.json({ message: 'claim received', id: uuid })
   } catch (err) {
     console.error(`Failed to write claim to S3 (${bucket})`, err)
-    res.status(500).json({ message: 'error putting object to s3' })
+    res.status(500).json({ message: 'error putting object to s3', id: uuid })
   }
 })
 
@@ -45,4 +69,4 @@ function pad(n: number): string {
   return ('0' + String(n)).slice(-2)
 }
 
-export default app
+export { app }

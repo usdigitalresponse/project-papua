@@ -16,6 +16,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
+    "uuid": "^7.0.3",
     "validator": "^13.0.0"
   },
   "scripts": {
@@ -26,7 +27,8 @@
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
     "amplify:resolverFunctions": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
     "compile": "run-p amplify:*",
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix .",
+    "backend": "cd backend/functions/resolverFunctions && yarn && yarn nodemon"
   },
   "browserslist": {
     "production": [
@@ -84,6 +86,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/uuid": "^7.0.2",
     "@types/validator": "^13.0.0",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",

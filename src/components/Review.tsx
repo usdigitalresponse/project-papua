@@ -3,9 +3,10 @@ import { Box, Heading, Button, Text } from 'grommet'
 import { getCopy, translate } from '../forms/index'
 import { LanguageContext } from '../contexts/language'
 import Amplify, { API } from 'aws-amplify'
-import awsconfig from '../aws-exports'
 import { FormContext } from '../contexts/form'
+import { v5 as uuid } from 'uuid'
 
+import awsconfig from '../aws-exports'
 Amplify.configure(awsconfig)
 
 const Review: React.FC<{}> = () => {
@@ -20,7 +21,9 @@ const Review: React.FC<{}> = () => {
       const resp = await API.post('resolverAPI', '/claims', {
         body: {
           metadata: {
-            uuid: Math.floor(Math.random() * 10),
+            uuid: uuid(window.location.hostname, uuid.DNS),
+            timestamp: new Date(),
+            host: window.location.hostname,
           },
           questions: values,
         },

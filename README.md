@@ -17,19 +17,37 @@ The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a 
 To run the app locally, just do the following:
 
 ```bash
+# Install dependencies:
+$ yarn
+# Boot the app. It'll auto-reload as you make changes to
+# the front-end source code.s
 $ yarn start
 ```
 
-To build the app, run:
+If you want to test the submission process with the API, you'll need to also:
 
 ```bash
-$ yarn build
+# Boot a local S3 setup
+$ docker-compose up -d
+# [one-time] Create the S3 bucket locally that the API depends on:
+$ aws s3 --endpoint-url='http://localhost:4572' mb s3://papua-data-123456789
+# Boot the API server. It'll auto-reload as you make changes to
+# the backend TS source code.
+$ yarn backend
 ```
 
-To run tests, run:
+You can inspect the contents of the S3 bucket like so:
 
 ```bash
-$ yarn test
+# List buckets:
+$ aws s3 --endpoint-url=http://localhost:4572 ls
+# List top-level files in the bucket:
+$ aws s3 --endpoint-url=http://localhost:4572 ls s3://papua-data-123456789/
+# View which days claims have been submitted on:
+$ aws s3 --endpoint-url=http://localhost:4572 ls s3://papua-data-123456789/claims/
+# ... etc.
+# Open a claim from the local S3:
+aws s3 --endpoint-url=http://localhost:4572 cp s3://papua-data-123456789/claims/day=2020-04-18/hour=16/3.json - | jq .
 ```
 
 # Deploying
@@ -56,7 +74,7 @@ Inside that file, implement a function like so:
 
 ```ts
 // backend/functions/transformer/src/transformers/<state code>.ts
-import { Transformer } from "./index";
+import { Transformer } from './index'
 
 // Name this function the same name as your state code.
 //
@@ -65,8 +83,8 @@ import { Transformer } from "./index";
 export const ca: Transformer = async (cfg, claims) => {
   // TODO(you): write `claims` into your system.
 
-  return {};
-};
+  return {}
+}
 ```
 
 You can this commit this file to the `master` branch in your fork, which will update your deployment on Amplify. To switch the backend transformer from the default (`csv`) to your state's (`<state code>`) just update the `STATE_CODE` environment variable.

@@ -35,7 +35,6 @@ build/
 dist/
 node_modules/
 awsconfiguration.json
-aws-exports.js
 amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
