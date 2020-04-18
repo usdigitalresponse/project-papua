@@ -150,7 +150,7 @@
             {
               "Effect": "Allow",
               "Action": ["s3:*"],
-              "Resource": "*"
+              "Resource": { "Fn::Join": ["", ["arn:aws:s3:::papua-data-", { "Ref": "AWS::AccountId" }]] }
             }
           ]
         }
