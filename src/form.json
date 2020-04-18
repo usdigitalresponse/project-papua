@@ -220,6 +220,11 @@
       "es": "Revisar y enviar",
       "zh": "审查并提交"
     },
+    "submit:button": {
+      "en": "Submit",
+      "es": "Enviar",
+      "zh": "提交"
+    },
     "demo-warning": {
       "en": "This is for demo purposes only. Email pua-requests@usdigitalresponse.org to learn more.",
       "es": "Esto es solo para fines de demostración.",
