@@ -1,5 +1,5 @@
-import { Transformer } from './index'
-import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
+import { Transformer, Claim } from './index'
+import { s3 } from '../s3'
 import { PutObjectCommand } from '@aws-sdk/client-s3-node/commands/PutObjectCommand'
 import { join } from 'path'
 import { createObjectCsvStringifier } from 'csv-writer'
@@ -14,12 +14,21 @@ export const csv: Transformer = async (cfg, claims) => {
   }
 }
 
-async function uploadClaims(path: string, claims: object[]): Promise<void> {
+async function uploadClaims(path: string, claims: Claim[]): Promise<void> {
   const headerset = new Set<string>()
+  const lines: object[] = []
   for (const claim of claims) {
-    for (const header of Object.keys(claim)) {
+    for (const header of Object.keys(claim.metadata)) {
       headerset.add(header)
     }
+    for (const header of Object.keys(claim.questions)) {
+      headerset.add(header)
+    }
+    // Flatten the questions and metadata into a single row
+    lines.push({
+      ...claim.metadata,
+      ...claim.questions,
+    })
   }
   const headers = [...headerset].sort()
 
@@ -27,10 +36,9 @@ async function uploadClaims(path: string, claims: object[]): Promise<void> {
     header: headers,
   })
   const headerString = headers.join(',')
-  const body = headerString + '\n' + csv.stringifyRecords(claims)
+  const body = headerString + '\n' + csv.stringifyRecords(lines)
   const bucket = `papua-data-${process.env.ACCT_ID}`
 
-  const s3 = new S3Client({})
   await s3.send(
     new PutObjectCommand({
       Bucket: bucket,
