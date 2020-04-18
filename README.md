@@ -1,12 +1,27 @@
 # Project PAPUA
 
-The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers high unemployment claims to various State backends.
+The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers validated unemployment claims to various State backends. This project is a volunteer-led effort and part of the [US Digital Response network.][1]
 
-[screenshots]
+Give it a spin at https://papua.usdigitalresponse.org
+![](./media/validation.gif)
+
+## Features
+- Generates a custom form from a json config doc provided by the state.
+- Validated form data is stored in S3 as json.
+- A transform function converts the json to csv and re-uploads, in batches.
+- The state writes a script to load the converted s3 into whatever environment they need.
+- Minimal deployment overhead
 
 # Technical overview
+PAPUA is built and hosted with AWS Amplify, which automates CICD handily and also generates a bunch of Cloudformation templates for things like REST APIs, storage S3 buckets, SSL etc. It isn’t perfect, but it makes up for its shortcomings in reduced dev time to get a prototype into a State's environment so you can then start customizing to the client’s specific needs.
+Components:
+- [Amplify for hosting, CICD][2]
+- [S3 for storage][3]
+- [Lambda for compute][4]
 
-[overview here]
+[Check out the System Design Doc here.][5]
+
+![amplify-cicd](./media/amplify-cicd.png)
 
 # Documentation
 
@@ -99,4 +114,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information.
 
 # License
 
-[license here]
+[Apache 2.0](LICENSE.md)
+
+[1]: https://www.usdigitalresponse.org/
+[2]: https://aws.amazon.com/amplify/
+[3]: https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
+[4]: https://aws.amazon.com/lambda/
+[5]: https://docs.google.com/document/d/1Jntt7jOtc_5Qj4SP7GdC4u3Uyg9z_kU6jsm3CpCaeWU/edit?usp=sharing
