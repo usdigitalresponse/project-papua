@@ -36,7 +36,7 @@ const Review: React.FC<{}> = () => {
   }
 
   return (
-    <Box pad="medium">
+    <Box style={{ padding: '48px' }}>
       <Heading margin="none" level={3}>
         {translate(getCopy('submit'), language)}
       </Heading>
