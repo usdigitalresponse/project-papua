@@ -57,17 +57,17 @@
           }
         },
         "Role": {
-          "Fn::GetAtt": ["LambdaExecutionRoleResolver", "Arn"]
+          "Fn::GetAtt": ["LambdaExecutionRole", "Arn"]
         },
         "Runtime": "nodejs12.x",
         "Timeout": "25",
         "Code": {
-          "S3Bucket": "amplify-project-papua-usdr-135250-deployment",
+          "S3Bucket": "amplify-project-papua-master-135250-deployment",
           "S3Key": "amplify-builds/resolverFunctions-466e4932436162325073-build.zip"
         }
       }
     },
-    "LambdaExecutionRoleResolver": {
+    "LambdaExecutionRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "RoleName": {
@@ -103,13 +103,13 @@
       }
     },
     "lambdaexecutionpolicy": {
-      "DependsOn": ["LambdaExecutionRoleResolver"],
+      "DependsOn": ["LambdaExecutionRole"],
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyName": "lambda-execution-policy",
         "Roles": [
           {
-            "Ref": "LambdaExecutionRoleResolver"
+            "Ref": "LambdaExecutionRole"
           }
         ],
         "PolicyDocument": {
@@ -136,9 +136,10 @@
               }
             },
             {
+              "Sid": "AllowPutObjectAction",
               "Effect": "Allow",
-              "Action": ["s3:*"],
-              "Resource": "*"
+              "Action": ["s3:PutObject"],
+              "Resource": { "Fn::Join": ["", ["arn:aws:s3:::papua-data-", { "Ref": "AWS::AccountId" }, "/*"]] }
             }
           ]
         }
@@ -161,9 +162,9 @@
         "Ref": "AWS::Region"
       }
     },
-    "LambdaExecutionRoleResolver": {
+    "LambdaExecutionRole": {
       "Value": {
-        "Ref": "LambdaExecutionRoleResolver"
+        "Ref": "LambdaExecutionRole"
       }
     }
   }
