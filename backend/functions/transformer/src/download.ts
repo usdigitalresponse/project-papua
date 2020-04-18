@@ -4,10 +4,11 @@ import { GetObjectCommand } from '@aws-sdk/client-s3-node/commands/GetObjectComm
 import pMap from 'p-map'
 import { Config } from './index'
 import { toPath } from './path'
+import { Claim } from './transformers/index'
 
 interface Output {
   path: string
-  claims: object[]
+  claims: Claim[]
 }
 
 export async function downloadClaims(cfg: Config): Promise<Output> {
@@ -43,7 +44,7 @@ export async function downloadClaims(cfg: Config): Promise<Output> {
   }
 
   // Download and parse all of those claims from S3 (with some parallelism):
-  const claims: object[] = []
+  const claims: Claim[] = []
   await pMap(
     keys,
     async (key) => {

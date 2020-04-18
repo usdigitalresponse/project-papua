@@ -1,7 +1,12 @@
 import { csv } from './csv'
 import { Config } from '../index'
 
-export declare type Transformer = (cfg: Config, claims: object[]) => Promise<object>
+export declare type Transformer = (cfg: Config, claims: Claim[]) => Promise<object>
+
+export interface Claim {
+  metadata: Record<string, any>
+  questions: Record<string, any>
+}
 
 const transformers: Record<string, Transformer> = {
   csv,
