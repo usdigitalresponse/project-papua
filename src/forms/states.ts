@@ -1,4 +1,3 @@
-import { stat } from "fs"
 import { Option } from "./types"
 
 const initialStates = [

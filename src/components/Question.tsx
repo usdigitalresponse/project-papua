@@ -19,7 +19,6 @@ const Question: React.FC<Props> = (props) => {
 
   const value = values[question.id]
   const error = errors[question.id]
-  const hasSwitch = question.switch && value && typeof value === 'string'
 
   return (
     <Box direction="column" margin={{ bottom: 'small' }}>
