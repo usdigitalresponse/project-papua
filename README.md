@@ -1,6 +1,6 @@
 # Project PAPUA
 
-The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers high unemployment claims to various State backends. 
+The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers validated unemployment claims to various State backends. This project is a volunteer-led effort and part of the [US Digital Response network.][1]
 
 Give it a spin at https://papua.usdigitalresponse.org
 ![](./media/validation.gif)
@@ -19,7 +19,7 @@ Components:
 - [S3 for storage][3]
 - [Lambda for compute][4]
 
-[Check out the System Design Doc here.][1]
+[Check out the System Design Doc here.][5]
 
 ![amplify-cicd](./media/amplify-cicd.png)
 
@@ -114,9 +114,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information.
 
 # License
 
-[license here]
+[Apache 2.0](LICENSE.md)
 
-[1]: https://docs.google.com/document/d/1Jntt7jOtc_5Qj4SP7GdC4u3Uyg9z_kU6jsm3CpCaeWU/edit?usp=sharing
+[1]: https://www.usdigitalresponse.org/
 [2]: https://aws.amazon.com/amplify/
 [3]: https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
 [4]: https://aws.amazon.com/lambda/
+[5]: https://docs.google.com/document/d/1Jntt7jOtc_5Qj4SP7GdC4u3Uyg9z_kU6jsm3CpCaeWU/edit?usp=sharing
