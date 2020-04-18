@@ -114,7 +114,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information.
 
 # License
 
-[Apache 2.0](LICENSE.md)
+[Apache 2.0](LICENSE)
 
 [1]: https://www.usdigitalresponse.org/
 [2]: https://aws.amazon.com/amplify/
