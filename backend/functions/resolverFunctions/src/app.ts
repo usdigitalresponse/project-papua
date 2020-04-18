@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express'
+import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
@@ -9,23 +9,18 @@ const s3 = new S3Client({})
 const app = express()
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
-app.use(function (req: Request, res: Response, next: NextFunction) {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  next()
-})
 
 app.post('/claims', async function (req: Request, res: Response) {
   const now = new Date()
-  const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`
-  const defaultHour = pad(now.getUTCHours() - 1)
+  const day = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`
+  const hour = pad(now.getUTCHours())
 
   if (!req.body.metadata || !req.body.questions) {
     res.status(422).json({ message: `malformed payload`, body: req.body })
   }
 
   const uuid = req.body.metadata.uuid
-  const key = `claims/day=${defaultDay}/hour=${defaultHour}/${uuid}.json`
+  const key = `claims/day=${day}/hour=${hour}/${uuid}.json`
   const bucket = `papua-data-${process.env.ACCT_ID}`
 
   const putObjectCommand = new PutObjectCommand({
@@ -36,19 +31,14 @@ app.post('/claims', async function (req: Request, res: Response) {
     ContentType: 'application/json; charset=utf-8',
   })
 
-  let upload
-
   try {
-    upload = await s3.send(putObjectCommand)
+    const upload = await s3.send(putObjectCommand)
+    console.log(`Wrote claim to S3 (${bucket})`, upload)
+    res.json({ success: `claim received` })
   } catch (err) {
-    res.status(500).json({ message: 'error putting object to s3', bucket: bucket, error: err })
+    console.error(`Failed to write claim to S3 (${bucket})`, err)
+    res.status(500).json({ message: 'error putting object to s3' })
   }
-
-  res.json({ success: `claim received`, body: upload })
-})
-
-app.post('/claims/*', function (req: Request, res: Response) {
-  res.json({ success: `claim received (no action taken)` })
 })
 
 function pad(n: number): string {

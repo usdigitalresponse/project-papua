@@ -2,11 +2,6 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "Lambda resource stack creation using Amplify CLI",
   "Parameters": {
-    "CloudWatchRule": {
-      "Type": "String",
-      "Default": "NONE",
-      "Description": " Schedule Expression"
-    },
     "env": {
       "Type": "String"
     }
@@ -122,11 +117,7 @@
           "Statement": [
             {
               "Effect": "Allow",
-              "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ],
+              "Action": ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"],
               "Resource": {
                 "Fn::Sub": [
                   "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
