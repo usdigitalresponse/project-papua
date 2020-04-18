@@ -1,8 +1,9 @@
 import { createContext } from 'react'
+import { Question, Copy } from '../forms/types'
 
 interface FormState {
-  setValue: (id: string, value: Value) => void
-  setError: (id: string, value: string) => void
+  setValue: (question: Question, value: Value) => void
+  setError: (id: string, value: Copy[]) => void
   values: Values
   errors: Errors
 }
@@ -12,7 +13,7 @@ export interface Values {
 }
 
 export interface Errors {
-  [key: string]: string
+  [key: string]: Copy[]
 }
 
 export type Value = string | string[] | Date
@@ -22,8 +23,8 @@ const initialState: FormState = {
   /* eslint-disable @typescript-eslint/no-empty-function */
   values: {},
   errors: {},
-  setValue: (id: string, value: Value) => {},
-  setError: (id: string, value: string) => {},
+  setValue: (question: Question, value: Value) => { },
+  setError: (id: string, value: Copy[]) => { }
 }
 
 export const FormContext = createContext(initialState)

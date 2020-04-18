@@ -7,9 +7,12 @@ import Introduction from './Introduction'
 import Review from './Review'
 import Form from './Form'
 import { LanguageContext } from '../contexts/language'
-import { translate, getCopy } from '../forms/index'
+import { translate, getCopy, canContinue, isValid } from '../forms/index'
 
 import { FormContext, Values, Errors, Value } from '../contexts/form'
+import { Question, Copy } from "../forms/types";
+
+import { omit } from 'lodash'
 
 const FormApp: React.FC<{}> = () => {
   const { language } = useContext(LanguageContext)
@@ -33,8 +36,17 @@ const FormApp: React.FC<{}> = () => {
   const [formValues, setFormValues] = useState<Values>({})
   const [formErrors, setFormErrors] = useState<Errors>({})
 
-  const setFormValue = (key: string, value: Value) => setFormValues({ ...formValues, [key]: value })
-  const setFormError = (key: string, value: string) => setFormErrors({ ...formErrors, [key]: value })
+  const setFormError = (key: string, value: Copy[]) => setFormErrors({ ...formErrors, [key]: value })
+  const setFormValue = (question: Question, value: Value) => {
+    const validationErrors = isValid(question, value, formValues)
+    setFormValues({ ...formValues, [question.id]: value })
+    if (validationErrors.length > 0) {
+      setFormError(question.id, validationErrors)
+    }
+    else {
+      setFormErrors(omit(formErrors, question.id))
+    }
+  }
 
   const setNextPage = (index: number) => {
     setCurrentIndex(index)
@@ -55,28 +67,29 @@ const FormApp: React.FC<{}> = () => {
             value={{ setError: setFormError, setValue: setFormValue, values: formValues, errors: formErrors }}
           >
             {pageComponents[currentIndex]}
+            <Box justify="between" pad="medium" direction="row">
+              {currentIndex > 0 && (
+                <Button
+                  border={{ radius: 0 }}
+                  color="black !important"
+                  onClick={onClickBack}
+                  label={translate(getCopy("back"), language)}
+                />
+              )}
+              {currentIndex + 1 < pageTitles.length && (
+                <Button
+                  color="black !important"
+                  onClick={onClickNext}
+                  disabled={!canContinue(pages[currentIndex - 1], formValues, formErrors)}
+                  label={
+                    currentIndex === 0
+                      ? translate(getCopy("get-started"), language)
+                      : translate(getCopy("next"), language)
+                  }
+                />
+              )}
+            </Box>
           </FormContext.Provider>
-          <Box justify="between" pad="medium" direction="row">
-            {currentIndex > 0 && (
-              <Button
-                border={{ radius: 0 }}
-                color="black !important"
-                onClick={onClickBack}
-                label={translate(getCopy('back'), language)}
-              />
-            )}
-            {currentIndex + 1 < pageTitles.length && (
-              <Button
-                color="black !important"
-                onClick={onClickNext}
-                label={
-                  currentIndex === 0
-                    ? translate(getCopy('get-started'), language)
-                    : translate(getCopy('next'), language)
-                }
-              />
-            )}
-          </Box>
         </Card>
         {size !== 'small' && (
           <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setNextPage} />

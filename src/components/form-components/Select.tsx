@@ -36,7 +36,7 @@ const Select: React.FC<Props> = (props) => {
       labelKey="name"
       valueKey="id"
       value={value}
-      onChange={({ option }: { option: { id: string; name: string } }) => setValue(question.id, option.id)}
+      onChange={({ option }: { option: { id: string, name: string } }) => setValue(question, option.id)}
     />
   )
 }

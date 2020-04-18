@@ -64,7 +64,7 @@ export interface Question {
   instructions?: Copy
   required?: boolean
   type: QuestionType
-  validate?: QuestionValidation
+  validate?: QuestionValidation[]
   id: string
   options?: Option[]
   switch?: Switch
@@ -100,4 +100,10 @@ export type QuestionType =
   | 'email'
   | string
 
-type QuestionValidation = boolean | 're-enter'
+export interface QuestionValidation {
+  type: string
+  value: string
+  error: Copy
+}
+
+export interface ErrorMessage { message: string }
