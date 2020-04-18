@@ -220,6 +220,16 @@
       "es": "Revisar y enviar",
       "zh": "审查并提交"
     },
+    "submit:button": {
+      "en": "Submit",
+      "es": "Enviar",
+      "zh": "提交"
+    },
+    "submit:instructions": {
+      "en": "Your claim will not be filed unless you click Submit below.",
+      "es": "Su reclamo no se archivará a menos que haga clic en Enviar a continuación.",
+      "zh": "除非您单击下面的提交，否则不会提出您的索赔。"
+    },
     "demo-warning": {
       "en": "This is for demo purposes only. Email pua-requests@usdigitalresponse.org to learn more.",
       "es": "Esto es solo para fines de demostración.",
