@@ -41,7 +41,7 @@ const FormApp: React.FC<{}> = () => {
 
   const setFormError = (key: string, value: Copy[]) => setFormErrors({ ...formErrors, [key]: value })
   const setFormValue = (question: Question, value: Value) => {
-    const validationErrors = isValid(question, value, language)
+    const validationErrors = isValid(question, value, formValues)
     setFormValues({ ...formValues, [question.id]: value })
     if (validationErrors.length > 0) {
       setFormError(question.id, validationErrors)

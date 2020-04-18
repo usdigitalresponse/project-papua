@@ -55,7 +55,7 @@ export function translate(copy: Copy, language: string): string {
   return text
 }
 
-export function isValid(question: Question, value: Value, language: string): Copy[] {
+export function isValid(question: Question, value: Value, values: Values): Copy[] {
   const { validate } = question
   const errors: Copy[] = []
   if (!validate) {
@@ -64,14 +64,18 @@ export function isValid(question: Question, value: Value, language: string): Cop
 
   validate?.forEach(validation => {
     const { type, value: validationValue, error } = validation
+    let isValid
     if (type === 'regex') {
       const regex = new RegExp(validationValue)
-      const isValid = typeof value === 'string' && regex.test(value)
-      console.log(validation)
-      console.log('isValid? ', isValid, ' value: ', value)
-      if (!isValid) {
-        errors.push(error)
-      }
+      isValid = typeof value === 'string' && regex.test(value)
+    }
+
+    if (type === 'matches_field') {
+      isValid = value === values[validationValue]
+    }
+
+    if (!isValid) {
+      errors.push(error)
     }
   })
 
