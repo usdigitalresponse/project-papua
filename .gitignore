@@ -35,7 +35,6 @@ build/
 dist/
 node_modules/
 awsconfiguration.json
-#aws-exports.js
 amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
@@ -48,7 +47,7 @@ amplifyxc.config
 amplify/team-provider-info.json
 
 # We compile JS into this folder so that the Amplify CLI can produce a JS bundle.
-amplify/backend/function/*/src
+amplify/backend/function/*/src/*
 # When you push a new build, which kicks of Amplify CD, it's going to run
 # `yarn install` in each function's src folder. That can't fail, so we need
 # a package.json in that folder. After that happens, it'll run a corresponding

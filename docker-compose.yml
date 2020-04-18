@@ -1,0 +1,11 @@
+version: '3'
+services:
+  # S3
+  localstack:
+    image: localstack/localstack
+    ports:
+      - '4572:4572'
+    environment:
+      - SERVICES=s3
+      - DEBUG=true
+      - START_WEB=0
