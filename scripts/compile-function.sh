@@ -44,7 +44,15 @@ cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCT
 
 # The STATE_CODE is set as an Amplify Environment Variable. But those envs are only available
 # at build-time so we copy it over.
-echo "STATE_CODE=${STATE_CODE}" > amplify/backend/function/${FUNCTION_NAME}/src/.env
+if [ -n "${STATE_CODE}" ]; then
+  echo "STATE_CODE=${STATE_CODE}" > amplify/backend/function/${FUNCTION_NAME}/src/.env
+else
+  # Default to csv if a STATE_CODE env var has not yet been set.
+  echo "STATE_CODE=csv" > amplify/backend/function/${FUNCTION_NAME}/src/.env
+fi
+
+echo "env:"
+cat amplify/backend/function/${FUNCTION_NAME}/src/.env
 
 # Install dependencies based on the updated package.json
 yarn --frozen-lockfile --cwd=amplify/backend/function/${FUNCTION_NAME}/src install

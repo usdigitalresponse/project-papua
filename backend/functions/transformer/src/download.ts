@@ -1,4 +1,4 @@
-import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
+import { s3 } from './s3'
 import { ListObjectsV2Command } from '@aws-sdk/client-s3-node/commands/ListObjectsV2Command'
 import { GetObjectCommand } from '@aws-sdk/client-s3-node/commands/GetObjectCommand'
 import pMap from 'p-map'
@@ -11,7 +11,6 @@ interface Output {
 }
 
 export async function downloadClaims(cfg: Config): Promise<Output> {
-  const s3 = new S3Client({})
   const bucket = `papua-data-${process.env.ACCT_ID}`
 
   // Iterate through all keys in this path:

@@ -23,13 +23,18 @@ export interface Config {
 
 export async function handler(event: Partial<Config>) {
   const env = dotenv()
+  if (env.error) {
+    console.error('No .env found')
+  } else {
+    console.log('env: ', env)
+  }
 
   // By default, we'll run on claims from the previous hour.
   // However, we can override this with the Lambda's input event.
   const now = new Date()
   now.setHours(now.getHours() - 1)
   const defaultDay = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`
-  const defaultHour = pad(now.getUTCHours() - 1)
+  const defaultHour = pad(now.getUTCHours())
 
   const cfg: Config = {
     day: event.day === undefined ? defaultDay : event.day,
@@ -46,7 +51,6 @@ export async function handler(event: Partial<Config>) {
     claimsPath: path,
     numClaims: claims.length,
     result,
-    env,
     event,
     cfg,
   }

@@ -1,5 +1,5 @@
 import { Transformer } from './index'
-import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
+import { s3 } from '../s3'
 import { PutObjectCommand } from '@aws-sdk/client-s3-node/commands/PutObjectCommand'
 import { join } from 'path'
 import { createObjectCsvStringifier } from 'csv-writer'
@@ -30,7 +30,6 @@ async function uploadClaims(path: string, claims: object[]): Promise<void> {
   const body = headerString + '\n' + csv.stringifyRecords(claims)
   const bucket = `papua-data-${process.env.ACCT_ID}`
 
-  const s3 = new S3Client({})
   await s3.send(
     new PutObjectCommand({
       Bucket: bucket,
