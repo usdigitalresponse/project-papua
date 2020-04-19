@@ -160,7 +160,7 @@
                 "s3:DeleteObjectAcl"
               ],
               "Resource": {
-                "Fn::Sub": ["arn:aws:s3:::papua-data-${account}/*", { "account": { "Ref": "AWS::AccountId" } }]
+                "Fn::Sub": ["arn:aws:s3:::papua-data-${account}/csv/*", { "account": { "Ref": "AWS::AccountId" } }]
               }
             }
           ]
