@@ -143,29 +143,24 @@
             {
               "Sid": "ListObjectsInBucket",
               "Effect": "Allow",
-              "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+              "Action": ["s3:ListBucket"],
               "Resource": {
-                "Fn::Sub": [
-                  "arn:aws:s3:${region}:${account}:papua-data-${account}/*",
-                  {
-                    "region": { "Ref": "AWS::Region" },
-                    "account": { "Ref": "AWS::AccountId" }
-                  }
-                ]
+                "Fn::Sub": ["arn:aws:s3:::papua-data-${account}", { "account": { "Ref": "AWS::AccountId" } }]
               }
             },
             {
               "Sid": "AllowObjectActionsGetPutDelete",
               "Effect": "Allow",
-              "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:GetObjectAcl",
+                "s3:PutObjectAcl",
+                "s3:DeleteObjectAcl"
+              ],
               "Resource": {
-                "Fn::Sub": [
-                  "arn:aws:s3:${region}:${account}:papua-data-${account}/*",
-                  {
-                    "region": { "Ref": "AWS::Region" },
-                    "account": { "Ref": "AWS::AccountId" }
-                  }
-                ]
+                "Fn::Sub": ["arn:aws:s3:::papua-data-${account}/*", { "account": { "Ref": "AWS::AccountId" } }]
               }
             }
           ]
