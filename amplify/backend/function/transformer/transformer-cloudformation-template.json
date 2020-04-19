@@ -7,9 +7,6 @@
       "Default": "NONE",
       "Description": " Schedule Expression"
     },
-    "rawBucketName": {
-      "Type": "String"
-    },
     "env": {
       "Type": "String"
     }
