@@ -146,7 +146,7 @@
               "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
               "Resource": {
                 "Fn::Sub": [
-                  "arn:aws:s3${region}:${account}:papua-data-${account}/*",
+                  "arn:aws:s3:${region}:${account}:papua-data-${account}/*",
                   {
                     "region": { "Ref": "AWS::Region" },
                     "account": { "Ref": "AWS::AccountId" }
@@ -160,7 +160,7 @@
               "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
               "Resource": {
                 "Fn::Sub": [
-                  "arn:aws:s3${region}:${account}:papua-data-${account}/*",
+                  "arn:aws:s3:${region}:${account}:papua-data-${account}/*",
                   {
                     "region": { "Ref": "AWS::Region" },
                     "account": { "Ref": "AWS::AccountId" }

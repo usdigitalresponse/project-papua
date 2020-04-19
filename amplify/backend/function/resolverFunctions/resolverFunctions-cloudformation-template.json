@@ -141,7 +141,7 @@
               "Action": ["s3:PutObject"],
               "Resource": {
                 "Fn::Sub": [
-                  "arn:aws:s3${region}:${account}:papua-data-${account}/*",
+                  "arn:aws:s3:${region}:${account}:papua-data-${account}/*",
                   {
                     "region": { "Ref": "AWS::Region" },
                     "account": { "Ref": "AWS::AccountId" }
