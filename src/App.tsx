@@ -43,6 +43,23 @@ const theme = {
       borderRadius: '8px',
     },
   },
+  radioButton: {
+    hover: {
+      color: '#BCCFFF !important',
+      border: {
+        color: '#BCCFFF !important',
+      },
+    },
+    border: {
+      color: '#333333 !important',
+    },
+    check: {
+      color: '#205EFF',
+      extend: {
+        border: '#205EFF 2px solid',
+      },
+    },
+  },
 }
 
 function App() {

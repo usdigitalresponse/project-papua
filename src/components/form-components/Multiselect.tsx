@@ -27,7 +27,10 @@ const Multiselect: React.FC<Props> = (props) => {
       return setValue(question, [value, option])
     }
     if (value.includes(option)) {
-      return setValue(question, value.filter(val => val !== option))
+      return setValue(
+        question,
+        value.filter((val) => val !== option)
+      )
     }
 
     setValue(question, [...value, option])
@@ -44,7 +47,7 @@ const Multiselect: React.FC<Props> = (props) => {
         return (
           <Box
             onClick={() => onSelectValue(o.id)}
-            style={{ background: isSelected ? '#EBFFFA' : 'white' }}
+            style={{ background: isSelected ? '#BCCFFF' : 'white' }}
             align="start"
             key={o.id}
             margin={{ bottom: 'xsmall' }}
@@ -54,7 +57,7 @@ const Multiselect: React.FC<Props> = (props) => {
           >
             <Box
               style={{
-                background: isSelected ? '#008060' : 'white',
+                background: isSelected ? '#3E73FF' : 'white',
                 height: 20,
                 width: 20,
                 borderRadius: '50%',

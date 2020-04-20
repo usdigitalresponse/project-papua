@@ -90,6 +90,9 @@ const FormApp: React.FC<{}> = () => {
                   }
                   hoverIndicator={{
                     color: currentIndex === 0 ? '#3E73FF !important' : 'black !important',
+                    style: {
+                      color: 'white !important',
+                    },
                   }}
                 />
               )}
