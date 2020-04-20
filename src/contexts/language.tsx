@@ -13,9 +13,9 @@ export const LanguageContext = createContext(initialState)
 export const LanguageProvider: React.FC = (props) => {
   const [language, setLanguage] = useLocalStorage<string>('papua-selected-language', initialState.language)
 
-  const updateTitleAndDescription = (languageCode: string) => {
+  useEffect(() => {
     // Update the page title
-    document.title = translate(initializeForm().title, languageCode)
+    document.title = translate(initializeForm().title, language)
 
     // Upsert the page description
     let description = document.querySelector('meta[name="description"]')
@@ -24,17 +24,8 @@ export const LanguageProvider: React.FC = (props) => {
       description.setAttribute('name', 'description')
       document.head.appendChild(description)
     }
-    description.setAttribute('content', translate(initializeForm().description, languageCode))
-  }
-
-  const changeLanguage = (languageCode: string) => {
-    updateTitleAndDescription(languageCode)
-    setLanguage(languageCode)
-  }
-
-  useEffect(() => {
-    updateTitleAndDescription(language)
-  }, [])
+    description.setAttribute('content', translate(initializeForm().description, language))
+  }, [language])
 
   // Check the user's browser's language and automatically match that.
   useEffect(() => {
@@ -48,10 +39,10 @@ export const LanguageProvider: React.FC = (props) => {
     const detectedLanguageCode = codeMap[navigator.language]
 
     if (detectedLanguageCode && !language) {
-      changeLanguage(detectedLanguageCode)
+      setLanguage(detectedLanguageCode)
     }
-  }, [language, changeLanguage])
+  }, [language, setLanguage])
 
-  const value = { language: language, setLanguage: changeLanguage }
+  const value = { language: language, setLanguage }
   return <LanguageContext.Provider value={value}>{props.children}</LanguageContext.Provider>
 }
