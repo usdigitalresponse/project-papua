@@ -98,7 +98,6 @@ export type QuestionType =
   | 'longtext'
   | 'multiselect'
   | 'email'
-  | 'file'
   | string
 
 export interface QuestionValidation {
