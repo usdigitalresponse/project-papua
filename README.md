@@ -6,6 +6,7 @@ Give it a spin at https://papua.usdigitalresponse.org
 ![](./media/validation.gif)
 
 ## Features
+
 - Generates a custom form from a json config doc provided by the state.
 - Validated form data is stored in S3 as json.
 - A transform function converts the json to csv and re-uploads, in batches.
@@ -13,8 +14,10 @@ Give it a spin at https://papua.usdigitalresponse.org
 - Minimal deployment overhead
 
 # Technical overview
+
 PAPUA is built and hosted with AWS Amplify, which automates CICD handily and also generates a bunch of Cloudformation templates for things like REST APIs, storage S3 buckets, SSL etc. It isn’t perfect, but it makes up for its shortcomings in reduced dev time to get a prototype into a State's environment so you can then start customizing to the client’s specific needs.
 Components:
+
 - [Amplify for hosting, CICD][2]
 - [S3 for storage][3]
 - [Lambda for compute][4]

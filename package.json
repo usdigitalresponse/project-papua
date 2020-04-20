@@ -27,7 +27,8 @@
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
     "amplify:resolverFunctions": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
     "compile": "run-p amplify:*",
-    "lint": "eslint --fix .",
+    "lint:check": "eslint '**/*.{js,jsx,ts,tsx}' && prettier --check .",
+    "lint": "eslint --fix '**/*.{js,jsx,ts,tsx}' && prettier --write .",
     "backend": "cd backend/functions/resolverFunctions && yarn --frozen-lockfile && yarn nodemon",
     "transform": "cd backend/functions/transformer && yarn --frozen-lockfile && yarn local"
   },

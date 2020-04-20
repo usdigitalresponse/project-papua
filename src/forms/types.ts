@@ -106,4 +106,6 @@ export interface QuestionValidation {
   error: Copy
 }
 
-export interface ErrorMessage { message: string }
+export interface ErrorMessage {
+  message: string
+}

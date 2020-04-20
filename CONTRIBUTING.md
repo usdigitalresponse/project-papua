@@ -9,11 +9,11 @@ the community.
 
 There are 4 ways you can contribute to this project:
 
-* Fixing outstanding issues with the existing code;
-* Contributing to the examples or to the documentation;
-* Submitting issues related to bugs or desired new features.
+- Fixing outstanding issues with the existing code;
+- Contributing to the examples or to the documentation;
+- Submitting issues related to bugs or desired new features.
 
-*All are equally valuable to the community.*
+_All are equally valuable to the community._
 
 We also are onboarding new volunteers at [https://www.usdigitalresponse.org/raisingyourhand](https://www.usdigitalresponse.org/raisingyourhand)
 
@@ -33,18 +33,20 @@ already reported** (use the search bar on Github under Issues).
 
 Did not find it? :( So we can act quickly on it, please include the following:
 
-* Your **operating system and browser (Firefox, Chrome, Edge, Internet Explorer)**
-* Any code errors that you have access to
+- Your **operating system and browser (Firefox, Chrome, Edge, Internet Explorer)**
+- Any code errors that you have access to
 
 ### Do you want a new feature?
 
 A world-class feature request addresses the following points:
 
 1. Motivation first:
-  * Is it related to a problem/frustration with the current system? If so, please explain why.
-  * Is it related to something you would need for a project? We'd love to hear about it!
-  * Is it something you worked on and think could benefit the community? Awesome! Tell us what problem it solved for you.
-2. Write a *full paragraph* describing the feature;
+
+- Is it related to a problem/frustration with the current system? If so, please explain why.
+- Is it related to something you would need for a project? We'd love to hear about it!
+- Is it something you worked on and think could benefit the community? Awesome! Tell us what problem it solved for you.
+
+2. Write a _full paragraph_ describing the feature;
 3. Provide a **code snippet** or **design mockup or sketch** if possible, to demonstrate its future use.
 
 If your issue is well written we're already 80% of the way there by the time you
@@ -111,7 +113,6 @@ Follow these steps to start contributing:
    too! So everyone can see the changes in the Pull request, work in your local
    branch and push the changes to your fork. They will automatically appear in
    the pull request.
-
 
 ### Checklist
 
