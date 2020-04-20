@@ -10,7 +10,7 @@ import { LanguageContext } from '../contexts/language'
 import { translate, getCopy, canContinue, isValid } from '../forms/index'
 
 import { FormContext, Values, Errors, Value } from '../contexts/form'
-import { Question, Copy } from "../forms/types";
+import { Question, Copy } from '../forms/types'
 
 import { omit } from 'lodash'
 
@@ -42,8 +42,7 @@ const FormApp: React.FC<{}> = () => {
     setFormValues({ ...formValues, [question.id]: value })
     if (validationErrors.length > 0) {
       setFormError(question.id, validationErrors)
-    }
-    else {
+    } else {
       setFormErrors(omit(formErrors, question.id))
     }
   }
@@ -71,21 +70,27 @@ const FormApp: React.FC<{}> = () => {
               {currentIndex > 0 && (
                 <Button
                   border={{ radius: 0 }}
-                  color="black !important"
+                  color="black"
                   onClick={onClickBack}
-                  label={translate(getCopy("back"), language)}
+                  hoverIndicator={{
+                    color: currentIndex === 0 ? '#3E73FF !important' : 'black !important',
+                  }}
+                  label={translate(getCopy('back'), language)}
                 />
               )}
               {currentIndex + 1 < pageTitles.length && (
                 <Button
-                  color="black !important"
+                  color={currentIndex === 0 ? '#3E73FF' : 'black'}
                   onClick={onClickNext}
                   disabled={!canContinue(pages[currentIndex - 1], formValues, formErrors)}
                   label={
                     currentIndex === 0
-                      ? translate(getCopy("get-started"), language)
-                      : translate(getCopy("next"), language)
+                      ? translate(getCopy('get-started'), language)
+                      : translate(getCopy('next'), language)
                   }
+                  hoverIndicator={{
+                    color: currentIndex === 0 ? '#3E73FF !important' : 'black !important',
+                  }}
                 />
               )}
             </Box>

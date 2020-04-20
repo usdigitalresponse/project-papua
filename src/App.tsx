@@ -6,6 +6,9 @@ import { LanguageProvider } from './contexts/language'
 
 const theme = {
   global: {
+    hover: {
+      color: 'white',
+    },
     text: {
       align: 'left',
     },
@@ -13,11 +16,12 @@ const theme = {
       size: '14px',
     },
     selected: {
-      background: '#008060',
+      background: '#F2F2F2',
+      color: 'black',
     },
     focus: {
       border: {
-        color: 'none',
+        color: '#BCCFFF',
       },
     },
     control: {
@@ -29,6 +33,14 @@ const theme = {
   select: {
     icons: {
       color: '#000000',
+    },
+    options: {
+      text: {
+        size: 'small',
+      },
+    },
+    container: {
+      borderRadius: '8px',
     },
   },
 }
