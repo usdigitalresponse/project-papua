@@ -1,4 +1,5 @@
 import form from '../form.json'
+import formSample from '../form.sample.json'
 import { FormSchema, Form, Question, QuestionType, Copy, Page } from './types'
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
@@ -12,7 +13,10 @@ import { Box } from 'grommet'
 import { Values, Errors, Value } from '../contexts/form'
 
 export function initializeForm(): Form {
-  const rawForm = form
+  // States will build their own form in `form.json` from the example in `form.sample.json`.
+  // By default, we'll use the sample version until a state starts building their form in
+  // `form.json`.
+  const rawForm = Object.keys(form).length === 0 ? formSample : form
 
   // Validate the schema against our Joi schema
   // which makes it easier to identify issues in the form
