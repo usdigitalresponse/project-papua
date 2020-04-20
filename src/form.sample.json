@@ -1,4 +1,14 @@
 {
+  "title": {
+    "en": "Pandemic Unemployment Assistance",
+    "es": "Asistencia de desempleo pandémico",
+    "zh": "大流行性失业援助"
+  },
+  "description": {
+    "en": "Demo of the USDR's Pandemic Unemployment Assistance service",
+    "es": "Demostración del servicio de asistencia de desempleo pandémico del USDR",
+    "zh": "USDR大流行性失业援助服务演示"
+  },
   "seal": "/generic-state-seal.png",
   "variables": {
     "STATE_CODE": "[ST]",
