@@ -27,7 +27,10 @@ const Multiselect: React.FC<Props> = (props) => {
       return setValue(question, [value, option])
     }
     if (value.includes(option)) {
-      return setValue(question, value.filter(val => val !== option))
+      return setValue(
+        question,
+        value.filter((val) => val !== option)
+      )
     }
 
     setValue(question, [...value, option])

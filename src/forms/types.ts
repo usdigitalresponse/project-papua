@@ -98,6 +98,7 @@ export type QuestionType =
   | 'longtext'
   | 'multiselect'
   | 'email'
+  | 'file'
   | string
 
 export interface QuestionValidation {
@@ -106,4 +107,6 @@ export interface QuestionValidation {
   error: Copy
 }
 
-export interface ErrorMessage { message: string }
+export interface ErrorMessage {
+  message: string
+}

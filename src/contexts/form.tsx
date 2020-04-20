@@ -23,8 +23,8 @@ const initialState: FormState = {
   /* eslint-disable @typescript-eslint/no-empty-function */
   values: {},
   errors: {},
-  setValue: (question: Question, value: Value) => { },
-  setError: (id: string, value: Copy[]) => { }
+  setValue: (question: Question, value: Value) => {},
+  setError: (id: string, value: Copy[]) => {},
 }
 
 export const FormContext = createContext(initialState)
