@@ -17,6 +17,15 @@ export const LanguageProvider: React.FC = (props) => {
     // Update the page title
     document.title = translate(initializeForm().title, language)
 
+    // Upsert the Open Graph page title
+    let ogTitle = document.querySelector('meta[property="og:title"]')
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta')
+      ogTitle.setAttribute('property', 'og:title')
+      document.head.appendChild(ogTitle)
+    }
+    ogTitle.setAttribute('content', translate(initializeForm().title, language))
+
     // Upsert the page description
     let description = document.querySelector('meta[name="description"]')
     if (!description) {
@@ -25,6 +34,15 @@ export const LanguageProvider: React.FC = (props) => {
       document.head.appendChild(description)
     }
     description.setAttribute('content', translate(initializeForm().description, language))
+
+    // Upsert the Open Graph page description
+    let ogDescription = document.querySelector('meta[property="og:description"]')
+    if (!ogDescription) {
+      ogDescription = document.createElement('meta')
+      ogDescription.setAttribute('property', 'og:description')
+      document.head.appendChild(ogDescription)
+    }
+    ogDescription.setAttribute('content', translate(initializeForm().description, language))
   }, [language])
 
   // Check the user's browser's language and automatically match that.
