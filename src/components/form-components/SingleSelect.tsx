@@ -37,8 +37,6 @@ const SingleSelectRadio: React.FC<Props> = (props) => {
     label: translate(o.name, language),
   }))
 
-  const selectedOption = options.find((o) => o.id === `${question.id}:${value}`)
-
   return (
     <RadioButtonGroup
       name={translate(question.name, language)}
