@@ -1,4 +1,14 @@
 {
+  "title": {
+    "en": "Pandemic Unemployment Assistance",
+    "es": "Asistencia de desempleo pandémico",
+    "zh": "大流行性失业援助"
+  },
+  "description": {
+    "en": "Demo of the USDR's Pandemic Unemployment Assistance service",
+    "es": "Demostración del servicio de asistencia de desempleo pandémico del USDR",
+    "zh": "USDR大流行性失业援助服务演示"
+  },
   "seal": "/generic-state-seal.png",
   "variables": {
     "STATE_CODE": "[ST]",
@@ -96,9 +106,9 @@
       "zh": "自己没有错"
     },
     "eligibility:other-state": {
-      "en": "If you have worked in another state and have not worked in {state} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.",
-      "es": "Si ha trabajado en otro estado y no ha trabajado en {estado} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.",
-      "zh": "如果您在过去18个月内在另一个州工作，而在{state}内没有工作，则必须与最近18个月从事工作的州的失业办公室联系。"
+      "en": "If you have worked in another state and have not worked in {{STATE_CODE}} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.",
+      "es": "Si ha trabajado en otro estado y no ha trabajado en {{STATE_CODE}} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.",
+      "zh": "如果您在过去18个月内在另一个州工作，而在{{STATE_CODE}}内没有工作，则必须与最近18个月从事工作的州的失业办公室联系。"
     },
     "pandemic-eligibility:instructions": {
       "en": "In order to qualify for Pandemic Unemployment Assistance, you must fall into at least one of the following scenarios:",

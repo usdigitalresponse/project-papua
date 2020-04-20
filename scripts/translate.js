@@ -38,7 +38,9 @@ const fs = require('fs')
 const { Translate } = require('@google-cloud/translate').v2
 const translater = new Translate()
 
-const f = fs.readFileSync('src/form.json', {
+const filename = process.env.FILE || 'form.json'
+
+const f = fs.readFileSync(`src/${filename}`, {
   encoding: 'utf-8',
 })
 
@@ -82,6 +84,10 @@ async function map(f) {
 
     return question
   }
+
+  // Update the top-level page title and description.
+  form.title = await f(form.title)
+  form.description = await f(form.description)
 
   // Update the top-level instructional copy:
   for (const id of Object.keys(form.instructions)) {
@@ -155,7 +161,7 @@ function translate(languageCode) {
   // Add chinese translations
   await map(translate('zh'))
 
-  fs.writeFileSync('src/form.json', JSON.stringify(form, null, 2), {
+  fs.writeFileSync(`src/${filename}`, JSON.stringify(form, null, 2), {
     encoding: 'utf-8',
   })
 })().catch((err) => {
