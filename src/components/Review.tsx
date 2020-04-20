@@ -5,11 +5,18 @@ import { LanguageContext } from '../contexts/language'
 import Amplify, { API } from 'aws-amplify'
 import { FormContext } from '../contexts/form'
 import { v5 as uuid } from 'uuid'
+import Summary from './Summary'
 
 import awsconfig from '../aws-exports'
+import { Page } from '../forms/types'
 Amplify.configure(awsconfig)
 
-const Review: React.FC<{}> = () => {
+interface Props {
+  pages: Page[]
+}
+
+const Review: React.FC<Props> = (props) => {
+  const { pages } = props
   const { language } = useContext(LanguageContext)
   const { values } = useContext(FormContext)
 
@@ -41,12 +48,12 @@ const Review: React.FC<{}> = () => {
         {translate(getCopy('submit'), language)}
       </Heading>
 
-      {/* TODO: programmatically render the form values here */}
-
       <br />
-      <Text>{translate(getCopy('submit:instructions'), language)}</Text>
+      <Text>{translate(getCopy('submit:instructions-1'), language)}</Text>
       <br />
 
+      <Text>{translate(getCopy('submit:instructions-2'), language)}</Text>
+      <Summary values={values} pages={pages} />
       <Button
         color="black !important"
         onClick={onSubmit}

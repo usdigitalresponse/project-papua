@@ -26,15 +26,16 @@ const FormApp: React.FC<{}> = () => {
     ...pages.map((page) => translate(page.title, language)),
     translate(getCopy('submit'), language),
   ]
-  const pageComponents = [
-    <Introduction key="introduction" />,
-    ...pages.map((page) => <Form page={page} key={page.heading.en} />),
-    <Review key="review" />,
-  ]
 
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [formValues, setFormValues] = useState<Values>({})
   const [formErrors, setFormErrors] = useState<Errors>({})
+
+  const pageComponents = [
+    <Introduction key="introduction" />,
+    ...pages.map((page) => <Form page={page} key={page.heading.en} />),
+    <Review key="review" pages={pages} />,
+  ]
 
   const setFormError = (key: string, value: Copy[]) => setFormErrors({ ...formErrors, [key]: value })
   const setFormValue = (question: Question, value: Value) => {
