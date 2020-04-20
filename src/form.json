@@ -1,8 +1,8 @@
 {
-  "seal": "/generic-state-seal.png",
+  "seal": "/kdol.png",
   "variables": {
-    "STATE_CODE": "[ST]",
-    "STATE_NAME": "[State]"
+    "STATE_CODE": "KS",
+    "STATE_NAME": "Kansas"
   },
   "instructions": {
     "introduction:header": {
