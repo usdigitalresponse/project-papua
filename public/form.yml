@@ -6,7 +6,7 @@ description:
   en: Oregon's Pandemic Unemployment Assistance for COVID-19 Relief
   es: Asistencia de desempleo pandémico de Oregón para ayuda de COVID-19
   zh: 俄勒冈州对COVID-19救济的大流行性失业援助
-seal: /generic-state-seal.png
+seal: /oregon.png
 variables:
   STATE_CODE: OR
   STATE_NAME: Oregon
