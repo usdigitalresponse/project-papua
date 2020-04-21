@@ -26,7 +26,7 @@ const Caret: React.FC<{ open: boolean }> = (props) => {
 }
 
 const Summary: React.FC<Props> = (props) => {
-  const { pages } = props
+  const { pages, values } = props
   const { language } = useContext(LanguageContext)
 
   const [checkedPages, setCheckedPages] = useState<Record<string, boolean>>({})
@@ -44,41 +44,57 @@ const Summary: React.FC<Props> = (props) => {
       {pages.map((page, i) => {
         const checked = checkedPages[i]
         return (
-          <Box
-            background="#F8F8F8"
-            style={{
-              borderBottom: '1px solid black',
-              borderLeft: '1px solid black',
-            }}
-            onClick={() => toggleOpenPage(i)}
-            direction="row"
-            justify="between"
-            align="center"
-            key={translate(page.title, language)}
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-          >
-            <Box direction="row">
-              <Box
-                margin={{ right: '16px' }}
-                justify="center"
-                align="center"
-                height="25px"
-                width="25px"
-                background={checked ? '#3E73FF' : '#F8F8F8'}
-                style={{ border: checked ? '1px solid #3E73F' : '1px solid #CCCCCC', borderRadius: '50%' }}
-              >
-                {checked && (
-                  <Text color="white" weight="bold">
-                    ✓
-                  </Text>
-                )}
+          <>
+            <Box
+              background="#F8F8F8"
+              style={{
+                borderBottom: '1px solid black',
+                borderLeft: '1px solid black',
+              }}
+              onClick={() => toggleOpenPage(i)}
+              direction="row"
+              justify="between"
+              align="center"
+              key={translate(page.title, language)}
+              pad={{ horizontal: 'medium', vertical: 'small' }}
+            >
+              <Box direction="row">
+                <Box
+                  margin={{ right: '16px' }}
+                  justify="center"
+                  align="center"
+                  height="25px"
+                  width="25px"
+                  background={checked ? '#3E73FF' : '#F8F8F8'}
+                  style={{ border: checked ? '1px solid #3E73F' : '1px solid #CCCCCC', borderRadius: '50%' }}
+                >
+                  {checked && (
+                    <Text color="white" weight="bold">
+                      ✓
+                    </Text>
+                  )}
+                </Box>
+                <Heading margin="none" level={5}>
+                  {translate(page.title, language)}
+                </Heading>
               </Box>
-              <Heading margin="none" level={5}>
-                {translate(page.title, language)}
-              </Heading>
+              <Caret open={openPages[i]} />
             </Box>
-            <Caret open={openPages[i]} />
-          </Box>
+            {openPages[i] && (
+              <Box margin={{ horizontal: '48px', vertical: '24px' }}>
+                {page.questions.map((q) => {
+                  return (
+                    <Box key={q.id} direction="row" margin={{ bottom: '16px' }}>
+                      <Text margin={{ right: '8px' }} weight="bold">
+                        {translate(q.name, language)}:
+                      </Text>
+                      <Text>{values[q.id]}</Text>
+                    </Box>
+                  )
+                })}
+              </Box>
+            )}
+          </>
         )
       })}
     </Box>
