@@ -30,6 +30,7 @@ const FormApp: React.FC<{}> = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [formValues, setFormValues] = useState<Values>({})
   const [formErrors, setFormErrors] = useState<Errors>({})
+  const [formCompletion, setFormCompletion] = useState<Record<string, boolean>>({})
 
   const pageComponents = [
     <Introduction key="introduction" />,
@@ -46,6 +47,11 @@ const FormApp: React.FC<{}> = () => {
     } else {
       setFormErrors(omit(formErrors, question.id))
     }
+    const canContinueFromPage = canContinue(pages[currentIndex - 1], formValues, formErrors)
+    setFormCompletion({
+      ...formCompletion,
+      [currentIndex]: canContinueFromPage,
+    })
   }
 
   const setNextPage = (index: number) => {
@@ -83,7 +89,7 @@ const FormApp: React.FC<{}> = () => {
                 <Button
                   color={currentIndex === 0 ? '#3E73FF' : 'black'}
                   onClick={onClickNext}
-                  disabled={!canContinue(pages[currentIndex - 1], formValues, formErrors)}
+                  disabled={Boolean(formCompletion[currentIndex])}
                   label={
                     currentIndex === 0
                       ? translate(getCopy('get-started'), language)
