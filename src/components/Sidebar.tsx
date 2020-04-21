@@ -72,10 +72,10 @@ const Sidebar: React.FC<Props> = (props) => {
       </Box>
       <Box margin={{ top: 'small' }}>
         {pages.map((page, i) => {
-          const canClickPage = i === 0 || range(1, i).every((index) => completion[index])
+          const canClickPage = i === 0 || i === pages.length - 1 || range(1, i).every((index) => completion[index])
           return (
             <Text
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: canClickPage ? 'pointer' : 'not-allowed' }}
               onClick={() => canClickPage && setCurrentIndex(i)}
               color={currentPage === page ? 'black' : '#66788A'}
               margin={{ bottom: 'xsmall' }}
