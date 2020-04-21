@@ -89,7 +89,7 @@ const FormApp: React.FC<{}> = () => {
                 <Button
                   color={currentIndex === 0 ? '#3E73FF' : 'black'}
                   onClick={onClickNext}
-                  disabled={Boolean(formCompletion[currentIndex])}
+                  disabled={currentIndex > 0 && !formCompletion[currentIndex]}
                   label={
                     currentIndex === 0
                       ? translate(getCopy('get-started'), language)
@@ -107,7 +107,13 @@ const FormApp: React.FC<{}> = () => {
           </FormContext.Provider>
         </Card>
         {size !== 'small' && (
-          <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setNextPage} />
+          <Sidebar
+            completion={formCompletion}
+            seal={seal}
+            pages={pageTitles}
+            currentIndex={currentIndex}
+            setCurrentIndex={setNextPage}
+          />
         )}
       </Box>
     </Box>

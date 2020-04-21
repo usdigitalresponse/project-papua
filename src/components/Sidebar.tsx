@@ -3,10 +3,12 @@ import { Card } from './helper-components'
 import { Box, Text, Select, Image } from 'grommet'
 import { LanguageContext } from '../contexts/language'
 import { translate, getCopy } from '../forms/index'
+import { range } from 'lodash'
 
 interface Props {
   pages: string[]
   currentIndex: number
+  completion: Record<string, any>
   seal?: string
   setCurrentIndex: (index: number) => void
 }
@@ -18,7 +20,7 @@ const languages = [
 ]
 
 const Sidebar: React.FC<Props> = (props) => {
-  const { pages, seal, currentIndex, setCurrentIndex } = props
+  const { pages, seal, currentIndex, setCurrentIndex, completion } = props
   const currentPage = pages[currentIndex]
   const percent = Math.floor(((currentIndex + 1) / pages.length) * 100)
   const { language, setLanguage } = useContext(LanguageContext)
@@ -69,17 +71,20 @@ const Sidebar: React.FC<Props> = (props) => {
         </Box>
       </Box>
       <Box margin={{ top: 'small' }}>
-        {pages.map((page, i) => (
-          <Text
-            style={{ cursor: 'pointer' }}
-            onClick={() => setCurrentIndex(i)}
-            color={currentPage === page ? 'black' : '#66788A'}
-            margin={{ bottom: 'xsmall' }}
-            key={page}
-          >
-            {page}
-          </Text>
-        ))}
+        {pages.map((page, i) => {
+          const canClickPage = i === 0 || range(1, i).every((index) => completion[index])
+          return (
+            <Text
+              style={{ cursor: 'pointer' }}
+              onClick={() => canClickPage && setCurrentIndex(i)}
+              color={currentPage === page ? 'black' : '#66788A'}
+              margin={{ bottom: 'xsmall' }}
+              key={page}
+            >
+              {page}
+            </Text>
+          )
+        })}
       </Box>
     </Card>
   )
