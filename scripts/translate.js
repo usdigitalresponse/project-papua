@@ -36,15 +36,18 @@
 
 const fs = require('fs')
 const { Translate } = require('@google-cloud/translate').v2
+// NOTE: we use yawn-yaml (instead of say, js-yaml) here to preseve comments.
+const YAML = require('yawn-yaml/cjs')
 const translater = new Translate()
 
-const filename = process.env.FILE || 'form.json'
+const filename = process.env.FILE || 'form.yml'
 
-const f = fs.readFileSync(`src/${filename}`, {
+const f = fs.readFileSync(`public/${filename}`, {
   encoding: 'utf-8',
 })
 
-const form = JSON.parse(f)
+const y = new YAML(f)
+const form = y.json
 
 async function map(f) {
   const updateQuestion = async (question) => {
@@ -153,15 +156,16 @@ function translate(languageCode) {
   // when we introduced i18n, we moved to a format like `title: { en: "Foo" }`
   // If you need to convert a form from the former to the latter, then
   // uncomment the following line.
-  // await map(copy => ({ en: copy}));
+  await map((copy) => ({ en: copy.en }))
 
   // Add spanish translations
-  await map(translate('es'))
+  // await map(translate('es'))
 
   // Add chinese translations
-  await map(translate('zh'))
+  // await map(translate('zh'))
 
-  fs.writeFileSync(`src/${filename}`, JSON.stringify(form, null, 2), {
+  y.json = form
+  fs.writeFileSync(`public/${filename}`, y.yaml, {
     encoding: 'utf-8',
   })
 })().catch((err) => {
