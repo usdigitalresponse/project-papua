@@ -98,40 +98,6 @@ instructions:
         1. Ha tenido que renunciar a su trabajo como resultado directo de COVID-19.
         1. Su lugar de trabajo está cerrado como resultado directo de la emergencia de salud pública COVID-19.
         1. Trabaja como un contratista independiente con ingresos declarables y está desempleado, parcialmente empleado o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad de continuar realizando sus actividades laborales habituales, y por lo tanto lo ha obligado a suspender tales actividades.
-    zh: |-
-      ##说明
-      欢迎使用OR失业保险金索赔系统。
-      俄勒冈州的失业保险金索赔申请表应用于从俄勒冈州获得的或预期获得的收入中申请失业金。
-      福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收预付借记卡以使用您的福利。
-      ####准备
-      请注意，在提出索赔之前，您可能需要以下信息：
-
-        - 您的社会安全号码（SSN）
-        - 您最近的纳税申报单的调整后总收入
-        - 您在过去18个月内工作过的所有雇主的姓名，地址，电话号码和工作日期。
-        - 您的外国人注册号（如果适用）。
-        - 所有受抚养子女的姓名，社会安全号码和出生日期。
-        - 您的驾驶执照或国家签发的身份证号。
-        - 您的银行帐户和银行帐号（如果您选择直接存款作为付款方式）。
-
-      ####资格
-      失业保险是临时收入：
-      - 对于合格的工人 - 谁丢了工作 - 通过自己没有过错
-      如果您在过去18个月内在另一个州工作，但在俄勒冈州未曾工作过，则必须与您在过去18个月内从事工作的州的失业办公室联系。
-      为了获得大流行性失业援助的资格，您必须至少属于以下情况之一：
-
-        1. 您已被诊断出患有COVID-19或正在出现COVID-19的症状，并正在寻求医学诊断。
-        1. 您必须直接与经检测冠状病毒呈阳性或已被医学专家诊断为具有COVID-19的人直接接触，因此辞职，并在合格的医学健康专家的建议下，离职。必须辞职才能隔离。
-        1. 您的家庭成员已被诊断出COVID-19。
-        1. 您正在为被诊断患有COVID-19的家庭成员或家庭成员提供护理。
-        1. 由您承担主要护理责任的家庭中的儿童或其他人无法上学或直接由于COVID-19公共卫生紧急情况而关闭的其他设施，因此您需要进行此类学校或设施的护理上班。
-        1. 由于COVID-19公共卫生紧急事件的直接结果是隔离，您无法到达工作地点。
-        1. 您无法到达工作地点，因为由于与COVID-19有关的问题，卫生保健提供者建议您进行自我检疫。
-        1. 由于COVID-19公共卫生突发事件，您原本打算开始工作，没有工作或无法找到工作。
-        1. 您已成为家庭的养家糊口或主要支持，因为户主因COVID-19的直接死亡而死亡。
-        1. 由于COVID-19的直接结果，您不得不辞职。
-        1. 由于COVID-19公共卫生突发事件的直接结果，您的工作单位被关闭。
-        1. 您以可报告收入的独立承包商的身份工作，由于COVID-19公共卫生突发事件严重限制了您继续进行常规工作活动的能力，因此失业，半就业，无法工作或无力工作。暂停此类活动。
   warning:
     en: |-
       ### Warning
@@ -179,9 +145,9 @@ instructions:
     en: Your claim will not be filed unless you click Submit below.
     es: Su reclamo no se archivará a menos que haga clic en Enviar a continuación.
   demo-warning:
-    en: This is for demo purposes only. Email pua-requests@usdigitalresponse.org to learn more.
+    en: This is for demo purposes only. Email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.
     es: |-
-      Esto es solo para fines de demostración. Envíe un correo electrónico a pua-requests@usdigitalresponse.org para obtener más información.
+      Esto es solo para fines de demostración. Envíe un correo electrónico a [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) para obtener más información.
   back:
     en: Go Back
     es: Regresa
@@ -1055,9 +1021,14 @@ pages:
                   ¿Cuál fue su ingreso bruto ajustado en su declaración de impuestos federales presentada más recientemente?
               instructions:
                 en: |-
-                  You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted: Line 8b on Form 1040 (for tax year 2019) Line 8b on Form 1040-SR (for tax year 2019) Line 7 on Form 1040 (for tax year 2018) Line 21 on Form 1040A (for tax years before 2018) Line 4 on Form 1040EZ (for tax years before 2018) Line 35 on Form 1040NR (for tax year 2019 or 2019)
-                es: |-
-                  Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, según el formulario que envió: Línea 8b en el Formulario 1040 (para el año fiscal 2019) Línea 8b en el Formulario 1040-SR (para el año fiscal 2019) Línea 7 en el Formulario 1040 (para el año fiscal 2018) Línea 21 en el Formulario 1040A (para los años fiscales antes de 2018) Línea 4 en el Formulario 1040EZ (para los años fiscales antes de 2018) Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)
+                  You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted:
+                    
+                    - Line 8b on Form 1040 (for tax year 2019)
+                    - Line 8b on Form 1040-SR (for tax year 2019)
+                    - Line 7 on Form 1040 (for tax year 2018)
+                    - Line 21 on Form 1040A (for tax years before 2018)
+                    - Line 4 on Form 1040EZ (for tax years before 2018)
+                    - Line 35 on Form 1040NR (for tax year 2019 or 2019)
               id: tax-info-agi
               required: true
               type: dollar-amount
@@ -1066,16 +1037,20 @@ pages:
                 es: ¿Cuántos hijos dependientes tienes?
               instructions:
                 en: |-
-                  You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return. A dependent child must be: 1) A natural, adopted, or step-child under the age of 18 whom you support. 2) A child under the age of 18 for whom you are the court-appointed guardian. 3) A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages. NOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.
-                es: |-
-                  Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos. Un hijo dependiente debe ser: 1) Un hijo natural, adoptado o hijastro menor de 18 años a quien usted mantiene. 2) Un niño menor de 18 años para quien usted es el tutor designado por el tribunal. 3) Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios. NOTA: Solo uno de los padres o tutores tiene derecho a recibir la asignación de dependientes por cualquier semana de beneficios de desempleo.
+                  You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return. A dependent child must be:
+
+                    1. A natural, adopted, or step-child under the age of 18 whom you support.
+                    2. A child under the age of 18 for whom you are the court-appointed guardian.
+                    3. A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.
+
+                  NOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.
               id: tax-info-dependents
               required: true
               type: singleselect
               options:
                 - name:
                     en: '0'
-                    es: 0 0
+                    es: 0
                   id: '0'
                 - name:
                     en: '1'
@@ -1091,7 +1066,7 @@ pages:
                   id: '3'
                 - name:
                     en: '4'
-                    es: 4 4
+                    es: 4
                   id: '4'
                 - name:
                     en: 5 or more

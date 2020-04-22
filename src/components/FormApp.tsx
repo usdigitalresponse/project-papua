@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Card, Button } from './helper-components/index'
+import { Card, Button, Markdown } from './helper-components'
 import { Box, ResponsiveContext } from 'grommet'
 import Sidebar from './Sidebar'
 import Introduction from './Introduction'
@@ -38,7 +38,7 @@ const FormApp: React.FC<{}> = () => {
   return (
     <Box align="center" pad="medium" direction="column">
       <Card margin={{ bottom: 'small' }} pad="small" background="white">
-        {translateByID('demo-warning')}
+        <Markdown>{translateByID('demo-warning')}</Markdown>
       </Card>
       <Box width="100%" height="100%" justify="center" direction="row">
         <Card width="50%" background="white" display="flex" justify="between" flexDirection="column" textAlign="left">

@@ -1,4 +1,5 @@
 import Button from './Button'
 import Card from './Card'
+import { Markdown } from './Markdown'
 
-export { Button, Card }
+export { Button, Card, Markdown }

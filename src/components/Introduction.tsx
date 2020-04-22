@@ -9,15 +9,7 @@ const Introduction: React.FC = () => {
   return (
     <>
       <Box pad={{ horizontal: 'medium' }}>
-        <Markdown
-          components={{
-            p: {
-              props: { fill: true, color: 'black' },
-            },
-          }}
-        >
-          {translateByID('introduction-content')}
-        </Markdown>
+        <Markdown>{translateByID('introduction-content')}</Markdown>
       </Box>
       <Box style={{ position: 'relative' }}>
         <Box
@@ -29,27 +21,11 @@ const Introduction: React.FC = () => {
           }}
         />
         <Box pad={{ vertical: 'none', horizontal: 'medium' }}>
-          <Markdown
-            components={{
-              p: {
-                props: { fill: true, color: 'black' },
-              },
-            }}
-          >
-            {translateByID('warning')}
-          </Markdown>
+          <Markdown>{translateByID('warning')}</Markdown>
         </Box>
       </Box>
       <Box pad={{ horizontal: 'medium' }}>
-        <Markdown
-          components={{
-            p: {
-              props: { fill: true, color: 'black' },
-            },
-          }}
-        >
-          {translateByID('agreement')}
-        </Markdown>
+        <Markdown>{translateByID('agreement')}</Markdown>
       </Box>
     </>
   )

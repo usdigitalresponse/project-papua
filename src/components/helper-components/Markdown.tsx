@@ -1,99 +1,64 @@
-/**
- * Hi there! You're probably wondering, what is all this?
- *
- * Well, it's the Markdown component from Grommet: https://github.com/grommet/grommet/blob/master/src/js/components/Markdown/Markdown.js
- *
- * It turns out that component doesn't support <li> components well :(
- *
- * We should ship a fix to the upstream soon, but in the meantime we'll fork it locally.
- *
- * In the nearer-future we could move this fix into a usdr/grommet repo and out of this project.
- *
- * But for now it lives here.
- */
-
 import React from 'react'
-import Markdown from 'markdown-to-jsx'
+import { Markdown as GrommetMarkdown, Paragraph, ParagraphProps } from 'grommet'
+import { MarginType } from 'grommet/utils'
 
-import {
-  Heading,
-  Paragraph,
-  Anchor,
-  Image,
-  Table,
-  TableBody,
-  TableCell,
-  TableFooter,
-  TableHeader,
-  TableRow,
-} from 'grommet'
-
-const isObject = (item: any) => item && typeof item === 'object' && !Array.isArray(item)
-
-const deepMerge = (target: any, ...sources: any) => {
-  if (!sources.length) {
-    return target
-  }
-  // making sure to not change target (immutable)
-  const output = { ...target }
-  sources.forEach((source: any) => {
-    if (isObject(source)) {
-      Object.keys(source).forEach((key) => {
-        if (isObject(source[key])) {
-          if (!output[key]) {
-            output[key] = { ...source[key] }
-          } else {
-            output[key] = deepMerge(output[key], source[key])
-          }
-        } else {
-          output[key] = source[key]
-        }
-      })
-    }
-  })
-  return output
-}
-
-const ListItem: React.FC = (props) => {
+const ListItem: React.FC = ({ children, ...styleProps }) => {
   return (
     <li>
-      <Paragraph fill={true} color="black" margin="none">
-        {props.children}
+      <Paragraph fill={true} color="black" margin="none" {...styleProps}>
+        {children}
       </Paragraph>
     </li>
   )
 }
 
-const GrommetMarkdown = ({ components, options, theme, ...rest }: any) => {
-  const heading = [1, 2, 3, 4].reduce((obj, level) => {
-    const result = { ...obj } as any
-    result[`h${level}`] = {
-      component: Heading,
-      props: { level },
-    }
-    return result
-  }, {})
-
-  const overrides = deepMerge(
-    {
-      a: { component: Anchor },
-      img: { component: Image },
-      p: { component: Paragraph },
-      table: { component: Table },
-      td: { component: TableCell },
-      tbody: { component: TableBody },
-      tfoot: { component: TableFooter },
-      th: { component: TableCell },
-      thead: { component: TableHeader },
-      tr: { component: TableRow },
-      li: { component: ListItem },
-    },
-    heading,
-    components,
-    options && options.overrides
-  )
-
-  return <Markdown options={{ ...options, overrides }} {...rest} />
+interface Props {
+  size?: ParagraphProps['size']
+  margin?: MarginType
 }
 
-export { GrommetMarkdown as Markdown }
+function merge(...sources: Record<string, any>[]) {
+  const result: Record<string, any> = {}
+  for (const source of sources) {
+    for (const key of Object.keys(source)) {
+      if (source[key]) {
+        result[key] = source[key]
+      }
+    }
+  }
+
+  console.log(result, sources, result)
+
+  return result
+}
+
+export const Markdown: React.FC<Props> = ({ margin, size, children }) => {
+  // Grommet allows you to override what React component is used for various
+  // HTML elements. It handles a few components by default, but there are a few
+  // extra cases we want to handle (or customize).
+
+  const paragraphStyles = {
+    // style: { whiteSpace: 'pre-wrap' },
+  }
+
+  return (
+    <GrommetMarkdown
+      components={{
+        li: {
+          component: ListItem,
+          props: merge({ margin, size }),
+        },
+        p: {
+          component: Paragraph,
+          props: merge(paragraphStyles, { fill: true, color: 'black' }, { margin, size }),
+        },
+        span: {
+          component: Paragraph,
+          props: merge(paragraphStyles, { fill: true, color: 'black', size: 'small' }, { margin, size }),
+        },
+      }}
+    >
+      {children}
+    </GrommetMarkdown>
+  )
+}
