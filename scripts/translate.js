@@ -127,13 +127,24 @@ function translate(languageCode) {
     }
 
     try {
+      console.log('translating: ')
+      console.log(copy.en)
       const result = await translater.translate(copy.en, {
         to: languageCode,
       })
       if (result.length > 0 && result[0].length > 0) {
+        const content = result[0]
+          // Fix the formatting for Markdown links
+          // Google Translate will insert a space...
+          .replace(/\] \(/g, '](')
+          // Same with mailto links
+          .replace(/mailto: /g, 'mailto:')
+
+        console.log('got:')
+        console.log(content)
         return {
           ...copy,
-          [languageCode]: result[0],
+          [languageCode]: content,
         }
       }
     } catch (err) {
@@ -155,6 +166,9 @@ function translate(languageCode) {
   // If you need to convert a form from the former to the latter, then
   // uncomment the following line.
   // await map((copy) => ({ en: copy.en }))
+
+  // If you want to add other languages, make sure to use codes from:
+  // https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
   // Add spanish translations
   await map(translate('es'))
