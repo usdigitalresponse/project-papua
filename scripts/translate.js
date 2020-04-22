@@ -140,6 +140,9 @@ function translate(languageCode) {
           // Google Translate seems to be adding no-break-spaces in front of
           // list items. So remove those so that the Markdown will format correctly.
           .replace(/\u00A0/g, ' ')
+          // For chinese, it also inserts some weird pound signs that aren't
+          // registering as valid in the Markdown parser.
+          .replace(/＃/g, '#')
 
         return {
           ...copy,
@@ -173,7 +176,7 @@ function translate(languageCode) {
   await map(translate('es'))
 
   // Add chinese translations
-  // await map(translate('zh'))
+  await map(translate('zh'))
 
   const contents = yaml.safeDump(form, {
     noCompatMode: true,
