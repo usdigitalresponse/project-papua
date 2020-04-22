@@ -13,7 +13,7 @@ instructions:
     en: |-
       ## Instructions
 
-      Welcome to the OR Unemployment Insurance Benefits Claims System. The OR Unemployment Insurance Benefits Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of OR.
+      Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System. The {{STATE_CODE}} Unemployment Insurance Benefits Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.
 
       Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive a prepaid debit card to access your benefits.
 
@@ -37,7 +37,7 @@ instructions:
         - Who lose their jobs
         - Through no fault of their own
 
-      If you have worked in another state and have not worked in OR in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.
+      If you have worked in another state and have not worked in {{STATE_CODE}} in the last 18 months, you must contact the unemployment office in the state(s) where you have performed work in the last 18 months.
 
       In order to qualify for Pandemic Unemployment Assistance, you must fall into at least one of the following scenarios:
 
@@ -56,9 +56,9 @@ instructions:
     es: |-
       ## Instrucciones
 
-      Bienvenido al sistema de reclamos de beneficios de seguro de desempleo de OR.
+      Bienvenido al sistema de reclamos de beneficios de seguro de desempleo de {{STATE_CODE}}.
 
-      La Solicitud de Reclamaciones de Beneficios del Seguro de Desempleo de OR debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de OR.
+      La Solicitud de Reclamaciones de Beneficios del Seguro de Desempleo de {{STATE_CODE}} debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.
 
       Los beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una tarjeta de débito prepaga para acceder a sus beneficios.
 
