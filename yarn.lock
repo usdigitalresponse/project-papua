@@ -8849,8 +8849,14 @@ js-tokens@^3.0.2:
 
 js-yaml@^3.13.1, js-yaml@^3.4.2:
   version "3.13.1"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
-  integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
+  resolved "https://codeload.github.com/colinking/js-yaml/tar.gz/35cdc2566bf2fbc374ebd25abeabfb962d66b868"
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@colinking/js-yaml#block-style-option:
+  version "3.13.1"
+  resolved "https://codeload.github.com/colinking/js-yaml/tar.gz/9830fcb25b0d0ecc01ee284eae7ac1b711414a27"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"

@@ -36,8 +36,7 @@
 
 const fs = require('fs')
 const { Translate } = require('@google-cloud/translate').v2
-// NOTE: we use yawn-yaml (instead of say, js-yaml) here to preseve comments.
-const YAML = require('yawn-yaml/cjs')
+const yaml = require('js-yaml')
 const translater = new Translate()
 
 const filename = process.env.FILE || 'form.yml'
@@ -46,8 +45,7 @@ const f = fs.readFileSync(`public/${filename}`, {
   encoding: 'utf-8',
 })
 
-const y = new YAML(f)
-const form = y.json
+const form = yaml.safeLoad(f)
 
 async function map(f) {
   const updateQuestion = async (question) => {
@@ -156,16 +154,26 @@ function translate(languageCode) {
   // when we introduced i18n, we moved to a format like `title: { en: "Foo" }`
   // If you need to convert a form from the former to the latter, then
   // uncomment the following line.
-  await map((copy) => ({ en: copy.en }))
+  // await map((copy) => ({ en: copy.en }))
 
   // Add spanish translations
-  // await map(translate('es'))
+  await map(translate('es'))
 
   // Add chinese translations
   // await map(translate('zh'))
 
-  y.json = form
-  fs.writeFileSync(`public/${filename}`, y.yaml, {
+  const contents = yaml.safeDump(form, {
+    noCompatMode: true,
+    lineWidth: 120,
+    // js-yaml tries to be smart and use >- if a line needs to wrap
+    // otherwise using |- (literal). This leads to a mixture of
+    // >- and |-. Ideally we just use one everywhere. There is an open
+    // PR for this, but it's not likely to merge anytime soon so we're using
+    // a fork under colinking/js-yaml that includes preferredBlockStyle
+    // which allows you to choose which one to use.
+    preferredBlockStyle: 'literal',
+  })
+  fs.writeFileSync(`public/${filename}`, contents, {
     encoding: 'utf-8',
   })
 })().catch((err) => {
