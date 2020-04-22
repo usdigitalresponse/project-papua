@@ -127,8 +127,6 @@ function translate(languageCode) {
     }
 
     try {
-      console.log('translating: ')
-      console.log(copy.en)
       const result = await translater.translate(copy.en, {
         to: languageCode,
       })
@@ -143,8 +141,6 @@ function translate(languageCode) {
           // list items. So remove those so that the Markdown will format correctly.
           .replace(/\u00A0/g, ' ')
 
-        console.log('got:')
-        console.log(content)
         return {
           ...copy,
           [languageCode]: content,

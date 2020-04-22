@@ -1028,7 +1028,15 @@ pages:
                     - Line 21 on Form 1040A (for tax years before 2018)
                     - Line 4 on Form 1040EZ (for tax years before 2018)
                     - Line 35 on Form 1040NR (for tax year 2019 or 2019)
-                es: "Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, dependiendo del formulario que haya enviado:\n\_\_\n\_\_- Línea 8b en el Formulario 1040 (para el año fiscal 2019)\n\_\_- Línea 8b en el Formulario 1040-SR (para el año fiscal 2019)\n\_\_- Línea 7 en el Formulario 1040 (para el año fiscal 2018)\n\_\_- Línea 21 en el Formulario 1040A (para años fiscales antes de 2018)\n\_\_- Línea 4 en el Formulario 1040EZ (para los años fiscales antes de 2018)\n\_\_- Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)"
+                es: |-
+                  Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, dependiendo del formulario que haya enviado:
+                    
+                    - Línea 8b en el Formulario 1040 (para el año fiscal 2019)
+                    - Línea 8b en el Formulario 1040-SR (para el año fiscal 2019)
+                    - Línea 7 en el Formulario 1040 (para el año fiscal 2018)
+                    - Línea 21 en el Formulario 1040A (para años fiscales antes de 2018)
+                    - Línea 4 en el Formulario 1040EZ (para los años fiscales antes de 2018)
+                    - Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)
               id: tax-info-agi
               required: true
               type: dollar-amount
@@ -1044,7 +1052,14 @@ pages:
                     3. A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.
 
                   NOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.
-                es: "Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos. Un hijo dependiente debe ser:\n\n\_\_1. Un hijo natural, adoptado o hijastro menor de 18 años a quien usted apoya.\n\_\_2. Un niño menor de 18 años para quien usted es el tutor designado por el tribunal.\n\_\_3. Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios.\n\nNOTA: Solo uno de los padres o tutores tiene derecho a recibir la asignación de dependientes por cualquier semana de beneficios de desempleo."
+                es: |-
+                  Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos. Un hijo dependiente debe ser:
+
+                    1. Un hijo natural, adoptado o hijastro menor de 18 años a quien usted apoya.
+                    2. Un niño menor de 18 años para quien usted es el tutor designado por el tribunal.
+                    3. Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios.
+
+                  NOTA: Solo uno de los padres o tutores tiene derecho a recibir la asignación de dependientes por cualquier semana de beneficios de desempleo.
               id: tax-info-dependents
               required: true
               type: singleselect
@@ -1221,7 +1236,11 @@ pages:
               
               - Direct Deposit (DD), which deposits your unemployment benefits into your checking or savings account.
               - Electronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.
-          es: "Hay dos opciones de pago para sus beneficios del Seguro de desempleo de emergencia COVID-19:\n\_\_\n\_\_- Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.\n\_\_- Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo."
+          es: |-
+            Hay dos opciones de pago para sus beneficios del Seguro de desempleo de emergencia COVID-19:
+              
+              - Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.
+              - Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo.
         id: payment-option
         required: true
         type: dropdown
