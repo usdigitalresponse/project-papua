@@ -66,7 +66,7 @@ export const FormProvider: React.FC = (props) => {
       // States will build their own form in `form.json` from the example in `form.sample.json`.
       // By default, we'll use the sample version until a state starts building their form in
       // `form.json`.
-      const useSample = Object.keys(form).length === 0
+      const useSample = contents === null
       const rawForm = useSample ? sampleContents : contents
 
       // Validate the schema against our Joi schema
@@ -107,7 +107,6 @@ export const FormProvider: React.FC = (props) => {
   }
 
   if (!form) {
-    console.log('not rendering...')
     // The value we pass here doesn't matter, since we don't render the children.
     return (
       <FormContext.Provider value={{} as any}>

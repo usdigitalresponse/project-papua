@@ -9,6 +9,7 @@
     "aws-amplify-react": "^4.1.6",
     "express": "^4.17.1",
     "grommet": "^2.12.0",
+    "js-yaml": "^3.13.1",
     "ky": "^0.19.1",
     "lodash": "^4.17.15",
     "markdown-to-jsx": "^6.11.1",
