@@ -11,7 +11,7 @@ const DatePicker: React.FC<{ question: Question }> = (props) => {
   return (
     <ReactDatePicker
       className="date-picker"
-      onChange={date => setValue(question, date as Date)}
+      onChange={(date) => setValue(question, date as Date)}
       value={values[question.id] as Date}
       clearIcon={null}
     />

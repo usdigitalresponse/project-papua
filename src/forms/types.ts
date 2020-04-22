@@ -31,6 +31,9 @@ QuestionSchema = Joi.object({
     .optional(),
 })
 export const FormSchema = Joi.object({
+  title: CopySchema,
+  description: CopySchema,
+  seal: Joi.string(),
   variables: Joi.object().pattern(Joi.string(), Joi.string()),
   instructions: Joi.object().pattern(Joi.string(), CopySchema),
   pages: Joi.array().items(
@@ -41,10 +44,11 @@ export const FormSchema = Joi.object({
       questions: Joi.array().items(QuestionSchema),
     })
   ),
-  seal: Joi.string(),
 })
 
 export interface Form {
+  title: Copy
+  description: Copy
   variables: Record<string, string>
   instructions: Record<string, Copy>
   pages: Page[]
@@ -106,4 +110,6 @@ export interface QuestionValidation {
   error: Copy
 }
 
-export interface ErrorMessage { message: string }
+export interface ErrorMessage {
+  message: string
+}

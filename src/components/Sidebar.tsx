@@ -35,8 +35,8 @@ const Sidebar: React.FC<Props> = (props) => {
       style={{ padding: '48px' }}
     >
       {seal && (
-        <Box height="175px" margin={{ bottom: 'medium' }}>
-          <Image src={seal} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+        <Box margin={{ bottom: 'medium' }}>
+          <Image src={seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />
         </Box>
       )}
       <Box>
