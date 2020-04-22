@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
 import { PutObjectCommand } from '@aws-sdk/client-s3-node/commands/PutObjectCommand'
+// import { validateQuestions } from './validation/validate'
 
 const s3 = new S3Client({
   // Locally, we'll override the S3 endpoint to point at a local dockerized
