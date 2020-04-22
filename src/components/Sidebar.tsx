@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Card } from './helper-components'
 import { Box, Text, Select, Image } from 'grommet'
 import { LanguageContext } from '../contexts/language'
-import { translate, getCopy } from '../forms/index'
+import { FormContext } from '../contexts/form'
 
 interface Props {
   pages: string[]
@@ -22,6 +22,7 @@ const Sidebar: React.FC<Props> = (props) => {
   const currentPage = pages[currentIndex]
   const percent = Math.floor(((currentIndex + 1) / pages.length) * 100)
   const { language, setLanguage } = useContext(LanguageContext)
+  const { translateByID } = useContext(FormContext)
 
   return (
     <Card
@@ -39,7 +40,7 @@ const Sidebar: React.FC<Props> = (props) => {
       )}
       <Box>
         <Text weight={600} color="black">
-          {translate(getCopy('language'), language)}
+          {translateByID('language')}
         </Text>
         <Select
           a11yTitle="select language"
@@ -53,7 +54,7 @@ const Sidebar: React.FC<Props> = (props) => {
       </Box>
       <Box margin={{ top: 'medium' }}>
         <Text weight={600} color="black">
-          {translate(getCopy('progress'), language)}
+          {translateByID('progress')}
         </Text>
         <Box
           margin={{ top: 'xsmall' }}
@@ -64,7 +65,7 @@ const Sidebar: React.FC<Props> = (props) => {
         <Box align="center">
           {' '}
           <Text color="black" weight={300} size="xsmall">
-            {percent}% {translate(getCopy('complete'), language)}
+            {percent}% {translateByID('complete')}
           </Text>{' '}
         </Box>
       </Box>

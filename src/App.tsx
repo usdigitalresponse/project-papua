@@ -3,6 +3,7 @@ import { Grommet } from 'grommet'
 import './App.css'
 import FormApp from './components/FormApp'
 import { LanguageProvider } from './contexts/language'
+import { FormProvider } from './contexts/form'
 
 const theme = {
   global: {
@@ -38,7 +39,9 @@ function App() {
   return (
     <Grommet className="App" theme={theme as any}>
       <LanguageProvider>
-        <FormApp />
+        <FormProvider>
+          <FormApp />
+        </FormProvider>
       </LanguageProvider>
     </Grommet>
   )

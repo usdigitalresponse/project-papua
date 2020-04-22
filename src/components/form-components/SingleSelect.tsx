@@ -2,8 +2,6 @@ import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
 import { Box, Text } from 'grommet'
 import './single-select.css'
-import { LanguageContext } from '../../contexts/language'
-import { translate } from '../../forms/index'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
@@ -12,8 +10,7 @@ interface Props {
 
 const SingleSelect: React.FC<Props> = (props) => {
   const { question } = props
-  const { language } = useContext(LanguageContext)
-  const { values, setValue } = useContext(FormContext)
+  const { values, setValue, translateCopy } = useContext(FormContext)
 
   const value = values[question.id]
 
@@ -40,7 +37,7 @@ const SingleSelect: React.FC<Props> = (props) => {
             style={{ height: 20, width: 20, borderRadius: '50%' }}
             className="single-select-border"
           />
-          <Text>{translate(o.name, language)}</Text>
+          <Text>{translateCopy(o.name)}</Text>
         </Box>
       ))}
     </Box>
