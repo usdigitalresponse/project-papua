@@ -210,7 +210,7 @@ instructions:
       This is for demo purposes only. Email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.
     es: |-
       Esto es solo para fines de demostración. Envíe un correo electrónico a [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) para obtener más información.
-    zh: '这仅用于演示目的。向[pua-requests@usdigitalresponse.org]发送电子邮件（mailto：pua-requests@usdigitalresponse.org）以了解更多信息。'
+    zh: '这仅用于演示目的。向[pua-requests@usdigitalresponse.org](mailto：pua-requests@usdigitalresponse.org)发送电子邮件以了解更多信息。'
   back:
     en: Go Back
     es: Regresa
