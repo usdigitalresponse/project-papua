@@ -32,6 +32,8 @@ const Summary: React.FC<Props> = (props) => {
   const [checkedPages, setCheckedPages] = useState<Record<string, boolean>>({})
   const [openPages, setOpenPages] = useState<Record<string, boolean>>({})
 
+  const checkPage = (pageIndex: number) => setCheckedPages({ ...checkedPages, [pageIndex]: true })
+
   const toggleOpenPage = (pageIndex: number) => {
     setOpenPages({
       ...openPages,
@@ -81,7 +83,7 @@ const Summary: React.FC<Props> = (props) => {
               <Caret open={openPages[i]} />
             </Box>
             {openPages[i] && (
-              <Box margin={{ horizontal: '48px', vertical: '24px' }}>
+              <Box margin={{ horizontal: '48px', vertical: '24px' }} onClick={() => checkPage(i)}>
                 {page.questions.map((q) => {
                   return (
                     <Box key={q.id} direction="row" margin={{ bottom: '16px' }}>

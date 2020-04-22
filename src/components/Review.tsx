@@ -54,12 +54,12 @@ const Review: React.FC<Props> = (props) => {
 
       <Text>{translate(getCopy('submit:instructions-2'), language)}</Text>
       <Summary values={values} pages={pages} />
-      {/* <Button
+      <Button
         color="black !important"
         onClick={onSubmit}
         disabled={!canSubmit}
         label={translate(getCopy('submit:button'), language)}
-      /> */}
+      />
     </Box>
   )
 }
