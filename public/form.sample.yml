@@ -1216,9 +1216,10 @@ pages:
           es: Por favor seleccione una opción de pago.
         instructions:
           en: |-
-            There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits: Direct Deposit (DD), which deposits your unemployment benefits into your checking or savings account. Electronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.
-          es: |-
-            Hay dos opciones de pago para sus beneficios del seguro de desempleo de emergencia COVID-19: Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros. Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo.
+            There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:
+              
+              - Direct Deposit (DD), which deposits your unemployment benefits into your checking or savings account.
+              - Electronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.
         id: payment-option
         required: true
         type: dropdown
