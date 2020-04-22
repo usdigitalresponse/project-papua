@@ -8856,7 +8856,7 @@ js-yaml@^3.13.1, js-yaml@^3.4.2:
 
 js-yaml@colinking/js-yaml#block-style-option:
   version "3.13.1"
-  resolved "https://codeload.github.com/colinking/js-yaml/tar.gz/b0124b80fe6a1ff142f315d8d92f0482a8442700"
+  resolved "https://codeload.github.com/colinking/js-yaml/tar.gz/2a635bc6563d609c0124fcbdcb0ebcaf7dd12d40"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"

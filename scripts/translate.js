@@ -139,6 +139,9 @@ function translate(languageCode) {
           .replace(/\] \(/g, '](')
           // Same with mailto links
           .replace(/mailto: /g, 'mailto:')
+          // Google Translate seems to be adding no-break-spaces in front of
+          // list items. So remove those so that the Markdown will format correctly.
+          .replace(/\u00A0/g, ' ')
 
         console.log('got:')
         console.log(content)

@@ -1,20 +1,13 @@
 title:
-  en: |-
-    Pandemic Unemployment Assistance
-  es: |-
-    Asistencia de desempleo pandémico
+  en: Pandemic Unemployment Assistance
+  es: Asistencia de desempleo pandémico
 description:
-  en: |-
-    Demo of the USDR's Pandemic Unemployment Assistance service
-  es: |-
-    Demostración del servicio de asistencia de desempleo pandémico del USDR
-seal: |-
-  /generic-state-seal.png
+  en: Demo of the USDR's Pandemic Unemployment Assistance service
+  es: Demostración del servicio de asistencia de desempleo pandémico del USDR
+seal: /generic-state-seal.png
 variables:
-  STATE_CODE: |-
-    [ST]
-  STATE_NAME: |-
-    [State]
+  STATE_CODE: '[ST]'
+  STATE_NAME: '[State]'
 instructions:
   introduction-content:
     en: |-
@@ -71,38 +64,38 @@ instructions:
 
       Tenga en cuenta que puede necesitar la siguiente información antes de presentar su reclamo:
 
-        - Su número de seguro social (SSN).
-        - Su ingreso bruto ajustado de su declaración de impuestos más reciente.
-        - Los nombres, direcciones, números de teléfono y fechas de empleo de todos los empleadores en los que ha trabajado en los últimos 18 meses.
-        - Su número de registro de extranjero, si corresponde.
-        - Los nombres, números de seguridad social y fechas de nacimiento de todos los hijos dependientes.
-        - Su licencia de conducir o número de identificación emitido por el estado.
-        - Su cuenta bancaria y número de ruta (si elige el depósito directo como su opción de pago).
+        - Su número de seguro social (SSN).
+        - Su ingreso bruto ajustado de su declaración de impuestos más reciente.
+        - Los nombres, direcciones, números de teléfono y fechas de empleo de todos los empleadores en los que ha trabajado en los últimos 18 meses.
+        - Su número de registro de extranjero, si corresponde.
+        - Los nombres, números de seguridad social y fechas de nacimiento de todos los hijos dependientes.
+        - Su licencia de conducir o número de identificación emitido por el estado.
+        - Su cuenta bancaria y número de ruta (si elige el depósito directo como su opción de pago).
 
       #### Elegibilidad
 
       El seguro de desempleo es un ingreso temporal:
 
-        - Para trabajadores elegibles
-        - Quienes pierden sus trabajos
-        - Sin culpa propia
+        - Para trabajadores elegibles
+        - Quienes pierden sus trabajos
+        - Sin culpa propia
 
       Si ha trabajado en otro estado y no ha trabajado en {{STATE_CODE}} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.
 
       Para calificar para la Asistencia de desempleo pandémico, debe caer en al menos uno de los siguientes escenarios:
 
-        1. Le han diagnosticado COVID-19 o está experimentando síntomas de COVID-19 y está buscando un diagnóstico médico.
-        1. Ha tenido que renunciar a su trabajo debido a que entró en contacto directo con alguien que dio positivo por el coronavirus o que un profesional médico le diagnosticó COVID-19 y, siguiendo el consejo de un profesional médico calificado, debe renunciar a su cargo para poner en cuarentena.
-        1. Un miembro de su hogar ha sido diagnosticado con COVID-19.
-        1. Usted está brindando atención a un miembro de la familia o un miembro de su hogar ha sido diagnosticado con COVID-19.
-        1. Un niño u otra persona en el hogar para el cual tiene la responsabilidad principal de cuidar no puede asistir a la escuela u otra instalación que esté cerrada como resultado directo de la emergencia de salud pública de COVID-19 y se requiere dicha atención en la escuela o instalación trabajar.
-        1. No puede llegar al lugar de empleo debido a una cuarentena impuesta como resultado directo de la emergencia de salud pública COVID-19.
-        1. No puede llegar al lugar de empleo porque un proveedor de atención médica le ha aconsejado que se auto-ponga en cuarentena debido a preocupaciones relacionadas con COVID-19.
-        1. Estaba programado para comenzar a trabajar y no tiene trabajo o no puede acceder al trabajo como resultado directo de la emergencia de salud pública de COVID-19.
-        1. Se ha convertido en el sostén de la familia o el mayor apoyo de un hogar porque el jefe del hogar ha muerto como resultado directo de COVID-19.
-        1. Ha tenido que renunciar a su trabajo como resultado directo de COVID-19.
-        1. Su lugar de trabajo está cerrado como resultado directo de la emergencia de salud pública COVID-19.
-        1. Trabaja como un contratista independiente con ingresos declarables y está desempleado, parcialmente empleado o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad de continuar realizando sus actividades laborales habituales, y por lo tanto lo ha obligado a suspender tales actividades.
+        1. Le han diagnosticado COVID-19 o está experimentando síntomas de COVID-19 y está buscando un diagnóstico médico.
+        1. Ha tenido que renunciar a su trabajo debido a que entró en contacto directo con alguien que dio positivo por el coronavirus o que un profesional médico le diagnosticó COVID-19 y, siguiendo el consejo de un profesional médico calificado, debe renunciar a su cargo para poner en cuarentena.
+        1. Un miembro de su hogar ha sido diagnosticado con COVID-19.
+        1. Usted está brindando atención a un miembro de la familia o un miembro de su hogar ha sido diagnosticado con COVID-19.
+        1. Un niño u otra persona en el hogar para el cual tiene la responsabilidad principal de cuidar no puede asistir a la escuela u otra instalación que esté cerrada como resultado directo de la emergencia de salud pública de COVID-19 y se requiere dicha atención en la escuela o instalación trabajar.
+        1. No puede llegar al lugar de empleo debido a una cuarentena impuesta como resultado directo de la emergencia de salud pública COVID-19.
+        1. No puede llegar al lugar de empleo porque un proveedor de atención médica le ha aconsejado que se auto-ponga en cuarentena debido a preocupaciones relacionadas con COVID-19.
+        1. Estaba programado para comenzar a trabajar y no tiene trabajo o no puede acceder al trabajo como resultado directo de la emergencia de salud pública de COVID-19.
+        1. Se ha convertido en el sostén de la familia o el mayor apoyo de un hogar porque el jefe del hogar ha muerto como resultado directo de COVID-19.
+        1. Ha tenido que renunciar a su trabajo como resultado directo de COVID-19.
+        1. Su lugar de trabajo está cerrado como resultado directo de la emergencia de salud pública COVID-19.
+        1. Trabaja como un contratista independiente con ingresos declarables y está desempleado, parcialmente empleado o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad de continuar realizando sus actividades laborales habituales, y por lo tanto lo ha obligado a suspender tales actividades.
   warning:
     en: |-
       ### Warning
@@ -126,999 +119,615 @@ instructions:
 
       Entiendo los requisitos de elegibilidad descritos anteriormente y confirmo que cumplo con los requisitos mínimos para solicitar ya sea {{STATE_CODE}} Beneficios estatales de seguro de desempleo o Asistencia de desempleo pandémico.
   get-started:
-    en: |-
-      Get Started
-    es: |-
-      Empezar
+    en: Get Started
+    es: Empezar
   next:
-    en: |-
-      Next
-    es: |-
-      próximo
+    en: Next
+    es: próximo
   yes:
-    en: |-
-      Yes
-    es: |-
-      si
+    en: Yes
+    es: si
   no:
-    en: |-
-      No
-    es: |-
-      No
+    en: No
+    es: No
   introduction:
-    en: |-
-      Introduction
-    es: |-
-      Introducción
+    en: Introduction
+    es: Introducción
   submit:
-    en: |-
-      Review & Submit
-    es: |-
-      Revisar y enviar
+    en: Review & Submit
+    es: Revisar y enviar
   'submit:button':
-    en: |-
-      Submit
-    es: |-
-      Enviar
+    en: Submit
+    es: Enviar
   'submit:instructions':
-    en: |-
-      Your claim will not be filed unless you click Submit below.
-    es: |-
-      Su reclamo no se archivará a menos que haga clic en Enviar a continuación.
+    en: Your claim will not be filed unless you click Submit below.
+    es: Su reclamo no se archivará a menos que haga clic en Enviar a continuación.
   demo-warning:
     en: |-
       This is for demo purposes only. Email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.
     es: |-
       Esto es solo para fines de demostración. Envíe un correo electrónico a [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) para obtener más información.
   back:
-    en: |-
-      Go Back
-    es: |-
-      Regresa
+    en: Go Back
+    es: Regresa
   language:
-    en: |-
-      Language
-    es: |-
-      Idioma
+    en: Language
+    es: Idioma
   progress:
-    en: |-
-      Progress
-    es: |-
-      Progreso
+    en: Progress
+    es: Progreso
   complete:
-    en: |-
-      complete
-    es: |-
-      completar
+    en: complete
+    es: completar
 pages:
   - title:
-      en: |-
-        Name
-      es: |-
-        Nombre
+      en: Name
+      es: Nombre
     heading:
-      en: |-
-        What is your name?
-      es: |-
-        ¿Cuál es su nombre?
+      en: What is your name?
+      es: ¿Cuál es su nombre?
     questions:
       - name:
-          en: |-
-            First Name
-          es: |-
-            Primer nombre
-        id: |-
-          first_name
+          en: First Name
+          es: Primer nombre
+        id: first_name
         required: true
-        type: |-
-          shorttext
+        type: shorttext
       - name:
-          en: |-
-            Middle Name
-          es: |-
-            Segundo nombre
-        id: |-
-          middle_name
-        type: |-
-          shorttext
+          en: Middle Name
+          es: Segundo nombre
+        id: middle_name
+        type: shorttext
       - name:
-          en: |-
-            Last Name
-          es: |-
-            Apellido
-        id: |-
-          last_name
+          en: Last Name
+          es: Apellido
+        id: last_name
         required: true
-        type: |-
-          shorttext
+        type: shorttext
       - name:
-          en: |-
-            Enter any other name you used in the last 18 months
-          es: |-
-            Ingrese cualquier otro nombre que haya utilizado en los últimos 18 meses.
-        id: |-
-          known_as_name
-        type: |-
-          shorttext
+          en: Enter any other name you used in the last 18 months
+          es: Ingrese cualquier otro nombre que haya utilizado en los últimos 18 meses.
+        id: known_as_name
+        type: shorttext
   - title:
-      en: |-
-        Demographic Info
-      es: |-
-        Información demográfica
+      en: Demographic Info
+      es: Información demográfica
     heading:
-      en: |-
-        More about you
-      es: |-
-        Mas sobre ti
+      en: More about you
+      es: Mas sobre ti
     questions:
       - name:
-          en: |-
-            When were you born?
-          es: |-
-            ¿Cuándo naciste?
-        id: |-
-          dob
+          en: When were you born?
+          es: ¿Cuándo naciste?
+        id: dob
         required: true
-        type: |-
-          datepicker
+        type: datepicker
       - name:
-          en: |-
-            What gender do you identify with?
-          es: |-
-            ¿Con qué género te identificas?
-        id: |-
-          gender
+          en: What gender do you identify with?
+          es: ¿Con qué género te identificas?
+        id: gender
         required: true
-        type: |-
-          dropdown
+        type: dropdown
         options:
           - name:
-              en: |-
-                Male
-              es: |-
-                Masculino
-            id: |-
-              male
+              en: Male
+              es: Masculino
+            id: male
           - name:
-              en: |-
-                Female
-              es: |-
-                Hembra
-            id: |-
-              female
+              en: Female
+              es: Hembra
+            id: female
           - name:
-              en: |-
-                Decline to state
-              es: |-
-                Rechazo de declarar
-            id: |-
-              decline
+              en: Decline to state
+              es: Rechazo de declarar
+            id: decline
       - name:
-          en: |-
-            What is your race?
-          es: |-
-            ¿Cuál es su raza?
-        id: |-
-          race
+          en: What is your race?
+          es: ¿Cuál es su raza?
+        id: race
         required: true
-        type: |-
-          dropdown
+        type: dropdown
         options:
           - name:
-              en: |-
-                White
-              es: |-
-                Blanco
-            id: |-
-              white
+              en: White
+              es: Blanco
+            id: white
           - name:
-              en: |-
-                Black
-              es: |-
-                Negro
-            id: |-
-              black
+              en: Black
+              es: Negro
+            id: black
           - name:
-              en: |-
-                Asian
-              es: |-
-                asiático
-            id: |-
-              asian
+              en: Asian
+              es: asiático
+            id: asian
           - name:
-              en: |-
-                American Indian / Alaskan Native
-              es: |-
-                Indio Americano / Nativo de Alaska
-            id: |-
-              aian
+              en: American Indian / Alaskan Native
+              es: Indio Americano / Nativo de Alaska
+            id: aian
           - name:
-              en: |-
-                Native Hawaiian / Pacific Islander
-              es: |-
-                Nativo de Hawái / Isleño del Pacífico
-            id: |-
-              nhpi
+              en: Native Hawaiian / Pacific Islander
+              es: Nativo de Hawái / Isleño del Pacífico
+            id: nhpi
           - name:
-              en: |-
-                Decline to state
-              es: |-
-                Rechazo de declarar
-            id: |-
-              decline
+              en: Decline to state
+              es: Rechazo de declarar
+            id: decline
       - name:
-          en: |-
-            What is your ethnicity?
-          es: |-
-            Cuál es tu etnia?
-        id: |-
-          ethnicity
+          en: What is your ethnicity?
+          es: Cuál es tu etnia?
+        id: ethnicity
         required: true
-        type: |-
-          dropdown
+        type: dropdown
         options:
           - name:
-              en: |-
-                Hispanic or Latino
-              es: |-
-                hispano o latino
-            id: |-
-              hispanic
+              en: Hispanic or Latino
+              es: hispano o latino
+            id: hispanic
           - name:
-              en: |-
-                Not hispanic or Latino
-              es: |-
-                No Hispano o Latino
-            id: |-
-              non-hispanic
+              en: Not hispanic or Latino
+              es: No Hispano o Latino
+            id: non-hispanic
           - name:
-              en: |-
-                Decline to State
-              es: |-
-                Rechazo al estado
-            id: |-
-              decline
+              en: Decline to State
+              es: Rechazo al estado
+            id: decline
   - title:
-      en: |-
-        Contact Info
-      es: |-
-        Datos de contacto
+      en: Contact Info
+      es: Datos de contacto
     heading:
-      en: |-
-        How can we contact you?
-      es: |-
-        ¿Como podemos contactarlo?
+      en: How can we contact you?
+      es: ¿Como podemos contactarlo?
     questions:
       - name:
-          en: |-
-            Home address
-          es: |-
-            Direccion de casa
-        id: |-
-          home_address
+          en: Home address
+          es: Direccion de casa
+        id: home_address
         required: true
-        type: |-
-          address_picker
+        type: address_picker
       - name:
-          en: |-
-            Is your mailing address the same as your home address?
-          es: |-
-            ¿Su dirección postal es la misma que su domicilio?
-        id: |-
-          mailing_home_address_same
+          en: Is your mailing address the same as your home address?
+          es: ¿Su dirección postal es la misma que su domicilio?
+        id: mailing_home_address_same
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'true': null
           'false':
             - name:
-                en: |-
-                  Mailing address
-                es: |-
-                  Dirección de envio
-              id: |-
-                mailing_address
+                en: Mailing address
+                es: Dirección de envio
+              id: mailing_address
               required: true
-              type: |-
-                address_picker
+              type: address_picker
       - name:
-          en: |-
-            Telephone number
-          es: |-
-            Número de teléfono
+          en: Telephone number
+          es: Número de teléfono
         instructions:
-          en: |-
-            Provide the telephone number where we can best reach you with questions about your claim.
-          es: |-
-            Proporcione el número de teléfono donde podamos comunicarnos con usted con preguntas sobre su reclamo.
-        id: |-
-          telephone
+          en: Provide the telephone number where we can best reach you with questions about your claim.
+          es: Proporcione el número de teléfono donde podamos comunicarnos con usted con preguntas sobre su reclamo.
+        id: telephone
         required: true
-        type: |-
-          phone
+        type: phone
       - name:
-          en: |-
-            Email address
-          es: |-
-            Dirección de correo electrónico
+          en: Email address
+          es: Dirección de correo electrónico
         instructions:
           en: |-
             This is optional. By providing your email, you agree to allow the Department to send you communications which may include questions relative to the Unemployment Insurance claim you filed and important information regarding Unemployment Insurance programs. Please double-check that it is correct.
           es: |-
             Esto es opcional Al proporcionar su correo electrónico, acepta permitir que el Departamento le envíe comunicaciones que pueden incluir preguntas relacionadas con el reclamo de seguro de desempleo que presentó e información importante sobre los programas de seguro de desempleo. Por favor, verifique que sea correcto.
-        id: |-
-          email
+        id: email
         required: false
-        type: |-
-          shorttext
+        type: shorttext
       - name:
-          en: |-
-            Preferred language
-          es: |-
-            Idioma preferido
+          en: Preferred language
+          es: Idioma preferido
         instructions:
-          en: |-
-            What language should we use in follow up communications?
-          es: |-
-            ¿Qué idioma debemos usar en las comunicaciones de seguimiento?
-        id: |-
-          preferred_language
+          en: What language should we use in follow up communications?
+          es: ¿Qué idioma debemos usar en las comunicaciones de seguimiento?
+        id: preferred_language
         required: true
-        type: |-
-          dropdown
+        type: dropdown
         options:
           - name:
-              en: |-
-                English
-              es: |-
-                Inglés
-            id: |-
-              en
+              en: English
+              es: Inglés
+            id: en
           - name:
-              en: |-
-                Spanish
-              es: |-
-                Español
-            id: |-
-              es
+              en: Spanish
+              es: Español
+            id: es
           - name:
-              en: |-
-                Chinese
-              es: |-
-                chino
-            id: |-
-              zh
+              en: Chinese
+              es: chino
+            id: zh
   - title:
-      en: |-
-        Identification & Citizenship Info
-      es: |-
-        Información de identificación y ciudadanía
+      en: Identification & Citizenship Info
+      es: Información de identificación y ciudadanía
     heading:
-      en: |-
-        What are your government document IDs?
-      es: |-
-        ¿Cuáles son sus identificaciones de documentos del gobierno?
+      en: What are your government document IDs?
+      es: ¿Cuáles son sus identificaciones de documentos del gobierno?
     questions:
       - name:
-          en: |-
-            Please enter your 9-digit Social Security Number
-          es: |-
-            Ingrese su número de seguro social de 9 dígitos
-        id: |-
-          ssn
+          en: Please enter your 9-digit Social Security Number
+          es: Ingrese su número de seguro social de 9 dígitos
+        id: ssn
         required: true
-        type: |-
-          ssn
+        type: ssn
       - name:
-          en: |-
-            Re-enter your 9-digit Social Security Number
-          es: |-
-            Vuelva a ingresar su número de seguro social de 9 dígitos
-        id: |-
-          ssn_confirm
+          en: Re-enter your 9-digit Social Security Number
+          es: Vuelva a ingresar su número de seguro social de 9 dígitos
+        id: ssn_confirm
         required: true
-        type: |-
-          ssn
+        type: ssn
         validate:
-          - type: |-
-              matches_field
-            value: |-
-              ssn
+          - type: matches_field
+            value: ssn
             error:
-              en: |-
-                Social Security Numbers do not match
-              es: |-
-                Los números de la seguridad social no coinciden
+              en: Social Security Numbers do not match
+              es: Los números de la seguridad social no coinciden
       - name:
-          en: |-
-            Do you have a Driver's License or state ID?
-          es: |-
-            ¿Tiene una licencia de conducir o una identificación estatal?
-        id: |-
-          has_dl_or_state_id
+          en: Do you have a Driver's License or state ID?
+          es: ¿Tiene una licencia de conducir o una identificación estatal?
+        id: has_dl_or_state_id
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'false': null
           'true':
             - name:
-                en: |-
-                  Enter your Driver's License or state-issued Identification (ID) number
-                es: |-
-                  Ingrese su licencia de conducir o número de identificación (ID) emitido por el estado
-              id: |-
-                dl_or_state_id
+                en: Enter your Driver's License or state-issued Identification (ID) number
+                es: Ingrese su licencia de conducir o número de identificación (ID) emitido por el estado
+              id: dl_or_state_id
               required: true
-              type: |-
-                shorttext
+              type: shorttext
             - name:
-                en: |-
-                  What is the expiration date for your driver's license or state-issued ID?
-                es: |-
-                  ¿Cuál es la fecha de vencimiento de su licencia de conducir o identificación emitida por el estado?
-              id: |-
-                dl_or_state_id_exp
+                en: What is the expiration date for your driver's license or state-issued ID?
+                es: ¿Cuál es la fecha de vencimiento de su licencia de conducir o identificación emitida por el estado?
+              id: dl_or_state_id_exp
               required: true
-              type: |-
-                datepicker
+              type: datepicker
       - name:
-          en: |-
-            Are you a U.S. Citizen?
-          es: |-
-            ¿Eres un ciudadano de los Estados Unidos?
-        id: |-
-          is_us_citizen
+          en: Are you a U.S. Citizen?
+          es: ¿Eres un ciudadano de los Estados Unidos?
+        id: is_us_citizen
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'false':
             - name:
-                en: |-
-                  Please enter your Alien Registration Number:
-                es: |-
-                  Ingrese su número de registro de extranjero:
-              id: |-
-                alien_reg_number
+                en: 'Please enter your Alien Registration Number:'
+                es: 'Ingrese su número de registro de extranjero:'
+              id: alien_reg_number
               required: true
-              type: |-
-                shorttext
+              type: shorttext
               validate:
-                - type: |-
-                    regex
-                  value: |-
-                    ^A(\d){7,9}$
+                - type: regex
+                  value: '^A(\d){7,9}$'
                   error:
-                    en: |-
-                      Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits.
-                    es: |-
-                      Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos.
+                    en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
+                    es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
             - name:
-                en: |-
-                  Re-enter your Alien Registration Number:
-                es: |-
-                  Vuelva a ingresar su número de registro de extranjero:
-              id: |-
-                alien_reg_number_confirm
+                en: 'Re-enter your Alien Registration Number:'
+                es: 'Vuelva a ingresar su número de registro de extranjero:'
+              id: alien_reg_number_confirm
               required: true
-              type: |-
-                shorttext
+              type: shorttext
               validate:
-                - type: |-
-                    matches_field
-                  value: |-
-                    alien_reg_number
+                - type: matches_field
+                  value: alien_reg_number
                   error:
-                    en: |-
-                      Alien Registration Numbers do not match
-                    es: |-
-                      Los números de registro de extranjeros no coinciden
+                    en: Alien Registration Numbers do not match
+                    es: Los números de registro de extranjeros no coinciden
             - name:
-                en: |-
-                  Please enter the country of your citizenship or the country from which your permit was issued.
-                es: |-
-                  Ingrese el país de su ciudadanía o el país desde el cual se emitió su permiso.
-              id: |-
-                citizenship_country
+                en: Please enter the country of your citizenship or the country from which your permit was issued.
+                es: Ingrese el país de su ciudadanía o el país desde el cual se emitió su permiso.
+              id: citizenship_country
               required: true
-              type: |-
-                shorttext
+              type: shorttext
           'true': null
   - title:
-      en: |-
-        Military Service
-      es: |-
-        Servicio militar
+      en: Military Service
+      es: Servicio militar
     heading:
-      en: |-
-        Please tell us about any military service.
-      es: |-
-        Cuéntanos sobre cualquier servicio militar.
+      en: Please tell us about any military service.
+      es: Cuéntanos sobre cualquier servicio militar.
     questions:
       - name:
-          en: |-
-            Are you a Military veteran?
-          es: |-
-            ¿Eres un veterano militar?
-        id: |-
-          military-veteran
+          en: Are you a Military veteran?
+          es: ¿Eres un veterano militar?
+        id: military-veteran
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'false': null
           'true':
             - name:
-                en: |-
-                  Active duty start date
-                es: |-
-                  Fecha de inicio del servicio activo
+                en: Active duty start date
+                es: Fecha de inicio del servicio activo
               required: true
-              id: |-
-                active-duty-start
-              type: |-
-                datepicker
+              id: active-duty-start
+              type: datepicker
             - name:
-                en: |-
-                  Active duty end date
-                es: |-
-                  Fecha de finalización del servicio activo
+                en: Active duty end date
+                es: Fecha de finalización del servicio activo
               required: true
-              id: |-
-                active-duty-end
-              type: |-
-                datepicker
+              id: active-duty-end
+              type: datepicker
             - name:
-                en: |-
-                  Disability status
-                es: |-
-                  Estado de Discapacidad
+                en: Disability status
+                es: Estado de Discapacidad
               required: true
-              id: |-
-                military-disability
-              type: |-
-                singleselect
+              id: military-disability
+              type: singleselect
               options:
                 - name:
-                    en: |-
-                      Veteran with no disability
-                    es: |-
-                      Veterano sin discapacidad
-                  id: |-
-                    no-disability
+                    en: Veteran with no disability
+                    es: Veterano sin discapacidad
+                  id: no-disability
                 - name:
-                    en: |-
-                      Veteran with Service-Connected Disability rated at less than 30%?
-                    es: |-
-                      ¿Veterano con discapacidad relacionada con el servicio calificado en menos del 30%?
-                  id: |-
-                    disability-less-than-30
+                    en: Veteran with Service-Connected Disability rated at less than 30%?
+                    es: ¿Veterano con discapacidad relacionada con el servicio calificado en menos del 30%?
+                  id: disability-less-than-30
                 - name:
-                    en: |-
-                      Veteran with Service-Connected Disability rated at 30% or more?
-                    es: |-
-                      ¿Veterano con discapacidad relacionada con el servicio con una calificación del 30% o más?
-                  id: |-
-                    disability-more-than-30
+                    en: Veteran with Service-Connected Disability rated at 30% or more?
+                    es: ¿Veterano con discapacidad relacionada con el servicio con una calificación del 30% o más?
+                  id: disability-more-than-30
             - name:
-                en: |-
-                  Have you performed active military service during the last 2 years?
-                es: |-
-                  ¿Has realizado un servicio militar activo durante los últimos 2 años?
+                en: Have you performed active military service during the last 2 years?
+                es: ¿Has realizado un servicio militar activo durante los últimos 2 años?
               required: true
-              id: |-
-                military-active-last-two-years
-              type: |-
-                boolean
+              id: military-active-last-two-years
+              type: boolean
               switch:
                 'false': null
                 'true':
                   - name:
-                      en: |-
-                        Last pay grade (Box #4b)
-                      es: |-
-                        Última calificación salarial (Casilla # 4b)
+                      en: 'Last pay grade (Box #4b)'
+                      es: 'Última calificación salarial (Casilla # 4b)'
                     instructions:
-                      en: |-
-                        Please enter the following data from your DD214-Member 4, Box #4b
-                      es: |-
-                        Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 4b
+                      en: 'Please enter the following data from your DD214-Member 4, Box #4b'
+                      es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 4b'
                     required: true
-                    id: |-
-                      military-last-pay-grade
-                    type: |-
-                      shorttext
+                    id: military-last-pay-grade
+                    type: shorttext
                   - name:
-                      en: |-
-                        Net service for this period (Box #12c)
-                      es: |-
-                        Servicio neto para este período (Cuadro # 12c)
+                      en: 'Net service for this period (Box #12c)'
+                      es: 'Servicio neto para este período (Cuadro # 12c)'
                     instructions:
-                      en: |-
-                        Please enter the following data from your DD214-Member 4, Box #12c
-                      es: |-
-                        Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 12c
+                      en: 'Please enter the following data from your DD214-Member 4, Box #12c'
+                      es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 12c'
                     required: true
-                    id: |-
-                      military-net-service
-                    type: |-
-                      shorttext
+                    id: military-net-service
+                    type: shorttext
                   - name:
-                      en: |-
-                        Number of days of accrued paid leave (Box #16)
-                      es: |-
-                        Número de días de vacaciones pagadas acumuladas (Casilla # 16)
+                      en: 'Number of days of accrued paid leave (Box #16)'
+                      es: 'Número de días de vacaciones pagadas acumuladas (Casilla # 16)'
                     instructions:
-                      en: |-
-                        Please enter the following data from your DD214-Member 4, Box #16
-                      es: |-
-                        Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 16
+                      en: 'Please enter the following data from your DD214-Member 4, Box #16'
+                      es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 16'
                     required: true
-                    id: |-
-                      military-accured-paid-leave
-                    type: |-
-                      decimal
+                    id: military-accured-paid-leave
+                    type: decimal
                   - name:
-                      en: |-
-                        Character of Service (Box #24)
-                      es: |-
-                        Carácter del servicio (casilla n. ° 24)
+                      en: 'Character of Service (Box #24)'
+                      es: Carácter del servicio (casilla n. ° 24)
                     instructions:
-                      en: |-
-                        Please enter the following data from your DD214-Member 4, Box #24
-                      es: |-
-                        Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 24
+                      en: 'Please enter the following data from your DD214-Member 4, Box #24'
+                      es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 24'
                     required: true
-                    id: |-
-                      military-character-of-service
-                    type: |-
-                      shorttext
+                    id: military-character-of-service
+                    type: shorttext
                   - name:
-                      en: |-
-                        Reason for Separation (Box #28)
-                      es: |-
-                        Motivo de la separación (casilla # 28)
+                      en: 'Reason for Separation (Box #28)'
+                      es: 'Motivo de la separación (casilla # 28)'
                     instructions:
-                      en: |-
-                        Please enter the following data from your DD214-Member 4, Box #28
-                      es: |-
-                        Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 28
+                      en: 'Please enter the following data from your DD214-Member 4, Box #28'
+                      es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 28'
                     required: true
-                    id: |-
-                      military-reason-for-separation
-                    type: |-
-                      shorttext
+                    id: military-reason-for-separation
+                    type: shorttext
                   - name:
-                      en: |-
-                        Branch of Service
-                      es: |-
-                        Rama de servicio
+                      en: Branch of Service
+                      es: Rama de servicio
                     required: true
-                    id: |-
-                      military-branch
-                    type: |-
-                      dropdown
+                    id: military-branch
+                    type: dropdown
                     options:
                       - name:
-                          en: |-
-                            Army
-                          es: |-
-                            Ejército
-                        id: |-
-                          army
+                          en: Army
+                          es: Ejército
+                        id: army
                       - name:
-                          en: |-
-                            Navy
-                          es: |-
-                            Armada
-                        id: |-
-                          navy
+                          en: Navy
+                          es: Armada
+                        id: navy
                       - name:
-                          en: |-
-                            Air Force
-                          es: |-
-                            Fuerza Aerea
-                        id: |-
-                          air-force
+                          en: Air Force
+                          es: Fuerza Aerea
+                        id: air-force
                       - name:
-                          en: |-
-                            Marines
-                          es: |-
-                            Infantería de marina
-                        id: |-
-                          marines
+                          en: Marines
+                          es: Infantería de marina
+                        id: marines
                       - name:
-                          en: |-
-                            Coast Guard
-                          es: |-
-                            guardacostas
-                        id: |-
-                          coast-guard
+                          en: Coast Guard
+                          es: guardacostas
+                        id: coast-guard
                       - name:
-                          en: |-
-                            Atmospheric Administration
-                          es: |-
-                            Administración atmosférica
-                        id: |-
-                          atmospheric
+                          en: Atmospheric Administration
+                          es: Administración atmosférica
+                        id: atmospheric
                   - name:
-                      en: |-
-                        Last Actual Day of Work with Military Employer
-                      es: |-
-                        Último día real de trabajo con el empleador militar
+                      en: Last Actual Day of Work with Military Employer
+                      es: Último día real de trabajo con el empleador militar
                     required: true
-                    id: |-
-                      military-work-end
-                    type: |-
-                      datepicker
+                    id: military-work-end
+                    type: datepicker
   - title:
-      en: |-
-        Employment Status
-      es: |-
-        Estado de Empleo
+      en: Employment Status
+      es: Estado de Empleo
     heading:
-      en: |-
-        Please tell us about your recent employment status.
-      es: |-
-        Cuéntenos sobre su reciente estado de empleo.
+      en: Please tell us about your recent employment status.
+      es: Cuéntenos sobre su reciente estado de empleo.
     questions:
       - name:
-          en: |-
-            Are you currently employed?
-          es: |-
-            ¿Está trabajando actualmente?
-        id: |-
-          employment-current-status
+          en: Are you currently employed?
+          es: ¿Está trabajando actualmente?
+        id: employment-current-status
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
           en: |-
             How much in total did you earn at your job(s) the last week you worked, including all wages or salaries, commissions, bonuses, and tips?
           es: |-
             ¿Cuánto ganó en total en su (s) trabajo (s) la última semana que trabajó, incluidos todos los sueldos o salarios, comisiones, bonificaciones y propinas?
-        id: |-
-          last-week-paid
+        id: last-week-paid
         required: true
-        type: |-
-          dollar-amount
+        type: dollar-amount
       - name:
-          en: |-
-            How many hours in total did you work during the last week you worked, in total across all jobs?
-          es: |-
-            ¿Cuántas horas en total trabajó durante la última semana que trabajó, en total en todos los trabajos?
-        id: |-
-          last-week-hours
+          en: 'How many hours in total did you work during the last week you worked, in total across all jobs?'
+          es: '¿Cuántas horas en total trabajó durante la última semana que trabajó, en total en todos los trabajos?'
+        id: last-week-hours
         required: true
-        type: |-
-          decimal
+        type: decimal
       - name:
-          en: |-
-            Are you able to work?
-          es: |-
-            ¿Eres capaz de trabajar?
-        id: |-
-          employment-able-to-work
+          en: Are you able to work?
+          es: ¿Eres capaz de trabajar?
+        id: employment-able-to-work
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Do you have the option to telework with pay with a current employer?
-          es: |-
-            ¿Tiene la opción de trabajar a distancia con un empleador actual?
-        id: |-
-          employment-option-to-telework
+          en: Do you have the option to telework with pay with a current employer?
+          es: ¿Tiene la opción de trabajar a distancia con un empleador actual?
+        id: employment-option-to-telework
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Are you available to work in the coming year?
-          es: |-
-            ¿Estás disponible para trabajar el próximo año?
-        id: |-
-          employment-available-to-work
+          en: Are you available to work in the coming year?
+          es: ¿Estás disponible para trabajar el próximo año?
+        id: employment-available-to-work
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Have you been employed in the last 12 months?
-          es: |-
-            ¿Has estado empleado en los últimos 12 meses?
-        id: |-
-          employment-last-12-months
+          en: Have you been employed in the last 12 months?
+          es: ¿Has estado empleado en los últimos 12 meses?
+        id: employment-last-12-months
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            How many employers have you had in the last 18 months?
-          es: |-
-            ¿Cuántos empleadores ha tenido en los últimos 18 meses?
-        id: |-
-          employment-employers-in-last-18-months
+          en: How many employers have you had in the last 18 months?
+          es: ¿Cuántos empleadores ha tenido en los últimos 18 meses?
+        id: employment-employers-in-last-18-months
         required: true
-        type: |-
-          dropdown
+        type: dropdown
         options:
           - name:
-              en: |-
-                I am self-employed
-              es: |-
-                Soy trabajador por cuenta propia
-            id: |-
-              self-employed
+              en: I am self-employed
+              es: Soy trabajador por cuenta propia
+            id: self-employed
           - name:
-              en: |-
-                1
-              es: |-
-                1
-            id: |-
-              1
+              en: '1'
+              es: '1'
+            id: '1'
           - name:
-              en: |-
-                2
-              es: |-
-                2
-            id: |-
-              2
+              en: '2'
+              es: '2'
+            id: '2'
           - name:
-              en: |-
-                3
-              es: |-
-                3
-            id: |-
-              3
+              en: '3'
+              es: '3'
+            id: '3'
           - name:
-              en: |-
-                4
-              es: |-
-                4 4
-            id: |-
-              4
+              en: '4'
+              es: 4 4
+            id: '4'
           - name:
-              en: |-
-                5 or more
-              es: |-
-                5 o más
-            id: |-
-              5-or-more
+              en: 5 or more
+              es: 5 o más
+            id: 5-or-more
           - name:
-              en: |-
-                I have not worked in the past 18 months
-              es: |-
-                No he trabajado en los últimos 18 meses.
-            id: |-
-              no-work-in-last-18-months
+              en: I have not worked in the past 18 months
+              es: No he trabajado en los últimos 18 meses.
+            id: no-work-in-last-18-months
       - name:
           en: |-
             Have you been employed by the Federal Government as a civilian (not active military) during the last 2 years?
-          es: |-
-            ¿Ha estado empleado por el gobierno federal como civil (no militar activo) durante los últimos 2 años?
-        id: |-
-          employment-federal-employee
+          es: ¿Ha estado empleado por el gobierno federal como civil (no militar activo) durante los últimos 2 años?
+        id: employment-federal-employee
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'false': null
           'true':
             - name:
-                en: |-
-                  Please enter the last actual day of work with Federal Employer
-                es: |-
-                  Ingrese el último día real de trabajo con el empleador federal
-              id: |-
-                employment-federal-employee-last-date
+                en: Please enter the last actual day of work with Federal Employer
+                es: Ingrese el último día real de trabajo con el empleador federal
+              id: employment-federal-employee-last-date
               required: true
-              type: |-
-                datepicker
+              type: datepicker
       - name:
-          en: |-
-            Are you a member of a Hiring Hall Trade Union?
-          es: |-
-            ¿Eres miembro de un sindicato Hiring Hall?
-        id: |-
-          employment-in-trade-union
+          en: Are you a member of a Hiring Hall Trade Union?
+          es: ¿Eres miembro de un sindicato Hiring Hall?
+        id: employment-in-trade-union
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'false': null
           'true':
             - name:
-                en: |-
-                  Please select the Trade Union you belong to.
-                es: |-
-                  Seleccione el Sindicato al que pertenece.
-              id: |-
-                employment-trade-union
+                en: Please select the Trade Union you belong to.
+                es: Seleccione el Sindicato al que pertenece.
+              id: employment-trade-union
               required: true
-              type: |-
-                singleselect
+              type: singleselect
               options:
                 - name:
-                    en: |-
-                      Local 1196 Brotherhood of Electrical Workers
-                    es: |-
-                      Local 1196 Hermandad de Trabajadores Eléctricos
-                  id: |-
-                    1196
+                    en: Local 1196 Brotherhood of Electrical Workers
+                    es: Local 1196 Hermandad de Trabajadores Eléctricos
+                  id: '1196'
                 - name:
-                    en: |-
-                      Local 94 Carpenters
-                    es: |-
-                      94 carpinteros locales
-                  id: |-
-                    94
+                    en: Local 94 Carpenters
+                    es: 94 carpinteros locales
+                  id: '94'
                 - name:
-                    en: |-
-                      Local 99 Electricians
-                    es: |-
-                      Electricistas locales 99
-                  id: |-
-                    99
+                    en: Local 99 Electricians
+                    es: Electricistas locales 99
+                  id: '99'
                 - name:
-                    en: |-
-                      Local 1033 Laborers International
-                    es: |-
-                      Local 1033 Obreros Internacional
-                  id: |-
-                    1033
+                    en: Local 1033 Laborers International
+                    es: Local 1033 Obreros Internacional
+                  id: '1033'
                 - name:
-                    en: |-
-                      Local 57 Operating Engineers
-                    es: |-
-                      Ingenieros de operaciones locales 57
-                  id: |-
-                    57
+                    en: Local 57 Operating Engineers
+                    es: Ingenieros de operaciones locales 57
+                  id: '57'
                 - name:
-                    en: |-
-                      Local 51 Plumbers & Pipefitters
-                    es: |-
-                      Fontaneros y fontaneros locales 51
-                  id: |-
-                    51
+                    en: Local 51 Plumbers & Pipefitters
+                    es: Fontaneros y fontaneros locales 51
+                  id: '51'
                 - name:
-                    en: |-
-                      Local 251 Teamsters
-                    es: |-
-                      251 Teamsters locales
-                  id: |-
-                    251
+                    en: Local 251 Teamsters
+                    es: 251 Teamsters locales
+                  id: '251'
                 - name:
-                    en: |-
-                      Other
-                    es: |-
-                      Otro
-                  id: |-
-                    other
+                    en: Other
+                    es: Otro
+                  id: other
               switch:
                 other:
                   - name:
-                      en: |-
-                        List other Trade Union you're a member of
-                      es: |-
-                        Enumere otro Sindicato del que sea miembro
-                    id: |-
-                      employer-trade-union-other
+                      en: List other Trade Union you're a member of
+                      es: Enumere otro Sindicato del que sea miembro
+                    id: employer-trade-union-other
                     required: true
-                    type: |-
-                      shorttext
+                    type: shorttext
   - title:
-      en: |-
-        Employment History
-      es: |-
-        Historial de empleo
+      en: Employment History
+      es: Historial de empleo
     heading:
-      en: |-
-        Tell us about your employment history.
-      es: |-
-        Cuéntanos sobre tu historial de empleo.
+      en: Tell us about your employment history.
+      es: Cuéntanos sobre tu historial de empleo.
     instructions:
       en: |-
         Please provide your employment history for your most relevant employer during the last 18 months. This may also include your largest or most common client or business in your capacity as a gig worker, contract worker, small business owner, worker for hire, or self-employed individual. If you're self-employed, you are your own employer and should enter that information.
@@ -1126,401 +735,262 @@ pages:
         Proporcione su historial de empleo para su empleador más relevante durante los últimos 18 meses. Esto también puede incluir a su cliente o negocio más grande o más común en su calidad de trabajador, trabajador por contrato, propietario de una pequeña empresa, trabajador por cuenta ajena o trabajador por cuenta propia. Si trabaja por cuenta propia, es su propio empleador y debe ingresar esa información.
     questions:
       - name:
-          en: |-
-            Employer name
-          es: |-
-            Nombre del empleador
+          en: Employer name
+          es: Nombre del empleador
         instructions:
-          en: |-
-            Your employer's name can be found on your pay stub.
-          es: |-
-            El nombre de su empleador se puede encontrar en su recibo de sueldo.
-        id: |-
-          employer-name
+          en: Your employer's name can be found on your pay stub.
+          es: El nombre de su empleador se puede encontrar en su recibo de sueldo.
+        id: employer-name
         required: true
-        type: |-
-          shorttext
+        type: shorttext
       - name:
-          en: |-
-            Employer address
-          es: |-
-            Dirección del empleado
-        id: |-
-          employer-address
+          en: Employer address
+          es: Dirección del empleado
+        id: employer-address
         required: true
-        type: |-
-          address
+        type: address
       - name:
-          en: |-
-            Employer phone number
-          es: |-
-            Número de teléfono del empleador
-        id: |-
-          employer-phone-number
+          en: Employer phone number
+          es: Número de teléfono del empleador
+        id: employer-phone-number
         required: true
-        type: |-
-          phone
+        type: phone
       - name:
-          en: |-
-            Employer Registration # or Federal Employer ID (FEIN)
-          es: |-
-            N. ° de registro de empleador o ID de empleador federal (FEIN)
-        id: |-
-          employer-id-number
+          en: 'Employer Registration # or Federal Employer ID (FEIN)'
+          es: N. ° de registro de empleador o ID de empleador federal (FEIN)
+        id: employer-id-number
         required: true
-        type: |-
-          integer
+        type: integer
       - name:
-          en: |-
-            Your Job Title
-          es: |-
-            Su puesto de trabajo
-        id: |-
-          employer-job-title
+          en: Your Job Title
+          es: Su puesto de trabajo
+        id: employer-job-title
         required: true
-        type: |-
-          shorttext
+        type: shorttext
       - name:
-          en: |-
-            First Day of Work
-          es: |-
-            Primer día de trabajo
-        id: |-
-          employer-first-day-of-work
+          en: First Day of Work
+          es: Primer día de trabajo
+        id: employer-first-day-of-work
         required: true
-        type: |-
-          datepicker
+        type: datepicker
       - name:
-          en: |-
-            Last actual Day of Work
-          es: |-
-            Último día real de trabajo
+          en: Last actual Day of Work
+          es: Último día real de trabajo
         instructions:
-          en: |-
-            Please provide the last day you actually performed work for your employer.
-          es: |-
-            Indique el último día en que realizó el trabajo para su empleador.
-        id: |-
-          employer-last-day-of-work
+          en: Please provide the last day you actually performed work for your employer.
+          es: Indique el último día en que realizó el trabajo para su empleador.
+        id: employer-last-day-of-work
         required: true
-        type: |-
-          datepicker
+        type: datepicker
       - name:
-          en: |-
-            Did you work for this employer full-time, part-time or on a staggered schedule?
-          es: |-
-            ¿Trabajó para este empleador a tiempo completo, a tiempo parcial o en un horario escalonado?
-        id: |-
-          employer-type
+          en: 'Did you work for this employer full-time, part-time or on a staggered schedule?'
+          es: '¿Trabajó para este empleador a tiempo completo, a tiempo parcial o en un horario escalonado?'
+        id: employer-type
         required: true
-        type: |-
-          singleselect
+        type: singleselect
         options:
           - name:
-              en: |-
-                I work or worked for this employer full-time.
-              es: |-
-                Trabajo o trabajé para este empleador a tiempo completo.
-            id: |-
-              fulltime
+              en: I work or worked for this employer full-time.
+              es: Trabajo o trabajé para este empleador a tiempo completo.
+            id: fulltime
           - name:
-              en: |-
-                I work or worked for this employer part-time.
-              es: |-
-                Trabajo o trabajé para este empleador a tiempo parcial.
-            id: |-
-              parttime
+              en: I work or worked for this employer part-time.
+              es: Trabajo o trabajé para este empleador a tiempo parcial.
+            id: parttime
           - name:
-              en: |-
-                I work or worked for this employer on a staggered schedule.
-              es: |-
-                Trabajo o trabajé para este empleador en un horario escalonado.
-            id: |-
-              staggered
+              en: I work or worked for this employer on a staggered schedule.
+              es: Trabajo o trabajé para este empleador en un horario escalonado.
+            id: staggered
       - name:
-          en: |-
-            What was your rate of pay?
-          es: |-
-            ¿Cuál fue su tasa de pago?
-        id: |-
-          employer-pay-rate
+          en: What was your rate of pay?
+          es: ¿Cuál fue su tasa de pago?
+        id: employer-pay-rate
         required: true
-        type: |-
-          dollar-amount
+        type: dollar-amount
       - name:
-          en: |-
-            Pay Unit
-          es: |-
-            Unidad de pago
-        id: |-
-          employer-pay-unit
+          en: Pay Unit
+          es: Unidad de pago
+        id: employer-pay-unit
         required: true
-        type: |-
-          dropdown
+        type: dropdown
         options:
           - name:
-              en: |-
-                Per Hour
-              es: |-
-                Por hora
-            id: |-
-              per-hour
+              en: Per Hour
+              es: Por hora
+            id: per-hour
           - name:
-              en: |-
-                Per Day
-              es: |-
-                Por día
-            id: |-
-              per-day
+              en: Per Day
+              es: Por día
+            id: per-day
           - name:
-              en: |-
-                Per Week
-              es: |-
-                Por semana
-            id: |-
-              per-week
+              en: Per Week
+              es: Por semana
+            id: per-week
           - name:
-              en: |-
-                Per Month
-              es: |-
-                Por mes
-            id: |-
-              per-month
+              en: Per Month
+              es: Por mes
+            id: per-month
           - name:
-              en: |-
-                Per Year
-              es: |-
-                Por año
-            id: |-
-              per-year
+              en: Per Year
+              es: Por año
+            id: per-year
           - name:
-              en: |-
-                Other
-              es: |-
-                Otro
-            id: |-
-              other
+              en: Other
+              es: Otro
+            id: other
         switch:
           other:
             - name:
-                en: |-
-                  Describe pay unit
-                es: |-
-                  Describir la unidad de pago.
-              id: |-
-                employer-pay-unit-other
+                en: Describe pay unit
+                es: Describir la unidad de pago.
+              id: employer-pay-unit-other
               required: true
-              type: |-
-                shorttext
+              type: shorttext
       - name:
-          en: |-
-            Is your reason for separation from this employer related to COVID-19?
-          es: |-
-            ¿Su motivo de separación de este empleador está relacionado con COVID-19?
-        id: |-
-          employer-reason-for-separation
+          en: Is your reason for separation from this employer related to COVID-19?
+          es: ¿Su motivo de separación de este empleador está relacionado con COVID-19?
+        id: employer-reason-for-separation
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'false':
             - name:
-                en: |-
-                  Please select one of the following reasons why you are applying for unemployment assistance.
-                es: |-
-                  Seleccione una de las siguientes razones por las que solicita asistencia por desempleo.
-              id: |-
-                non-covid-19-reason
+                en: Please select one of the following reasons why you are applying for unemployment assistance.
+                es: Seleccione una de las siguientes razones por las que solicita asistencia por desempleo.
+              id: non-covid-19-reason
               required: true
-              type: |-
-                singleselect
+              type: singleselect
               options:
                 - name:
-                    en: |-
-                      Layoff/Lack of Work
-                    es: |-
-                      Despido / falta de trabajo
-                  id: |-
-                    layoff
+                    en: Layoff/Lack of Work
+                    es: Despido / falta de trabajo
+                  id: layoff
                 - name:
-                    en: |-
-                      Quit/Voluntary Leaving
-                    es: |-
-                      Salir / irse voluntariamente
-                  id: |-
-                    quit
+                    en: Quit/Voluntary Leaving
+                    es: Salir / irse voluntariamente
+                  id: quit
                 - name:
-                    en: |-
-                      Retired
-                    es: |-
-                      Retirado
-                  id: |-
-                    retired
+                    en: Retired
+                    es: Retirado
+                  id: retired
                 - name:
-                    en: |-
-                      Fired/Suspension
-                    es: |-
-                      Despedido / Suspensión
-                  id: |-
-                    fired
+                    en: Fired/Suspension
+                    es: Despedido / Suspensión
+                  id: fired
                 - name:
-                    en: |-
-                      Strike/Lockout
-                    es: |-
-                      Huelga / Bloqueo
-                  id: |-
-                    strike
+                    en: Strike/Lockout
+                    es: Huelga / Bloqueo
+                  id: strike
                 - name:
-                    en: |-
-                      Work Part-Time
-                    es: |-
-                      Trabajo a media jornada
-                  id: |-
-                    part-time
+                    en: Work Part-Time
+                    es: Trabajo a media jornada
+                  id: part-time
                 - name:
-                    en: |-
-                      Stagger
-                    es: |-
-                      Tambalear
-                  id: |-
-                    stagger
+                    en: Stagger
+                    es: Tambalear
+                  id: stagger
                 - name:
-                    en: |-
-                      Company Vacation
-                    es: |-
-                      Vacaciones de la empresa
-                  id: |-
-                    vacation
+                    en: Company Vacation
+                    es: Vacaciones de la empresa
+                  id: vacation
           'true':
             - name:
-                en: |-
-                  Please select one of the following reasons why you are applying for unemployment assistance.
-                es: |-
-                  Seleccione una de las siguientes razones por las que solicita asistencia por desempleo.
-              id: |-
-                covid-19-reason
+                en: Please select one of the following reasons why you are applying for unemployment assistance.
+                es: Seleccione una de las siguientes razones por las que solicita asistencia por desempleo.
+              id: covid-19-reason
               required: true
-              type: |-
-                singleselect
+              type: singleselect
               options:
                 - name:
                     en: |-
                       You are unable to work because you have been diagnosed with COVID-19 or are experiencing symptoms of COVID-19 and are seeking a medical diagnosis.
                     es: |-
                       No puede trabajar porque le diagnosticaron COVID-19 o está experimentando síntomas de COVID-19 y está buscando un diagnóstico médico.
-                  id: |-
-                    diagnosed
+                  id: diagnosed
                 - name:
-                    en: |-
-                      You are unable to work because a member of your household has been diagnosed with COVID-19.
-                    es: |-
-                      No puede trabajar porque un miembro de su hogar ha sido diagnosticado con COVID-19.
-                  id: |-
-                    household_diagnosed
+                    en: You are unable to work because a member of your household has been diagnosed with COVID-19.
+                    es: No puede trabajar porque un miembro de su hogar ha sido diagnosticado con COVID-19.
+                  id: household_diagnosed
                 - name:
                     en: |-
                       You are unable to work because you are providing critical care for a family member or a member of the individual’s household who has been diagnosed with COVID-19.
                     es: |-
                       No puede trabajar porque está brindando atención crítica a un miembro de la familia o un miembro del hogar de la persona que ha sido diagnosticado con COVID-19.
-                  id: |-
-                    critical_care
+                  id: critical_care
                 - name:
                     en: |-
                       You are unable to work because a child or other person in the household for which you have primary caregiving responsibility is unable to attend school or another facility that is closed as a direct result of the COVID-19 public health emergency and such school or facility care is required for you to work.
                     es: |-
                       No puede trabajar porque un niño u otra persona en el hogar para el cual tiene la responsabilidad principal de cuidar no puede asistir a la escuela u otra instalación que está cerrada como resultado directo de la emergencia de salud pública COVID-19 y la atención de dicha escuela o instalación Se requiere para que usted trabaje.
-                  id: |-
-                    caregiving
+                  id: caregiving
                 - name:
                     en: |-
                       You are unable to reach your place of employment because of a quarantine imposed as a direct result of the COVID-19 public health emergency.
                     es: |-
                       No puede llegar a su lugar de trabajo debido a una cuarentena impuesta como resultado directo de la emergencia de salud pública COVID-19.
-                  id: |-
-                    quarantine
+                  id: quarantine
                 - name:
                     en: |-
                       You are unable to reach your place of employment because you have been advised by a health care provider to self-quarantine due to concerns related to COVID-19.
                     es: |-
                       No puede llegar a su lugar de trabajo porque un proveedor de atención médica le ha aconsejado que se auto-ponga en cuarentena debido a preocupaciones relacionadas con COVID-19.
-                  id: |-
-                    self-quarantine
+                  id: self-quarantine
                 - name:
                     en: |-
                       You were scheduled to begin employment and are no longer able to do so as a direct result of COVID-19.
                     es: |-
                       Estaba programado para comenzar a trabajar y ya no puede hacerlo como resultado directo de COVID-19.
-                  id: |-
-                    scheduled
+                  id: scheduled
                 - name:
                     en: |-
                       You have become the breadwinner after the primary head of household passed away as a direct result of COVID-19.
                     es: |-
                       Usted se convirtió en el sostén de la familia después de que falleció el jefe de familia principal como resultado directo de COVID-19.
-                  id: |-
-                    breadwinner
+                  id: breadwinner
                 - name:
-                    en: |-
-                      You have had to quit your job as a direct result of COVID-19.
-                    es: |-
-                      Ha tenido que renunciar a su trabajo como resultado directo de COVID-19.
-                  id: |-
-                    quit
+                    en: You have had to quit your job as a direct result of COVID-19.
+                    es: Ha tenido que renunciar a su trabajo como resultado directo de COVID-19.
+                  id: quit
                 - name:
-                    en: |-
-                      Your place of employment is closed as a direct result of the COVID-19 public health emergency.
+                    en: Your place of employment is closed as a direct result of the COVID-19 public health emergency.
                     es: |-
                       Su lugar de trabajo está cerrado como resultado directo de la emergencia de salud pública COVID-19.
-                  id: |-
-                    closed
+                  id: closed
                 - name:
                     en: |-
                       You are an individual who works as an independent contractor with reportable income and are unemployed, partially employed, or unable or unavailable to work because the COVID-19 public health emergency has severely limited your ability to continue performing your customary work activities, and has thereby forced you to suspend such activities.
                     es: |-
                       Usted es una persona que trabaja como contratista independiente con ingresos declarables y está desempleado, parcialmente empleado, o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad para continuar realizando sus actividades laborales habituales, y por lo tanto te obligó a suspender tales actividades.
-                  id: |-
-                    independent-contractor
+                  id: independent-contractor
       - name:
           en: |-
             Are you currently receiving sick leave, paid time off, or other benefits from your employer equal to your normal salary or pay?
           es: |-
             ¿Actualmente recibe licencia por enfermedad, tiempo libre remunerado u otros beneficios de su empleador equivalentes a su salario o paga normal?
-        id: |-
-          employer-current-benefits
+        id: employer-current-benefits
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Are you currently teleworking for this employer and receiving your full salary or pay?
-          es: |-
-            ¿Actualmente está teletrabajando para este empleador y recibe su salario completo o paga?
-        id: |-
-          employer-current-teleworking
+          en: Are you currently teleworking for this employer and receiving your full salary or pay?
+          es: ¿Actualmente está teletrabajando para este empleador y recibe su salario completo o paga?
+        id: employer-current-teleworking
         required: true
-        type: |-
-          boolean
+        type: boolean
   - title:
-      en: |-
-        Tax Info
-      es: |-
-        Información fiscal
+      en: Tax Info
+      es: Información fiscal
     heading:
-      en: |-
-        We need to know about your recent tax status.
-      es: |-
-        Necesitamos saber sobre su estado fiscal reciente.
+      en: We need to know about your recent tax status.
+      es: Necesitamos saber sobre su estado fiscal reciente.
     questions:
       - name:
           en: |-
             We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?
           es: |-
             Necesitamos su Ingreso Bruto Ajustado (AGI) de su declaración de impuestos más reciente para determinar sus beneficios. ¿Tiene a mano su formulario de ingreso bruto ajustado?
-        id: |-
-          tax-info-have-tax-return
+        id: tax-info-have-tax-return
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'true':
             - name:
@@ -1528,36 +998,24 @@ pages:
                   For your most recent tax filing, were you married filing jointly, married filing separately, or single?
                 es: |-
                   Para su declaración de impuestos más reciente, ¿estuvo casado presentando una declaración conjunta, casada declarando por separado o soltera?
-              id: |-
-                tax-info-married
+              id: tax-info-married
               required: true
-              type: |-
-                dropdown
+              type: dropdown
               options:
                 - name:
-                    en: |-
-                      Married filing jointly
-                    es: |-
-                      Casado que presenta una declaración conjunta
-                  id: |-
-                    married-jointly
+                    en: Married filing jointly
+                    es: Casado que presenta una declaración conjunta
+                  id: married-jointly
                 - name:
-                    en: |-
-                      Married filing separately
-                    es: |-
-                      Casado que presenta por separado
-                  id: |-
-                    married-separately
+                    en: Married filing separately
+                    es: Casado que presenta por separado
+                  id: married-separately
                 - name:
-                    en: |-
-                      Single
-                    es: |-
-                      Soltero
-                  id: |-
-                    single
+                    en: Single
+                    es: Soltero
+                  id: single
             - name:
-                en: |-
-                  What was your Adjusted Gross Income on your most recently filed federal tax return?
+                en: What was your Adjusted Gross Income on your most recently filed federal tax return?
                 es: |-
                   ¿Cuál fue su ingreso bruto ajustado en su declaración de impuestos federales presentada más recientemente?
               instructions:
@@ -1570,25 +1028,13 @@ pages:
                     - Line 21 on Form 1040A (for tax years before 2018)
                     - Line 4 on Form 1040EZ (for tax years before 2018)
                     - Line 35 on Form 1040NR (for tax year 2019 or 2019)
-                es: |-
-                  Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, dependiendo del formulario que haya enviado:
-                    
-                    - Línea 8b en el Formulario 1040 (para el año fiscal 2019)
-                    - Línea 8b en el Formulario 1040-SR (para el año fiscal 2019)
-                    - Línea 7 en el Formulario 1040 (para el año fiscal 2018)
-                    - Línea 21 en el Formulario 1040A (para años fiscales antes de 2018)
-                    - Línea 4 en el Formulario 1040EZ (para los años fiscales antes de 2018)
-                    - Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)
-              id: |-
-                tax-info-agi
+                es: "Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, dependiendo del formulario que haya enviado:\n\_\_\n\_\_- Línea 8b en el Formulario 1040 (para el año fiscal 2019)\n\_\_- Línea 8b en el Formulario 1040-SR (para el año fiscal 2019)\n\_\_- Línea 7 en el Formulario 1040 (para el año fiscal 2018)\n\_\_- Línea 21 en el Formulario 1040A (para años fiscales antes de 2018)\n\_\_- Línea 4 en el Formulario 1040EZ (para los años fiscales antes de 2018)\n\_\_- Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)"
+              id: tax-info-agi
               required: true
-              type: |-
-                dollar-amount
+              type: dollar-amount
             - name:
-                en: |-
-                  How many dependent children do you have?
-                es: |-
-                  ¿Cuántos hijos dependientes tienes?
+                en: How many dependent children do you have?
+                es: ¿Cuántos hijos dependientes tienes?
               instructions:
                 en: |-
                   You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return. A dependent child must be:
@@ -1598,439 +1044,272 @@ pages:
                     3. A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.
 
                   NOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.
-                es: |-
-                  Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos. Un hijo dependiente debe ser:
-
-                    1. Un hijo natural, adoptado o hijastro menor de 18 años a quien usted apoya.
-                    2. Un niño menor de 18 años para quien usted es el tutor designado por el tribunal.
-                    3. Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios.
-
-                  NOTA: Solo uno de los padres o tutores tiene derecho a recibir la asignación de dependientes por cualquier semana de beneficios de desempleo.
-              id: |-
-                tax-info-dependents
+                es: "Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos. Un hijo dependiente debe ser:\n\n\_\_1. Un hijo natural, adoptado o hijastro menor de 18 años a quien usted apoya.\n\_\_2. Un niño menor de 18 años para quien usted es el tutor designado por el tribunal.\n\_\_3. Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios.\n\nNOTA: Solo uno de los padres o tutores tiene derecho a recibir la asignación de dependientes por cualquier semana de beneficios de desempleo."
+              id: tax-info-dependents
               required: true
-              type: |-
-                singleselect
+              type: singleselect
               options:
                 - name:
-                    en: |-
-                      0
-                    es: |-
-                      0 0
-                  id: |-
-                    0
+                    en: '0'
+                    es: 0 0
+                  id: '0'
                 - name:
-                    en: |-
-                      1
-                    es: |-
-                      1
-                  id: |-
-                    1
+                    en: '1'
+                    es: '1'
+                  id: '1'
                 - name:
-                    en: |-
-                      2
-                    es: |-
-                      2
-                  id: |-
-                    2
+                    en: '2'
+                    es: '2'
+                  id: '2'
                 - name:
-                    en: |-
-                      3
-                    es: |-
-                      3
-                  id: |-
-                    3
+                    en: '3'
+                    es: '3'
+                  id: '3'
                 - name:
-                    en: |-
-                      4
-                    es: |-
-                      4 4
-                  id: |-
-                    4
+                    en: '4'
+                    es: 4 4
+                  id: '4'
                 - name:
-                    en: |-
-                      5 or more
-                    es: |-
-                      5 o más
-                  id: |-
-                    5-or-more
+                    en: 5 or more
+                    es: 5 o más
+                  id: 5-or-more
                 - name:
-                    en: |-
-                      All dependents are already claimed by another parent or guardians' unemployment benefits.
-                    es: |-
-                      Todos los dependientes ya son reclamados por los beneficios de desempleo de otro padre o tutor.
-                  id: |-
-                    already-getting-benefit
+                    en: All dependents are already claimed by another parent or guardians' unemployment benefits.
+                    es: Todos los dependientes ya son reclamados por los beneficios de desempleo de otro padre o tutor.
+                  id: already-getting-benefit
           'false':
             - name:
                 en: |-
                   Can you confirm that you were employed or self-employed and earned money during the most recent tax year?
                 es: |-
                   ¿Puede confirmar que trabajó o trabajó por cuenta propia y ganó dinero durante el año fiscal más reciente?
-              id: |-
-                no-tax-info-agi
+              id: no-tax-info-agi
               required: true
-              type: |-
-                boolean
+              type: boolean
   - title:
-      en: |-
-        Other Income
-      es: |-
-        Otros ingresos
+      en: Other Income
+      es: Otros ingresos
     heading:
-      en: |-
-        Tell us about any other sources of income you're receiving.
-      es: |-
-        Cuéntenos sobre cualquier otra fuente de ingresos que esté recibiendo.
+      en: Tell us about any other sources of income you're receiving.
+      es: Cuéntenos sobre cualquier otra fuente de ingresos que esté recibiendo.
     questions:
       - name:
           en: |-
             Have you applied for or received Unemployment Benefits in a state that is NOT {{STATE_NAME}} the last 12 months?
           es: |-
             ¿Ha solicitado o recibido Beneficios de desempleo en un estado que NO es {{STATE_NAME}} en los últimos 12 meses?
-        id: |-
-          unemployment-in-another-state
+        id: unemployment-in-another-state
         required: true
-        type: |-
-          boolean
+        type: boolean
         switch:
           'false': null
           'true':
             - name:
-                en: |-
-                  Select the state where you filed a claim for benefits within the last 12 months
-                es: |-
-                  Seleccione el estado donde presentó un reclamo de beneficios en los últimos 12 meses
-              id: |-
-                unemployment-in-another-state-state
-              type: |-
-                state-picker
+                en: Select the state where you filed a claim for benefits within the last 12 months
+                es: Seleccione el estado donde presentó un reclamo de beneficios en los últimos 12 meses
+              id: unemployment-in-another-state-state
+              type: state-picker
               required: true
             - name:
-                en: |-
-                  What date did you file an Unemployment Insurance claim in that state?
-                es: |-
-                  ¿En qué fecha presentó un reclamo de seguro de desempleo en ese estado?
-              id: |-
-                unemployment-in-another-state-date
-              type: |-
-                datepicker
+                en: What date did you file an Unemployment Insurance claim in that state?
+                es: ¿En qué fecha presentó un reclamo de seguro de desempleo en ese estado?
+              id: unemployment-in-another-state-date
+              type: datepicker
               required: true
             - name:
-                en: |-
-                  Have you had any employment since you last filed a claim?
-                es: |-
-                  ¿Ha tenido empleo desde la última vez que presentó un reclamo?
-              id: |-
-                unemployment-in-another-state-employment-since
-              type: |-
-                boolean
+                en: Have you had any employment since you last filed a claim?
+                es: ¿Ha tenido empleo desde la última vez que presentó un reclamo?
+              id: unemployment-in-another-state-employment-since
+              type: boolean
               required: true
       - name:
-          en: |-
-            Are you or anyone in your household receiving Public Assistance?
-          es: |-
-            ¿Usted o alguien en su hogar recibe Asistencia Pública?
-        id: |-
-          other-income-public-assistance
+          en: Are you or anyone in your household receiving Public Assistance?
+          es: ¿Usted o alguien en su hogar recibe Asistencia Pública?
+        id: other-income-public-assistance
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?
+          en: Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?
           es: |-
             ¿Usted o alguien en su hogar participa en un programa de trabajo del Departamento de Servicios Humanos (DHS)?
-        id: |-
-          other-income-dhs-work
+        id: other-income-dhs-work
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?
-          es: |-
-            ¿Usted o alguien en su hogar recibe beneficios de SNAP (también conocidos como cupones de alimentos)?
-        id: |-
-          other-income-snap
+          en: Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?
+          es: ¿Usted o alguien en su hogar recibe beneficios de SNAP (también conocidos como cupones de alimentos)?
+        id: other-income-snap
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Have you applied for or received Temporary Disability Insurance in the last 2 years?
-          es: |-
-            ¿Ha solicitado o recibido un seguro de incapacidad temporal en los últimos 2 años?
-        id: |-
-          other-income-temp-disability-insurance
+          en: Have you applied for or received Temporary Disability Insurance in the last 2 years?
+          es: ¿Ha solicitado o recibido un seguro de incapacidad temporal en los últimos 2 años?
+        id: other-income-temp-disability-insurance
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Have you applied for or received Workers’ Compensation in the last 2 years?
-          es: |-
-            ¿Ha solicitado o recibido compensación laboral en los últimos 2 años?
-        id: |-
-          other-income-workers-comp
+          en: Have you applied for or received Workers’ Compensation in the last 2 years?
+          es: ¿Ha solicitado o recibido compensación laboral en los últimos 2 años?
+        id: other-income-workers-comp
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Have you applied for or received other Disability Payments in the last 2 years?
-          es: |-
-            ¿Ha solicitado o recibido otros pagos por discapacidad en los últimos 2 años?
-        id: |-
-          other-income-disability-payments
+          en: Have you applied for or received other Disability Payments in the last 2 years?
+          es: ¿Ha solicitado o recibido otros pagos por discapacidad en los últimos 2 años?
+        id: other-income-disability-payments
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Are you now, or during the next year, will you be collecting a Retirement Pension?
-          es: |-
-            ¿Está usted ahora, o durante el próximo año, cobrará una Pensión de jubilación?
-        id: |-
-          other-income-retirement-pension
+          en: 'Are you now, or during the next year, will you be collecting a Retirement Pension?'
+          es: '¿Está usted ahora, o durante el próximo año, cobrará una Pensión de jubilación?'
+        id: other-income-retirement-pension
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Are you now, or during the next year, will you be collecting a Retirement Annuity?
-          es: |-
-            ¿Está usted ahora, o durante el próximo año, cobrará una anualidad de jubilación?
-        id: |-
-          other-income-retirement annuity
+          en: 'Are you now, or during the next year, will you be collecting a Retirement Annuity?'
+          es: '¿Está usted ahora, o durante el próximo año, cobrará una anualidad de jubilación?'
+        id: other-income-retirement annuity
         required: true
-        type: |-
-          boolean
+        type: boolean
       - name:
-          en: |-
-            Are you now, or during the next year, will you be collecting Social Security?
-          es: |-
-            ¿Estás ahora, o durante el próximo año, estarás cobrando el Seguro Social?
-        id: |-
-          other-income-social-security
+          en: 'Are you now, or during the next year, will you be collecting Social Security?'
+          es: '¿Estás ahora, o durante el próximo año, estarás cobrando el Seguro Social?'
+        id: other-income-social-security
         required: true
-        type: |-
-          boolean
+        type: boolean
   - title:
-      en: |-
-        Payment Info
-      es: |-
-        Información de pago
+      en: Payment Info
+      es: Información de pago
     heading:
-      en: |-
-        Let's talk about how we can pay you!
-      es: |-
-        ¡Hablemos sobre cómo podemos pagarle!
+      en: Let's talk about how we can pay you!
+      es: ¡Hablemos sobre cómo podemos pagarle!
     questions:
       - name:
-          en: |-
-            Do you wish to have Income Taxes withheld from your Unemployment Compensation?
-          es: |-
-            ¿Desea que se le retengan los impuestos sobre la renta de su compensación por desempleo?
+          en: Do you wish to have Income Taxes withheld from your Unemployment Compensation?
+          es: ¿Desea que se le retengan los impuestos sobre la renta de su compensación por desempleo?
         instructions:
           en: |-
             Unemployment is taxable income. If you do not withhold state or federal taxes from your benefits, you will be responsible to pay them when you file your tax return. Everyone who collects unemployment benefits will receive a 1099 detailing the total payments received and any taxes paid on that income. You may request changes to your claim’s tax deductions anytime.
           es: |-
             El desempleo es renta imponible. Si no retiene impuestos estatales o federales de sus beneficios, será responsable de pagarlos cuando presente su declaración de impuestos. Todos los que cobran beneficios de desempleo recibirán un 1099 que detalla los pagos totales recibidos y los impuestos pagados sobre ese ingreso. Puede solicitar cambios en las deducciones de impuestos de su reclamo en cualquier momento.
-        id: |-
-          payment-income-withheld
+        id: payment-income-withheld
         required: true
-        type: |-
-          singleselect
+        type: singleselect
         options:
           - name:
-              en: |-
-                Yes, I would like both {{STATE_NAME}} and Federal Income Taxes withheld
-              es: |-
-                Sí, me gustaría retener tanto {{STATE_NAME}} como los Impuestos federales sobre la renta
-            id: |-
-              state-and-fed
+              en: 'Yes, I would like both {{STATE_NAME}} and Federal Income Taxes withheld'
+              es: 'Sí, me gustaría retener tanto {{STATE_NAME}} como los Impuestos federales sobre la renta'
+            id: state-and-fed
           - name:
-              en: |-
-                Yes, I would like only Federal Income Tax withheld
-              es: |-
-                Sí, solo me gustaría retener el impuesto federal sobre la renta
-            id: |-
-              fed
+              en: 'Yes, I would like only Federal Income Tax withheld'
+              es: 'Sí, solo me gustaría retener el impuesto federal sobre la renta'
+            id: fed
           - name:
-              en: |-
-                Yes, I would like only {{STATE_NAME}} Income Tax withheld
-              es: |-
-                Sí, me gustaría retener solo {{STATE_NAME}} Impuesto sobre la renta
-            id: |-
-              state
+              en: 'Yes, I would like only {{STATE_NAME}} Income Tax withheld'
+              es: 'Sí, me gustaría retener solo {{STATE_NAME}} Impuesto sobre la renta'
+            id: state
           - name:
-              en: |-
-                No, I do not want any Income Taxes withheld
-              es: |-
-                No, no quiero que se retengan impuestos sobre la renta
-            id: |-
-              none
+              en: 'No, I do not want any Income Taxes withheld'
+              es: 'No, no quiero que se retengan impuestos sobre la renta'
+            id: none
       - name:
-          en: |-
-            Please select a payment option.
-          es: |-
-            Por favor seleccione una opción de pago.
+          en: Please select a payment option.
+          es: Por favor seleccione una opción de pago.
         instructions:
           en: |-
             There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:
               
               - Direct Deposit (DD), which deposits your unemployment benefits into your checking or savings account.
               - Electronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.
-          es: |-
-            Hay dos opciones de pago para sus beneficios del Seguro de desempleo de emergencia COVID-19:
-              
-              - Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.
-              - Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo.
-        id: |-
-          payment-option
+          es: "Hay dos opciones de pago para sus beneficios del Seguro de desempleo de emergencia COVID-19:\n\_\_\n\_\_- Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.\n\_\_- Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo."
+        id: payment-option
         required: true
-        type: |-
-          dropdown
+        type: dropdown
         options:
           - name:
-              en: |-
-                Direct Deposit
-              es: |-
-                Deposito directo
-            id: |-
-              direct-deposit
+              en: Direct Deposit
+              es: Deposito directo
+            id: direct-deposit
           - name:
-              en: |-
-                Electronic Payment Card
-              es: |-
-                Tarjeta de pago electronico
-            id: |-
-              electronic-payment-card
+              en: Electronic Payment Card
+              es: Tarjeta de pago electronico
+            id: electronic-payment-card
         switch:
           electronic-payment-card:
             - name:
-                en: |-
-                  Electronic Payment Card
-                es: |-
-                  Tarjeta de pago electronico
+                en: Electronic Payment Card
+                es: Tarjeta de pago electronico
               instructions:
                 en: |-
                   Please visit this link for information on how to use your EPC card, EPC card fees/rates, and how to avoid unnecessary fees. The monthly fee for your EPC is $0. It costs $0 to purchase items with your EPC. ATM withdrawal fees are $0 in-network, and $1.95 out of network. There are no overdraft fees.
                 es: |-
                   Visite este enlace para obtener información sobre cómo usar su tarjeta EPC, las tarifas / tarifas de la tarjeta EPC y cómo evitar tarifas innecesarias. La tarifa mensual para su EPC es de $ 0. Cuesta $ 0 comprar artículos con su EPC. Las tarifas de retiro de cajeros automáticos son de $ 0 dentro de la red y $ 1.95 fuera de la red. No hay cargos por sobregiro.
-              type: |-
-                instructions-only
-              id: |-
-                electronic-payment-card
+              type: instructions-only
+              id: electronic-payment-card
           direct-deposit:
             - name:
-                en: |-
-                  Bank Name
-                es: |-
-                  Nombre del banco
-              id: |-
-                payment-bank-name
-              type: |-
-                shorttext
+                en: Bank Name
+                es: Nombre del banco
+              id: payment-bank-name
+              type: shorttext
               required: true
             - name:
-                en: |-
-                  Account Type
-                es: |-
-                  Tipo de cuenta
-              id: |-
-                payment-account-type
-              type: |-
-                singleselect
+                en: Account Type
+                es: Tipo de cuenta
+              id: payment-account-type
+              type: singleselect
               required: true
               options:
                 - name:
-                    en: |-
-                      Checking account
-                    es: |-
-                      Cuenta de cheques
-                  id: |-
-                    checking
+                    en: Checking account
+                    es: Cuenta de cheques
+                  id: checking
                 - name:
-                    en: |-
-                      Savings account
-                    es: |-
-                      Cuenta de ahorros
-                  id: |-
-                    savings
+                    en: Savings account
+                    es: Cuenta de ahorros
+                  id: savings
             - name:
-                en: |-
-                  Account Number
-                es: |-
-                  Número de cuenta
+                en: Account Number
+                es: Número de cuenta
               instructions:
-                en: |-
-                  Please type the account number for the account where you would like your benefits to be deposited.
-                es: |-
-                  Escriba el número de cuenta de la cuenta donde desea que se depositen sus beneficios.
-              id: |-
-                payment-account-number
-              type: |-
-                integer
+                en: Please type the account number for the account where you would like your benefits to be deposited.
+                es: Escriba el número de cuenta de la cuenta donde desea que se depositen sus beneficios.
+              id: payment-account-number
+              type: integer
               required: true
             - name:
-                en: |-
-                  Confirm Account Number
-                es: |-
-                  Confirmar número de cuenta
+                en: Confirm Account Number
+                es: Confirmar número de cuenta
               instructions:
-                en: |-
-                  Please re-type the account number for the account where you would like your benefits to be deposited.
-                es: |-
-                  Vuelva a escribir el número de cuenta para la cuenta donde desea que se depositen sus beneficios.
-              id: |-
-                payment-account-number-confirm
-              type: |-
-                integer
+                en: Please re-type the account number for the account where you would like your benefits to be deposited.
+                es: Vuelva a escribir el número de cuenta para la cuenta donde desea que se depositen sus beneficios.
+              id: payment-account-number-confirm
+              type: integer
               required: true
               validate:
-                - type: |-
-                    matches_field
-                  value: |-
-                    payment-account-number
+                - type: matches_field
+                  value: payment-account-number
                   error:
-                    en: |-
-                      Account numbers do not match
-                    es: |-
-                      Los números de cuenta no coinciden
+                    en: Account numbers do not match
+                    es: Los números de cuenta no coinciden
             - name:
-                en: |-
-                  Routing Number
-                es: |-
-                  Número de ruta
+                en: Routing Number
+                es: Número de ruta
               instructions:
-                en: |-
-                  Please type the routing number of your bank.
-                es: |-
-                  Escriba el número de ruta de su banco.
-              id: |-
-                payment-routing-number
-              type: |-
-                integer
+                en: Please type the routing number of your bank.
+                es: Escriba el número de ruta de su banco.
+              id: payment-routing-number
+              type: integer
               required: true
             - name:
-                en: |-
-                  Confirm Routing Number
-                es: |-
-                  Confirmar número de ruta
-              id: |-
-                payment-routing-number-confirm
-              type: |-
-                integer
+                en: Confirm Routing Number
+                es: Confirmar número de ruta
+              id: payment-routing-number-confirm
+              type: integer
               required: true
               validate:
-                - type: |-
-                    matches_field
-                  value: |-
-                    payment-routing-number
+                - type: matches_field
+                  value: payment-routing-number
                   error:
-                    en: |-
-                      Routing numbers do not match
-                    es: |-
-                      Los números de ruta no coinciden
+                    en: Routing numbers do not match
+                    es: Los números de ruta no coinciden
