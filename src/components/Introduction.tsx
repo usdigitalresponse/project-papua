@@ -8,8 +8,8 @@ const Introduction: React.FC = () => {
 
   return (
     <>
-      <Box pad={{ horizontal: 'medium' }}>
-        <Heading level={3} color="black">
+      <Box style={{ padding: '48px' }}>
+        <Heading level={3} margin={{ top: 'none', bottom: 'small' }} color="black">
           {translate(getCopy('introduction:header'), language)}
         </Heading>
         <Paragraph fill={true} color="black" margin={{ vertical: 'xsmall' }}>
@@ -123,8 +123,8 @@ const Introduction: React.FC = () => {
             backgroundColor: '#FFAE00',
           }}
         />
-        <Box pad={{ vertical: 'none', horizontal: 'medium' }}>
-          <Heading level={4} color="black" margin={{ top: 'small', bottom: 'none' }}>
+        <Box style={{ padding: '0px 48px 0px 48px' }}>
+          <Heading level={4} color="black" margin="none">
             {translate(getCopy('warning'), language)}
           </Heading>
           <Paragraph color="black" fill={true} margin={{ bottom: 'small' }}>
@@ -135,7 +135,7 @@ const Introduction: React.FC = () => {
           </Paragraph>
         </Box>
       </Box>
-      <Box pad="medium">
+      <Box style={{ padding: '0px 48px 0px 48px' }}>
         <Heading level={4} color="black" margin={{ bottom: 'xsmall' }}>
           {translate(getCopy('agreement:header'), language)}
         </Heading>

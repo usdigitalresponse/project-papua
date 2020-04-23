@@ -14,8 +14,8 @@ const Form: React.FC<Props> = (props) => {
   const { language } = useContext(LanguageContext)
 
   return (
-    <Box pad="medium" direction="column" justify="start">
-      <Heading color="black" margin={{ bottom: 'none', top: 'none' }} level={3}>
+    <Box style={{ padding: '48px' }} direction="column" justify="start">
+      <Heading color="black" margin={{ bottom: 'medium', top: 'none' }} level={3}>
         {translate(page.heading, language)}
       </Heading>
       {page.instructions && (

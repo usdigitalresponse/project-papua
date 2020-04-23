@@ -26,30 +26,43 @@ const FormApp: React.FC<{}> = () => {
     ...pages.map((page) => translate(page.title, language)),
     translate(getCopy('submit'), language),
   ]
-  const pageComponents = [
-    <Introduction key="introduction" />,
-    ...pages.map((page) => <Form page={page} key={page.heading.en} />),
-    <Review key="review" />,
-  ]
 
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [formValues, setFormValues] = useState<Values>({})
   const [formErrors, setFormErrors] = useState<Errors>({})
-
-  const setFormError = (key: string, value: Copy[]) => setFormErrors({ ...formErrors, [key]: value })
-  const setFormValue = (question: Question, value: Value) => {
-    const validationErrors = isValid(question, value, formValues)
-    setFormValues({ ...formValues, [question.id]: value })
-    if (validationErrors.length > 0) {
-      setFormError(question.id, validationErrors)
-    } else {
-      setFormErrors(omit(formErrors, question.id))
-    }
-  }
+  const [formCompletion, setFormCompletion] = useState<Record<string, boolean>>({})
 
   const setNextPage = (index: number) => {
     setCurrentIndex(index)
     window.scrollTo(0, 0)
+  }
+
+  const pageComponents = [
+    <Introduction key="introduction" />,
+    ...pages.map((page) => <Form page={page} key={page.heading.en} />),
+    <Review key="review" pages={pages} setPage={setNextPage} />,
+  ]
+
+  const setFormError = (key: string, value: Copy[]): Errors => ({ ...formErrors, [key]: value })
+
+  const setFormValue = (question: Question, value: Value) => {
+    const validationErrors = isValid(question, value, formValues)
+    const newFormValues = { ...formValues, [question.id]: value }
+    setFormValues(newFormValues)
+
+    const newFormErrors =
+      validationErrors.length > 0
+        ? ({ ...formErrors, [question.id]: validationErrors } as Errors)
+        : omit(formErrors, question.id)
+
+    setFormErrors(newFormErrors)
+
+    const canContinueFromPage = canContinue(pages[currentIndex - 1], newFormValues, newFormErrors)
+
+    setFormCompletion({
+      ...formCompletion,
+      [currentIndex]: canContinueFromPage,
+    })
   }
 
   const onClickNext = () => setNextPage(currentIndex + 1)
@@ -70,28 +83,43 @@ const FormApp: React.FC<{}> = () => {
               {currentIndex > 0 && (
                 <Button
                   border={{ radius: 0 }}
-                  color="black !important"
+                  color="black"
                   onClick={onClickBack}
+                  hoverIndicator={{
+                    color: currentIndex === 0 ? '#3E73FF !important' : 'black !important',
+                  }}
                   label={translate(getCopy('back'), language)}
                 />
               )}
               {currentIndex + 1 < pageTitles.length && (
                 <Button
-                  color="black !important"
+                  color={currentIndex === 0 ? '#3E73FF' : 'black'}
                   onClick={onClickNext}
-                  disabled={!canContinue(pages[currentIndex - 1], formValues, formErrors)}
+                  disabled={currentIndex > 0 && !formCompletion[currentIndex]}
                   label={
                     currentIndex === 0
                       ? translate(getCopy('get-started'), language)
                       : translate(getCopy('next'), language)
                   }
+                  hoverIndicator={{
+                    color: currentIndex === 0 ? '#3E73FF !important' : 'black !important',
+                    style: {
+                      color: 'white !important',
+                    },
+                  }}
                 />
               )}
             </Box>
           </FormContext.Provider>
         </Card>
         {size !== 'small' && (
-          <Sidebar seal={seal} pages={pageTitles} currentIndex={currentIndex} setCurrentIndex={setNextPage} />
+          <Sidebar
+            completion={formCompletion}
+            seal={seal}
+            pages={pageTitles}
+            currentIndex={currentIndex}
+            setCurrentIndex={setNextPage}
+          />
         )}
       </Box>
     </Box>
