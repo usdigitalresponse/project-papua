@@ -32,10 +32,15 @@ const FormApp: React.FC<{}> = () => {
   const [formErrors, setFormErrors] = useState<Errors>({})
   const [formCompletion, setFormCompletion] = useState<Record<string, boolean>>({})
 
+  const setNextPage = (index: number) => {
+    setCurrentIndex(index)
+    window.scrollTo(0, 0)
+  }
+
   const pageComponents = [
     <Introduction key="introduction" />,
     ...pages.map((page) => <Form page={page} key={page.heading.en} />),
-    <Review key="review" pages={pages} />,
+    <Review key="review" pages={pages} setPage={setNextPage} />,
   ]
 
   const setFormError = (key: string, value: Copy[]): Errors => ({ ...formErrors, [key]: value })
@@ -58,11 +63,6 @@ const FormApp: React.FC<{}> = () => {
       ...formCompletion,
       [currentIndex]: canContinueFromPage,
     })
-  }
-
-  const setNextPage = (index: number) => {
-    setCurrentIndex(index)
-    window.scrollTo(0, 0)
   }
 
   const onClickNext = () => setNextPage(currentIndex + 1)

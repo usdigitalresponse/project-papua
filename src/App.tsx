@@ -6,9 +6,6 @@ import { LanguageProvider } from './contexts/language'
 
 const theme = {
   global: {
-    hover: {
-      color: 'white',
-    },
     text: {
       align: 'left',
     },

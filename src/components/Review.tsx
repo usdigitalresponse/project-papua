@@ -13,10 +13,11 @@ Amplify.configure(awsconfig)
 
 interface Props {
   pages: Page[]
+  setPage: (index: number) => void
 }
 
 const Review: React.FC<Props> = (props) => {
-  const { pages } = props
+  const { pages, setPage } = props
   const { language } = useContext(LanguageContext)
   const { values } = useContext(FormContext)
 
@@ -53,7 +54,7 @@ const Review: React.FC<Props> = (props) => {
       <br />
 
       <Text>{translate(getCopy('submit:instructions-2'), language)}</Text>
-      <Summary values={values} pages={pages} />
+      <Summary setPage={setPage} values={values} pages={pages} />
       <Button
         color="black !important"
         onClick={onSubmit}
