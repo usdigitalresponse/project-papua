@@ -44,7 +44,7 @@ cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCT
 
 if [ "${FUNCTION_NAME}" == "resolverFunctions" ]; then
   # Copy form data to validation Lambda function
-  cp src/form*.json amplify/backend/function/resolverFunctions/src/validation/
+  cp public/form*.yml amplify/backend/function/resolverFunctions/src/validation/
 fi
 
 # The STATE_CODE is set as an Amplify Environment Variable. But those envs are only available
