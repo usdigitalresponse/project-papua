@@ -39,7 +39,7 @@ const Question: React.FC<Props> = (props) => {
           )}
         </Box>
         {question.instructions && (
-          <Markdown margin="none" size="small">
+          <Markdown margin={{ vertical: 'xsmall' }} size="small">
             {translateCopy(question.instructions)}
           </Markdown>
         )}
