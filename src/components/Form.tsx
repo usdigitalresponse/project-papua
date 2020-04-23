@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Page } from '../forms/types'
-import { Box, Heading } from 'grommet'
+import { Box, Heading, Paragraph } from 'grommet'
 import Question from './Question'
 import { LanguageContext } from '../contexts/language'
 import { translate } from '../forms/index'
@@ -15,9 +15,15 @@ const Form: React.FC<Props> = (props) => {
 
   return (
     <Box pad="medium" direction="column" justify="start">
-      <Heading color="black" margin={{ bottom: 'medium', top: 'none' }} level={3}>
+      <Heading color="black" margin={{ bottom: 'none', top: 'none' }} level={3}>
         {translate(page.heading, language)}
       </Heading>
+      {page.instructions && (
+        <Paragraph fill={true} style={{ whiteSpace: 'pre-wrap' }} size="small" color="black" margin={{ top: 'xsmall' }}>
+          {translate(page.instructions, language)}
+        </Paragraph>
+      )}
+      <Box margin={{ bottom: 'small' }}></Box>
       {page.questions.map((question) => (
         <Question question={question} key={question.id} />
       ))}
