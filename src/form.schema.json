@@ -2,10 +2,10 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "PAPUA JSON Schema",
   "description": "This JSON schema will give you intellisense in VSCode if you install Red Hat's YAML extension",
-  "type": "object",
   "definitions": {
     "copy": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "en": {
           "type": ["string", "number", "boolean"],
@@ -21,39 +21,185 @@
         }
       },
       "required": ["en"]
-    }
-  },
-  "properties": {
-    "title": {
-      "$ref": "#/definitions/copy",
-      "description": "The title of the page. Rendered as the browser tab title."
     },
-    "description": {
-      "$ref": "#/definitions/copy",
-      "description": "The description of the page. Rendered when a link to this page is shared and expanded by services like Slack/etc."
-    },
-    "seal": {
-      "type": "string",
-      "description": "A link, relative to the public folder, that references a state-specific asset which'll be rendered in the sidebar."
-    },
-    "variables": {
+    "question": {
       "type": "object",
-      "description": "Variables are used when rendering copy from the form questions below. If a piece of copy contains a variable reference (for example: {{STATE_CODE}}), then it will be swapped out with the corresponding variable from this list at run-time.\n\nThis likely won't be used by states, and is more-so useful for USDR to maintain sample copy that can be quickly demoed with state-specific branding.",
-      "patternProperties": {
-        ".*": {
-          "type": "string"
-        }
-      }
-    },
-    "instructions": {
-      "type": "object",
-      "description": "Variables are used when rendering copy from the form questions below. If a piece of copy contains a variable reference (for example: {{STATE_CODE}}), then it will be swapped out with the corresponding variable from this list at run-time.\n\nThis likely won't be used by states, and is more-so useful for USDR to maintain sample copy that can be quickly demoed with state-specific branding.",
-      "patternProperties": {
-        ".*": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
           "$ref": "#/definitions/copy"
+        },
+        "id": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether the user must supply a valid answer to this question before continuing."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "shorttext",
+            "datepicker",
+            "dropdown",
+            "singleselect",
+            "address_picker",
+            "boolean",
+            "phone",
+            "ssn",
+            "address",
+            "integer",
+            "decimal",
+            "dollar-amount",
+            "longtext",
+            "multiselect",
+            "email",
+            "state-picker",
+            "instructions-only"
+          ]
+        },
+        "instructions": {
+          "$ref": "#/definitions/copy"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/copy"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "switch": {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/question"
+              }
+            }
+          }
+        },
+        "validate": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "regex"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "A regex that the value must conform to"
+                  },
+                  "error": {
+                    "$ref": "#/definitions/copy"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "matches_field"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "A question ID. The value of both questions must be identical or else a validation error will be generated."
+                  },
+                  "error": {
+                    "$ref": "#/definitions/copy"
+                  }
+                }
+              }
+            ]
+          }
         }
-      }
+      },
+      "required": ["name", "id", "type"]
     }
   },
-  "required": ["title", "description", "seal", "instructions", "pages"]
+  "oneOf": [
+    {
+      "type": "string"
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/copy",
+          "description": "The title of the page. Rendered as the browser tab title."
+        },
+        "description": {
+          "$ref": "#/definitions/copy",
+          "description": "The description of the page. Rendered when a link to this page is shared and expanded by services like Slack/etc."
+        },
+        "seal": {
+          "type": "string",
+          "description": "A link, relative to the public folder, that references a state-specific asset which'll be rendered in the sidebar."
+        },
+        "variables": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Variables are used when rendering copy from the form questions below. If a piece of copy contains a variable reference (for example: {{STATE_CODE}}), then it will be swapped out with the corresponding variable from this list at run-time.\n\nThis likely won't be used by states, and is more-so useful for USDR to maintain sample copy that can be quickly demoed with state-specific branding.",
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          }
+        },
+        "instructions": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Variables are used when rendering copy from the form questions below. If a piece of copy contains a variable reference (for example: {{STATE_CODE}}), then it will be swapped out with the corresponding variable from this list at run-time.\n\nThis likely won't be used by states, and is more-so useful for USDR to maintain sample copy that can be quickly demoed with state-specific branding.",
+          "patternProperties": {
+            ".*": {
+              "$ref": "#/definitions/copy"
+            }
+          }
+        },
+        "pages": {
+          "type": "array",
+          "description": "Each element in this page will render as a separate page of questions in the generated form.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "$ref": "#/definitions/copy"
+              },
+              "heading": {
+                "$ref": "#/definitions/copy"
+              },
+              "instructions": {
+                "$ref": "#/definitions/copy"
+              },
+              "questions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/question"
+                }
+              }
+            },
+            "required": ["title", "heading", "questions"]
+          }
+        }
+      },
+      "required": ["title", "description", "seal", "instructions", "pages"]
+    }
+  ]
 }

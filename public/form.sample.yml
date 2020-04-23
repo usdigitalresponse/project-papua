@@ -403,7 +403,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'true': null
           'false':
             - name:
                 en: Mailing address
@@ -501,7 +500,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Enter your Driver's License or state-issued Identification (ID) number
@@ -561,7 +559,6 @@ pages:
               id: citizenship_country
               required: true
               type: shorttext
-          'true': null
   - title:
       en: Military Service
       es: Servicio militar
@@ -579,7 +576,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Active duty start date
@@ -626,7 +622,6 @@ pages:
               id: military-active-last-two-years
               type: boolean
               switch:
-                'false': null
                 'true':
                   - name:
                       en: 'Last pay grade (Box #4b)'
@@ -840,7 +835,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Please enter the last actual day of work with Federal Employer
@@ -857,7 +851,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Please select the Trade Union you belong to.
@@ -1397,7 +1390,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Select the state where you filed a claim for benefits within the last 12 months
