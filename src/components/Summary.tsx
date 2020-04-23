@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Page } from '../forms/types'
 import { Values } from '../contexts/form'
-import { Box, Heading, Text, CheckBox, Button } from 'grommet'
+import { Box, Heading, Text, CheckBox } from 'grommet'
 import { translate } from '../forms'
 import { LanguageContext } from '../contexts/language'
 import moment from 'moment'
