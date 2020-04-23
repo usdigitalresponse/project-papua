@@ -38,16 +38,20 @@ const FormApp: React.FC<{}> = () => {
     <Review key="review" pages={pages} />,
   ]
 
-  const setFormError = (key: string, value: Copy[]) => setFormErrors({ ...formErrors, [key]: value })
+  const setFormError = (key: string, value: Copy[]): Errors => ({ ...formErrors, [key]: value })
+
   const setFormValue = (question: Question, value: Value) => {
     const validationErrors = isValid(question, value, formValues)
-    setFormValues({ ...formValues, [question.id]: value })
-    if (validationErrors.length > 0) {
-      setFormError(question.id, validationErrors)
-    } else {
-      setFormErrors(omit(formErrors, question.id))
-    }
-    const canContinueFromPage = canContinue(pages[currentIndex - 1], formValues, formErrors)
+    const newFormValues = { ...formValues, [question.id]: value }
+    setFormValues(newFormValues)
+
+    const newFormErrors =
+      validationErrors.length > 0 ? ({ ...formErrors, [question.id]: value } as Errors) : omit(formErrors, question.id)
+
+    setFormErrors(newFormErrors)
+
+    const canContinueFromPage = canContinue(pages[currentIndex - 1], newFormValues, newFormErrors)
+
     setFormCompletion({
       ...formCompletion,
       [currentIndex]: canContinueFromPage,

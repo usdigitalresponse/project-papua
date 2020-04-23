@@ -95,6 +95,8 @@ export function canContinue(page: Page, values: Values, errors: Errors): boolean
     return true
   }
 
+  console.log('values ', values)
+  console.log('errors ', errors)
   const questions = getFlattenedQuestions(page.questions, values)
   const questionIds = questions.map((q) => q.id)
   const requiredQuestions = questions.filter((q) => q.required).map((q) => q.id)

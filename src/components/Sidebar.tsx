@@ -26,14 +26,7 @@ const Sidebar: React.FC<Props> = (props) => {
   const { language, setLanguage } = useContext(LanguageContext)
 
   return (
-    <Card
-      pad="medium"
-      margin={{ left: 'small' }}
-      textAlign="left"
-      height="0%"
-      background="white"
-      style={{ padding: '48px' }}
-    >
+    <Card margin={{ left: 'small' }} textAlign="left" height="0%" background="white" pad="medium">
       {seal && (
         <Box margin={{ bottom: 'medium' }}>
           <Image src={seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />
