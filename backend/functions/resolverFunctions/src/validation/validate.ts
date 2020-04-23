@@ -12,9 +12,9 @@ export function validateAnswers(answers: Values): Error {
     schema = initializeValidationSchema(rawForm)
   } catch (e) {
     console.error(e)
+    return new Error('there was a problem initializing the validation schema')
   }
 
-  if (!schema) return new Error('there was a problem initializing the validation schema')
   return schema.validate(answers).error as Error
 }
 
@@ -41,12 +41,14 @@ export function getForm(): Form {
     })
   } catch (e) {
     console.error('error reading file: ', e)
+    throw e
   }
 
   try {
     form = yaml.safeLoad(file)
   } catch (e) {
-    console.error(e)
+    console.error('error converting file to json: ', e)
+    throw e
   }
   return form
 }

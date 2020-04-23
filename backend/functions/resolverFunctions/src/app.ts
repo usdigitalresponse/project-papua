@@ -52,7 +52,8 @@ app.post('/claims', async function (req: Request, res: Response) {
   try {
     validateAnswers(req.body.questions)
   } catch (err) {
-    res.status(500).json({ message: err, id: uuid })
+    res.status(400).json({ message: err, id: uuid })
+    return
   }
 
   const putObjectCommand = new PutObjectCommand({
@@ -70,6 +71,7 @@ app.post('/claims', async function (req: Request, res: Response) {
   } catch (err) {
     console.error(`Failed to write claim to S3 (${bucket})`, err)
     res.status(500).json({ message: 'error putting object to s3', id: uuid })
+    return
   }
 })
 
