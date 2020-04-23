@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "ajv": "^6.12.2",
     "aws-amplify": "^3.0.7",
     "aws-amplify-react": "^4.1.6",
     "express": "^4.17.1",
@@ -84,6 +85,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/ajv": "^1.0.0",
     "@types/hapi__joi": "^16.0.12",
     "@types/jest": "^24.0.0",
     "@types/js-yaml": "^3.12.3",
