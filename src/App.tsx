@@ -14,11 +14,12 @@ const theme = {
       size: '14px',
     },
     selected: {
-      background: '#008060',
+      background: '#F2F2F2',
+      color: 'black',
     },
     focus: {
       border: {
-        color: 'none',
+        color: '#BCCFFF',
       },
     },
     control: {
@@ -30,6 +31,53 @@ const theme = {
   select: {
     icons: {
       color: '#000000',
+    },
+    options: {
+      text: {
+        size: 'small',
+      },
+    },
+    container: {
+      borderRadius: '8px',
+    },
+  },
+  checkBox: {
+    color: '#205EFF',
+    hover: {
+      color: '#BCCFFF !important',
+      border: {
+        color: '#BCCFFF !important',
+      },
+    },
+    border: {
+      color: '#333333 !important',
+    },
+    check: {
+      color: '#205EFF',
+      extend: {
+        border: '#205EFF 2px solid',
+      },
+    },
+  },
+  radioButton: {
+    size: '24px',
+    extend: {
+      flexShrink: 0,
+    },
+    hover: {
+      color: '#BCCFFF !important',
+      border: {
+        color: '#BCCFFF !important',
+      },
+    },
+    border: {
+      color: '#333333 !important',
+    },
+    check: {
+      color: '#205EFF',
+      extend: {
+        border: '#205EFF 2px solid',
+      },
     },
   },
 }

@@ -14,8 +14,8 @@ const Form: React.FC<Props> = (props) => {
   const { translateCopy } = useContext(FormContext)
 
   return (
-    <Box pad="medium" direction="column" justify="start">
-      <Heading color="black" margin={{ bottom: 'none', top: 'none' }} level={3}>
+    <Box style={{ padding: '48px' }} direction="column" justify="start">
+      <Heading color="black" margin={{ bottom: 'medium', top: 'none' }} level={3}>
         {translateCopy(page.heading)}
       </Heading>
       {page.instructions && <Markdown>{translateCopy(page.instructions)}</Markdown>}

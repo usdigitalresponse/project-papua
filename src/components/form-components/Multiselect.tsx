@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
-import { Box, Text } from 'grommet'
+import { Box, CheckBox } from 'grommet'
 import './single-select.css'
 import { FormContext } from '../../contexts/form'
 
@@ -40,31 +40,17 @@ const Multiselect: React.FC<Props> = (props) => {
   return (
     <Box>
       {question.options.map((o) => {
-        const isSelected = value && value.includes(o.id)
+        const isSelected = Boolean(value && value.includes(o.id))
         return (
-          <Box
-            onClick={() => onSelectValue(o.id)}
-            style={{ background: isSelected ? '#EBFFFA' : 'white' }}
-            align="start"
+          <CheckBox
             key={o.id}
-            margin={{ bottom: 'xsmall' }}
-            pad="small"
-            className="single-select-border single-select"
-            direction="row"
-          >
-            <Box
-              style={{
-                background: isSelected ? '#008060' : 'white',
-                height: 20,
-                width: 20,
-                borderRadius: '50%',
-                flexShrink: 0,
-              }}
-              margin={{ right: 'small' }}
-              className="single-select-border"
-            />
-            <Text>{translateCopy(o.name)}</Text>
-          </Box>
+            style={{
+              marginTop: '8px',
+            }}
+            checked={isSelected}
+            label={translateCopy(o.name)}
+            onChange={() => onSelectValue(o.id)}
+          />
         )
       })}
     </Box>
