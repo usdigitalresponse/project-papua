@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "@types/lodash": "^4.14.149",
     "aws-amplify": "^3.0.7",
     "aws-amplify-react": "^4.1.6",
     "express": "^4.17.1",
@@ -22,7 +21,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
     "eject": "react-scripts eject",
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
     "amplify:resolverFunctions": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
@@ -78,28 +76,13 @@
       "imagemin-lint-staged"
     ]
   },
-  "jest": {
-    "modulePaths": [
-      "<rootDir>/"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "\\.test\\.tsx?$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ]
-  },
   "devDependencies": {
     "@google-cloud/translate": "^5.3.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/lodash": "^4.14.149",
     "@types/hapi__joi": "^16.0.12",
-    "@types/jest": "^25.2.1",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
@@ -119,7 +102,6 @@
     "lint-staged": "^10.1.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
-    "ts-jest": "^25.4.0",
     "typescript": "^3.8.3",
     "yarnhook": "^0.4.3"
   }

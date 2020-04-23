@@ -4,7 +4,23 @@
   "description": "Applies state-specific transformations on raw data on a regular basis",
   "main": "index.js",
   "scripts": {
-    "local": "S3_ENDPOINT='http://localhost:4572' STATE_CODE=csv ACCT_ID=123456789 yarn ts-node ./src/local.ts"
+    "local": "S3_ENDPOINT='http://localhost:4572' STATE_CODE=csv ACCT_ID=123456789 yarn ts-node ./src/local.ts",
+    "test": "jest"
+  },
+  "jest": {
+    "modulePaths": [
+      "<rootDir>/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ]
   },
   "dependencies": {
     "@aws-sdk/client-s3-node": "^0.1.0-preview.2",
@@ -14,7 +30,10 @@
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.11.1",
+    "jest": "^25.4.0",
+    "ts-jest": "^25.4.0",
     "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
   }
