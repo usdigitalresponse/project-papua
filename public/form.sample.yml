@@ -109,19 +109,19 @@ instructions:
 
       {{STATE_CODE}}失业保险金索赔申请表应用于针对处于{{STATE_CODE}}状态的已获得或预期获得的收入索取失业救济。
 
-      福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡（EPC）来获取您的权益。
+      福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡(EPC)来获取您的权益。
 
       ####准备
 
       请注意，在提出索赔之前，您可能需要以下信息：
 
-        - 您的社会安全号码（SSN）。
+        - 您的社会安全号码(SSN)。
         - 您最近的纳税申报单上的调整后总收入。
         - 您在过去18个月内工作过的所有雇主的姓名，地址，电话号码和工作日期。
-        - 您的外国人注册号（如果适用）。
+        - 您的外国人注册号(如果适用)。
         - 所有受抚养子女的姓名，社会安全号码和出生日期。
         - 您的驾驶执照或国家签发的身份证号。
-        - 您的银行帐户和银行帐号（如果您选择直接存款作为付款方式）。
+        - 您的银行帐户和银行帐号(如果您选择直接存款作为付款方式)。
 
       ####资格
 
@@ -506,7 +506,7 @@ pages:
             - name:
                 en: Enter your Driver's License or state-issued Identification (ID) number
                 es: Ingrese su licencia de conducir o número de identificación (ID) emitido por el estado
-                zh: 输入您的驾驶执照或国家签发的身份证（ID）号
+                zh: 输入您的驾驶执照或国家签发的身份证(ID)号
               id: dl_or_state_id
               required: true
               type: shorttext
@@ -631,51 +631,51 @@ pages:
                   - name:
                       en: 'Last pay grade (Box #4b)'
                       es: 'Última calificación salarial (Casilla # 4b)'
-                      zh: 最后薪资等级（方框4b）
+                      zh: 最后薪资等级(方框4b)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #4b'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 4b'
-                      zh: 请从DD214-成员4，框＃4b输入以下数据
+                      zh: 请从DD214-成员4，框#4b输入以下数据
                     required: true
                     id: military-last-pay-grade
                     type: shorttext
                   - name:
                       en: 'Net service for this period (Box #12c)'
                       es: 'Servicio neto para este período (Cuadro # 12c)'
-                      zh: 此期间的净服务（方框12c）
+                      zh: 此期间的净服务(方框12c)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #12c'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 12c'
-                      zh: 请从DD214-成员4，框＃12c中输入以下数据
+                      zh: 请从DD214-成员4，框#12c中输入以下数据
                     required: true
                     id: military-net-service
                     type: shorttext
                   - name:
                       en: 'Number of days of accrued paid leave (Box #16)'
                       es: 'Número de días de vacaciones pagadas acumuladas (Casilla # 16)'
-                      zh: 应计带薪休假天数（方框16）
+                      zh: 应计带薪休假天数(方框16)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #16'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 16'
-                      zh: 请从DD214-成员4，框＃16中输入以下数据
+                      zh: 请从DD214-成员4，框#16中输入以下数据
                     required: true
                     id: military-accured-paid-leave
                     type: decimal
                   - name:
                       en: 'Character of Service (Box #24)'
                       es: Carácter del servicio (casilla n. ° 24)
-                      zh: 服务性质（第24号方框）
+                      zh: 服务性质(第24号方框)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #24'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 24'
-                      zh: 请从DD214-成员4，方框＃24中输入以下数据
+                      zh: 请从DD214-成员4，方框#24中输入以下数据
                     required: true
                     id: military-character-of-service
                     type: shorttext
                   - name:
                       en: 'Reason for Separation (Box #28)'
                       es: 'Motivo de la separación (casilla # 28)'
-                      zh: 分离原因（第28号方框）
+                      zh: 分离原因(第28号方框)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #28'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 28'
@@ -835,7 +835,7 @@ pages:
           en: |-
             Have you been employed by the Federal Government as a civilian (not active military) during the last 2 years?
           es: ¿Ha estado empleado por el gobierno federal como civil (no militar activo) durante los últimos 2 años?
-          zh: 在过去的两年中，您是否曾被联邦政府雇用为文职人员（非现役军人）？
+          zh: 在过去的两年中，您是否曾被联邦政府雇用为文职人员(非现役军人)？
         id: employment-federal-employee
         required: true
         type: boolean
@@ -959,7 +959,7 @@ pages:
       - name:
           en: 'Employer Registration # or Federal Employer ID (FEIN)'
           es: N. ° de registro de empleador o ID de empleador federal (FEIN)
-          zh: 雇主注册号或联邦雇主ID（FEIN）
+          zh: 雇主注册号或联邦雇主ID(FEIN)
         id: employer-id-number
         required: true
         type: integer
@@ -1233,7 +1233,7 @@ pages:
             We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?
           es: |-
             Necesitamos su Ingreso Bruto Ajustado (AGI) de su declaración de impuestos más reciente para determinar sus beneficios. ¿Tiene a mano su formulario de ingreso bruto ajustado?
-          zh: 我们需要您最近的纳税申报单中的调整后总收入（AGI）来确定您的权益。您手头有“调整后的总收入”表格吗？
+          zh: 我们需要您最近的纳税申报单中的调整后总收入(AGI)来确定您的权益。您手头有“调整后的总收入”表格吗？
         id: tax-info-have-tax-return
         required: true
         type: boolean
@@ -1291,12 +1291,12 @@ pages:
                 zh: |-
                   您可以在最近提交的1040表格中找到调整后的总收入。它位于不同的行，具体取决于您提交的表单：
                     
-                    - 表格1040的第8b行（适用于2019纳税年度）
-                    - 1040-SR表格上的第8b行（适用于2019纳税年度）
-                    - 表格1040的第7行（适用于2018纳税年度）
-                    - 表格1040A的第21行（适用于2018年之前的纳税年度）
-                    - 1040EZ表格上的第4行（适用于2018年之前的纳税年度）
-                    - 1040NR表格上的第35行（适用于2019或2019纳税年度）
+                    - 表格1040的第8b行(适用于2019纳税年度)
+                    - 1040-SR表格上的第8b行(适用于2019纳税年度)
+                    - 表格1040的第7行(适用于2018纳税年度)
+                    - 表格1040A的第21行(适用于2018年之前的纳税年度)
+                    - 1040EZ表格上的第4行(适用于2018年之前的纳税年度)
+                    - 1040NR表格上的第35行(适用于2019或2019纳税年度)
               id: tax-info-agi
               required: true
               type: dollar-amount
@@ -1431,14 +1431,14 @@ pages:
           en: Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?
           es: |-
             ¿Usted o alguien en su hogar participa en un programa de trabajo del Departamento de Servicios Humanos (DHS)?
-          zh: 您或您家庭中的任何人都参加了人类服务部（DHS）工作计划吗？
+          zh: 您或您家庭中的任何人都参加了人类服务部(DHS)工作计划吗？
         id: other-income-dhs-work
         required: true
         type: boolean
       - name:
           en: Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?
           es: ¿Usted o alguien en su hogar recibe beneficios de SNAP (también conocidos como cupones de alimentos)?
-          zh: 您或您家庭中的任何人都在享受SNAP福利（也称为食品券）吗？
+          zh: 您或您家庭中的任何人都在享受SNAP福利(也称为食品券)吗？
         id: other-income-snap
         required: true
         type: boolean
@@ -1546,8 +1546,8 @@ pages:
           zh: |-
             COVID-19紧急失业保险金有两种付款方式：
               
-              -直接存款（DD），将您的失业救济金存入您的支票或储蓄帐户。
-              -电子支付卡（EPC），其作用类似于借记卡。 EPC由摩根大通银行（J.P. Morgan Chase Bank）管理。如果您选择通过EPC领取保险金，则将从您的索赔处理之日起7-10天内以邮件方式收到您的卡。
+              - 直接存款(DD)，将您的失业救济金存入您的支票或储蓄帐户。
+              - 电子支付卡(EPC)，其作用类似于借记卡。 EPC由摩根大通银行(J.P. Morgan Chase Bank)管理。如果您选择通过EPC领取保险金，则将从您的索赔处理之日起7-10天内以邮件方式收到您的卡。
         id: payment-option
         required: true
         type: dropdown
