@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Page } from '../forms/types'
-import { Box, Heading, Paragraph } from 'grommet'
+import { Box, Heading } from 'grommet'
 import Question from './Question'
-import { LanguageContext } from '../contexts/language'
-import { translate } from '../forms/index'
+import { FormContext } from '../contexts/form'
+import { Markdown } from './helper-components/Markdown'
 
 interface Props {
   page: Page
@@ -11,18 +11,14 @@ interface Props {
 
 const Form: React.FC<Props> = (props) => {
   const { page } = props
-  const { language } = useContext(LanguageContext)
+  const { translateCopy } = useContext(FormContext)
 
   return (
     <Box style={{ padding: '48px' }} direction="column" justify="start">
       <Heading color="black" margin={{ bottom: 'medium', top: 'none' }} level={3}>
-        {translate(page.heading, language)}
+        {translateCopy(page.heading)}
       </Heading>
-      {page.instructions && (
-        <Paragraph fill={true} style={{ whiteSpace: 'pre-wrap' }} size="small" color="black" margin={{ top: 'xsmall' }}>
-          {translate(page.instructions, language)}
-        </Paragraph>
-      )}
+      {page.instructions && <Markdown>{translateCopy(page.instructions)}</Markdown>}
       <Box margin={{ bottom: 'small' }}></Box>
       {page.questions.map((question) => (
         <Question question={question} key={question.id} />

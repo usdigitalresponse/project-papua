@@ -45,15 +45,5 @@
       "version": "detect"
     }
   },
-  "parser": "@typescript-eslint/parser",
-  "overrides": [
-    {
-      // Disable camelcase for the REST clients since we oftentimes interact
-      // with snakecase variable names when encoding/decoding from JSON.
-      "files": "src/clients/**/*",
-      "rules": {
-        "@typescript-eslint/camelcase": "off"
-      }
-    }
-  ]
+  "parser": "@typescript-eslint/parser"
 }

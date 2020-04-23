@@ -2,8 +2,6 @@ import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
 import { Box, CheckBox } from 'grommet'
 import './single-select.css'
-import { LanguageContext } from '../../contexts/language'
-import { translate } from '../../forms/index'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
@@ -15,8 +13,7 @@ interface Props {
 
 const Multiselect: React.FC<Props> = (props) => {
   const { question } = props
-  const { language } = useContext(LanguageContext)
-  const { values, setValue } = useContext(FormContext)
+  const { values, setValue, translateCopy } = useContext(FormContext)
   const value = values[question.id] as string[] | string
 
   const onSelectValue = (option: string) => {
@@ -51,7 +48,7 @@ const Multiselect: React.FC<Props> = (props) => {
               marginTop: '8px',
             }}
             checked={isSelected}
-            label={translate(o.name, language)}
+            label={translateCopy(o.name)}
             onChange={() => onSelectValue(o.id)}
           />
         )

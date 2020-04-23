@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, Fragment } from 'react'
 import { Page } from '../forms/types'
-import { Values } from '../contexts/form'
+import { Values, FormContext } from '../contexts/form'
 import { Box, Heading, Text, CheckBox } from 'grommet'
-import { translate } from '../forms'
-import { LanguageContext } from '../contexts/language'
 import moment from 'moment'
+
 interface Props {
   pages: Page[]
   values: Values
@@ -14,7 +13,7 @@ interface Props {
 const Caret: React.FC<{ open: boolean }> = (props) => {
   return (
     <svg
-      transform={props.open ? 'rotate(90)' : 'none'}
+      transform={props.open ? 'rotate(90)' : undefined}
       width="9"
       height="14"
       viewBox="0 0 9 14"
@@ -39,12 +38,12 @@ const Edit = (
 
 const Summary: React.FC<Props> = (props) => {
   const { pages, values, setPage } = props
-  const { language } = useContext(LanguageContext)
+  const { translateCopy } = useContext(FormContext)
 
   const [checkedPages, setCheckedPages] = useState<Record<string, boolean>>({})
   const [openPages, setOpenPages] = useState<Record<string, boolean>>({})
 
-  const checkPage = (pageIndex: number) => setCheckedPages({ ...checkedPages, [pageIndex]: true })
+  const toggleCheck = (pageIndex: number) => setCheckedPages({ ...checkedPages, [pageIndex]: !checkedPages[pageIndex] })
 
   const toggleOpenPage = (pageIndex: number) => {
     setOpenPages({
@@ -56,9 +55,9 @@ const Summary: React.FC<Props> = (props) => {
   return (
     <Box margin={{ top: 'medium' }} border={{ color: 'black' }}>
       {pages.map((page, i) => {
-        const checked = checkedPages[i]
+        const checked = checkedPages[i] || false
         return (
-          <>
+          <Fragment key={page.title.en}>
             <Box
               background="#F8F8F8"
               style={{
@@ -68,7 +67,7 @@ const Summary: React.FC<Props> = (props) => {
               direction="row"
               justify="between"
               align="center"
-              key={translate(page.title, language)}
+              key={translateCopy(page.title)}
               pad={{ horizontal: 'medium', vertical: 'small' }}
             >
               <Box direction="row">
@@ -88,7 +87,7 @@ const Summary: React.FC<Props> = (props) => {
                   )}
                 </Box>
                 <Heading margin="none" level={5}>
-                  {translate(page.title, language)}
+                  {translateCopy(page.title)}
                 </Heading>
               </Box>
               <Caret open={openPages[i]} />
@@ -100,7 +99,7 @@ const Summary: React.FC<Props> = (props) => {
                   return (
                     <Box key={q.id} direction="row" margin={{ bottom: '16px' }}>
                       <Text size="16px" margin={{ right: '8px' }} weight={600}>
-                        {translate(q.name, language)}:
+                        {translateCopy(q.name)}:
                       </Text>
                       <Text size="16px">{value}</Text>
                     </Box>
@@ -114,7 +113,7 @@ const Summary: React.FC<Props> = (props) => {
                   style={{ borderTop: '1px solid black' }}
                 >
                   <Box>
-                    <CheckBox checked={checked} onClick={() => checkPage(i)} label="The above info is correct." />
+                    <CheckBox checked={checked} onClick={() => toggleCheck(i)} label="The above info is correct." />
                   </Box>
                   <Text
                     style={{ cursor: 'pointer' }}
@@ -128,7 +127,7 @@ const Summary: React.FC<Props> = (props) => {
                 </Box>
               </Box>
             )}
-          </>
+          </Fragment>
         )
       })}
     </Box>
