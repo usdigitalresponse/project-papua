@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
 import { Question as QuestionInterface } from '../forms/types'
 import { getComponent } from '../forms'
-import { Box, Heading, Text, Paragraph } from 'grommet'
-import { LanguageContext } from '../contexts/language'
-import { translate } from '../forms/index'
+import { Box, Heading, Text } from 'grommet'
 import { FormContext } from '../contexts/form'
+import { Markdown } from './helper-components'
 
 interface Props {
   question: QuestionInterface
@@ -14,8 +13,7 @@ const Question: React.FC<Props> = (props) => {
   const { question } = props
   const Component: React.FC<{ [key: string]: any }> = getComponent(question.type)
 
-  const { language } = useContext(LanguageContext)
-  const { values, errors } = useContext(FormContext)
+  const { values, errors, translateCopy } = useContext(FormContext)
 
   const value = values[question.id]
   const error = errors[question.id]
@@ -32,7 +30,7 @@ const Question: React.FC<Props> = (props) => {
             level={4}
             margin="none"
           >
-            {translate(question.name, language)}
+            {translateCopy(question.name)}
           </Heading>
           {question.required && (
             <Heading level={4} margin="none" color="#FF4040">
@@ -41,15 +39,9 @@ const Question: React.FC<Props> = (props) => {
           )}
         </Box>
         {question.instructions && (
-          <Paragraph
-            fill={true}
-            style={{ whiteSpace: 'pre-wrap' }}
-            size="small"
-            color="black"
-            margin={{ top: 'xsmall' }}
-          >
-            {translate(question.instructions, language)}
-          </Paragraph>
+          <Markdown margin="none" size="small">
+            {translateCopy(question.instructions)}
+          </Markdown>
         )}
       </Box>
       <Component width="100%" question={question} />
@@ -57,7 +49,7 @@ const Question: React.FC<Props> = (props) => {
         <Box>
           {error.map((e) => (
             <Text key={String(e)} margin={{ top: 'xsmall' }} color="#FF4040">
-              {translate(e, language)}
+              {translateCopy(e)}
             </Text>
           ))}
         </Box>

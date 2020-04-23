@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
 import SingleSelect from './SingleSelect'
-import { getCopy } from '../../forms/index'
+import { FormContext } from '../../contexts/form'
 
 interface Props {
   [key: string]: any
@@ -10,15 +10,17 @@ interface Props {
 }
 
 const Boolean: React.FC<Props> = (props) => {
+  const { form } = useContext(FormContext)
+
   const question = props.question
   question.options = [
     {
       id: 'true',
-      name: getCopy('yes'),
+      name: form.instructions['yes'],
     },
     {
       id: 'false',
-      name: getCopy('no'),
+      name: form.instructions['no'],
     },
   ]
 

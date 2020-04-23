@@ -1,6 +1,4 @@
-import form from '../form.json'
-import formSample from '../form.sample.json'
-import { FormSchema, Form, Question, QuestionType, Copy, Page } from './types'
+import { Question, QuestionType, Copy, Page } from './types'
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -11,49 +9,6 @@ import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
 import { Box } from 'grommet'
 import { Values, Errors, Value } from '../contexts/form'
-
-export function initializeForm(): Form {
-  // States will build their own form in `form.json` from the example in `form.sample.json`.
-  // By default, we'll use the sample version until a state starts building their form in
-  // `form.json`.
-  const rawForm = Object.keys(form).length === 0 ? formSample : form
-
-  // Validate the schema against our Joi schema
-  // which makes it easier to identify issues in the form
-  // than standard TS type validation (which just prints the error
-  // without metadata like array index or object path).
-  if (process.env.NODE_ENV === 'development') {
-    const result = FormSchema.validate(rawForm, {
-      abortEarly: false,
-      allowUnknown: false,
-      presence: 'required',
-    })
-    if (result.error) {
-      console.error('form.json does not match the expected schema', result.error)
-    }
-  }
-
-  return rawForm as Form
-}
-
-export const getCopy = (id: string) => {
-  return initializeForm().instructions[id]
-}
-
-export function translate(copy: Copy, language: string): string {
-  let text = copy[language]
-
-  // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
-  text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
-    // `key` is the regex-captured value inside the curly braces:
-    const value = initializeForm().variables[key]
-    // If we don't recognize this variable, then default to rendering
-    // all of `{{VARIABLE_NAME}}` since that'll make the issue clearest.
-    return value ? value : m
-  })
-
-  return text
-}
 
 export function isValid(question: Question, value: Value, values: Values): Copy[] {
   const { validate } = question
