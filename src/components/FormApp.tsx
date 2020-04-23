@@ -8,34 +8,23 @@ import Form from './Form'
 import { FormContext } from '../contexts/form'
 
 const FormApp: React.FC<{}> = () => {
-  const { form, values, errors, translateByID, translateCopy } = useContext(FormContext)
+  const { form, values, errors, translateByID, translateCopy, completion, pageIndex, setPage } = useContext(FormContext)
   const size = useContext(ResponsiveContext)
-
-  const { pages, seal } = form
 
   const pageTitles = [
     translateByID('introduction'),
-    ...pages.map((page) => translateCopy(page.title)),
+    ...form.pages.map((page) => translateCopy(page.title)),
     translateByID('submit'),
   ]
 
-  const [formCompletion, setFormCompletion] = useState<Record<string, boolean>>({})
-
-  const setNextPage = (index: number) => {
-    setCurrentIndex(index)
-    window.scrollTo(0, 0)
-  }
-
   const pageComponents = [
     <Introduction key="introduction" />,
-    ...pages.map((page) => <Form page={page} key={page.heading.en} />),
-    <Review key="review" pages={pages} setPage={setNextPage} />,
+    ...form.pages.map((page) => <Form page={page} key={page.heading.en} />),
+    <Review key="review" pages={form.pages} setPage={setPage} />,
   ]
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0)
-
-  const onClickNext = () => setNextPage(currentIndex + 1)
-  const onClickBack = () => setNextPage(currentIndex - 1)
+  const onClickNext = () => setPage(pageIndex + 1)
+  const onClickBack = () => setPage(pageIndex - 1)
 
   return (
     <Box align="center" pad="medium" direction="column">
@@ -44,27 +33,27 @@ const FormApp: React.FC<{}> = () => {
       </Card>
       <Box width="100%" height="100%" justify="center" direction="row">
         <Card width="50%" background="white" display="flex" justify="between" flexDirection="column" textAlign="left">
-          {pageComponents[currentIndex]}
+          {pageComponents[pageIndex]}
           <Box justify="between" pad="medium" direction="row">
-            {currentIndex > 0 && (
+            {pageIndex > 0 && (
               <Button
                 border={{ radius: 0 }}
                 color="black"
                 onClick={onClickBack}
                 hoverIndicator={{
-                  color: currentIndex === 0 ? '#3E73FF !important' : 'black !important',
+                  color: pageIndex === 0 ? '#3E73FF !important' : 'black !important',
                 }}
                 label={translateByID('back')}
               />
             )}
-            {currentIndex + 1 < pageTitles.length && (
+            {pageIndex + 1 < pageTitles.length && (
               <Button
-                color={currentIndex === 0 ? '#3E73FF' : 'black'}
+                color={pageIndex === 0 ? '#3E73FF' : 'black'}
                 onClick={onClickNext}
-                disabled={currentIndex > 0 && !formCompletion[currentIndex]}
-                label={currentIndex === 0 ? translateByID('get-started') : translateByID('next')}
+                disabled={pageIndex > 0 && !completion[pageIndex]}
+                label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
                 hoverIndicator={{
-                  color: currentIndex === 0 ? '#3E73FF !important' : 'black !important',
+                  color: pageIndex === 0 ? '#3E73FF !important' : 'black !important',
                   style: {
                     color: 'white !important',
                   },
@@ -73,15 +62,7 @@ const FormApp: React.FC<{}> = () => {
             )}
           </Box>
         </Card>
-        {size !== 'small' && (
-          <Sidebar
-            completion={formCompletion}
-            seal={seal}
-            pages={pageTitles}
-            currentIndex={currentIndex}
-            setCurrentIndex={setNextPage}
-          />
-        )}
+        {size !== 'small' && <Sidebar pages={pageTitles} />}
       </Box>
     </Box>
   )

@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { Box, Heading, Button, Text } from 'grommet'
+import { Box, Heading, Button } from 'grommet'
 import Amplify, { API } from 'aws-amplify'
 import { FormContext } from '../contexts/form'
 import { v5 as uuid } from 'uuid'
 import Summary from './Summary'
+import { Markdown } from './helper-components/Markdown'
 
 import awsconfig from '../aws-exports'
 import { Page } from '../forms/types'
@@ -46,11 +47,8 @@ const Review: React.FC<Props> = (props) => {
         {translateByID('submit')}
       </Heading>
 
-      <br />
-      <Text>{translateByID('submit:instructions-1')}</Text>
-      <br />
+      <Markdown>{translateByID('submit-instructions')}</Markdown>
 
-      <Text>{translateByID('submit:instructions-2')}</Text>
       <Summary setPage={setPage} values={values} pages={pages} />
       <Button
         margin={{ top: 'small' }}

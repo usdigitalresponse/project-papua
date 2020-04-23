@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { FormSchema, Form, Question, Copy } from '../forms/types'
-import { isValid } from '../forms'
+import { isValid, canContinue } from '../forms'
 import { Box } from 'grommet'
 import { omit } from 'lodash'
 import { Spinner } from '../components/helper-components/Spinner'
@@ -16,6 +16,9 @@ interface FormState {
   errors: Errors
   translateCopy: (copy: Copy) => string
   translateByID: (id: string) => string
+  completion: Record<string, boolean>
+  pageIndex: number
+  setPage: (index: number) => void
 }
 
 export interface Values {
@@ -44,6 +47,8 @@ export const FormProvider: React.FC = (props) => {
   const [form, setForm] = useState<Form | undefined>(initialState.form)
   const [values, setValues] = useState<Values>(initialState.values)
   const [errors, setErrors] = useState<Errors>(initialState.errors)
+  const [completion, setCompletion] = useState<Record<string, boolean>>({})
+  const [pageIndex, setPageIndex] = useState<number>(0)
   const { language } = useContext(LanguageContext)
 
   useEffect(() => {
@@ -97,13 +102,19 @@ export const FormProvider: React.FC = (props) => {
 
   const setError = (key: string, value: Copy[]) => setErrors({ ...errors, [key]: value })
   const setValue = (question: Question, value: Value) => {
+    const newValues = { ...values, [question.id]: value }
+    setValues(newValues)
+
     const validationErrors = isValid(question, value, values)
-    setValues({ ...values, [question.id]: value })
-    if (validationErrors.length > 0) {
-      setError(question.id, validationErrors)
-    } else {
-      setErrors(omit(errors, question.id))
-    }
+    const newErrors =
+      validationErrors.length > 0 ? { ...errors, [question.id]: validationErrors } : omit(errors, question.id)
+    setErrors(newErrors)
+
+    const canContinueFromPage = canContinue(form!.pages[pageIndex - 1], newValues, newErrors)
+    setCompletion({
+      ...completion,
+      [pageIndex]: canContinueFromPage,
+    })
   }
 
   const translateCopy = useCallback(
@@ -126,6 +137,11 @@ export const FormProvider: React.FC = (props) => {
 
   const translateByID = (id: string): string => {
     return translateCopy(form!.instructions[id])
+  }
+
+  const setPage = (index: number) => {
+    setPageIndex(index)
+    window.scrollTo(0, 0)
   }
 
   useEffect(() => {
@@ -163,6 +179,9 @@ export const FormProvider: React.FC = (props) => {
     setError,
     translateCopy,
     translateByID,
+    completion,
+    pageIndex,
+    setPage,
   }
 
   return <FormContext.Provider value={value}>{props.children}</FormContext.Provider>

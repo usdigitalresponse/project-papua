@@ -37,11 +37,13 @@
 const fs = require('fs')
 const { Translate } = require('@google-cloud/translate').v2
 const yaml = require('js-yaml')
+const prettier = require('prettier')
 const translater = new Translate()
 
 const filename = process.env.FILE || 'form.yml'
+const filepath = `public/${filename}`
 
-const f = fs.readFileSync(`public/${filename}`, {
+const f = fs.readFileSync(filepath, {
   encoding: 'utf-8',
 })
 
@@ -201,7 +203,13 @@ function translate(languageCode) {
     // which allows you to choose which one to use.
     preferredBlockStyle: 'literal',
   })
-  fs.writeFileSync(`public/${filename}`, contents, {
+  // Run prettier on this file.
+  const options = await prettier.resolveConfig()
+  const formatted = prettier.format(contents, {
+    ...options,
+    parser: 'yaml',
+  })
+  fs.writeFileSync(filepath, formatted, {
     encoding: 'utf-8',
   })
 })().catch((err) => {

@@ -7,10 +7,6 @@ import { range } from 'lodash'
 
 interface Props {
   pages: string[]
-  currentIndex: number
-  completion: Record<string, any>
-  seal?: string
-  setCurrentIndex: (index: number) => void
 }
 
 const languages = [
@@ -20,17 +16,18 @@ const languages = [
 ]
 
 const Sidebar: React.FC<Props> = (props) => {
-  const { pages, seal, currentIndex, setCurrentIndex, completion } = props
-  const currentPage = pages[currentIndex]
-  const percent = Math.floor(((currentIndex + 1) / pages.length) * 100)
+  const { pages } = props
+  const { translateByID, form, pageIndex, setPage, completion } = useContext(FormContext)
   const { language, setLanguage } = useContext(LanguageContext)
-  const { translateByID } = useContext(FormContext)
+
+  const currentPage = pages[pageIndex]
+  const percent = Math.floor(((pageIndex + 1) / pages.length) * 100)
 
   return (
     <Card margin={{ left: 'small' }} textAlign="left" height="0%" background="white" pad="medium">
-      {seal && (
+      {form.seal && (
         <Box margin={{ bottom: 'medium' }}>
-          <Image src={seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />
+          <Image src={form.seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />
         </Box>
       )}
       <Box>
@@ -72,7 +69,7 @@ const Sidebar: React.FC<Props> = (props) => {
           return (
             <Text
               style={{ cursor: canClickPage ? 'pointer' : 'not-allowed' }}
-              onClick={() => canClickPage && setCurrentIndex(i)}
+              onClick={() => canClickPage && setPage(i)}
               color={currentPage === page ? 'black' : '#66788A'}
               margin={{ bottom: 'xsmall' }}
               key={page}

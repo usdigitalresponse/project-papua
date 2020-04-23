@@ -201,10 +201,19 @@ instructions:
     en: Submit
     es: Enviar
     zh: 提交
-  'submit:instructions':
-    en: Your claim will not be filed unless you click Submit below.
-    es: Su reclamo no se archivará a menos que haga clic en Enviar a continuación.
-    zh: 除非您单击下面的提交，否则不会提出您的索赔。
+  submit-instructions:
+    en: |-
+      Please review and verify the information section below. If there are errors in any section, you may select 'Edit' to revisit that page of your application.
+
+      Once all sections have been verified, please select 'Submit' to complete filling your claim. Your claim will not be filed unless you click 'Submit' below.
+    es: |-
+      Revise y verifique la sección de información a continuación. Si hay errores en alguna sección, puede seleccionar 'Editar' para volver a visitar esa página de su aplicación.
+
+      Una vez que se hayan verificado todas las secciones, seleccione 'Enviar' para completar el llenado de su reclamo. Su reclamo no se archivará a menos que haga clic en 'Enviar' a continuación.
+    zh: |-
+      请查看并验证下面的信息部分。如果任何部分有错误，则可以选择“编辑”以重新访问应用程序的该页面。
+
+      所有部分均通过验证后，请选择“提交”以完成您的索赔。除非您单击下面的“提交”，否则不会提出您的索赔。
   demo-warning:
     en: |-
       This is for demo purposes only. Email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.

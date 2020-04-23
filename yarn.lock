@@ -8840,7 +8840,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.13.1, js-yaml@colinking/js-yaml#block-style-option:
+js-yaml@^3.13.1, js-yaml@colinking/js-yaml#2a635bc6563d609c0124fcbdcb0ebcaf7dd12d40:
   version "3.13.1"
   resolved "https://codeload.github.com/colinking/js-yaml/tar.gz/2a635bc6563d609c0124fcbdcb0ebcaf7dd12d40"
   dependencies:

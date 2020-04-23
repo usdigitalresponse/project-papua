@@ -8,7 +8,7 @@ const Introduction: React.FC = () => {
 
   return (
     <>
-      <Box pad={{ horizontal: 'medium' }}>
+      <Box pad="48px">
         <Markdown>{translateByID('introduction-content')}</Markdown>
       </Box>
       <Box style={{ position: 'relative' }}>
