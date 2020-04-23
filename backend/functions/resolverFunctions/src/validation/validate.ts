@@ -1,26 +1,28 @@
-import { Page, Question, Form, AnswerSchema, Values } from './types'
+import fs from 'fs'
+import yaml from 'js-yaml'
 import Joi, { AnySchema, Err, SchemaMap } from '@hapi/joi'
-import formSample from '../form.sample.json'
-import formCustom from '../form.json'
-
-let schema: Joi.ObjectSchema
-try {
-  schema = initializeValidationSchema()
-} catch (e) {
-  console.error(e)
-}
+import { Page, Question, Form, AnswerSchema, Values } from './types'
+import path from 'path'
 
 export function validateAnswers(answers: Values): Error {
+  const rawForm = getForm()
+  let schema = {} as Joi.ObjectSchema
+
+  try {
+    schema = initializeValidationSchema(rawForm)
+  } catch (e) {
+    console.error(e)
+  }
+
   if (!schema) return new Error('there was a problem initializing the validation schema')
   return schema.validate(answers).error as Error
 }
 
 // Parse the form data, creating a hashmap of question objects by questionId.
 export function initializeValidationSchema(form?: Form): Joi.ObjectSchema {
-  const rawForm = getForm(form)
   const schemas = []
 
-  const { pages } = rawForm as Form
+  const { pages } = form as Form
   for (const p in pages) {
     const { questions } = pages[p] as Page
     schemas.push(buildSchema(questions))
@@ -28,12 +30,25 @@ export function initializeValidationSchema(form?: Form): Joi.ObjectSchema {
   return Joi.object().keys((Object as any).assign(...schemas))
 }
 
-export function getForm(form?: Form): Form {
-  if (form) {
-    return form
-  } else {
-    return Object.keys(formCustom).length === 0 ? formSample : (formCustom as Form)
+export function getForm(): Form {
+  let form = {} as Form
+  let file = ''
+  const filename = process.env.FILE || 'form.yml'
+
+  try {
+    file = fs.readFileSync(path.resolve(__dirname, `../${filename}`), {
+      encoding: 'utf-8',
+    })
+  } catch (e) {
+    console.error('error reading file: ', e)
   }
+
+  try {
+    form = yaml.safeLoad(file)
+  } catch (e) {
+    console.error(e)
+  }
+  return form
 }
 
 // A form is made up of multiple pages containing multiple primary and secondary questions.

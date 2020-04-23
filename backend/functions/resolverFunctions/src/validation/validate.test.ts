@@ -1,26 +1,40 @@
-import { validateAnswers, initializeValidationSchema } from './validate'
-
+import { validateAnswers, initializeValidationSchema, getForm } from './validate'
 import validUserInput from './fixtures/valid.json'
 import invalidUserInput from './fixtures/invalid.json'
-import sampleFormFixture from './fixtures/form.sample.fixture.json'
+process.env.FILE = 'validation/fixtures/form.sample.fixture.yml'
 
 describe('input validation', () => {
-  test('input should be valid', () => {
+  test.skip('input should be valid', () => {
     const error = validateAnswers(validUserInput.questions)
     expect(error).toBeUndefined()
   })
 
-  test('input should be invalid', () => {
+  test.skip('input should be invalid', () => {
     const error = validateAnswers(invalidUserInput.questions)
     expect(error).toBeDefined()
   })
 })
 
 describe('schema creation', () => {
-  test('schema should fail to init unknown types', () => {
-    sampleFormFixture.pages[0].questions[0].type = 'fake'
+  const form = getForm()
+
+  test('should convert form from yml to json', () => {
     expect(() => {
-      initializeValidationSchema(sampleFormFixture)
+      getForm()
+    }).not.toThrow()
+  })
+
+  test.skip('schema should fail to init unknown types', () => {
+    form.pages[0].questions[0].type = 'fake'
+    expect(() => {
+      initializeValidationSchema(form)
+    }).toThrow()
+  })
+
+  test('YML schema should fail to init unknown types', () => {
+    form.pages[0].questions[0].type = 'fake'
+    expect(() => {
+      initializeValidationSchema(form)
     }).toThrow()
   })
 })

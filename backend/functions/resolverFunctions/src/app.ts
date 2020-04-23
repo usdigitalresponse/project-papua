@@ -4,7 +4,6 @@ import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
 import { PutObjectCommand } from '@aws-sdk/client-s3-node/commands/PutObjectCommand'
 import { validateAnswers } from './validation/validate'
-// import { validateQuestions } from './validation/validate'
 
 const s3 = new S3Client({
   // Locally, we'll override the S3 endpoint to point at a local dockerized
@@ -17,7 +16,8 @@ const s3 = new S3Client({
 })
 
 const app = express()
-app.use(bodyParser.json())
+// limit arbitrarily determined, update as necessary
+app.use(bodyParser.json({ limit: '5mb' }))
 
 // In production, this API runs behind API Gateway. In that case,
 // we need this middleware to extract the HTTP body from the Lambda
