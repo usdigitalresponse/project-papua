@@ -15,11 +15,11 @@ const Form: React.FC<Props> = (props) => {
 
   return (
     <Box style={{ padding: '48px' }} direction="column" justify="start">
-      <Heading color="black" margin={{ bottom: 'medium', top: 'none' }} level={3}>
+      <Heading color="black" margin="none" level={3}>
         {translateCopy(page.heading)}
       </Heading>
       {page.instructions && <Markdown>{translateCopy(page.instructions)}</Markdown>}
-      <Box margin={{ bottom: 'small' }}></Box>
+      <Box margin={{ bottom: 'medium' }}></Box>
       {page.questions.map((question) => (
         <Question question={question} key={question.id} />
       ))}
