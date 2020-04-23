@@ -47,7 +47,7 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install Dependencies
@@ -74,14 +74,14 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('backend/functions/transformer/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install Dependencies
-        run: yarn install
+        run: yarn --cwd backend/functions/transformer install
 
       - name: Run Tests
-        run: yarn test
+        run: yarn --cwd backend/functions/transformer test
 
   test-api:
     # The type of runner that the job will run on
@@ -91,7 +91,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: cd backend/functions/resolverFunctions
 
       # yarn install with caching
       - name: Get yarn cache directory path
@@ -101,11 +100,11 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('backend/functions/resolverFunctions/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install Dependencies
-        run: yarn install
+        run: yarn --cwd backend/functions/resolverFunctions install
 
       - name: Run Tests
-        run: yarn test
+        run: yarn --cwd backend/functions/resolverFunctions test
