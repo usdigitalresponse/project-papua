@@ -27,8 +27,6 @@ function merge(...sources: Record<string, any>[]) {
     }
   }
 
-  console.log(result, sources, result)
-
   return result
 }
 
