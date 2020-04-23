@@ -19,7 +19,7 @@ const Form: React.FC<Props> = (props) => {
         {translateCopy(page.heading)}
       </Heading>
       {page.instructions && <Markdown>{translateCopy(page.instructions)}</Markdown>}
-      <Box margin={{ bottom: 'small' }}></Box>
+      <Box margin={{ bottom: 'medium' }}></Box>
       {page.questions.map((question) => (
         <Question question={question} key={question.id} />
       ))}
