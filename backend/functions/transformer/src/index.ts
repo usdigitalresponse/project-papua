@@ -56,6 +56,6 @@ export async function handler(event: Partial<Config>) {
   }
 }
 
-function pad(n: number): string {
+export function pad(n: number): string {
   return ('0' + String(n)).slice(-2)
 }
