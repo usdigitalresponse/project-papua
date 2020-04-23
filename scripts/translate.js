@@ -39,6 +39,7 @@ const { Translate } = require('@google-cloud/translate').v2
 const yaml = require('js-yaml')
 const prettier = require('prettier')
 const translater = new Translate()
+const colors = require('colors')
 
 const filename = process.env.FILE || 'form.yml'
 const filepath = `public/${filename}`
@@ -48,6 +49,15 @@ const f = fs.readFileSync(filepath, {
 })
 
 const form = yaml.safeLoad(f)
+
+if (!form) {
+  console.error(
+    colors.red(
+      `\n⚠️  The form (${filepath}) is empty. Did you want to run this on form.sample.yml? If so, run this script with FILE=form.sample.yml`
+    )
+  )
+  process.exit(1)
+}
 
 async function map(f) {
   const updateQuestion = async (question) => {
@@ -143,8 +153,10 @@ function translate(languageCode) {
       })
       if (result.length > 0 && result[0].length > 0) {
         const content = result[0]
-          // Fix the formatting for Markdown links
-          // Google Translate will insert a space...
+          // In Chinese, replace fancy ()'s with normal ()'s.
+          .replace(/（/g, '(')
+          .replace(/）/g, ')')
+          // Google Translate will insert a space between the ] and ( in markdown links.
           .replace(/\] \(/g, '](')
           // Same with mailto links
           .replace(/mailto: /g, 'mailto:')
@@ -192,17 +204,35 @@ function translate(languageCode) {
   // Add chinese translations
   await map(translate('zh'))
 
-  const contents = yaml.safeDump(form, {
-    noCompatMode: true,
-    lineWidth: 120,
-    // js-yaml tries to be smart and use >- if a line needs to wrap
-    // otherwise using |- (literal). This leads to a mixture of
-    // >- and |-. Ideally we just use one everywhere. There is an open
-    // PR for this, but it's not likely to merge anytime soon so we're using
-    // a fork under colinking/js-yaml that includes preferredBlockStyle
-    // which allows you to choose which one to use.
-    preferredBlockStyle: 'literal',
-  })
+  let contents = ''
+  try {
+    contents = yaml.safeDump(form, {
+      noCompatMode: true,
+      lineWidth: 120,
+      // js-yaml tries to be smart and use >- if a line needs to wrap
+      // otherwise using |- (literal). This leads to a mixture of
+      // >- and |-. Ideally we just use one everywhere. There is an open
+      // PR for this, but it's not likely to merge anytime soon so we're using
+      // a fork under colinking/js-yaml that includes preferredBlockStyle
+      // which allows you to choose which one to use.
+      preferredBlockStyle: 'literal',
+    })
+  } catch (err) {
+    // Even through we reference a specific commit, it seems that `yarn install` doesn't always
+    // bump the dep... We might want to upstream a fix to yarn at some point, but until then
+    // we just surface a nicer error message:s
+    if (String(err).includes('preferredBlockStyle')) {
+      console.error(
+        colors.red(
+          `\n⚠️  Your Yarn dependencies are out-of-date -- run 'yarn upgrade js-yaml' then re-run this script.`
+        )
+      )
+      process.exit(1)
+    } else {
+      throw err
+    }
+  }
+
   // Run prettier on this file.
   const options = await prettier.resolveConfig()
   const formatted = prettier.format(contents, {

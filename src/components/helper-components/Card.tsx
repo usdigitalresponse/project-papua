@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box } from 'grommet'
+import { Box, BoxProps } from 'grommet'
 
-const Card: React.FC<any> = (props) => {
+const Card: React.FC<BoxProps> = (props) => {
   const { children, ...otherProps } = props
   return (
     <Box
