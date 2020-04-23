@@ -42,6 +42,11 @@ cp -r backend/functions/${FUNCTION_NAME}/dist/* amplify/backend/function/${FUNCT
 cp backend/functions/${FUNCTION_NAME}/package.json amplify/backend/function/${FUNCTION_NAME}/src/package.json
 cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCTION_NAME}/src/yarn.lock
 
+if [ "${FUNCTION_NAME}" == "resolverFunctions" ]; then
+  # Copy form data to validation Lambda function
+  cp src/form*.json amplify/backend/function/resolverFunctions/src/validation/
+fi
+
 # The STATE_CODE is set as an Amplify Environment Variable. But those envs are only available
 # at build-time so we copy it over.
 if [ -n "${STATE_CODE}" ]; then
