@@ -20,11 +20,11 @@ const Introduction: React.FC = () => {
             backgroundColor: '#FFAE00',
           }}
         />
-        <Box pad={{ vertical: 'none', horizontal: 'medium' }}>
+        <Box pad={{ vertical: 'none', horizontal: '48px' }}>
           <Markdown>{translateByID('warning')}</Markdown>
         </Box>
       </Box>
-      <Box pad={{ horizontal: 'medium' }}>
+      <Box pad={{ vertical: 'none', horizontal: '48px' }}>
         <Markdown>{translateByID('agreement')}</Markdown>
       </Box>
     </>
