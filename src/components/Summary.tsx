@@ -4,7 +4,7 @@ import { Values } from '../contexts/form'
 import { Box, Heading, Text } from 'grommet'
 import { translate } from '../forms'
 import { LanguageContext } from '../contexts/language'
-
+import moment from 'moment'
 interface Props {
   pages: Page[]
   values: Values
@@ -85,12 +85,13 @@ const Summary: React.FC<Props> = (props) => {
             {openPages[i] && (
               <Box margin={{ horizontal: '48px', vertical: '24px' }} onClick={() => checkPage(i)}>
                 {page.questions.map((q) => {
+                  const value = values[q.id] instanceof Date ? moment(values[q.id]).format('M/DD/YYYY') : values[q.id]
                   return (
                     <Box key={q.id} direction="row" margin={{ bottom: '16px' }}>
                       <Text margin={{ right: '8px' }} weight="bold">
                         {translate(q.name, language)}:
                       </Text>
-                      <Text>{values[q.id]}</Text>
+                      <Text>{value}</Text>
                     </Box>
                   )
                 })}

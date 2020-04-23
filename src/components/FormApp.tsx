@@ -46,7 +46,9 @@ const FormApp: React.FC<{}> = () => {
     setFormValues(newFormValues)
 
     const newFormErrors =
-      validationErrors.length > 0 ? ({ ...formErrors, [question.id]: value } as Errors) : omit(formErrors, question.id)
+      validationErrors.length > 0
+        ? ({ ...formErrors, [question.id]: validationErrors } as Errors)
+        : omit(formErrors, question.id)
 
     setFormErrors(newFormErrors)
 

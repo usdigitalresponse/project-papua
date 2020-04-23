@@ -65,7 +65,9 @@ const Sidebar: React.FC<Props> = (props) => {
       </Box>
       <Box margin={{ top: 'small' }}>
         {pages.map((page, i) => {
-          const canClickPage = i === 0 || i === pages.length - 1 || range(1, i).every((index) => completion[index])
+          // Set to true right now for demo purposes
+          const canClickPage =
+            true || i === 0 || i === pages.length - 1 || range(1, i).every((index) => completion[index])
           return (
             <Text
               style={{ cursor: canClickPage ? 'pointer' : 'not-allowed' }}

@@ -20,6 +20,7 @@ const Question: React.FC<Props> = (props) => {
   const value = values[question.id]
   const error = errors[question.id]
 
+  console.log('ERROR ', error)
   return (
     <Box direction="column" margin={{ bottom: 'small' }}>
       <Box fill={true} margin={{ bottom: 'small' }}>
