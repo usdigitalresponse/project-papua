@@ -63,9 +63,9 @@ export const FormProvider: React.FC = (props) => {
         json: true,
       })
 
-      // States will build their own form in `form.json` from the example in `form.sample.json`.
+      // States will build their own form in `form.yml` from the example in `form.sample.yml`.
       // By default, we'll use the sample version until a state starts building their form in
-      // `form.json`.
+      // `form.yml`.
       const useSample = contents === null
       const rawForm = useSample ? sampleContents : contents
 
