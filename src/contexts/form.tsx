@@ -106,6 +106,23 @@ export const FormProvider: React.FC = (props) => {
     }
   }
 
+  // TODO: figure this one out lol maybe this should live in the form?
+  useEffect(() => {
+    if (form) {
+      // Update the page title
+      document.title = translateCopy(form.title)
+
+      // Upsert the page description
+      let description = document.querySelector('meta[name="description"]')
+      if (!description) {
+        description = document.createElement('meta')
+        description.setAttribute('name', 'description')
+        document.head.appendChild(description)
+      }
+      description.setAttribute('content', translateCopy(form.description))
+    }
+  }, [form, language])
+
   if (!form) {
     // The value we pass here doesn't matter, since we don't render the children.
     return (

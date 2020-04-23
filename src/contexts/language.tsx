@@ -12,21 +12,6 @@ export const LanguageContext = createContext(initialState)
 export const LanguageProvider: React.FC = (props) => {
   const [language, setLanguage] = useLocalStorage<string>('papua-selected-language', initialState.language)
 
-  // TODO: figure this one out lol maybe this should live in the form?
-  // useEffect(() => {
-  //   // Update the page title
-  //   document.title = translate(initializeForm().title, language)
-
-  //   // Upsert the page description
-  //   let description = document.querySelector('meta[name="description"]')
-  //   if (!description) {
-  //     description = document.createElement('meta')
-  //     description.setAttribute('name', 'description')
-  //     document.head.appendChild(description)
-  //   }
-  //   description.setAttribute('content', translate(initializeForm().description, language))
-  // }, [language])
-
   // Check the user's browser's language and automatically match that.
   useEffect(() => {
     const codeMap: Record<string, string> = {
