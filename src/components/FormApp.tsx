@@ -27,12 +27,17 @@ const FormApp: React.FC<{}> = () => {
   const onClickBack = () => setPage(pageIndex - 1)
 
   return (
-    <Box align="center" pad="medium" direction="column">
-      <Card margin={{ bottom: 'small' }} pad="small" background="white">
+    <Box align="center" pad="medium" direction="column" width={{ max: '1200px' }} margin="auto">
+      <Card
+        margin={{ bottom: 'small' }}
+        pad={{ horizontal: 'medium', vertical: 'small' }}
+        background="white"
+        width={{ max: '600px' }}
+      >
         <Markdown>{translateByID('demo-warning')}</Markdown>
       </Card>
       <Box width="100%" height="100%" justify="center" direction="row">
-        <Card width="50%" background="white" display="flex" justify="between" flexDirection="column" textAlign="left">
+        <Card background="white" justify="between" flex={{ grow: 1, shrink: 1 }}>
           {pageComponents[pageIndex]}
           <Box justify="between" pad="medium" direction="row">
             {(pageIndex > 0 && (

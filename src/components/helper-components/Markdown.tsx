@@ -53,6 +53,9 @@ export const Markdown: React.FC<Props> = ({ margin, size, children }) => {
             component: Paragraph,
             props: merge({ fill: true, color: 'black', size: 'small' }, { margin, size }),
           },
+          a: {
+            props: { target: '_blank' },
+          },
         },
         ...headings
       )}
