@@ -24,7 +24,14 @@ const Sidebar: React.FC<Props> = (props) => {
   const percent = Math.floor(((pageIndex + 1) / pages.length) * 100)
 
   return (
-    <Card margin={{ left: 'small' }} textAlign="left" height="0%" background="white" pad="medium">
+    <Card
+      margin={{ left: 'small' }}
+      textAlign="left"
+      height="0%"
+      background="white"
+      pad="medium"
+      width={{ max: '350px' }}
+    >
       {form.seal && (
         <Box margin={{ bottom: 'medium' }}>
           <Image src={form.seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />
