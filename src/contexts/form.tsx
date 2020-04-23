@@ -106,6 +106,25 @@ export const FormProvider: React.FC = (props) => {
     }
   }
 
+  const translateCopy = (copy: Copy) => {
+    let text = copy[language]
+
+    // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
+    text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
+      // `key` is the regex-captured value inside the curly braces:
+      const value = form!.variables[key]
+      // If we don't recognize this variable, then default to rendering
+      // all of `{{VARIABLE_NAME}}` since that'll make the issue clearest.
+      return value ? value : m
+    })
+
+    return text
+  }
+
+  const translateByID = (id: string): string => {
+    return translateCopy(form!.instructions[id])
+  }
+
   // TODO: figure this one out lol maybe this should live in the form?
   useEffect(() => {
     if (form) {
@@ -121,7 +140,7 @@ export const FormProvider: React.FC = (props) => {
       }
       description.setAttribute('content', translateCopy(form.description))
     }
-  }, [form, language])
+  }, [form, language, translateCopy])
 
   if (!form) {
     // The value we pass here doesn't matter, since we don't render the children.
@@ -132,25 +151,6 @@ export const FormProvider: React.FC = (props) => {
         </Box>
       </FormContext.Provider>
     )
-  }
-
-  const translateCopy = (copy: Copy) => {
-    let text = copy[language]
-
-    // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
-    text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
-      // `key` is the regex-captured value inside the curly braces:
-      const value = form.variables[key]
-      // If we don't recognize this variable, then default to rendering
-      // all of `{{VARIABLE_NAME}}` since that'll make the issue clearest.
-      return value ? value : m
-    })
-
-    return text
-  }
-
-  const translateByID = (id: string): string => {
-    return translateCopy(form.instructions[id])
   }
 
   const value: FormState = {
