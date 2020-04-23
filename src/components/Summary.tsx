@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, Fragment } from 'react'
 import { Page } from '../forms/types'
 import { Values, FormContext } from '../contexts/form'
 import { Box, Heading, Text, CheckBox } from 'grommet'
@@ -13,7 +13,7 @@ interface Props {
 const Caret: React.FC<{ open: boolean }> = (props) => {
   return (
     <svg
-      transform={props.open ? 'rotate(90)' : 'none'}
+      transform={props.open ? 'rotate(90)' : undefined}
       width="9"
       height="14"
       viewBox="0 0 9 14"
@@ -43,7 +43,7 @@ const Summary: React.FC<Props> = (props) => {
   const [checkedPages, setCheckedPages] = useState<Record<string, boolean>>({})
   const [openPages, setOpenPages] = useState<Record<string, boolean>>({})
 
-  const checkPage = (pageIndex: number) => setCheckedPages({ ...checkedPages, [pageIndex]: true })
+  const toggleCheck = (pageIndex: number) => setCheckedPages({ ...checkedPages, [pageIndex]: !checkedPages[pageIndex] })
 
   const toggleOpenPage = (pageIndex: number) => {
     setOpenPages({
@@ -55,9 +55,9 @@ const Summary: React.FC<Props> = (props) => {
   return (
     <Box margin={{ top: 'medium' }} border={{ color: 'black' }}>
       {pages.map((page, i) => {
-        const checked = checkedPages[i]
+        const checked = checkedPages[i] || false
         return (
-          <>
+          <Fragment key={page.title.en}>
             <Box
               background="#F8F8F8"
               style={{
@@ -113,7 +113,7 @@ const Summary: React.FC<Props> = (props) => {
                   style={{ borderTop: '1px solid black' }}
                 >
                   <Box>
-                    <CheckBox checked={checked} onClick={() => checkPage(i)} label="The above info is correct." />
+                    <CheckBox checked={checked} onClick={() => toggleCheck(i)} label="The above info is correct." />
                   </Box>
                   <Text
                     style={{ cursor: 'pointer' }}
@@ -127,7 +127,7 @@ const Summary: React.FC<Props> = (props) => {
                 </Box>
               </Box>
             )}
-          </>
+          </Fragment>
         )
       })}
     </Box>

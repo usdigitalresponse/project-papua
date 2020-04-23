@@ -11,7 +11,7 @@ const Introduction: React.FC = () => {
       <Box pad="48px">
         <Markdown>{translateByID('introduction-content')}</Markdown>
       </Box>
-      <Box style={{ position: 'relative' }}>
+      <Box style={{ position: 'relative' }} margin={{ bottom: 'medium' }}>
         <Box
           style={{
             position: 'absolute',

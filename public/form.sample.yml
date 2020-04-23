@@ -13,11 +13,13 @@ variables:
 instructions:
   introduction-content:
     en: |-
-      ## Instructions
+      ### Instructions
 
-      Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System. The {{STATE_CODE}} Unemployment Insurance Benefits Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.
+      Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System.
 
-      Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive a prepaid debit card to access your benefits.
+      The {{STATE_CODE}} Unemployment Insurance Benefits Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.
+
+      Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.
 
       #### Preparation
 
@@ -55,122 +57,36 @@ instructions:
         1. You have had to quit your job as a direct result of COVID-19.
         1. Your place of employment is closed as a direct result of the COVID-19 public health emergency.
         1. You work as an independent contractor with reportable income and are unemployed, partially employed, or unable or unavailable to work because the COVID-19 public health emergency has severely limited your ability to continue performing your customary work activities, and has thereby forced you to suspend such activities.
-    es: |-
-      ## Instrucciones
-
-      Bienvenido al {{STATE_CODE}} Sistema de reclamos de beneficios del seguro de desempleo. La Solicitud de Reclamaciones de {{STATE_CODE}} Beneficios del Seguro de Desempleo debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.
-
-      Los beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una tarjeta de débito prepaga para acceder a sus beneficios.
-
-      #### Preparación
-
-      Tenga en cuenta que puede necesitar la siguiente información antes de presentar su reclamo:
-
-        - Su número de seguro social (SSN).
-        - Su ingreso bruto ajustado de su declaración de impuestos más reciente.
-        - Los nombres, direcciones, números de teléfono y fechas de empleo de todos los empleadores en los que ha trabajado en los últimos 18 meses.
-        - Su número de registro de extranjero, si corresponde.
-        - Los nombres, números de seguridad social y fechas de nacimiento de todos los hijos dependientes.
-        - Su licencia de conducir o número de identificación emitido por el estado.
-        - Su cuenta bancaria y número de ruta (si elige el depósito directo como su opción de pago).
-
-      #### Elegibilidad
-
-      El seguro de desempleo es un ingreso temporal:
-
-        - Para trabajadores elegibles
-        - Quienes pierden sus trabajos
-        - Sin culpa propia
-
-      Si ha trabajado en otro estado y no ha trabajado en {{STATE_CODE}} en los últimos 18 meses, debe comunicarse con la oficina de desempleo en los estados donde ha realizado el trabajo en los últimos 18 meses.
-
-      Para calificar para la Asistencia de desempleo pandémico, debe caer en al menos uno de los siguientes escenarios:
-
-        1. Le han diagnosticado COVID-19 o está experimentando síntomas de COVID-19 y está buscando un diagnóstico médico.
-        1. Ha tenido que renunciar a su trabajo debido a que entró en contacto directo con alguien que dio positivo por el coronavirus o que un profesional médico le diagnosticó COVID-19 y, siguiendo el consejo de un profesional médico calificado, debe renunciar a su cargo para poner en cuarentena.
-        1. Un miembro de su hogar ha sido diagnosticado con COVID-19.
-        1. Usted está brindando atención a un miembro de la familia o un miembro de su hogar ha sido diagnosticado con COVID-19.
-        1. Un niño u otra persona en el hogar para el cual tiene la responsabilidad principal de cuidar no puede asistir a la escuela u otra instalación que esté cerrada como resultado directo de la emergencia de salud pública de COVID-19 y se requiere dicha atención en la escuela o instalación trabajar.
-        1. No puede llegar al lugar de empleo debido a una cuarentena impuesta como resultado directo de la emergencia de salud pública COVID-19.
-        1. No puede llegar al lugar de empleo porque un proveedor de atención médica le ha aconsejado que se auto-ponga en cuarentena debido a preocupaciones relacionadas con COVID-19.
-        1. Estaba programado para comenzar a trabajar y no tiene trabajo o no puede acceder al trabajo como resultado directo de la emergencia de salud pública de COVID-19.
-        1. Se ha convertido en el sostén de la familia o el mayor apoyo de un hogar porque el jefe del hogar ha muerto como resultado directo de COVID-19.
-        1. Ha tenido que renunciar a su trabajo como resultado directo de COVID-19.
-        1. Su lugar de trabajo está cerrado como resultado directo de la emergencia de salud pública COVID-19.
-        1. Trabaja como un contratista independiente con ingresos declarables y está desempleado, parcialmente empleado o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad de continuar realizando sus actividades laborales habituales, y por lo tanto lo ha obligado a suspender tales actividades.
-    zh: |-
-      ##说明
-
-      欢迎使用{{STATE_CODE}}失业保险金索赔系统。 {{STATE_CODE}}失业保险金索赔申请表应用于针对处于{{STATE_CODE}}状态的已获得或预期获得的收入索取失业救济。
-
-      福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收预付借记卡以使用您的福利。
-
-      ####准备
-
-      请注意，在提出索赔之前，您可能需要以下信息：
-
-        - 您的社会安全号码（SSN）。
-        - 您最近的纳税申报单上的调整后总收入。
-        - 您在过去18个月内工作过的所有雇主的姓名，地址，电话号码和工作日期。
-        - 您的外国人注册号（如果适用）。
-        - 所有受抚养子女的姓名，社会安全号码和出生日期。
-        - 您的驾驶执照或国家签发的身份证号。
-        - 您的银行帐户和银行帐号（如果您选择直接存款作为付款方式）。
-
-      ####资格
-
-      失业保险是临时收入：
-
-        - 对于合格的工人
-        - 谁丢了工作
-        - 通过自己没有过错
-
-      如果您在其他州工作，而在最近18个月内未在{{STATE_CODE}}工作，则必须与最近18个月从事工作的州的失业办公室联系。
-
-      为了获得大流行性失业援助的资格，您必须至少属于以下情况之一：
-
-        1. 您已被诊断出患有COVID-19或正在出现COVID-19的症状，并正在寻求医学诊断。
-        1. 您必须直接与经检测冠状病毒呈阳性或已被医学专家诊断为具有COVID-19的人直接接触，因此辞职，并在合格的医学健康专家的建议下，离职。必须辞职才能隔离。
-        1. 您的家庭成员已被诊断出COVID-19。
-        1. 您正在为被诊断患有COVID-19的家庭成员或家庭成员提供护理。
-        1. 由您承担主要护理责任的家庭中的儿童或其他人无法上学或直接由于COVID-19公共卫生紧急情况而关闭的其他设施，因此您需要进行此类学校或设施的护理上班。
-        1. 由于COVID-19公共卫生紧急事件的直接结果是隔离，您无法到达工作地点。
-        1. 您无法到达工作地点，因为由于与COVID-19有关的问题，卫生保健提供者建议您进行自我检疫。
-        1. 由于COVID-19公共卫生突发事件，您原本打算开始工作，没有工作或无法找到工作。
-        1. 您已成为家庭的养家糊口或主要支持，因为户主因COVID-19的直接死亡而死亡。
-        1. 由于COVID-19的直接结果，您不得不辞职。
-        1. 由于COVID-19公共卫生突发事件的直接结果，您的工作单位被关闭。
-        1. 您以可报告收入的独立承包商的身份工作，由于COVID-19公共卫生突发事件严重限制了您继续进行常规工作活动的能力，因此失业，半就业，无法工作或无力工作。暂停此类活动。
   warning:
     en: |-
-      ### Warning
+      #### Warning
 
       Unless you receive a confirmation number, your claim will not be processed. The {{STATE_CODE}} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.
 
       Please print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.
     es: |-
-      ### Advertencia
+      #### Advertencia
 
       A menos que reciba un número de confirmación, su reclamo no será procesado. El {{STATE_CODE}} Departamento de Trabajo y Capacitación no retendrá la información que ingrese para presentar su reclamo hasta que reciba su número de confirmación. La última página de la aplicación de Internet indicará que su reclamo se ha completado y le dará un número de confirmación.
 
       Imprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.
     zh: |-
-      ### 警告
+      ##s## 警告
 
       除非您收到确认号码，否则您的索偿将不会得到处理。在收到确认号码之前，{{STATE_CODE}}劳工和培训部不会保留您输入的任何用于提出索赔的信息。 Internet应用程序的最后一页将说明您的索赔已经完成，并会给您一个确认号。
 
       请打印或记录您的确认号码，并将其保存在安全的地方。如果您提供了与部门联系的电子邮件，则系统最多可能需要72个小时才能将您的唯一确认号码通过电子邮件发送给您。如果您在收到确认码之前退出或刷新页面，则您输入的任何信息都将被丢弃。
   agreement:
     en: |-
-      ### Agreement
+      #### Agreement
 
       I understand the eligibility requirements outlined above and confirm that I meet the minimum requirements to apply for either {{STATE_CODE}} State Unemployment Insurance Benefits or Pandemic Unemployment Assistance.
     es: |-
-      ### Acuerdo
+      #### Acuerdo
 
       Entiendo los requisitos de elegibilidad descritos anteriormente y confirmo que cumplo con los requisitos mínimos para solicitar ya sea {{STATE_CODE}} Beneficios estatales de seguro de desempleo o Asistencia de desempleo pandémico.
     zh: |-
-      ###协议
+      ####协议
 
       我了解以上概述的资格要求，并确认我符合申请{{STATE_CODE}}州失业保险金或大流行性失业援助的最低要求。
   get-started:

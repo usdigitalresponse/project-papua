@@ -35,7 +35,7 @@ const FormApp: React.FC<{}> = () => {
         <Card width="50%" background="white" display="flex" justify="between" flexDirection="column" textAlign="left">
           {pageComponents[pageIndex]}
           <Box justify="between" pad="medium" direction="row">
-            {pageIndex > 0 && (
+            {(pageIndex > 0 && (
               <Button
                 border={{ radius: 0 }}
                 color="black"
@@ -45,7 +45,7 @@ const FormApp: React.FC<{}> = () => {
                 }}
                 label={translateByID('back')}
               />
-            )}
+            )) || <Box />}
             {pageIndex + 1 < pageTitles.length && (
               <Button
                 color={pageIndex === 0 ? '#3E73FF' : 'black'}
