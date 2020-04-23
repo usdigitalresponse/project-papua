@@ -1167,12 +1167,15 @@ pages:
     instructions:
       en: |-
         Please provide your employment history for your most relevant employer (such as your largest or most common client or business in your capacity as a gig worker, contract worker, small business owner, worker for hire, or self-employed individual) during the last 18 months.
+
         If you're self-employed, you are your own employer and should enter that information.
       es: |-
         Proporcione su historial de empleo para su empleador más relevante (como su cliente o negocio más grande o más común en su calidad de trabajador por cuenta propia, trabajador por contrato, propietario de una pequeña empresa, trabajador por cuenta ajena o autónomo) durante los últimos 18 meses.
+
         Si trabaja por cuenta propia, es su propio empleador y debe ingresar esa información.
       zh: |-
         请提供过去18年来您最相关的雇主（例如，以零工，合同工，小企业主，待租工人或个体经营者身份担任的最大或最普通客户或企业）的工作经历。几个月。
+
         如果您是自雇人士，则您是自己的雇主，应输入该信息。
     questions:
       - name:
@@ -2020,22 +2023,19 @@ pages:
         instructions:
           en: |-
             There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:
-
-            Direct Deposit (DD), which deposits your unemployment benefits into your checking or savings account.
-
-            Electronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.
+              
+              - Direct Deposit (DD), which deposits your unemployment benefits into your checking or savings account.
+              - Electronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.
           es: |-
             Hay dos opciones de pago para sus beneficios del Seguro de desempleo de emergencia COVID-19:
-
-            Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.
-
-            Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo.
+              
+              - Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.
+              - Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo.
           zh: |-
             COVID-19紧急失业保险金有两种付款方式：
-
-            直接存款（DD），用于将您的失业救济金存入您的支票或储蓄帐户。
-
-            电子支付卡（EPC），其作用类似于借记卡。 EPC由摩根大通银行（J.P. Morgan Chase Bank）管理。如果您选择通过EPC领取保险金，则将从您的索赔处理之日起7-10天内以邮件方式收到您的卡。
+              
+              -直接存款（DD），将您的失业救济金存入您的支票或储蓄帐户。
+              -电子支付卡（EPC），其作用类似于借记卡。 EPC由摩根大通银行（J.P. Morgan Chase Bank）管理。如果您选择通过EPC领取保险金，则将从您的索赔处理之日起7-10天内以邮件方式收到您的卡。
         id: payment-option
         required: true
         type: dropdown
