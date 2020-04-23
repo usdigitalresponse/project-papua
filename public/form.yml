@@ -212,9 +212,11 @@ instructions:
     es: Su reclamo no se archivará a menos que haga clic en Enviar a continuación.
     zh: 除非您单击下面的提交，否则不会提出您的索赔。
   demo-warning:
-    en: This is for demo purposes only. Email pua-requests@usdigitalresponse.org to learn more.
-    es: Esto es solo para fines de demostración.
-    zh: 这仅用于演示目的。
+    en: |-
+      This is for demo purposes only. Email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.
+    es: |-
+      Esto es solo para fines de demostración. Envíe un correo electrónico a [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) para obtener más información.
+    zh: '这仅用于演示目的。向[pua-requests@usdigitalresponse.org](mailto：pua-requests@usdigitalresponse.org)发送电子邮件以了解更多信息。'
   back:
     en: Go Back
     es: Regresa
