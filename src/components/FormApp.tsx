@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Card, Button, Markdown } from './helper-components'
 import { Box, ResponsiveContext } from 'grommet'
 import Sidebar from './Sidebar'
@@ -8,7 +8,7 @@ import Form from './Form'
 import { FormContext } from '../contexts/form'
 
 const FormApp: React.FC<{}> = () => {
-  const { form, values, errors, translateByID, translateCopy, completion, pageIndex, setPage } = useContext(FormContext)
+  const { form, translateByID, translateCopy, completion, pageIndex, setPage } = useContext(FormContext)
   const size = useContext(ResponsiveContext)
 
   const pageTitles = [
@@ -20,7 +20,7 @@ const FormApp: React.FC<{}> = () => {
   const pageComponents = [
     <Introduction key="introduction" />,
     ...form.pages.map((page) => <Form page={page} key={page.heading.en} />),
-    <Review key="review" pages={form.pages} setPage={setPage} />,
+    <Review key="review" pages={form.pages} />,
   ]
 
   const onClickNext = () => setPage(pageIndex + 1)
