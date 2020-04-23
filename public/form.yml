@@ -1437,15 +1437,21 @@ pages:
         instructions:
           en: |-
             For the purposes of this question a week starts on Sunday and ends on Saturday.
+
             Ex. If the last day you worked was a Tuesday, and you work on weekends, you should select Sunday, Monday, and Tuesday.
+
             If the last day you worked was a Friday, and you do not work on weekends, you should select Monday, Tuesday, Wednesday, Thursday, and Friday.
           es: |-
             A los fines de esta pregunta, una semana comienza el domingo y termina el sábado.
+
             Ex. Si el último día que trabajó fue un martes y trabaja los fines de semana, debe seleccionar domingo, lunes y martes.
+
             Si el último día que trabajó fue un viernes y no trabaja los fines de semana, debe seleccionar lunes, martes, miércoles, jueves y viernes.
           zh: |-
             为了这个问题，一周从星期日开始，到星期六结束。
+
             例如如果工作的最后一天是星期二，而周末工作，则应选择星期日，星期一和星期二。
+
             如果您上班的最后一天是星期五，而您不在周末工作，则应选择星期一，星期二，星期三，星期四和星期五。
         id: last-week-days-worked
         required: true
