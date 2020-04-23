@@ -1,18 +1,23 @@
 import { Page, Question, Form, AnswerSchema, Values } from './types'
-import Joi, { AnySchema } from '@hapi/joi'
+import Joi, { AnySchema, Err, SchemaMap } from '@hapi/joi'
 import formSample from '../form.sample.json'
-import form from '../form.json'
+import formCustom from '../form.json'
 
-const questionSchema = initializeQuestions()
-const fullSchema = Joi.object().keys(questionSchema)
+let schema: Joi.ObjectSchema
+try {
+  schema = initializeValidationSchema()
+} catch (e) {
+  console.error(e)
+}
 
-export function validateAnswers(answers: Values) {
-  return fullSchema.validate(answers)
+export function validateAnswers(answers: Values): Error {
+  if (!schema) return new Error('there was a problem initializing the validation schema')
+  return schema.validate(answers).error as Error
 }
 
 // Parse the form data, creating a hashmap of question objects by questionId.
-function initializeQuestions() {
-  const rawForm = Object.keys(form).length === 0 ? formSample : (form as Form)
+export function initializeValidationSchema(form?: Form): Joi.ObjectSchema {
+  const rawForm = getForm(form)
   const schemas = []
 
   const { pages } = rawForm as Form
@@ -20,7 +25,15 @@ function initializeQuestions() {
     const { questions } = pages[p] as Page
     schemas.push(buildSchema(questions))
   }
-  return (Object as any).assign(...schemas)
+  return Joi.object().keys((Object as any).assign(...schemas))
+}
+
+export function getForm(form?: Form): Form {
+  if (form) {
+    return form
+  } else {
+    return Object.keys(formCustom).length === 0 ? formSample : (formCustom as Form)
+  }
 }
 
 // A form is made up of multiple pages containing multiple primary and secondary questions.
@@ -105,8 +118,7 @@ function generateValidation(question: Question): Joi.AnySchema {
       validation = Joi.any()
       break
     default:
-      console.log(`unknown type: ${question.type}`)
-      return Joi.forbidden()
+      throw new Error(`unknown type: ${question.type}`)
   }
 
   if (pattern) validation = Joi.string().pattern(/`${pattern}`/)
