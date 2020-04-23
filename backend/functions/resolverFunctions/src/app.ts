@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
 import { PutObjectCommand } from '@aws-sdk/client-s3-node/commands/PutObjectCommand'
+import { validateAnswers } from './validation/validate'
 // import { validateQuestions } from './validation/validate'
 
 const s3 = new S3Client({
@@ -47,6 +48,12 @@ app.post('/claims', async function (req: Request, res: Response) {
   const uuid = req.body.metadata.uuid
   const key = `claims/day=${day}/hour=${hour}/${uuid}.json`
   const bucket = `papua-data-${process.env.ACCT_ID}`
+
+  try {
+    validateAnswers(req.body.questions)
+  } catch (err) {
+    res.status(500).json({ message: err, id: uuid })
+  }
 
   const putObjectCommand = new PutObjectCommand({
     Bucket: bucket,

@@ -5,13 +5,13 @@ import validUserInput from './fixtures/valid.json'
 import invalidUserInput from './fixtures/invalid.json'
 
 describe('validate', () => {
-  it('input is valid', () => {
+  it('input should be valid', () => {
     const result = validateAnswers(validUserInput.questions)
     expect(result)
   })
 
-  it('input is invalid', () => {
+  it('input should be invalid', () => {
     const result = validateAnswers(invalidUserInput.questions)
-    expect(result)
+    expect(result.error).to.exist
   })
 })

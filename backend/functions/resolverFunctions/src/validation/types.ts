@@ -131,7 +131,7 @@ export interface Values {
 }
 
 export interface AnswerSchema {
-  [key: string]: Joi.ObjectSchema
+  [key: string]: Joi.AnySchema
 }
 
 export interface Payload {
