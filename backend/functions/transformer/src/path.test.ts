@@ -1,7 +1,7 @@
 import { toPath } from './path'
 import { pad } from './index'
 
-it('renders valid paths', () => {
+test('renders valid paths', () => {
   expect(
     toPath('foobar', {
       day: pad(1),
