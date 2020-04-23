@@ -161,7 +161,7 @@ instructions:
 
       Imprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.
     zh: |-
-      ##s## 警告
+      #### 警告
 
       除非您收到确认号码，否则您的索偿将不会得到处理。在收到确认号码之前，{{STATE_CODE}}劳工和培训部不会保留您输入的任何用于提出索赔的信息。 Internet应用程序的最后一页将说明您的索赔已经完成，并会给您一个确认号。
 
