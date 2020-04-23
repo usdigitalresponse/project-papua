@@ -207,10 +207,19 @@ instructions:
     en: Submit
     es: Enviar
     zh: 提交
-  'submit:instructions':
-    en: Your claim will not be filed unless you click Submit below.
-    es: Su reclamo no se archivará a menos que haga clic en Enviar a continuación.
-    zh: 除非您单击下面的提交，否则不会提出您的索赔。
+  submit-instructions:
+    en: |-
+      Please review and verify the information section below. If there are errors in any section, you may select 'Edit' to revisit that page of your application.
+
+      Once all sections have been verified, please select 'Submit' to complete filling your claim. Your claim will not be filed unless you click 'Submit' below.
+    es: |-
+      Revise y verifique la sección de información a continuación. Si hay errores en alguna sección, puede seleccionar 'Editar' para volver a visitar esa página de su aplicación.
+
+      Una vez que se hayan verificado todas las secciones, seleccione 'Enviar' para completar el llenado de su reclamo. Su reclamo no se archivará a menos que haga clic en 'Enviar' a continuación.
+    zh: |-
+      请查看并验证下面的信息部分。如果任何部分有错误，则可以选择“编辑”以重新访问应用程序的该页面。
+
+      所有部分均通过验证后，请选择“提交”以完成您的索赔。除非您单击下面的“提交”，否则不会提出您的索赔。
   demo-warning:
     en: |-
       This is for demo purposes only. Email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.
@@ -1730,36 +1739,37 @@ pages:
             id: single
       - name:
           en: What was your Adjusted Gross Income on your most recently filed federal tax return?
-          es: ¿Cuál fue su ingreso bruto ajustado en su declaración de impuestos federales presentada más recientemente?
+          es: |-
+            ¿Cuál fue su ingreso bruto ajustado en su declaración de impuestos federales presentada más recientemente?
           zh: 您最近提交的联邦纳税申报表上的调整后总收入是多少？
         instructions:
           en: |-
             You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted:
-
-            Line 8b on Form 1040 (for tax year 2019)
-            Line 8b on Form 1040-SR (for tax year 2019)
-            Line 7 on Form 1040 (for tax year 2018)
-            Line 21 on Form 1040A (for tax years before 2018)
-            Line 4 on Form 1040EZ (for tax years before 2018)
-            Line 35 on Form 1040NR (for tax year 2019 or 2019)
+              
+              - Line 8b on Form 1040 (for tax year 2019)
+              - Line 8b on Form 1040-SR (for tax year 2019)
+              - Line 7 on Form 1040 (for tax year 2018)
+              - Line 21 on Form 1040A (for tax years before 2018)
+              - Line 4 on Form 1040EZ (for tax years before 2018)
+              - Line 35 on Form 1040NR (for tax year 2019 or 2019)
           es: |-
             Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, dependiendo del formulario que haya enviado:
-
-            Línea 8b en el Formulario 1040 (para el año fiscal 2019)
-            Línea 8b en el Formulario 1040-SR (para el año fiscal 2019)
-            Línea 7 en el Formulario 1040 (para el año fiscal 2018)
-            Línea 21 en el Formulario 1040A (para años fiscales antes de 2018)
-            Línea 4 en el Formulario 1040EZ (para años fiscales antes de 2018)
-            Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)
+              
+              - Línea 8b en el Formulario 1040 (para el año fiscal 2019)
+              - Línea 8b en el Formulario 1040-SR (para el año fiscal 2019)
+              - Línea 7 en el Formulario 1040 (para el año fiscal 2018)
+              - Línea 21 en el Formulario 1040A (para años fiscales antes de 2018)
+              - Línea 4 en el Formulario 1040EZ (para los años fiscales antes de 2018)
+              - Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)
           zh: |-
             您可以在最近提交的1040表格中找到调整后的总收入。它位于不同的行，具体取决于您提交的表单：
-
-            1040表格上的8b行（适用于2019纳税年度）
-            1040-SR表格上的第8b行（适用于2019纳税年度）
-            表格1040的第7行（适用于2018纳税年度）
-            1040A表格上的第21行（适用于2018之前的纳税年度）
-            1040EZ表格上的第4行（适用于2018年之前的纳税年度）
-            1040NR表格上的第35行（适用于2019或2019纳税年度）
+              
+              - 表格1040的第8b行（适用于2019纳税年度）
+              - 1040-SR表格上的第8b行（适用于2019纳税年度）
+              - 表格1040的第7行（适用于2018纳税年度）
+              - 表格1040A的第21行（适用于2018年之前的纳税年度）
+              - 1040EZ表格上的第4行（适用于2018年之前的纳税年度）
+              - 1040NR表格上的第35行（适用于2019或2019纳税年度）
         id: tax-info-agi
         required: true
         type: dollar-amount
@@ -1769,33 +1779,27 @@ pages:
           zh: 您有几个受抚养子女？
         instructions:
           en: |-
-            You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return.
+            You are entitled to receive additional benefits for any dependent child, regardless of whether the child lives with you or you claim the child on your income tax return. A dependent child must be:
 
-            A dependent child must be:
-
-            1) A natural, adopted, or step-child under the age of 18 whom you support.
-            2) A child under the age of 18 for whom you are the court-appointed guardian.
-            3) A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.
+              1. A natural, adopted, or step-child under the age of 18 whom you support.
+              2. A child under the age of 18 for whom you are the court-appointed guardian.
+              3. A child 18 years of age or older who is physically or developmentally disabled and incapable of working/earning wages.
 
             NOTE: Only one parent or guardian is entitled to receive dependents’ allowance for any week of unemployment benefits.
           es: |-
-            Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos.
+            Tiene derecho a recibir beneficios adicionales para cualquier hijo dependiente, independientemente de si el niño vive con usted o si lo reclama en su declaración de impuestos. Un hijo dependiente debe ser:
 
-            Un hijo dependiente debe ser:
-
-            1) Un hijo natural, adoptado o hijastro menor de 18 años a quien usted apoya.
-            2) Un niño menor de 18 años para quien usted es el tutor designado por el tribunal.
-            3) Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios.
+              1. Un hijo natural, adoptado o hijastro menor de 18 años a quien usted apoya.
+              2. Un niño menor de 18 años para quien usted es el tutor designado por el tribunal.
+              3. Un niño de 18 años de edad o mayor con discapacidad física o de desarrollo e incapaz de trabajar / ganar salarios.
 
             NOTA: Solo uno de los padres o tutores tiene derecho a recibir la asignación de dependientes por cualquier semana de beneficios de desempleo.
           zh: |-
-            无论该孩子与您同住还是您在所得税申报表中要求该孩子，您都有权为任何被抚养的孩子获得其他福利。
+            无论该孩子与您同住还是您在所得税申报表中要求该孩子，您都有权为任何被抚养的孩子获得额外的利益。受抚养子女必须是：
 
-            受抚养子女必须是：
-
-            1）您支持的18岁以下的自然，收养或继子女。
-            2）您是法院指定的监护人的18岁以下儿童。
-            3）年龄在18岁或以上的肢体或发育残疾且无工作/挣工资的儿童。
+              1. 您支持的18岁以下的自然，收养或继子女。
+              2. 您是法院指定的监护人的18岁以下儿童。
+              3. 年龄在18岁或以上的肢体或发育残疾且无工作/挣工资的儿童。
 
             注意：只有一位父母或监护人有权获得每周一周的失业救济金。
         id: tax-info-dependents
