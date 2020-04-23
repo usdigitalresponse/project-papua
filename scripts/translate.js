@@ -126,6 +126,15 @@ function translate(languageCode) {
       return copy
     }
 
+    // Just copy numbers verbatim (f.e. GT translates "0" in spanish to "0 0" ¯\_(ツ)_/¯)
+    const isNumber = !isNaN(copy.en)
+    if (isNumber) {
+      return {
+        ...copy,
+        [languageCode]: copy.en,
+      }
+    }
+
     try {
       const result = await translater.translate(copy.en, {
         to: languageCode,
@@ -143,6 +152,9 @@ function translate(languageCode) {
           // For chinese, it also inserts some weird pound signs that aren't
           // registering as valid in the Markdown parser.
           .replace(/＃/g, '#')
+          // In Chinese, whitespace is removed after list items and counters
+          .replace(/^\s*-\S/gm, (a) => a.replace('-', '- '))
+          .replace(/^\s*([0-9]+\.)\S/gm, (a, match) => a.replace(/[0-9]+\./, `${match} `))
 
         return {
           ...copy,
