@@ -56,6 +56,7 @@ const Review: React.FC<Props> = (props) => {
       <Text>{translate(getCopy('submit:instructions-2'), language)}</Text>
       <Summary setPage={setPage} values={values} pages={pages} />
       <Button
+        margin={{ top: 'small' }}
         color="black !important"
         onClick={onSubmit}
         disabled={!canSubmit}
