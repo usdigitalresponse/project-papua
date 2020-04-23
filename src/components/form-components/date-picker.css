@@ -27,7 +27,7 @@
 .react-calendar__tile--active:hover,
 .react-calendar__tile--hasActive,
 .react-calendar__tile--hasActive:hover {
-  background: #008060 !important;
+  background: #3e73ff !important;
 }
 
 .react-calendar__tile--active abbr,

@@ -1,17 +1,22 @@
 import React, { useContext, useState } from 'react'
-import { Box, Heading, Button, Text } from 'grommet'
-import { getCopy, translate } from '../forms/index'
-import { LanguageContext } from '../contexts/language'
+import { Box, Heading, Button } from 'grommet'
 import Amplify, { API } from 'aws-amplify'
 import { FormContext } from '../contexts/form'
 import { v5 as uuid } from 'uuid'
+import Summary from './Summary'
+import { Markdown } from './helper-components/Markdown'
 
 import awsconfig from '../aws-exports'
+import { Page } from '../forms/types'
 Amplify.configure(awsconfig)
 
-const Review: React.FC<{}> = () => {
-  const { language } = useContext(LanguageContext)
-  const { values } = useContext(FormContext)
+interface Props {
+  pages: Page[]
+}
+
+const Review: React.FC<Props> = (props) => {
+  const { pages } = props
+  const { values, translateByID, setPage } = useContext(FormContext)
 
   const [canSubmit, setCanSubmit] = useState(true)
 
@@ -36,22 +41,20 @@ const Review: React.FC<{}> = () => {
   }
 
   return (
-    <Box pad="medium">
+    <Box pad="48px">
       <Heading margin="none" level={3}>
-        {translate(getCopy('submit'), language)}
+        {translateByID('submit')}
       </Heading>
 
-      {/* TODO: programmatically render the form values here */}
+      <Markdown>{translateByID('submit-instructions')}</Markdown>
 
-      <br />
-      <Text>{translate(getCopy('submit:instructions'), language)}</Text>
-      <br />
-
+      <Summary setPage={setPage} values={values} pages={pages} />
       <Button
+        margin={{ top: 'small' }}
         color="black !important"
         onClick={onSubmit}
         disabled={!canSubmit}
-        label={translate(getCopy('submit:button'), language)}
+        label={translateByID('submit:button')}
       />
     </Box>
   )

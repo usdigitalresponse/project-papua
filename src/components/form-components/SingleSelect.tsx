@@ -1,50 +1,50 @@
 import React, { useContext } from 'react'
 import { Question } from '../../forms/types'
-import { Box, Text } from 'grommet'
+import { Box, RadioButtonGroup } from 'grommet'
 import './single-select.css'
-import { LanguageContext } from '../../contexts/language'
-import { translate } from '../../forms/index'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
   question: Question
 }
 
-const SingleSelect: React.FC<Props> = (props) => {
+/**
+ * 
+ * @param props "disabled": false,
+    "id": "ONE",
+    "name": "one",
+    "value": "1",
+    "label": "one"
+ */
+
+const SingleSelectRadio: React.FC<Props> = (props) => {
   const { question } = props
-  const { language } = useContext(LanguageContext)
-  const { values, setValue } = useContext(FormContext)
+  const { values, setValue, translateCopy } = useContext(FormContext)
 
   const value = values[question.id]
 
   if (!question || !question.options) {
     return <Box />
   }
+
+  const options = question.options.map((o) => ({
+    id: `${question.id}:${o.id}`,
+    value: `${question.id}:${o.id}`,
+    name: `${question.id}:${o.id}`,
+    label: translateCopy(o.name),
+  }))
+
   return (
-    <Box>
-      {question.options.map((o) => (
-        <Box
-          onClick={() => setValue(question, o.id)}
-          background={value === o.id ? '#EBFFFA' : 'white'}
-          key={o.id}
-          margin={{ bottom: 'xsmall' }}
-          style={{ borderRadius: '4px' }}
-          direction="row"
-          className="single-select-border single-select"
-          pad="small"
-        >
-          <Box
-            background={value === o.id ? '#008060' : 'white'}
-            margin={{ right: 'small' }}
-            flex={{ shrink: 0 }}
-            style={{ height: 20, width: 20, borderRadius: '50%' }}
-            className="single-select-border"
-          />
-          <Text>{translate(o.name, language)}</Text>
-        </Box>
-      ))}
-    </Box>
+    <RadioButtonGroup
+      name={translateCopy(question.name)}
+      options={options}
+      value={`${question.id}:${value}`}
+      onChange={(e) => {
+        const id = e.target.value.split(':')[1]
+        setValue(question, question.options?.find((o) => id === o.id)!.id)
+      }}
+    />
   )
 }
 
-export default SingleSelect
+export default SingleSelectRadio

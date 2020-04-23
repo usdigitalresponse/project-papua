@@ -4,8 +4,8 @@ import Joi from '@hapi/joi'
 // with any changes to the TS Form type below.
 const CopySchema = Joi.object({
   en: Joi.string(),
-  es: Joi.string(),
-  zh: Joi.string(),
+  es: Joi.string().optional(),
+  zh: Joi.string().optional(),
 })
 let QuestionSchema = Joi.object()
 QuestionSchema = Joi.object({

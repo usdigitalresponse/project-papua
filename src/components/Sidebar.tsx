@@ -2,13 +2,11 @@ import React, { useContext } from 'react'
 import { Card } from './helper-components'
 import { Box, Text, Select, Image } from 'grommet'
 import { LanguageContext } from '../contexts/language'
-import { translate, getCopy } from '../forms/index'
+import { FormContext } from '../contexts/form'
+import { range } from 'lodash'
 
 interface Props {
   pages: string[]
-  currentIndex: number
-  seal?: string
-  setCurrentIndex: (index: number) => void
 }
 
 const languages = [
@@ -18,28 +16,23 @@ const languages = [
 ]
 
 const Sidebar: React.FC<Props> = (props) => {
-  const { pages, seal, currentIndex, setCurrentIndex } = props
-  const currentPage = pages[currentIndex]
-  const percent = Math.floor(((currentIndex + 1) / pages.length) * 100)
+  const { pages } = props
+  const { translateByID, form, pageIndex, setPage, completion } = useContext(FormContext)
   const { language, setLanguage } = useContext(LanguageContext)
 
+  const currentPage = pages[pageIndex]
+  const percent = Math.floor(((pageIndex + 1) / pages.length) * 100)
+
   return (
-    <Card
-      pad="medium"
-      margin={{ left: 'small' }}
-      textAlign="left"
-      height="0%"
-      background="white"
-      width={{ max: '350px' }}
-    >
-      {seal && (
+    <Card flex={{ shrink: 0 }} margin={{ left: 'small' }} height="0%" background="white" pad="medium" width="350px">
+      {form.seal && (
         <Box margin={{ bottom: 'medium' }}>
-          <Image src={seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />
+          <Image src={form.seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />
         </Box>
       )}
       <Box>
         <Text weight={600} color="black">
-          {translate(getCopy('language'), language)}
+          {translateByID('language')}
         </Text>
         <Select
           a11yTitle="select language"
@@ -53,33 +46,38 @@ const Sidebar: React.FC<Props> = (props) => {
       </Box>
       <Box margin={{ top: 'medium' }}>
         <Text weight={600} color="black">
-          {translate(getCopy('progress'), language)}
+          {translateByID('progress')}
         </Text>
         <Box
           margin={{ top: 'xsmall' }}
           style={{ width: '100%', height: '8px', borderRadius: '12px', background: '#E4E7EB' }}
         >
-          <Box style={{ width: `${percent}%`, height: '100%', borderRadius: '12px', background: '#008060' }} />
+          <Box style={{ width: `${percent}%`, height: '100%', borderRadius: '12px', background: '#3E73FF' }} />
         </Box>
         <Box align="center">
           {' '}
           <Text color="black" weight={300} size="xsmall">
-            {percent}% {translate(getCopy('complete'), language)}
+            {percent}% {translateByID('complete')}
           </Text>{' '}
         </Box>
       </Box>
       <Box margin={{ top: 'small' }}>
-        {pages.map((page, i) => (
-          <Text
-            style={{ cursor: 'pointer' }}
-            onClick={() => setCurrentIndex(i)}
-            color={currentPage === page ? 'black' : '#66788A'}
-            margin={{ bottom: 'xsmall' }}
-            key={page}
-          >
-            {page}
-          </Text>
-        ))}
+        {pages.map((page, i) => {
+          // Set to true right now for demo purposes
+          const canClickPage =
+            true || i === 0 || i === pages.length - 1 || range(1, i).every((index) => completion[index])
+          return (
+            <Text
+              style={{ cursor: canClickPage ? 'pointer' : 'not-allowed' }}
+              onClick={() => canClickPage && setPage(i)}
+              color={currentPage === page ? 'black' : '#66788A'}
+              margin={{ bottom: 'xsmall' }}
+              key={page}
+            >
+              {page}
+            </Text>
+          )
+        })}
       </Box>
     </Card>
   )

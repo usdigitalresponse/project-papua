@@ -36,15 +36,28 @@
 
 const fs = require('fs')
 const { Translate } = require('@google-cloud/translate').v2
+const yaml = require('js-yaml')
+const prettier = require('prettier')
 const translater = new Translate()
+const colors = require('colors')
 
-const filename = process.env.FILE || 'form.json'
+const filename = process.env.FILE || 'form.yml'
+const filepath = `public/${filename}`
 
-const f = fs.readFileSync(`src/${filename}`, {
+const f = fs.readFileSync(filepath, {
   encoding: 'utf-8',
 })
 
-const form = JSON.parse(f)
+const form = yaml.safeLoad(f)
+
+if (!form) {
+  console.error(
+    colors.red(
+      `\n⚠️  The form (${filepath}) is empty. Did you want to run this on form.sample.yml? If so, run this script with FILE=form.sample.yml`
+    )
+  )
+  process.exit(1)
+}
 
 async function map(f) {
   const updateQuestion = async (question) => {
@@ -125,14 +138,41 @@ function translate(languageCode) {
       return copy
     }
 
+    // Just copy numbers verbatim (f.e. GT translates "0" in spanish to "0 0" ¯\_(ツ)_/¯)
+    const isNumber = !isNaN(copy.en)
+    if (isNumber) {
+      return {
+        ...copy,
+        [languageCode]: copy.en,
+      }
+    }
+
     try {
       const result = await translater.translate(copy.en, {
         to: languageCode,
       })
       if (result.length > 0 && result[0].length > 0) {
+        const content = result[0]
+          // In Chinese, replace fancy ()'s with normal ()'s.
+          .replace(/（/g, '(')
+          .replace(/）/g, ')')
+          // Google Translate will insert a space between the ] and ( in markdown links.
+          .replace(/\] \(/g, '](')
+          // Same with mailto links
+          .replace(/mailto: /g, 'mailto:')
+          // Google Translate seems to be adding no-break-spaces in front of
+          // list items. So remove those so that the Markdown will format correctly.
+          .replace(/\u00A0/g, ' ')
+          // For chinese, it also inserts some weird pound signs that aren't
+          // registering as valid in the Markdown parser.
+          .replace(/＃/g, '#')
+          // In Chinese, whitespace is removed after list items and counters
+          .replace(/^\s*-\S/gm, (a) => a.replace('-', '- '))
+          .replace(/^\s*([0-9]+\.)\S/gm, (a, match) => a.replace(/[0-9]+\./, `${match} `))
+
         return {
           ...copy,
-          [languageCode]: result[0],
+          [languageCode]: content,
         }
       }
     } catch (err) {
@@ -153,7 +193,10 @@ function translate(languageCode) {
   // when we introduced i18n, we moved to a format like `title: { en: "Foo" }`
   // If you need to convert a form from the former to the latter, then
   // uncomment the following line.
-  // await map(copy => ({ en: copy}));
+  // await map((copy) => ({ en: copy.en }))
+
+  // If you want to add other languages, make sure to use codes from:
+  // https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
   // Add spanish translations
   await map(translate('es'))
@@ -161,7 +204,42 @@ function translate(languageCode) {
   // Add chinese translations
   await map(translate('zh'))
 
-  fs.writeFileSync(`src/${filename}`, JSON.stringify(form, null, 2), {
+  let contents = ''
+  try {
+    contents = yaml.safeDump(form, {
+      noCompatMode: true,
+      lineWidth: 120,
+      // js-yaml tries to be smart and use >- if a line needs to wrap
+      // otherwise using |- (literal). This leads to a mixture of
+      // >- and |-. Ideally we just use one everywhere. There is an open
+      // PR for this, but it's not likely to merge anytime soon so we're using
+      // a fork under colinking/js-yaml that includes preferredBlockStyle
+      // which allows you to choose which one to use.
+      preferredBlockStyle: 'literal',
+    })
+  } catch (err) {
+    // Even through we reference a specific commit, it seems that `yarn install` doesn't always
+    // bump the dep... We might want to upstream a fix to yarn at some point, but until then
+    // we just surface a nicer error message:s
+    if (String(err).includes('preferredBlockStyle')) {
+      console.error(
+        colors.red(
+          `\n⚠️  Your Yarn dependencies are out-of-date -- run 'yarn upgrade js-yaml' then re-run this script.`
+        )
+      )
+      process.exit(1)
+    } else {
+      throw err
+    }
+  }
+
+  // Run prettier on this file.
+  const options = await prettier.resolveConfig()
+  const formatted = prettier.format(contents, {
+    ...options,
+    parser: 'yaml',
+  })
+  fs.writeFileSync(filepath, formatted, {
     encoding: 'utf-8',
   })
 })().catch((err) => {
