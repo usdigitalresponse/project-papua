@@ -150,7 +150,7 @@
   },
   "oneOf": [
     {
-      "type": "string",
+      "type": ["string", "null"],
       "description": "An empty form. This allows an empty form.yml (from our master branch) to pass validation. As soon as you start adding fields to this form, it'll enforce that it matches the full schema."
     },
     {
