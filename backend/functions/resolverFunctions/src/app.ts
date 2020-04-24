@@ -50,10 +50,10 @@ app.post('/claims', async function (req: Request, res: Response) {
   const key = `claims/day=${day}/hour=${hour}/${uuid}.json`
   const bucket = `papua-data-${process.env.ACCT_ID}`
 
-  try {
-    validateAnswers(req.body.questions)
-  } catch (err) {
-    res.status(400).json({ message: err, id: uuid })
+  const result = validateAnswers(req.body.questions)
+
+  if (result.error) {
+    res.status(400).json({ message: 'validation error', id: uuid })
     return
   }
 

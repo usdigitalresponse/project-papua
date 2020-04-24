@@ -1,10 +1,9 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
-import Joi, { AnySchema } from '@hapi/joi'
+import Joi, { AnySchema, ValidationResult } from '@hapi/joi'
 import { Page, Question, Form, AnswerSchema, Values } from './types'
-import path from 'path'
 
-export function validateAnswers(answers: Values): Error {
+export function validateAnswers(answers: Values): ValidationResult {
   const rawForm = getForm()
   let schema = {} as Joi.ObjectSchema
 
@@ -12,10 +11,10 @@ export function validateAnswers(answers: Values): Error {
     schema = initializeValidationSchema(rawForm)
   } catch (e) {
     console.error(e)
-    return new Error('there was a problem initializing the validation schema')
+    throw e
   }
 
-  return schema.validate(answers).error as Error
+  return schema.validate(answers)
 }
 
 // Parse the form data, creating a hashmap of question objects by questionId.

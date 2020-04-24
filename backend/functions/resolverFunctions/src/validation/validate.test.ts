@@ -5,13 +5,13 @@ process.env.FILE = 'validation/fixtures/form.sample.fixture.yml'
 
 describe('input validation', () => {
   test('input should be valid', () => {
-    const error = validateAnswers(validUserInput.questions)
-    expect(error).toBeUndefined()
+    const result = validateAnswers(validUserInput.questions)
+    expect(result).toHaveProperty('value.covid-19-reason')
   })
 
   test('input should be invalid', () => {
-    const error = validateAnswers(invalidUserInput.questions)
-    expect(error).toBeDefined()
+    const result = validateAnswers(invalidUserInput.questions)
+    expect(result).toHaveProperty('error')
   })
 })
 
