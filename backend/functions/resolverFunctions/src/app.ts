@@ -53,7 +53,7 @@ app.post('/claims', async function (req: Request, res: Response) {
   const result = validateAnswers(req.body.questions)
 
   if (result.error) {
-    res.status(400).json({ message: 'validation error', id: uuid })
+    res.status(400).json({ message: result.error?.message, id: uuid })
     return
   }
 
