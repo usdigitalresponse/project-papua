@@ -32,7 +32,7 @@ const Select: React.FC<Props> = (props) => {
       options={options}
       labelKey="name"
       valueKey="id"
-      value={value}
+      value={value as string}
       onChange={({ option }: { option: { id: string; name: string } }) => setValue(question, option.id)}
     />
   )

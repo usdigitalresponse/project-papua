@@ -245,6 +245,24 @@ instructions:
     zh: 完成
   invalid-email:
     en: Please enter a valid email address.
+    es: 'Por favor, introduce una dirección de correo electrónico válida.'
+    zh: 请输入有效的电子邮件地址。
+  field-is-required:
+    en: An answer is required to this question.
+    es: Se requiere una respuesta a esta pregunta.
+    zh: 必须回答这个问题。
+  invalid-decimal:
+    en: Answer must be a decimal value.
+    es: La respuesta debe ser un valor decimal.
+    zh: 答案必须是十进制值。
+  invalid-integer:
+    en: Answer must be a integer value.
+    es: La respuesta debe ser un valor entero.
+    zh: 答案必须是整数值。
+  invalid-dollar:
+    en: Answer must be a dollar value.
+    es: La respuesta debe ser un valor en dólares.
+    zh: 答案必须是美元价值。
 pages:
   - title:
       en: Name

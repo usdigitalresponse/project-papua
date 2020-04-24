@@ -31,7 +31,7 @@ export interface Errors {
   [key: string]: Copy[]
 }
 
-export type Value = string | string[] | Date
+export type Value = string | string[] | Date | number | undefined
 
 const initialState = {
   /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -127,8 +127,12 @@ export const FormProvider: React.FC = (props) => {
 
   const setError = (key: string, value: Copy[]) => setErrors({ ...errors, [key]: value })
   const setValue = (question: Question, value: Value) => {
-    const newValues = { ...values, [question.id]: value }
+    const newValues = value !== undefined ? { ...values, [question.id]: value } : omit(values, question.id)
     setValues(newValues)
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Form values: ', newValues)
+    }
 
     const validationErrors = isValid(question, value, values, form!)
     const newErrors =

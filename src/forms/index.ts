@@ -7,20 +7,41 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
+import { Number } from '../components/form-components/Number'
 
 import { Box } from 'grommet'
 import validator from 'email-validator'
 import { Values, Errors, Value } from '../contexts/form'
 import { Form } from './types'
+import Joi from '@hapi/joi'
 
 export function isValid(question: Question, value: Value, values: Values, form: Form): Copy[] {
   const { validate } = question
   const errors: Copy[] = []
 
+  if (!!question.required && !value) {
+    errors.push(form.instructions['field-is-required'])
+  }
+
+  let schema: Joi.Schema | undefined = undefined
+  let copyID: string | undefined = undefined
   if (question.type === 'email') {
     if (!validator.validate(value as string)) {
       errors.push(form.instructions['invalid-email'])
     }
+  } else if (question.type === 'decimal') {
+    schema = Joi.number().positive().precision(2)
+    copyID = 'invalid-decimal'
+  } else if (question.type === 'integer') {
+    schema = Joi.number().positive().precision(0)
+    copyID = 'invalid-integer'
+  } else if (question.type === 'dollar-amount') {
+    schema = Joi.number().positive().precision(2)
+    copyID = 'invalid-dollar'
+  }
+
+  if (schema && !schema.validate(value)) {
+    errors.push(form.instructions[copyID!])
   }
 
   validate?.forEach((validation) => {
@@ -98,9 +119,10 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   longtext: TextArea as React.FC,
   'instructions-only': Box,
   'state-picker': StateSelect as React.FC,
+  decimal: Number as React.FC,
+  integer: Number as React.FC,
+  'dollar-amount': Number as React.FC,
 }
-
-//   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount'
 
 export function getComponent(type: QuestionType): React.FC {
   return typeComponentMappings[type] || TextInput
