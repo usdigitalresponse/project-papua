@@ -83,6 +83,33 @@ jobs:
       - name: Run Tests
         run: yarn --cwd backend/functions/transformer test
 
+  test-resovler:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - run: cd backend/functions/resolverFunctions
+
+      # yarn install with caching
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('backend/functions/resolverFunctions/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install Dependencies
+        run: yarn --cwd backend/functions/resolverFunctions install
+
+      - name: Run Tests
+        run: yarn --cwd backend/functions/resolverFunctions test
+
   test-api:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest

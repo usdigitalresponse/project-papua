@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware'
 import { S3Client } from '@aws-sdk/client-s3-node/S3Client'
 import { PutObjectCommand } from '@aws-sdk/client-s3-node/commands/PutObjectCommand'
+import { validateAnswers } from './validation/validate'
 
 const s3 = new S3Client({
   // Locally, we'll override the S3 endpoint to point at a local dockerized
@@ -15,7 +16,8 @@ const s3 = new S3Client({
 })
 
 const app = express()
-app.use(bodyParser.json())
+// limit arbitrarily determined, update as necessary
+app.use(bodyParser.json({ limit: '5mb' }))
 
 // In production, this API runs behind API Gateway. In that case,
 // we need this middleware to extract the HTTP body from the Lambda
@@ -41,11 +43,19 @@ app.post('/claims', async function (req: Request, res: Response) {
 
   if (!req.body.metadata || !req.body.questions) {
     res.status(422).json({ message: `malformed payload`, body: req.body })
+    return
   }
 
   const uuid = req.body.metadata.uuid
   const key = `claims/day=${day}/hour=${hour}/${uuid}.json`
   const bucket = `papua-data-${process.env.ACCT_ID}`
+
+  const result = validateAnswers(req.body.questions)
+
+  if (result.error) {
+    res.status(400).json({ message: result.error?.message, id: uuid })
+    return
+  }
 
   const putObjectCommand = new PutObjectCommand({
     Bucket: bucket,
@@ -62,6 +72,7 @@ app.post('/claims', async function (req: Request, res: Response) {
   } catch (err) {
     console.error(`Failed to write claim to S3 (${bucket})`, err)
     res.status(500).json({ message: 'error putting object to s3', id: uuid })
+    return
   }
 })
 

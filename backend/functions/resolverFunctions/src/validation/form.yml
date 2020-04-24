@@ -1,0 +1,5 @@
+# Individual states can customize this `form.yml` based
+# on the sample provided in `form.sample.yml`.
+#
+# On our master branch, we leave this file empty to avoid
+# merge conflicts.
