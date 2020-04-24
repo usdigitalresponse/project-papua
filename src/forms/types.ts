@@ -54,7 +54,8 @@ export type QuestionType =
   | 'dollar-amount'
   | 'longtext'
   | 'multiselect'
-  | 'email'
+  | 'state-picker'
+  | 'instructions-only'
 
 export interface QuestionValidation {
   type: 'matches_field' | 'regex'

@@ -55,7 +55,6 @@
             "dollar-amount",
             "longtext",
             "multiselect",
-            "email",
             "state-picker",
             "instructions-only"
           ],

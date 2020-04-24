@@ -61,4 +61,7 @@ amplify/backend/function/*/src/*
 # We use yarn instead:
 package-lock.json
 
+# In CI, we convert YAML -> JSON so that we can use AJV
+# JSON Schema validation. Ignore those files if we're
+# testing that CI logic locally.
 public/form*.json
