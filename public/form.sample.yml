@@ -243,6 +243,8 @@ instructions:
     en: complete
     es: completar
     zh: 完成
+  invalid-email:
+    en: Please enter a valid email address.
 pages:
   - title:
       en: Name

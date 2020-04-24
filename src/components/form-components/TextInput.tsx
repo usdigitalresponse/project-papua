@@ -14,6 +14,10 @@ const TextInput: React.FC<Props> = (props) => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value
+    setValue(question, value)
+
+    // If a validation function was provided, call that and check
+    // if we should treat this new value as an error.
     if (props.validate) {
       const error = props.validate(value)
       if (error) {
@@ -21,8 +25,6 @@ const TextInput: React.FC<Props> = (props) => {
         return
       }
     }
-
-    setValue(question, value)
   }
 
   const hasError = Boolean(errors[question.id])
