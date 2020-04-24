@@ -5,7 +5,6 @@ import { Page, Question, Form, AnswerSchema, Values } from './types'
 import path from 'path'
 
 export function validateAnswers(answers: Values): Error {
-  console.log('cwd path', process.cwd())
   const rawForm = getForm()
   let schema = {} as Joi.ObjectSchema
 
@@ -32,26 +31,16 @@ export function initializeValidationSchema(form?: Form): Joi.ObjectSchema {
 }
 
 export function getForm(): Form {
-  let form = {} as Form
-  let file = ''
-  const filename = process.env.FILE || 'form.yml'
+  const form = fs.readFileSync(__dirname + '/form.yml', { encoding: 'utf-8' })
+  const sampleForm = fs.readFileSync(__dirname + '/form.sample.yml', { encoding: 'utf-8' })
 
-  try {
-    file = fs.readFileSync(path.resolve(__dirname, `../${filename}`), {
-      encoding: 'utf-8',
-    })
-  } catch (e) {
-    console.error('error reading file: ', e)
-    throw e
-  }
+  const contents = yaml.safeLoad(form)
+  const sampleContents = yaml.safeLoad(sampleForm)
 
-  try {
-    form = yaml.safeLoad(file)
-  } catch (e) {
-    console.error('error converting file to json: ', e)
-    throw e
-  }
-  return form
+  const useSample = contents === null
+  const rawForm = useSample ? sampleContents : contents
+
+  return rawForm
 }
 
 // A form is made up of multiple pages containing multiple primary and secondary questions.
