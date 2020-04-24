@@ -43,6 +43,7 @@ app.post('/claims', async function (req: Request, res: Response) {
 
   if (!req.body.metadata || !req.body.questions) {
     res.status(422).json({ message: `malformed payload`, body: req.body })
+    return
   }
 
   const uuid = req.body.metadata.uuid
