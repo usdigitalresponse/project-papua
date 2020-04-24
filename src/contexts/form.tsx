@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'
-import { FormSchema, Form, Question, Copy } from '../forms/types'
+import formSchema from '../form.schema.json'
+import { Form, Question, Copy } from '../forms/types'
 import { isValid, canContinue } from '../forms'
 import { Box } from 'grommet'
 import { omit } from 'lodash'
-import { Spinner } from '../components/helper-components/Spinner'
+import { Spinner, Markdown, Card } from '../components/helper-components'
 import { LanguageContext } from './language'
 import ky from 'ky'
 import yaml from 'js-yaml'
+import Ajv from 'ajv'
 
 interface FormState {
   form: Form
@@ -43,12 +45,18 @@ const initialState = {
 
 export const FormContext = createContext<FormState>(initialState as any)
 
+type FormError = {
+  message: string
+  error?: any
+}
+
 export const FormProvider: React.FC = (props) => {
   const [form, setForm] = useState<Form | undefined>(initialState.form)
   const [values, setValues] = useState<Values>(initialState.values)
   const [errors, setErrors] = useState<Errors>(initialState.errors)
   const [completion, setCompletion] = useState<Record<string, boolean>>({})
   const [pageIndex, setPageIndex] = useState<number>(0)
+  const [formValidationError, setFormValidationError] = useState<FormError | undefined>()
   const { language } = useContext(LanguageContext)
 
   useEffect(() => {
@@ -60,13 +68,22 @@ export const FormProvider: React.FC = (props) => {
       // get the benefits of ejecting CRA without ejecting.
       const [form, formSample] = await Promise.all([ky.get('/form.yml').text(), ky.get('/form.sample.yml').text()])
 
-      // Parse the YAML -> JSON
-      const contents = yaml.safeLoad(form, {
-        json: true,
-      })
-      const sampleContents = yaml.safeLoad(formSample, {
-        json: true,
-      })
+      let contents, sampleContents
+      try {
+        // Parse the YAML -> JSON
+        contents = yaml.safeLoad(form, {
+          json: true,
+        })
+        sampleContents = yaml.safeLoad(formSample, {
+          json: true,
+        })
+      } catch (err) {
+        setFormValidationError({
+          message: 'Failed to parse YAML form',
+          error: err,
+        })
+        return
+      }
 
       // States will build their own form in `form.yml` from the example in `form.sample.yml`.
       // By default, we'll use the sample version until a state starts building their form in
@@ -74,21 +91,29 @@ export const FormProvider: React.FC = (props) => {
       const useSample = contents === null
       const rawForm = useSample ? sampleContents : contents
 
-      // Validate the schema against our Joi schema
-      // which makes it easier to identify issues in the form
-      // than standard TS type validation (which just prints the error
-      // without metadata like array index or object path).
+      // During local development, we validate the form structure against
+      // our JSON Schema and render any errors.
       if (process.env.NODE_ENV === 'development') {
-        const result = FormSchema.validate(rawForm, {
-          abortEarly: false,
-          allowUnknown: false,
-          presence: 'required',
+        const ajv = new Ajv({
+          allErrors: true,
         })
-        if (result.error) {
-          console.error(
-            `${useSample ? 'form.sample.yml' : 'form.yml'} does not match the expected schema`,
-            result.error
-          )
+        const validator = ajv.compile(formSchema)
+        validator(rawForm)
+        if (validator.errors) {
+          console.error(validator.errors)
+          const errors = validator.errors.filter(({ dataPath, message }) => {
+            // Filter out error messages about the default (empty) form.yml schema.
+            return !(
+              dataPath === '' &&
+              message &&
+              ['should be string,null', 'should match exactly one schema in oneOf'].includes(message)
+            )
+          })
+          setFormValidationError({
+            message: `${useSample ? 'form.sample.yml' : 'form.yml'} failed validation\n${errors.map(
+              (d) => `\n  - ${d.dataPath} ${d.message}`
+            )}`,
+          })
         }
       }
 
@@ -160,14 +185,33 @@ export const FormProvider: React.FC = (props) => {
     }
   }, [form, translateCopy])
 
-  if (!form) {
-    // The value we pass here doesn't matter, since we don't render the children.
+  if (formValidationError) {
+    const content = `
+## ⚠️ Form Parsing Error
+
+${formValidationError.message}
+
+${formValidationError.error ? '```' + JSON.stringify(formValidationError.error, null, 2) + '```' : ''}`
+
     return (
-      <FormContext.Provider value={{} as any}>
+      <Card
+        margin={{ vertical: 'medium', horizontal: 'auto' }}
+        pad={{ horizontal: 'medium', vertical: 'small' }}
+        background="white"
+        width={{ max: '800px' }}
+      >
         <Box pad="medium">
-          <Spinner />
+          <Markdown>{content}</Markdown>
         </Box>
-      </FormContext.Provider>
+      </Card>
+    )
+  }
+
+  if (!form) {
+    return (
+      <Box pad="medium">
+        <Spinner />
+      </Box>
     )
   }
 

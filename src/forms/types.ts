@@ -1,51 +1,7 @@
-import Joi from '@hapi/joi'
-
-// NOTE: make sure to keep this Joi schema aligned
-// with any changes to the TS Form type below.
-const CopySchema = Joi.object({
-  en: Joi.string(),
-  es: Joi.string().optional(),
-  zh: Joi.string().optional(),
-})
-let QuestionSchema = Joi.object()
-QuestionSchema = Joi.object({
-  name: CopySchema,
-  instructions: CopySchema.optional(),
-  required: Joi.boolean().optional(),
-  type: Joi.string(),
-  // TODO: fix validation, it's not currently
-  // used in the UI.
-  validate: Joi.any().optional(),
-  id: Joi.string(),
-  options: Joi.array()
-    .items(
-      Joi.object({
-        name: CopySchema,
-        id: Joi.string(),
-        value: Joi.string().optional(),
-      })
-    )
-    .optional(),
-  switch: Joi.object()
-    .pattern(Joi.string(), [null, Joi.array().items(QuestionSchema)])
-    .optional(),
-})
-export const FormSchema = Joi.object({
-  title: CopySchema,
-  description: CopySchema,
-  seal: Joi.string(),
-  variables: Joi.object().pattern(Joi.string(), Joi.string()),
-  instructions: Joi.object().pattern(Joi.string(), CopySchema),
-  pages: Joi.array().items(
-    Joi.object({
-      title: CopySchema,
-      heading: CopySchema,
-      instructions: CopySchema.optional(),
-      questions: Joi.array().items(QuestionSchema),
-    })
-  ),
-})
-
+// Make sure to keep the TS types below up-to-date with the Form JSON Schema
+// that we use for form validation and IDE intellisense.
+//
+// The Form's JSON Schema is stored in `public/form.schema.json`
 export interface Form {
   title: Copy
   description: Copy
@@ -58,7 +14,6 @@ export interface Form {
 export interface Page {
   title: Copy
   heading: Copy
-  // TODO: we don't render this currently
   instructions?: Copy
   questions: Question[]
 }
@@ -80,7 +35,7 @@ export interface Option {
   value?: string
 }
 interface Switch {
-  [option: string]: Question[] | null | undefined
+  [option: string]: Question[] | undefined
 }
 
 export interface Copy {
@@ -98,14 +53,15 @@ export type QuestionType =
   | 'ssn'
   | 'address'
   | 'integer'
+  | 'decimal'
   | 'dollar-amount'
   | 'longtext'
   | 'multiselect'
-  | 'email'
-  | string
+  | 'state-picker'
+  | 'instructions-only'
 
 export interface QuestionValidation {
-  type: string
+  type: 'matches_field' | 'regex'
   value: string
   error: Copy
 }
