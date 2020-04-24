@@ -1,3 +1,7 @@
+// Make sure to keep the TS types below up-to-date with the Form JSON Schema
+// that we use for form validation and IDE intellisense.
+//
+// The Form's JSON Schema is stored in `public/form.schema.json`
 export interface Form {
   title: Copy
   description: Copy
@@ -10,7 +14,6 @@ export interface Form {
 export interface Page {
   title: Copy
   heading: Copy
-  // TODO: we don't render this currently
   instructions?: Copy
   questions: Question[]
 }
@@ -32,7 +35,7 @@ export interface Option {
   value?: string
 }
 interface Switch {
-  [option: string]: Question[] | null | undefined
+  [option: string]: Question[] | undefined
 }
 
 export interface Copy {
