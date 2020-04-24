@@ -495,7 +495,7 @@
           },
           "id": "home_address",
           "required": true,
-          "type": "address_picker"
+          "type": "address"
         },
         {
           "name": {
@@ -517,7 +517,7 @@
                 },
                 "id": "mailing_address",
                 "required": true,
-                "type": "address_picker"
+                "type": "address"
               }
             ]
           }

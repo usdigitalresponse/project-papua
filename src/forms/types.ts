@@ -47,7 +47,6 @@ export type QuestionType =
   | 'datepicker'
   | 'dropdown'
   | 'singleselect'
-  | 'address_picker'
   | 'boolean'
   | 'phone'
   | 'ssn'

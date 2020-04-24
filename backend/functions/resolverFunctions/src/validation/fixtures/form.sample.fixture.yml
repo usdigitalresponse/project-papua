@@ -378,7 +378,7 @@ pages:
           zh: 家庭地址
         id: home_address
         required: true
-        type: address_picker
+        type: address
       - name:
           en: Is your mailing address the same as your home address?
           es: ¿Su dirección postal es la misma que su domicilio?
@@ -395,7 +395,7 @@ pages:
                 zh: 邮寄地址
               id: mailing_address
               required: true
-              type: address_picker
+              type: address
       - name:
           en: Telephone number
           es: Número de teléfono

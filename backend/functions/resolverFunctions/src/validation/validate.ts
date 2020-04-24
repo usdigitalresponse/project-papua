@@ -77,9 +77,7 @@ function generateValidation(question: Question): Joi.AnySchema {
   }
 
   switch (type) {
-    // address and address_picker resolve to the same value
     case 'address':
-    case 'address_picker':
       validation = Joi.string()
       break
     case 'boolean':
