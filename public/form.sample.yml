@@ -257,6 +257,8 @@ instructions:
     en: Answer must be an integer.
   invalid-dollar:
     en: Answer must be a valid dollar amount.
+  invalid-text:
+    en: Answer must be a valid string.
 pages:
   - title:
       en: Name

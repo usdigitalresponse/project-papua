@@ -38,12 +38,15 @@ export function isValid(question: Question, value: Value, values: Values, form: 
   } else if (question.type === 'dollar-amount') {
     schema = Joi.number().precision(2).min(0).max(2147483647)
     copyID = 'invalid-dollar'
-  } else if (question.type === 'shorttext') {
-    schema = Joi.string().min(1).max(200)
-    copyID = 'invalid-text'
-  } else if (question.type === 'longtext') {
-    schema = Joi.string().min(1).max(10000)
-    copyID = 'invalid-text'
+  } else if (question.type === 'shorttext' || question.type === 'longtext') {
+    if (value === '') {
+      errors.push(form.instructions['field-is-required'])
+    } else {
+      schema = Joi.string()
+        .min(1)
+        .max(question.type === 'shorttext' ? 200 : 10000)
+      copyID = 'invalid-text'
+    }
   }
 
   if (schema && !!schema.validate(value).error) {
