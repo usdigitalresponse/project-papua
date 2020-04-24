@@ -8,15 +8,6 @@ interface Props {
   question: Question
 }
 
-/**
- * 
- * @param props "disabled": false,
-    "id": "ONE",
-    "name": "one",
-    "value": "1",
-    "label": "one"
- */
-
 const SingleSelectRadio: React.FC<Props> = (props) => {
   const { question } = props
   const { values, setValue, translateCopy } = useContext(FormContext)
