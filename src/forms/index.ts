@@ -7,14 +7,20 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
-import { Box } from 'grommet'
-import { Values, Errors, Value } from '../contexts/form'
 
-export function isValid(question: Question, value: Value, values: Values): Copy[] {
+import { Box } from 'grommet'
+import validator from 'email-validator'
+import { Values, Errors, Value } from '../contexts/form'
+import { Form } from './types'
+
+export function isValid(question: Question, value: Value, values: Values, form: Form): Copy[] {
   const { validate } = question
   const errors: Copy[] = []
-  if (!validate) {
-    return errors
+
+  if (question.type === 'email') {
+    if (!validator.validate(value as string)) {
+      errors.push(form.instructions['invalid-email'])
+    }
   }
 
   validate?.forEach((validation) => {
@@ -89,7 +95,6 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   singleselect: SingleSelect as React.FC,
   boolean: Boolean as React.FC,
   multiselect: Multiselect as React.FC,
-  email: TextInput as React.FC,
   longtext: TextArea as React.FC,
   'instructions-only': Box,
   'state-picker': StateSelect as React.FC,

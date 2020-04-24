@@ -130,7 +130,7 @@ export const FormProvider: React.FC = (props) => {
     const newValues = { ...values, [question.id]: value }
     setValues(newValues)
 
-    const validationErrors = isValid(question, value, values)
+    const validationErrors = isValid(question, value, values, form!)
     const newErrors =
       validationErrors.length > 0 ? { ...errors, [question.id]: validationErrors } : omit(errors, question.id)
     setErrors(newErrors)

@@ -51,7 +51,7 @@ const PhoneNumber: React.FC<Props> = (props) => {
   //     />
   //   </Pane>
   // )
-  return <TextInput {...props} color="black" border="black 1px solid !important" />
+  return <TextInput {...props} />
 }
 
 export default PhoneNumber
