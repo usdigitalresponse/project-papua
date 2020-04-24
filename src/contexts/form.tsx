@@ -101,8 +101,16 @@ export const FormProvider: React.FC = (props) => {
         validator(rawForm)
         if (validator.errors) {
           console.error(validator.errors)
+          const errors = validator.errors.filter(({ dataPath, message }) => {
+            // Filter out error messages about the default (empty) form.yml schema.
+            return !(
+              dataPath === '' &&
+              message &&
+              ['should be string,null', 'should match exactly one schema in oneOf'].includes(message)
+            )
+          })
           setFormValidationError({
-            message: `${useSample ? 'form.sample.yml' : 'form.yml'} failed validation\n${validator.errors.map(
+            message: `${useSample ? 'form.sample.yml' : 'form.yml'} failed validation\n${errors.map(
               (d) => `\n  - ${d.dataPath} ${d.message}`
             )}`,
           })

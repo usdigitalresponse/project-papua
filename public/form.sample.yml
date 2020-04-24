@@ -294,7 +294,7 @@ pages:
           zh: 你什么时候出生？
         id: dob
         required: true
-        type: datepicker
+        type: date
       - name:
           en: What gender do you identify with?
           es: ¿Con qué género te identificas?
