@@ -7,6 +7,8 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
+import { Email } from '../components/form-components/Email'
+
 import { Box } from 'grommet'
 import { Values, Errors, Value } from '../contexts/form'
 
@@ -89,7 +91,7 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   singleselect: SingleSelect as React.FC,
   boolean: Boolean as React.FC,
   multiselect: Multiselect as React.FC,
-  email: TextInput as React.FC,
+  email: Email as React.FC,
   longtext: TextArea as React.FC,
   'instructions-only': Box,
   'state-picker': StateSelect as React.FC,

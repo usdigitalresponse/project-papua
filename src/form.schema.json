@@ -56,7 +56,8 @@
             "longtext",
             "multiselect",
             "state-picker",
-            "instructions-only"
+            "instructions-only",
+            "email"
           ],
           "description": "The type of values to accept from this form. This determines what type of form input is generated."
         },

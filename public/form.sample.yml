@@ -434,7 +434,7 @@ pages:
           zh: 这是可选的。提供您的电子邮件，即表示您同意允许美国商务部向您发送信函，其中可能包括与您提出的失业保险索赔有关的问题以及有关失业保险计划的重要信息。请仔细检查是否正确。
         id: email
         required: false
-        type: shorttext
+        type: email
       - name:
           en: Preferred language
           es: Idioma preferido
