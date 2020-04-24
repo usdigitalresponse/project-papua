@@ -59,6 +59,7 @@ export type QuestionType =
   | 'multiselect'
   | 'state-picker'
   | 'instructions-only'
+  | 'email'
 
 export interface QuestionValidation {
   type: 'matches_field' | 'regex'
