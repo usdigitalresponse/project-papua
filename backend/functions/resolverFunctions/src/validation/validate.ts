@@ -1,10 +1,11 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
-import Joi, { AnySchema, Err, SchemaMap } from '@hapi/joi'
+import Joi, { AnySchema } from '@hapi/joi'
 import { Page, Question, Form, AnswerSchema, Values } from './types'
 import path from 'path'
 
 export function validateAnswers(answers: Values): Error {
+  console.log('cwd path', process.cwd())
   const rawForm = getForm()
   let schema = {} as Joi.ObjectSchema
 
