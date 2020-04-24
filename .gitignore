@@ -60,3 +60,5 @@ amplify/backend/function/*/src/*
 
 # We use yarn instead:
 package-lock.json
+
+public/form*.json
