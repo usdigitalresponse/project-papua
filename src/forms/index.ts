@@ -89,6 +89,7 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   singleselect: SingleSelect as React.FC,
   boolean: Boolean as React.FC,
   multiselect: Multiselect as React.FC,
+  email: TextInput as React.FC,
   longtext: TextArea as React.FC,
   'instructions-only': Box,
   'state-picker': StateSelect as React.FC,
