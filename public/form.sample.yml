@@ -252,17 +252,11 @@ instructions:
     es: Se requiere una respuesta a esta pregunta.
     zh: 必须回答这个问题。
   invalid-decimal:
-    en: Answer must be a decimal value.
-    es: La respuesta debe ser un valor decimal.
-    zh: 答案必须是十进制值。
+    en: Answer must be a valid number.
   invalid-integer:
-    en: Answer must be a integer value.
-    es: La respuesta debe ser un valor entero.
-    zh: 答案必须是整数值。
+    en: Answer must be an integer.
   invalid-dollar:
-    en: Answer must be a dollar value.
-    es: La respuesta debe ser un valor en dólares.
-    zh: 答案必须是美元价值。
+    en: Answer must be a valid dollar amount.
 pages:
   - title:
       en: Name

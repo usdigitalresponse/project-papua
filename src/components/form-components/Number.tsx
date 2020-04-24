@@ -19,12 +19,12 @@ export const Number: React.FC<Props> = (props) => {
   let typeProps: Partial<NumberFormatProps> = {
     type: 'tel',
     allowNegative: false,
+    thousandSeparator: true,
     decimalScale: 2,
   }
   if (question.type === 'dollar-amount') {
     typeProps = {
       ...typeProps,
-      thousandSeparator: true,
       prefix: '$',
     }
   } else if (question.type === 'integer') {

@@ -19,7 +19,7 @@ export function isValid(question: Question, value: Value, values: Values, form: 
   const { validate } = question
   const errors: Copy[] = []
 
-  if (!!question.required && !value) {
+  if (!!question.required && value === undefined) {
     errors.push(form.instructions['field-is-required'])
   }
 
@@ -30,17 +30,23 @@ export function isValid(question: Question, value: Value, values: Values, form: 
       errors.push(form.instructions['invalid-email'])
     }
   } else if (question.type === 'decimal') {
-    schema = Joi.number().positive().precision(2)
+    schema = Joi.number().precision(2).min(0).max(2147483647)
     copyID = 'invalid-decimal'
   } else if (question.type === 'integer') {
-    schema = Joi.number().positive().precision(0)
+    schema = Joi.number().precision(0).min(0).max(2147483647)
     copyID = 'invalid-integer'
   } else if (question.type === 'dollar-amount') {
-    schema = Joi.number().positive().precision(2)
+    schema = Joi.number().precision(2).min(0).max(2147483647)
     copyID = 'invalid-dollar'
+  } else if (question.type === 'shorttext') {
+    schema = Joi.string().min(1).max(200)
+    copyID = 'invalid-text'
+  } else if (question.type === 'longtext') {
+    schema = Joi.string().min(1).max(10000)
+    copyID = 'invalid-text'
   }
 
-  if (schema && !schema.validate(value)) {
+  if (schema && !!schema.validate(value).error) {
     errors.push(form.instructions[copyID!])
   }
 
