@@ -115,6 +115,8 @@ At this point, you can now reboot your Lambda to pick up this environment change
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information.
 
+If you are editing a form ([`public/form.yml`](public/form.yml)), then consider using [VSCode](https://code.visualstudio.com/) with the [YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml). With this, you'll get syntax validation and intellisense while editing the form.
+
 # License
 
 [Apache 2.0](LICENSE)
