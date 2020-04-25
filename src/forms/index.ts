@@ -47,6 +47,9 @@ export function isValid(question: Question, value: Value, values: Values, form: 
         .max(question.type === 'shorttext' ? 200 : 10000)
       copyID = 'invalid-text'
     }
+  } else if (question.type === 'datepicker') {
+    schema = Joi.date().iso()
+    copyID = 'invalid-date'
   }
 
   if (schema && !!schema.validate(value).error) {
