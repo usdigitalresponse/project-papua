@@ -261,6 +261,10 @@ instructions:
     en: Answer must be a valid string.
   invalid-date:
     en: Answer must be a valid date.
+  invalid-select:
+    en: Answer must be one of the pre-determined options.
+  invalid-boolean:
+    en: Answer must be a valid boolean.
 pages:
   - title:
       en: Name

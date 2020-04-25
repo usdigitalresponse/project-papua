@@ -59,6 +59,23 @@ export function isValid(
   } else if (question.type === 'date') {
     schema = Joi.date().iso()
     copyID = 'invalid-date'
+  } else if (['dropdown', 'singleselect'].includes(question.type)) {
+    const option = question.options?.find((o) => o.id === value)
+    if (!option) {
+      errors.push(form.instructions['invalid-select'])
+    }
+  } else if (question.type === 'multiselect') {
+    if (value) {
+      const invalid = (value as string[]).some((v) => {
+        return !question.options?.find((o) => o.id === v)
+      })
+      if (invalid) {
+        errors.push(form.instructions['invalid-select'])
+      }
+    }
+  } else if (question.type === 'boolean') {
+    schema = Joi.boolean().strict()
+    copyID = 'invalid-boolean'
   }
   if (schema && !!schema.validate(value).error) {
     errors.push(form.instructions[copyID!])
