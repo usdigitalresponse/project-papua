@@ -131,7 +131,8 @@
                   },
                   "value": {
                     "type": "string",
-                    "description": "The ID of the question whose value should match the value of this question."
+                    "description": "The ID of the question whose value should match the value of this question. It should be prefixed with 'id:'.",
+                    "pattern": "^id:.*$"
                   },
                   "error": {
                     "$ref": "#/definitions/copy",
@@ -151,8 +152,8 @@
                   },
                   "value": {
                     "type": "string",
-                    "description": "The minimum value allowed. For dates this is a +/-{number}[y/d] relative to today's date.",
-                    "pattern": "^[+-][0-9]+[yd]$"
+                    "description": "The minimum value allowed. If this starts with 'id:', then the remainder of the value is interpreted as a reference to another question ID and the values will be compared. For dates this is a +/-{number}[y/d] relative to today's date.",
+                    "pattern": "^([+-][0-9]+[yd])|(id:.*)$"
                   },
                   "error": {
                     "$ref": "#/definitions/copy",
@@ -172,8 +173,8 @@
                   },
                   "value": {
                     "type": "string",
-                    "description": "The maximum value allowed. For dates this is a +/-{number}[y/d] relative to today's date.",
-                    "pattern": "^[+-][0-9]+[yd]$"
+                    "description": "The maximum value allowed. If this starts with 'id:', then the remainder of the value is interpreted as a reference to another question ID and the values will be compared. For dates this can be a +/-{number}[y/d] relative to today's date.",
+                    "pattern": "^([+-][0-9]+[yd])|(id:.*)$"
                   },
                   "error": {
                     "$ref": "#/definitions/copy",

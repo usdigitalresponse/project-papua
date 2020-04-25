@@ -514,7 +514,7 @@ pages:
         type: ssn
         validate:
           - type: matches_field
-            value: ssn
+            value: id:ssn
             error:
               en: Social Security Numbers do not match
               es: Los números de la seguridad social no coinciden
@@ -579,7 +579,7 @@ pages:
               type: shorttext
               validate:
                 - type: matches_field
-                  value: alien_reg_number
+                  value: id:alien_reg_number
                   error:
                     en: Alien Registration Numbers do not match
                     es: Los números de registro de extranjeros no coinciden
@@ -616,6 +616,11 @@ pages:
               required: true
               id: active-duty-start
               type: date
+              validate:
+                - type: max
+                  value: id:active-duty-end
+                  error:
+                    en: Start date must be before end date.
             - name:
                 en: Active duty end date
                 es: Fecha de finalización del servicio activo
@@ -623,6 +628,11 @@ pages:
               required: true
               id: active-duty-end
               type: date
+              validate:
+                - type: min
+                  value: id:active-duty-start
+                  error:
+                    en: End date must be after start date.
             - name:
                 en: Disability status
                 es: Estado de Discapacidad
@@ -1651,7 +1661,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: payment-account-number
+                  value: id:payment-account-number
                   error:
                     en: Account numbers do not match
                     es: Los números de cuenta no coinciden
@@ -1676,7 +1686,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: payment-routing-number
+                  value: id:payment-routing-number
                   error:
                     en: Routing numbers do not match
                     es: Los números de ruta no coinciden

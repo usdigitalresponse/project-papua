@@ -9,6 +9,7 @@ import { LanguageContext } from './language'
 import ky from 'ky'
 import yaml from 'js-yaml'
 import Ajv from 'ajv'
+import { getFlattenedQuestions } from '../forms/index'
 
 interface FormState {
   form: Form
@@ -134,12 +135,24 @@ export const FormProvider: React.FC = (props) => {
       console.log('Form values: ', newValues)
     }
 
-    const validationErrors = isValid(question, value, values, form!)
-    const newErrors =
+    const { errors: validationErrors, dependencies } = isValid(question, value, values, form!)
+    let newErrors =
       validationErrors.length > 0 ? { ...errors, [question.id]: validationErrors } : omit(errors, question.id)
+    // Note: we only support question references within the same page. That's probably good enough,
+    // but we could expand this in the future if needed.
+    const page = form!.pages[pageIndex - 1]
+    for (const dep of dependencies) {
+      if (values[dep] !== undefined) {
+        const q = getFlattenedQuestions(page.questions, values).find((q) => q.id === dep)!
+        // Note: we ignore deps here. We could recursively traverse them if we want, but we'll need
+        // to avoid cycles. So we just handle a single level of depth (which should be good enough) for now.
+        const { errors: depErrors } = isValid(q, values[dep], newValues, form!)
+        newErrors = depErrors.length > 0 ? { ...newErrors, [q.id]: depErrors } : omit(newErrors, q.id)
+      }
+    }
     setErrors(newErrors)
 
-    const canContinueFromPage = canContinue(form!.pages[pageIndex - 1], newValues, newErrors)
+    const canContinueFromPage = canContinue(page, newValues, newErrors)
     setCompletion({
       ...completion,
       [pageIndex]: canContinueFromPage,
