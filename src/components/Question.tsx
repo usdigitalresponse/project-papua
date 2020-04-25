@@ -48,7 +48,7 @@ const Question: React.FC<Props> = (props) => {
       {error && (
         <Box>
           {error.map((e) => (
-            <Text key={String(e)} margin={{ top: 'xsmall' }} color="#FF4040">
+            <Text key={e.en} margin={{ top: 'xsmall' }} color="#FF4040">
               {translateCopy(e)}
             </Text>
           ))}

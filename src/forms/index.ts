@@ -14,6 +14,7 @@ import validator from 'email-validator'
 import { Values, Errors, Value } from '../contexts/form'
 import { Form } from './types'
 import Joi from '@hapi/joi'
+import moment from 'moment'
 
 export function isValid(question: Question, value: Value, values: Values, form: Form): Copy[] {
   const { validate } = question
@@ -58,14 +59,17 @@ export function isValid(question: Question, value: Value, values: Values, form: 
 
   validate?.forEach((validation) => {
     const { type, value: validationValue, error } = validation
+
     let isValid
     if (type === 'regex') {
-      const regex = new RegExp(validationValue)
+      const regex = new RegExp(validationValue as string)
       isValid = typeof value === 'string' && regex.test(value)
-    }
-
-    if (type === 'matches_field') {
+    } else if (type === 'matches_field') {
       isValid = value === values[validationValue]
+    } else if (type === 'min_age' || type === 'max_age') {
+      const d = moment(value, moment.ISO_8601)
+      const years = moment().diff(d, 'years')
+      isValid = type === 'min_age' ? years >= (validationValue as number) : years <= (validationValue as number)
     }
 
     if (!isValid) {

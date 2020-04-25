@@ -139,6 +139,46 @@
                   }
                 },
                 "required": ["type", "value", "error"]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "min_age",
+                    "description": "This validation enforces that there have been at least {value} years since the provided date."
+                  },
+                  "value": {
+                    "type": "integer",
+                    "description": "The number of years since the given date."
+                  },
+                  "error": {
+                    "$ref": "#/definitions/copy",
+                    "description": "The error message to render when an answer does not satisfy this validation."
+                  }
+                },
+                "required": ["type", "value", "error"]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "max_age",
+                    "description": "This validation enforces that there have been at most {value} years since the provided date."
+                  },
+                  "value": {
+                    "type": "integer",
+                    "description": "The number of years since the given date."
+                  },
+                  "error": {
+                    "$ref": "#/definitions/copy",
+                    "description": "The error message to render when an answer does not satisfy this validation."
+                  }
+                },
+                "required": ["type", "value", "error"]
               }
             ]
           }

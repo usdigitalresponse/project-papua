@@ -313,6 +313,15 @@ pages:
         id: dob
         required: true
         type: date
+        validate:
+          - type: min_age
+            value: 14
+            error:
+              en: You must be at least 14 years old.
+          - type: max_age
+            value: 130
+            error:
+              en: Please enter a valid birth date.
       - name:
           en: What gender do you identify with?
           es: ¿Con qué género te identificas?
