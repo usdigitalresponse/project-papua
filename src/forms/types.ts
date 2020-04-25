@@ -61,8 +61,8 @@ export type QuestionType =
   | 'email'
 
 export interface QuestionValidation {
-  type: 'matches_field' | 'regex' | 'min_age' | 'max_age'
-  value: string | number
+  type: 'matches_field' | 'regex' | 'min' | 'max'
+  value: string
   error: Copy
 }
 

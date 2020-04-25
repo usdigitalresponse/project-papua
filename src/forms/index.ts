@@ -7,7 +7,7 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
-import { Number } from '../components/form-components/Number'
+import { Number as NumberComponent } from '../components/form-components/Number'
 
 import { Box } from 'grommet'
 import validator from 'email-validator'
@@ -66,10 +66,15 @@ export function isValid(question: Question, value: Value, values: Values, form: 
       isValid = typeof value === 'string' && regex.test(value)
     } else if (type === 'matches_field') {
       isValid = value === values[validationValue]
-    } else if (type === 'min_age' || type === 'max_age') {
-      const d = moment(value, moment.ISO_8601)
-      const years = moment().diff(d, 'years')
-      isValid = type === 'min_age' ? years >= (validationValue as number) : years <= (validationValue as number)
+    } else if (type === 'min' || type === 'max') {
+      if (question.type === 'date') {
+        const unit = validationValue[validationValue.length - 1] as 'y' | 'd'
+        const n = Number(validationValue.slice(0, validationValue.length - 1))
+        const d = moment(value, moment.ISO_8601)
+        const p = moment().add(n, unit)
+        isValid = type === 'min' ? d >= p : d <= p
+        console.log(type, d.toString(), p.toString(), isValid, error.en)
+      }
     }
 
     if (!isValid) {
@@ -135,9 +140,9 @@ const typeComponentMappings: { [type: string]: React.FC } = {
   longtext: TextArea as React.FC,
   'instructions-only': Box,
   'state-picker': StateSelect as React.FC,
-  decimal: Number as React.FC,
-  integer: Number as React.FC,
-  'dollar-amount': Number as React.FC,
+  decimal: NumberComponent as React.FC,
+  integer: NumberComponent as React.FC,
+  'dollar-amount': NumberComponent as React.FC,
 }
 
 export function getComponent(type: QuestionType): React.FC {

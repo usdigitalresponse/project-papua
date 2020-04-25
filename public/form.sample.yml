@@ -314,12 +314,12 @@ pages:
         required: true
         type: date
         validate:
-          - type: min_age
-            value: 14
+          - type: max
+            value: -14y
             error:
               en: You must be at least 14 years old.
-          - type: max_age
-            value: 130
+          - type: min
+            value: -130y
             error:
               en: Please enter a valid birth date.
       - name:
@@ -542,6 +542,11 @@ pages:
               id: dl_or_state_id_exp
               required: true
               type: date
+              validate:
+                - type: min
+                  value: +0d
+                  error:
+                    en: Your license cannot have expired.
       - name:
           en: Are you a U.S. Citizen?
           es: ¿Eres un ciudadano de los Estados Unidos?

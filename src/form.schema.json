@@ -146,12 +146,13 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "const": "min_age",
-                    "description": "This validation enforces that there have been at least {value} years since the provided date."
+                    "const": "min",
+                    "description": "This validation enforces that the provided value is greater than or equal to the provided value."
                   },
                   "value": {
-                    "type": "integer",
-                    "description": "The number of years since the given date."
+                    "type": "string",
+                    "description": "The minimum value allowed. For dates this is a +/-{number}[y/d] relative to today's date.",
+                    "pattern": "^[+-][0-9]+[yd]$"
                   },
                   "error": {
                     "$ref": "#/definitions/copy",
@@ -166,12 +167,13 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "const": "max_age",
-                    "description": "This validation enforces that there have been at most {value} years since the provided date."
+                    "const": "max",
+                    "description": "This validation enforces that the provided value is less than or equal to the provided value."
                   },
                   "value": {
-                    "type": "integer",
-                    "description": "The number of years since the given date."
+                    "type": "string",
+                    "description": "The maximum value allowed. For dates this is a +/-{number}[y/d] relative to today's date.",
+                    "pattern": "^[+-][0-9]+[yd]$"
                   },
                   "error": {
                     "$ref": "#/definitions/copy",
