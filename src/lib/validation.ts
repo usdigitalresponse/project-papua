@@ -5,6 +5,14 @@ import { Values, Value } from '../contexts/form'
 import Joi from '@hapi/joi'
 import moment from 'moment'
 
+function getInstructions(form: Form, id: string): Copy {
+  const c = form.instructions[id]
+  if (!c) {
+    throw new Error(`Unknown instructions id: ${id}`)
+  }
+  return c
+}
+
 export function isQuestionValid(
   question: Question,
   value: Value,
@@ -16,7 +24,7 @@ export function isQuestionValid(
 
   // Handle required-field checks.
   if (!!question.required && value === undefined) {
-    errors.push(form.instructions['field-is-required'])
+    errors.push(getInstructions(form, 'field-is-required'))
   }
 
   // Handle type-specified validation, which is generic
@@ -25,7 +33,7 @@ export function isQuestionValid(
   let copyID: string | undefined = undefined
   if (question.type === 'email') {
     if (!validator.validate(value as string)) {
-      errors.push(form.instructions['invalid-email'])
+      errors.push(getInstructions(form, 'invalid-email'))
     }
   } else if (question.type === 'decimal') {
     schema = Joi.number().precision(2).min(0).max(2147483647)
@@ -38,7 +46,7 @@ export function isQuestionValid(
     copyID = 'invalid-dollar'
   } else if (question.type === 'shorttext' || question.type === 'longtext') {
     if (value === '') {
-      errors.push(form.instructions['field-is-required'])
+      errors.push(getInstructions(form, 'field-is-required'))
     } else {
       schema = Joi.string()
         .min(1)
@@ -51,7 +59,7 @@ export function isQuestionValid(
   } else if (['dropdown', 'singleselect'].includes(question.type)) {
     const option = question.options?.find((o) => o.id === value)
     if (!option) {
-      errors.push(form.instructions['invalid-select'])
+      errors.push(getInstructions(form, 'invalid-select'))
     }
   } else if (question.type === 'multiselect') {
     if (value) {
@@ -59,15 +67,15 @@ export function isQuestionValid(
         return !question.options?.find((o) => o.id === v)
       })
       if (invalid) {
-        errors.push(form.instructions['invalid-select'])
+        errors.push(getInstructions(form, 'invalid-select'))
       }
     }
   } else if (question.type === 'boolean') {
-    schema = Joi.boolean().strict()
+    schema = Joi.boolean()
     copyID = 'invalid-boolean'
   }
-  if (schema && !!schema.validate(value).error) {
-    errors.push(form.instructions[copyID!])
+  if (schema && !!schema.strict().validate(value).error) {
+    errors.push(getInstructions(form, copyID!))
   }
 
   // Handle question-specific validation, as specified in the form.
