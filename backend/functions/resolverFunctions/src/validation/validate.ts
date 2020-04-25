@@ -83,7 +83,7 @@ function generateValidation(question: Question): Joi.AnySchema {
     case 'boolean':
       validation = Joi.boolean()
       break
-    case 'datepicker':
+    case 'date':
       validation = Joi.date()
       break
     case 'decimal':

@@ -47,7 +47,7 @@ export function isValid(question: Question, value: Value, values: Values, form: 
         .max(question.type === 'shorttext' ? 200 : 10000)
       copyID = 'invalid-text'
     }
-  } else if (question.type === 'datepicker') {
+  } else if (question.type === 'date') {
     schema = Joi.date().iso()
     copyID = 'invalid-date'
   }
@@ -123,7 +123,7 @@ export function getFlattenedQuestions(questions: Question[], values: Values): Qu
 
 const typeComponentMappings: { [type: string]: React.FC } = {
   shorttext: TextInput as React.FC,
-  datepicker: DatePicker as React.FC,
+  date: DatePicker as React.FC,
   dropdown: Select as React.FC,
   singleselect: SingleSelect as React.FC,
   boolean: Boolean as React.FC,

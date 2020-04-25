@@ -42,7 +42,7 @@
           "type": "string",
           "enum": [
             "shorttext",
-            "datepicker",
+            "date",
             "dropdown",
             "singleselect",
             "address",

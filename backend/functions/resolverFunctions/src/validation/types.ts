@@ -96,7 +96,7 @@ export interface Copy {
 
 export type QuestionType =
   | 'shorttext'
-  | 'datepicker'
+  | 'date'
   | 'dropdown'
   | 'singleselect'
   | 'address'

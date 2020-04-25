@@ -312,7 +312,7 @@ pages:
           zh: 你什么时候出生？
         id: dob
         required: true
-        type: datepicker
+        type: date
       - name:
           en: What gender do you identify with?
           es: ¿Con qué género te identificas?
@@ -532,7 +532,7 @@ pages:
                 zh: 您的驾驶执照或州签发的身份证件的到期日期是什么？
               id: dl_or_state_id_exp
               required: true
-              type: datepicker
+              type: date
       - name:
           en: Are you a U.S. Citizen?
           es: ¿Eres un ciudadano de los Estados Unidos?
@@ -601,14 +601,14 @@ pages:
                 zh: 现役开始日期
               required: true
               id: active-duty-start
-              type: datepicker
+              type: date
             - name:
                 en: Active duty end date
                 es: Fecha de finalización del servicio activo
                 zh: 现役结束日期
               required: true
               id: active-duty-end
-              type: datepicker
+              type: date
             - name:
                 en: Disability status
                 es: Estado de Discapacidad
@@ -740,7 +740,7 @@ pages:
                       zh: 与军事雇主的最后实际工作日
                     required: true
                     id: military-work-end
-                    type: datepicker
+                    type: date
   - title:
       en: Employment Status
       es: Estado de Empleo
@@ -860,7 +860,7 @@ pages:
                 zh: 请输入与联邦雇主的最后实际工作日
               id: employment-federal-employee-last-date
               required: true
-              type: datepicker
+              type: date
       - name:
           en: Are you a member of a Hiring Hall Trade Union?
           es: ¿Eres miembro de un sindicato Hiring Hall?
@@ -987,7 +987,7 @@ pages:
           zh: 工作的第一天
         id: employer-first-day-of-work
         required: true
-        type: datepicker
+        type: date
       - name:
           en: Last actual Day of Work
           es: Último día real de trabajo
@@ -998,7 +998,7 @@ pages:
           zh: 请提供您实际为雇主执行工作的最后一天。
         id: employer-last-day-of-work
         required: true
-        type: datepicker
+        type: date
       - name:
           en: 'Did you work for this employer full-time, part-time or on a staggered schedule?'
           es: '¿Trabajó para este empleador a tiempo completo, a tiempo parcial o en un horario escalonado?'
@@ -1421,7 +1421,7 @@ pages:
                 es: ¿En qué fecha presentó un reclamo de seguro de desempleo en ese estado?
                 zh: 您在该州的哪个日期提出了失业保险索赔？
               id: unemployment-in-another-state-date
-              type: datepicker
+              type: date
               required: true
             - name:
                 en: Have you had any employment since you last filed a claim?
