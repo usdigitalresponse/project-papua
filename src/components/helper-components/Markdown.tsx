@@ -1,6 +1,7 @@
 import React from 'react'
 import { Markdown as GrommetMarkdown, Paragraph, ParagraphProps } from 'grommet'
 import { MarginType } from 'grommet/utils'
+import { merge } from '../../lib/merge'
 
 const ListItem: React.FC = ({ children, ...styleProps }) => {
   return (
@@ -15,19 +16,6 @@ const ListItem: React.FC = ({ children, ...styleProps }) => {
 interface Props {
   size?: ParagraphProps['size']
   margin?: MarginType
-}
-
-function merge(...sources: Record<string, any>[]) {
-  const result: Record<string, any> = {}
-  for (const source of sources) {
-    for (const key of Object.keys(source)) {
-      if (source[key]) {
-        result[key] = source[key]
-      }
-    }
-  }
-
-  return result
 }
 
 export const Markdown: React.FC<Props> = ({ margin, size, children }) => {

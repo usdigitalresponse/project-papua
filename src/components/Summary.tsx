@@ -95,7 +95,7 @@ const Summary: React.FC<Props> = (props) => {
             {openPages[i] && (
               <Box pad={{ horizontal: '48px', vertical: '24px' }} style={{ borderBottom: '1px solid black' }}>
                 {page.questions.map((q) => {
-                  const value = values[q.id] instanceof Date ? moment(values[q.id]).format('M/DD/YYYY') : values[q.id]
+                  const value = q.type === 'date' ? moment(values[q.id] as Date).format('M/DD/YYYY') : values[q.id]
                   return (
                     <Box key={q.id} direction="row" margin={{ bottom: '16px' }}>
                       <Text size="16px" margin={{ right: '8px' }} weight={600}>

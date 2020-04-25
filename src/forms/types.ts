@@ -5,7 +5,7 @@
 export interface Form {
   title: Copy
   description: Copy
-  variables: Record<string, string>
+  variables?: Record<string, string>
   instructions: Record<string, Copy>
   pages: Page[]
   seal: string

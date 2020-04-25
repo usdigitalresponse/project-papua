@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import formSchema from '../form.schema.json'
 import { Form, Question, Copy } from '../forms/types'
-import { isValid, canContinue } from '../forms'
+import { canContinue } from '../forms'
 import { Box } from 'grommet'
 import { omit } from 'lodash'
 import { Spinner, Markdown, Card } from '../components/helper-components'
@@ -10,6 +10,7 @@ import ky from 'ky'
 import yaml from 'js-yaml'
 import Ajv from 'ajv'
 import { getFlattenedQuestions } from '../forms/index'
+import { isQuestionValid } from '../lib/validation'
 
 interface FormState {
   form: Form
@@ -32,7 +33,7 @@ export interface Errors {
   [key: string]: Copy[]
 }
 
-export type Value = string | string[] | Date | number | undefined
+export type Value = string | string[] | Date | number | boolean | undefined
 
 const initialState = {
   /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -135,7 +136,7 @@ export const FormProvider: React.FC = (props) => {
       console.log('Form values: ', newValues)
     }
 
-    const { errors: validationErrors, dependencies } = isValid(question, value, values, form!)
+    const { errors: validationErrors, dependencies } = isQuestionValid(question, value, values, form!)
     let newErrors =
       validationErrors.length > 0 ? { ...errors, [question.id]: validationErrors } : omit(errors, question.id)
     // Note: we only support question references within the same page. That's probably good enough,
@@ -146,7 +147,7 @@ export const FormProvider: React.FC = (props) => {
         const q = getFlattenedQuestions(page.questions, values).find((q) => q.id === dep)!
         // Note: we ignore deps here. We could recursively traverse them if we want, but we'll need
         // to avoid cycles. So we just handle a single level of depth (which should be good enough) for now.
-        const { errors: depErrors } = isValid(q, values[dep], newValues, form!)
+        const { errors: depErrors } = isQuestionValid(q, values[dep], newValues, form!)
         newErrors = depErrors.length > 0 ? { ...newErrors, [q.id]: depErrors } : omit(newErrors, q.id)
       }
     }
@@ -166,7 +167,7 @@ export const FormProvider: React.FC = (props) => {
       // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
       text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
         // `key` is the regex-captured value inside the curly braces:
-        const value = form!.variables[key]
+        const value = form?.variables?.[key]
         // If we don't recognize this variable, then default to rendering
         // all of `{{VARIABLE_NAME}}` since that'll make the issue clearest.
         return value ? value : m
