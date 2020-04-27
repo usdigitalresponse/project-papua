@@ -185,6 +185,119 @@ describe('validation test suite', () => {
       },
       value: 123,
     },
+
+    // Dollar Amounts
+    {
+      name: 'dollar-amount: invalid types error',
+      question: {
+        type: 'dollar-amount',
+      },
+      value: 'a string',
+      expectedErrors: [{ en: 'invalid-dollar' }],
+    },
+    {
+      name: 'dollar-amount: stringified numbers error',
+      question: {
+        type: 'dollar-amount',
+      },
+      value: '123',
+      expectedErrors: [{ en: 'invalid-dollar' }],
+    },
+    {
+      name: 'dollar-amount: too large numbers fail',
+      question: {
+        type: 'dollar-amount',
+      },
+      value: 1234567890123456,
+      expectedErrors: [{ en: 'invalid-dollar' }],
+    },
+    {
+      name: 'dollar-amount: negatives fail',
+      question: {
+        type: 'dollar-amount',
+      },
+      value: -123,
+      expectedErrors: [{ en: 'invalid-dollar' }],
+    },
+    {
+      name: 'dollar-amount: zero is valid',
+      question: {
+        type: 'dollar-amount',
+      },
+      value: 0,
+    },
+    {
+      name: 'dollar-amount: basic dollars succeed',
+      question: {
+        type: 'dollar-amount',
+      },
+      value: 123.12,
+    },
+
+    // Text
+    {
+      name: 'text: invalid types error',
+      question: {
+        type: 'shorttext',
+      },
+      value: 123,
+      expectedErrors: [{ en: 'invalid-text' }],
+    },
+    {
+      name: 'shorttext: too long fails',
+      question: {
+        type: 'shorttext',
+      },
+      value: 'a'.repeat(201),
+      expectedErrors: [{ en: 'invalid-text' }],
+    },
+    {
+      name: 'longtext: too long fails',
+      question: {
+        type: 'longtext',
+      },
+      value: 'a'.repeat(10001),
+      expectedErrors: [{ en: 'invalid-text' }],
+    },
+    {
+      name: 'text: empty string is invalid if required',
+      question: {
+        type: 'shorttext',
+        required: true,
+      },
+      value: '',
+      expectedErrors: [{ en: 'field-is-required' }],
+    },
+    {
+      name: 'text: empty string is valid if not required',
+      question: {
+        type: 'shorttext',
+      },
+      value: '',
+    },
+    {
+      name: 'text: generic string is valid',
+      question: {
+        type: 'shorttext',
+      },
+      value: 'Hello World!',
+    },
+
+    // Date
+
+    // Multi select
+
+    // Boolean
+
+    // Phone
+
+    // Custom Validation: Regex
+
+    // Custom Validation: Field Matching
+
+    // Custom Validation: Min (Dates)
+
+    // Custom Validation: Max (Dates)
   ]
 
   for (const t of tests) {

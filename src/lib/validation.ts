@@ -23,7 +23,7 @@ export function isQuestionValid(
   const errors: Copy[] = []
 
   // Handle required-field checks.
-  if (!!question.required && value === undefined) {
+  if (!!question.required && (value === undefined || value === '')) {
     errors.push(getInstructions(form, 'field-is-required'))
   }
 
@@ -45,14 +45,10 @@ export function isQuestionValid(
     schema = Joi.number().precision(2).min(0).max(2147483647)
     copyID = 'invalid-dollar'
   } else if (question.type === 'shorttext' || question.type === 'longtext') {
-    if (value === '') {
-      errors.push(getInstructions(form, 'field-is-required'))
-    } else {
-      schema = Joi.string()
-        .min(1)
-        .max(question.type === 'shorttext' ? 200 : 10000)
-      copyID = 'invalid-text'
-    }
+    schema = Joi.string()
+      .allow('')
+      .max(question.type === 'shorttext' ? 200 : 10000)
+    copyID = 'invalid-text'
   } else if (question.type === 'date') {
     schema = Joi.date().iso()
     copyID = 'invalid-date'
