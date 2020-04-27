@@ -265,6 +265,8 @@ instructions:
     en: Answer must be one of the pre-determined options.
   invalid-boolean:
     en: Answer must be a valid boolean.
+  invalid-phone:
+    en: Answer must be a valid phone number.
 pages:
   - title:
       en: Name

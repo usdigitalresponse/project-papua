@@ -45,7 +45,7 @@ describe('validation test suite', () => {
     // Required Fields
 
     {
-      name: 'required fields that are undefined error',
+      name: 'required: if not set, error',
       question: {
         type: 'boolean',
         required: true,
@@ -54,7 +54,7 @@ describe('validation test suite', () => {
       expectedErrors: [{ en: 'field-is-required' }],
     },
     {
-      name: 'required fields that are defined do not error',
+      name: 'required: if set, pass',
       question: {
         type: 'boolean',
         required: true,
@@ -65,7 +65,7 @@ describe('validation test suite', () => {
     // Emails
 
     {
-      name: 'empty emails produce errors',
+      name: 'email: empty strings error',
       question: {
         type: 'email',
       },
@@ -73,7 +73,7 @@ describe('validation test suite', () => {
       expectedErrors: [{ en: 'invalid-email' }],
     },
     {
-      name: 'invalid emails produce errors',
+      name: 'email: invalid types error',
       question: {
         type: 'email',
       },
@@ -81,7 +81,7 @@ describe('validation test suite', () => {
       expectedErrors: [{ en: 'invalid-email' }],
     },
     {
-      name: 'valid emails do not error',
+      name: 'email: valid emails pass',
       question: {
         type: 'email',
       },
@@ -161,6 +161,14 @@ describe('validation test suite', () => {
         type: 'integer',
       },
       value: -123,
+      expectedErrors: [{ en: 'invalid-integer' }],
+    },
+    {
+      name: 'integer: decimals fail',
+      question: {
+        type: 'integer',
+      },
+      value: 123.12,
       expectedErrors: [{ en: 'invalid-integer' }],
     },
     {

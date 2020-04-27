@@ -11,7 +11,7 @@ interface Props {
 
 const Question: React.FC<Props> = (props) => {
   const { question } = props
-  const Component: React.FC<{ [key: string]: any }> = getComponent(question.type)
+  const Component = getComponent(question.type)
 
   const { values, errors, translateCopy } = useContext(FormContext)
 
@@ -44,7 +44,7 @@ const Question: React.FC<Props> = (props) => {
           </Markdown>
         )}
       </Box>
-      <Component width="100%" question={question} />
+      <Component question={question} />
       {error && (
         <Box>
           {error.map((e) => (

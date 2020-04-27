@@ -19,18 +19,33 @@ export const Number: React.FC<Props> = (props) => {
   let typeProps: Partial<NumberFormatProps> = {
     type: 'tel',
     allowNegative: false,
-    thousandSeparator: true,
-    decimalScale: 2,
   }
   if (question.type === 'dollar-amount') {
     typeProps = {
       ...typeProps,
       prefix: '$',
+      thousandSeparator: true,
+      decimalScale: 2,
     }
   } else if (question.type === 'integer') {
     typeProps = {
       ...typeProps,
       decimalScale: 0,
+      thousandSeparator: true,
+    }
+  } else if (question.type === 'decimal') {
+    typeProps = {
+      ...typeProps,
+      thousandSeparator: true,
+      decimalScale: 2,
+    }
+  } else if (question.type === 'phone') {
+    typeProps = {
+      ...typeProps,
+      decimalScale: 0,
+      format: '+1 (###) ###-####',
+      allowEmptyFormatting: true,
+      mask: '_',
     }
   }
 

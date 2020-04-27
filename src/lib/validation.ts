@@ -73,6 +73,9 @@ export function isQuestionValid(
   } else if (question.type === 'boolean') {
     schema = Joi.boolean()
     copyID = 'invalid-boolean'
+  } else if (question.type === 'phone') {
+    schema = Joi.number().precision(0).min(1000000000).max(9999999999)
+    copyID = 'invalid-phone'
   }
   if (schema && !!schema.strict().validate(value).error) {
     errors.push(getInstructions(form, copyID!))
