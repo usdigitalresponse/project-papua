@@ -35,7 +35,7 @@ export interface Option {
   value?: string
 }
 interface Switch {
-  [option: string]: Question[] | undefined
+  [option: string]: Question[]
 }
 
 export interface Copy {
