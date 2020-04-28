@@ -45,16 +45,15 @@ export function isFormValid(values: Values, form: Form): ValidationResponse {
 function isPageValid(page: Page, values: Values, form: Form): ValidationResponse {
   let errors: ValidationResponse = {}
   for (const question of page.questions) {
-    if (question.switch) {
-      for (const [, subQuestions] of Object.entries(question.switch)) {
-        for (const subquestion of subQuestions) {
-          // Check the validity of this subquestion:
-          const e = isQuestionValid(subquestion, values[subquestion.id], values, form).errors
-          if (e.length > 0) {
-            errors = {
-              ...errors,
-              [subquestion.id]: [...(errors[subquestion.id] || []), ...e],
-            }
+    if (question.switch && question.switch[values[question.id] as any]) {
+      const subQuestions = question.switch[values[question.id] as any]
+      for (const subquestion of subQuestions) {
+        // Check the validity of this subquestion:
+        const e = isQuestionValid(subquestion, values[subquestion.id], values, form).errors
+        if (e.length > 0) {
+          errors = {
+            ...errors,
+            [subquestion.id]: [...(errors[subquestion.id] || []), ...e],
           }
         }
       }
