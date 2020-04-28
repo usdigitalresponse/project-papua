@@ -19,72 +19,98 @@ export function isQuestionValid(
   values: Values,
   form: Form
 ): { errors: Copy[]; dependencies: string[] } {
-  const { validate } = question
   const errors: Copy[] = []
 
   // Handle required-field checks.
-  if (!!question.required && (value === undefined || value === '')) {
-    errors.push(getInstructions(form, 'field-is-required'))
+  if (value === undefined) {
+    if (question.required) {
+      errors.push(getInstructions(form, 'field-is-required'))
+    } else {
+      // If the question is not required and not set,
+      // go ahead and exit early so we don't surface unnecessary errors.
+      return { errors: [], dependencies: [] }
+    }
+  }
+
+  function validate<T>(schema: Joi.Schema, value: any, copyID: string): value is T {
+    const valid = !schema.strict().validate(value).error
+    if (!valid) {
+      errors.push(getInstructions(form, copyID!))
+    }
+    return valid
   }
 
   // Handle type-specified validation, which is generic
   // to the question itself.
-  let schema: Joi.Schema | undefined = undefined
-  let copyID: string | undefined = undefined
-  if (question.type === 'email') {
-    if (!validator.validate(value as string)) {
-      errors.push(getInstructions(form, 'invalid-email'))
-    }
-  } else if (question.type === 'decimal') {
-    schema = Joi.number().precision(2).min(0).max(2147483647)
-    copyID = 'invalid-decimal'
-  } else if (question.type === 'integer') {
-    schema = Joi.number().precision(0).min(0).max(2147483647)
-    copyID = 'invalid-integer'
-  } else if (question.type === 'dollar-amount') {
-    schema = Joi.number().precision(2).min(0).max(2147483647)
-    copyID = 'invalid-dollar'
-  } else if (question.type === 'shorttext' || question.type === 'longtext') {
-    schema = Joi.string()
-      .allow('')
-      .max(question.type === 'shorttext' ? 200 : 10000)
-    copyID = 'invalid-text'
-  } else if (question.type === 'date') {
-    // We should be able to replicate this with joi-date, but I didn't have much
-    // luck with that. Kept hitting undocumented issues with the format function.
-    schema = Joi.string().custom((v: string, helpers) => {
-      const strict = true
-      return moment(v, 'YYYY-MM-DDTHH:mm:ssZ', strict).isValid() ? v : helpers.error('any.invalid')
-    })
-    copyID = 'invalid-date'
-  } else if (['dropdown', 'singleselect'].includes(question.type)) {
-    const option = question.options?.find((o) => o.id === value)
-    if (!option) {
-      errors.push(getInstructions(form, 'invalid-select'))
-    }
-  } else if (question.type === 'multiselect') {
-    if (value) {
-      const invalid = (value as string[]).some((v) => {
-        return !question.options?.find((o) => o.id === v)
-      })
-      if (invalid) {
-        errors.push(getInstructions(form, 'invalid-select'))
+  switch (question.type) {
+    case 'email':
+      if (validate<string>(Joi.string(), value, 'invalid-email')) {
+        if (!validator.validate(value)) {
+          errors.push(getInstructions(form, 'invalid-email'))
+        }
       }
-    }
-  } else if (question.type === 'boolean') {
-    schema = Joi.boolean()
-    copyID = 'invalid-boolean'
-  } else if (question.type === 'phone') {
-    schema = Joi.number().precision(0).min(1000000000).max(9999999999)
-    copyID = 'invalid-phone'
-  }
-  if (schema && !!schema.strict().validate(value).error) {
-    errors.push(getInstructions(form, copyID!))
+      break
+    case 'decimal':
+      validate(Joi.number().precision(2).min(0).max(2147483647), value, 'invalid-decimal')
+      break
+    case 'integer':
+      validate(Joi.number().precision(0).min(0).max(2147483647), value, 'invalid-integer')
+      break
+    case 'dollar-amount':
+      validate(Joi.number().precision(2).min(0).max(2147483647), value, 'invalid-dollar')
+      break
+    case 'shorttext':
+    case 'longtext':
+      validate(
+        Joi.string()
+          .allow(...(question.required ? [] : ['']))
+          .max(question.type === 'shorttext' ? 200 : 10000),
+        value,
+        'invalid-text'
+      )
+      break
+    case 'date':
+      // We should be able to replicate this with joi-date, but I didn't have much
+      // luck with that. Kept hitting undocumented issues with the format function.
+      validate(
+        Joi.string().custom((v: string, helpers) => {
+          const strict = true
+          return moment(v, 'YYYY-MM-DDTHH:mm:ssZ', strict).isValid() ? v : helpers.error('any.invalid')
+        }),
+        value,
+        'invalid-date'
+      )
+      break
+    case 'dropdown':
+    case 'singleselect':
+      if (validate<string>(Joi.string(), value, 'invalid-decimal')) {
+        // Check if we selected a pre-defined option id:
+        if (!question.options?.find((o) => o.id === value)) {
+          errors.push(getInstructions(form, 'invalid-select'))
+        }
+      }
+      break
+    case 'multiselect':
+      if (validate<string[]>(Joi.array().items(Joi.string()), value, 'invalid-select')) {
+        const invalid = value.some((v) => {
+          return !question.options?.find((o) => o.id === v)
+        })
+        if (invalid) {
+          errors.push(getInstructions(form, 'invalid-select'))
+        }
+      }
+      break
+    case 'boolean':
+      validate(Joi.boolean(), value, 'invalid-boolean')
+      break
+    case 'phone':
+      validate(Joi.number().precision(0).min(1000000000).max(9999999999), value, 'invalid-phone')
+      break
   }
 
   // Handle question-specific validation, as specified in the form.
   const dependencies: string[] = []
-  validate?.forEach((validation) => {
+  question.validate?.forEach((validation) => {
     const { type, value: validationValue, error } = validation
 
     if (typeof validationValue === 'string' && validationValue.startsWith('id:')) {

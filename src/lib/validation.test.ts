@@ -266,7 +266,7 @@ describe('validation test suite', () => {
         required: true,
       },
       value: '',
-      expectedErrors: [{ en: 'field-is-required' }],
+      expectedErrors: [{ en: 'invalid-text' }],
     },
     {
       name: 'text: empty string is valid if not required',
@@ -309,6 +309,51 @@ describe('validation test suite', () => {
     },
 
     // Multi select
+    {
+      name: 'multi-select: invalid option errors',
+      question: {
+        type: 'multiselect',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: ['goodbye'],
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'multi-select: partially invalid option errors',
+      question: {
+        type: 'multiselect',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: ['hello', 'goodbye'],
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'multi-select: invalid type errors (string)',
+      question: {
+        type: 'multiselect',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 'hello',
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'multi-select: invalid type errors (number)',
+      question: {
+        type: 'multiselect',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 1,
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'multi-select: invalid type errors (array of numbers)',
+      question: {
+        type: 'multiselect',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: [1] as any,
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
 
     // Boolean
 
