@@ -3,6 +3,7 @@ import ReactDatePicker from 'react-date-picker'
 import './date-picker.css'
 import { Question } from '../../forms/types'
 import { FormContext } from '../../contexts/form'
+import moment from 'moment'
 
 const DatePicker: React.FC<{ question: Question }> = (props) => {
   const { question } = props
@@ -12,7 +13,7 @@ const DatePicker: React.FC<{ question: Question }> = (props) => {
   return (
     <ReactDatePicker
       className="date-picker"
-      onChange={(date) => setValue(question, (date as Date).toISOString())}
+      onChange={(date) => setValue(question, moment(date as Date).format('YYYY-MM-DDTHH:mm:ssZ'))}
       value={value ? new Date(value as string) : undefined}
       clearIcon={null}
     />

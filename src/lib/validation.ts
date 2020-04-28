@@ -50,7 +50,12 @@ export function isQuestionValid(
       .max(question.type === 'shorttext' ? 200 : 10000)
     copyID = 'invalid-text'
   } else if (question.type === 'date') {
-    schema = Joi.date().iso()
+    // We should be able to replicate this with joi-date, but I didn't have much
+    // luck with that. Kept hitting undocumented issues with the format function.
+    schema = Joi.string().custom((v: string, helpers) => {
+      const strict = true
+      return moment(v, 'YYYY-MM-DDTHH:mm:ssZ', strict).isValid() ? v : helpers.error('any.invalid')
+    })
     copyID = 'invalid-date'
   } else if (['dropdown', 'singleselect'].includes(question.type)) {
     const option = question.options?.find((o) => o.id === value)

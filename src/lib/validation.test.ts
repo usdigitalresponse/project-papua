@@ -284,6 +284,29 @@ describe('validation test suite', () => {
     },
 
     // Date
+    {
+      name: 'date: invalid types error',
+      question: {
+        type: 'date',
+      },
+      value: new Date(),
+      expectedErrors: [{ en: 'invalid-date' }],
+    },
+    {
+      name: 'date: invalid date formats error',
+      question: {
+        type: 'date',
+      },
+      value: '08/01/2020',
+      expectedErrors: [{ en: 'invalid-date' }],
+    },
+    {
+      name: 'date: valid date passes',
+      question: {
+        type: 'date',
+      },
+      value: '2020-01-20T10:00:00Z',
+    },
 
     // Multi select
 
