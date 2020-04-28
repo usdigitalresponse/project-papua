@@ -1,0 +1,12 @@
+.file-upload-icon {
+  transform: rotate(-90deg);
+}
+
+.file-upload-icon > path {
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.file-upload-box:hover {
+  outline-color: #4776f6 !important;
+}

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { Question, FileValue } from '../../lib/types'
 import { FormContext } from '../../contexts/form'
-import { Camera, Trash } from 'grommet-icons'
+import { FormNextLink, Trash } from 'grommet-icons'
 import { useDropzone, DropEvent } from 'react-dropzone'
-import { Box, Text, Button, Image } from 'grommet'
+import { Box, Text, Button, Image, Paragraph } from 'grommet'
 import { encode } from 'base64-arraybuffer'
+import './file.css'
 
 interface Props {
   [key: string]: any
@@ -28,7 +29,7 @@ interface Props {
  */
 const File: React.FC<Props> = (props) => {
   const { question } = props
-  const { values, setValue, errors } = useContext(FormContext)
+  const { values, setValue } = useContext(FormContext)
   const value = values[question.id] as FileValue | undefined
 
   const onDrop = (acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
@@ -72,23 +73,46 @@ const File: React.FC<Props> = (props) => {
   }
 
   // TODO: make these styles align with Grommet focus styles.
-  const color = isDragActive || isFocused ? 'black' : 'grey'
+  const color = isDragActive || isFocused ? '#4776F6' : '#CCCCCC'
 
   // TODO: i18n the copy below
   return (
     <>
       <Box
         pad="medium"
-        border={{ color, side: 'all', size: '2px', style: 'dashed' }}
-        style={{ cursor: 'pointer' }}
+        gap="small"
         alignContent="center"
         align="center"
-        hoverIndicator={true}
+        style={{
+          outline: `2px dashed ${color}`,
+          cursor: 'pointer',
+        }}
+        background={{
+          color: '#F6F7F9',
+        }}
+        className="file-upload-box"
         {...getRootProps()}
       >
         <input {...getInputProps()} />
-        <Camera size="large" />
-        <Text margin={{ top: '12px' }}>Upload a photo</Text>
+        <Paragraph margin={{ vertical: 'none' }} color="black">
+          Drag and drop files here
+        </Paragraph>
+        <Paragraph margin={{ vertical: 'none' }} color="black">
+          or
+        </Paragraph>
+        <Paragraph margin={{ vertical: 'none' }} color="#4776F6" style={{ display: 'flex', fontWeight: 600 }}>
+          Choose a File
+          <Box
+            style={{ height: '20px', width: '20px', borderRadius: '12px' }}
+            background={{ color: '#4776F6' }}
+            margin={{ left: '6px', top: '1px' }}
+            flex={true}
+            justify="center"
+            align="center"
+          >
+            <FormNextLink color="white" className="file-upload-icon" style={{ height: '20px', width: '20px' }} />
+          </Box>
+        </Paragraph>
       </Box>
       {value && (
         <Box direction="row" pad="medum" margin={{ top: '12px' }}>
