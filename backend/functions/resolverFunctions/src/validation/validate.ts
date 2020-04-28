@@ -3,7 +3,10 @@ import yaml from 'js-yaml'
 import { Page, Form, Values, Copy } from '../client/lib/types'
 import { isQuestionValid } from '../client/lib/validation'
 
-export function validateAnswers(answers: Values): Copy[] {
+// Maps from [question ID] -> list of errors
+export type ValidationResponse = Record<string, Copy[]>
+
+export function validateAnswers(answers: Values): ValidationResponse {
   return isFormValid(answers, getForm())
 }
 
@@ -21,12 +24,15 @@ export function getForm(): Form {
 }
 
 // Parse the form data, creating a hashmap of question objects by questionId.
-export function isFormValid(values: Values, form: Form): Copy[] {
-  const errors: Copy[] = []
+export function isFormValid(values: Values, form: Form): ValidationResponse {
+  let errors: ValidationResponse = {}
 
   const { pages } = form as Form
   for (const page of pages) {
-    errors.push(...isPageValid(page, values, form))
+    errors = {
+      ...errors,
+      ...isPageValid(page, values, form),
+    }
   }
   return errors
 }
@@ -36,17 +42,32 @@ export function isFormValid(values: Values, form: Form): Copy[] {
 // Most switch 'options' are 'true'/'false', but there is no restriction on the number or type of options.
 // Each switch can contain two or more options, and each option can contain one or more additional questions.
 // We'll traverse the form to build a validation schema containing all questions.
-function isPageValid(page: Page, values: Values, form: Form): Copy[] {
-  const errors: Copy[] = []
+function isPageValid(page: Page, values: Values, form: Form): ValidationResponse {
+  let errors: ValidationResponse = {}
   for (const question of page.questions) {
     if (question.switch) {
       for (const [, subQuestions] of Object.entries(question.switch)) {
         for (const subquestion of subQuestions) {
-          errors.push(...isQuestionValid(subquestion, values[subquestion.id], values, form).errors)
+          // Check the validity of this subquestion:
+          const e = isQuestionValid(subquestion, values[subquestion.id], values, form).errors
+          if (e.length > 0) {
+            errors = {
+              ...errors,
+              [subquestion.id]: [...(errors[subquestion.id] || []), ...e],
+            }
+          }
         }
       }
     }
-    errors.push(...isQuestionValid(question, values[question.id], values, form).errors)
+
+    // Check the validity of this question:
+    const e = isQuestionValid(question, values[question.id], values, form).errors
+    if (e.length > 0) {
+      errors = {
+        ...errors,
+        [question.id]: [...(errors[question.id] || []), ...e],
+      }
+    }
   }
 
   return errors
