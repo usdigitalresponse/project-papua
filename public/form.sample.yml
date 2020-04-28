@@ -1343,6 +1343,24 @@ pages:
               required: true
               type: dollar-amount
             - name:
+                en: Please upload a document as proof of income
+              instructions:
+                en: |-
+                  In order to determine your weekly benefit amount, we need to verify your income from your most recent tax filing year.
+
+                  Please upload the following documents by dragging files to or clicking the upload panel below:
+
+                    1. Form 1040 Page 1
+                    2. Form 1040 Page 2
+                    3. Form 1040 Schedule 1
+
+                  Accepted file formats: PNG, JPG, PDF
+
+                  File size must be under 5MB
+              id: proof-of-income
+              required: true
+              type: file
+            - name:
                 en: How many dependent children do you have?
                 es: ¿Cuántos hijos dependientes tienes?
                 zh: 您有几个受抚养子女？
