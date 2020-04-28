@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Page } from '../forms/types'
+import { Page } from '../lib/types'
 import { Box, Heading } from 'grommet'
 import Question from './Question'
 import { FormContext } from '../contexts/form'

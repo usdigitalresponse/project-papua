@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import ReactDatePicker from 'react-date-picker'
 import './date-picker.css'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import { FormContext } from '../../contexts/form'
 import moment from 'moment'
 

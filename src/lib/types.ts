@@ -70,3 +70,13 @@ export interface QuestionValidation {
 export interface ErrorMessage {
   message: string
 }
+
+export interface Values {
+  [key: string]: Value
+}
+
+export interface Errors {
+  [key: string]: Copy[]
+}
+
+export type Value = string | string[] | Date | number | boolean | undefined

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import { Box, RadioButtonGroup } from 'grommet'
 import './single-select.css'
 import { FormContext } from '../../contexts/form'

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Question as QuestionInterface } from '../forms/types'
+import { Question as QuestionInterface } from '../lib/types'
 import { getComponent } from '../forms'
 import { Box, Heading, Text } from 'grommet'
 import { FormContext } from '../contexts/form'

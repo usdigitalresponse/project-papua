@@ -5,9 +5,9 @@ import { FormContext } from '../contexts/form'
 import { v5 as uuid } from 'uuid'
 import Summary from './Summary'
 import { Markdown } from './helper-components/Markdown'
-
 import awsconfig from '../aws-exports'
-import { Page } from '../forms/types'
+import { Page } from '../lib/types'
+
 Amplify.configure(awsconfig)
 
 interface Props {
@@ -22,22 +22,20 @@ const Review: React.FC<Props> = (props) => {
 
   const onSubmit = async () => {
     setCanSubmit(false)
-    try {
-      const resp = await API.post('resolverAPI', '/claims', {
-        body: {
-          metadata: {
-            uuid: uuid(window.location.hostname, uuid.DNS),
-            timestamp: new Date(),
-            host: window.location.hostname,
-          },
-          questions: values,
+    const resp = await API.post('resolverAPI', '/claims', {
+      body: {
+        metadata: {
+          uuid: uuid(window.location.hostname, uuid.DNS),
+          timestamp: new Date(),
+          host: window.location.hostname,
         },
-      })
-      console.log(resp)
-    } catch (err) {
+        questions: values,
+      },
+    }).catch((err) => {
       setCanSubmit(true)
-      console.error(JSON.stringify(err, null, 2))
-    }
+      console.error(JSON.stringify(err.response.data, null, 2))
+    })
+    console.log(resp)
   }
 
   return (

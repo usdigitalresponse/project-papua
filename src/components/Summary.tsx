@@ -1,6 +1,6 @@
 import React, { useContext, useState, Fragment } from 'react'
-import { Page } from '../forms/types'
-import { Values, FormContext } from '../contexts/form'
+import { Page, Values } from '../lib/types'
+import { FormContext } from '../contexts/form'
 import { Box, Heading, Text, CheckBox } from 'grommet'
 import moment from 'moment'
 

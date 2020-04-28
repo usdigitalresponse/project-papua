@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { TextInput as GrommetTextInput } from 'grommet'
 import { FormContext } from '../../contexts/form'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import NumberFormat, { NumberFormatProps } from 'react-number-format'
 
 interface Props {

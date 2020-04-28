@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './select.css'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import { Select as GrommetSelect, Box } from 'grommet'
 import { FormContext } from '../../contexts/form'
 

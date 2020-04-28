@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import SingleSelect from './SingleSelect'
 import { FormContext } from '../../contexts/form'
 

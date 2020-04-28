@@ -1,4 +1,4 @@
-import { Question, QuestionType, Page } from './types'
+import { Question, QuestionType, Page, Values, Errors } from '../lib/types'
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -10,7 +10,6 @@ import StateSelect from '../components/form-components/StateSelect'
 import { Number as NumberComponent } from '../components/form-components/Number'
 
 import { Box } from 'grommet'
-import { Values, Errors } from '../contexts/form'
 
 /**
  * Determines if a user can proceed to the next form, if they have:

@@ -13,11 +13,13 @@ variables:
 instructions:
   introduction-content:
     en: |-
-      ## Instructions
+      ### Instructions
 
-      Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System. The {{STATE_CODE}} Unemployment Insurance Benefits Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.
+      Welcome to the {{STATE_CODE}} Unemployment Insurance Benefits Claims System.
 
-      Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive a prepaid debit card to access your benefits.
+      The {{STATE_CODE}} Unemployment Insurance Benefits Claims Application should be used to request unemployment benefits against income earned, or expected to be earned, in the state of {{STATE_CODE}}.
+
+      Benefits are paid via Direct Deposit into your checking or savings account. You may also choose to receive an Electronic Payment Card (EPC) to access your benefits.
 
       #### Preparation
 
@@ -56,11 +58,13 @@ instructions:
         1. Your place of employment is closed as a direct result of the COVID-19 public health emergency.
         1. You work as an independent contractor with reportable income and are unemployed, partially employed, or unable or unavailable to work because the COVID-19 public health emergency has severely limited your ability to continue performing your customary work activities, and has thereby forced you to suspend such activities.
     es: |-
-      ## Instrucciones
+      ### Instrucciones
 
-      Bienvenido al {{STATE_CODE}} Sistema de reclamos de beneficios del seguro de desempleo. La Solicitud de Reclamaciones de {{STATE_CODE}} Beneficios del Seguro de Desempleo debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.
+      Bienvenido al {{STATE_CODE}} Sistema de reclamos de beneficios del seguro de desempleo.
 
-      Los beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una tarjeta de débito prepaga para acceder a sus beneficios.
+      La Solicitud de Reclamaciones de {{STATE_CODE}} Beneficios del Seguro de Desempleo debe usarse para solicitar beneficios de desempleo contra los ingresos obtenidos, o que se espera obtener, en el estado de {{STATE_CODE}}.
+
+      Los beneficios se pagan mediante depósito directo en su cuenta corriente o de ahorros. También puede optar por recibir una Tarjeta de pago electrónico (EPC) para acceder a sus beneficios.
 
       #### Preparación
 
@@ -99,23 +103,25 @@ instructions:
         1. Su lugar de trabajo está cerrado como resultado directo de la emergencia de salud pública COVID-19.
         1. Trabaja como un contratista independiente con ingresos declarables y está desempleado, parcialmente empleado o no puede o no está disponible para trabajar porque la emergencia de salud pública de COVID-19 ha limitado severamente su capacidad de continuar realizando sus actividades laborales habituales, y por lo tanto lo ha obligado a suspender tales actividades.
     zh: |-
-      ##说明
+      ###说明
 
-      欢迎使用{{STATE_CODE}}失业保险金索赔系统。 {{STATE_CODE}}失业保险金索赔申请表应用于针对处于{{STATE_CODE}}状态的已获得或预期获得的收入索取失业救济。
+      欢迎使用{{STATE_CODE}}失业保险金索赔系统。
 
-      福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收预付借记卡以使用您的福利。
+      {{STATE_CODE}}失业保险金索赔申请表应用于针对处于{{STATE_CODE}}状态的已获得或预期获得的收入索取失业救济。
+
+      福利通过直接存款支付到您的支票或储蓄帐户中。您也可以选择接收电子支付卡(EPC)来获取您的权益。
 
       ####准备
 
       请注意，在提出索赔之前，您可能需要以下信息：
 
-        - 您的社会安全号码（SSN）。
+        - 您的社会安全号码(SSN)。
         - 您最近的纳税申报单上的调整后总收入。
         - 您在过去18个月内工作过的所有雇主的姓名，地址，电话号码和工作日期。
-        - 您的外国人注册号（如果适用）。
+        - 您的外国人注册号(如果适用)。
         - 所有受抚养子女的姓名，社会安全号码和出生日期。
         - 您的驾驶执照或国家签发的身份证号。
-        - 您的银行帐户和银行帐号（如果您选择直接存款作为付款方式）。
+        - 您的银行帐户和银行帐号(如果您选择直接存款作为付款方式)。
 
       ####资格
 
@@ -143,34 +149,34 @@ instructions:
         1. 您以可报告收入的独立承包商的身份工作，由于COVID-19公共卫生突发事件严重限制了您继续进行常规工作活动的能力，因此失业，半就业，无法工作或无力工作。暂停此类活动。
   warning:
     en: |-
-      ### Warning
+      #### Warning
 
       Unless you receive a confirmation number, your claim will not be processed. The {{STATE_CODE}} Department of Labor and Training will not retain any of the information you enter to file your claim until you receive your confirmation number. The last page of the Internet application will state that your claim has been completed and will give you a confirmation number.
 
       Please print, or record your confirmation number and keep it in a safe place. If you provide an email for the Department to contact you with, it will take up to 72 hours for the system to email your unique confirmation number to you. If you exit or refresh the page before receiving a confirmation number, any information that you have entered will be discarded.
     es: |-
-      ### Advertencia
+      #### Advertencia
 
       A menos que reciba un número de confirmación, su reclamo no será procesado. El {{STATE_CODE}} Departamento de Trabajo y Capacitación no retendrá la información que ingrese para presentar su reclamo hasta que reciba su número de confirmación. La última página de la aplicación de Internet indicará que su reclamo se ha completado y le dará un número de confirmación.
 
       Imprima o grabe su número de confirmación y guárdelo en un lugar seguro. Si proporciona un correo electrónico para que el Departamento se ponga en contacto con usted, el sistema tardará hasta 72 horas en enviarle su número de confirmación único. Si sale o actualiza la página antes de recibir un número de confirmación, se descartará cualquier información que haya ingresado.
     zh: |-
-      ### 警告
+      #### 警告
 
       除非您收到确认号码，否则您的索偿将不会得到处理。在收到确认号码之前，{{STATE_CODE}}劳工和培训部不会保留您输入的任何用于提出索赔的信息。 Internet应用程序的最后一页将说明您的索赔已经完成，并会给您一个确认号。
 
       请打印或记录您的确认号码，并将其保存在安全的地方。如果您提供了与部门联系的电子邮件，则系统最多可能需要72个小时才能将您的唯一确认号码通过电子邮件发送给您。如果您在收到确认码之前退出或刷新页面，则您输入的任何信息都将被丢弃。
   agreement:
     en: |-
-      ### Agreement
+      #### Agreement
 
       I understand the eligibility requirements outlined above and confirm that I meet the minimum requirements to apply for either {{STATE_CODE}} State Unemployment Insurance Benefits or Pandemic Unemployment Assistance.
     es: |-
-      ### Acuerdo
+      #### Acuerdo
 
       Entiendo los requisitos de elegibilidad descritos anteriormente y confirmo que cumplo con los requisitos mínimos para solicitar ya sea {{STATE_CODE}} Beneficios estatales de seguro de desempleo o Asistencia de desempleo pandémico.
     zh: |-
-      ###协议
+      ####协议
 
       我了解以上概述的资格要求，并确认我符合申请{{STATE_CODE}}州失业保险金或大流行性失业援助的最低要求。
   get-started:
@@ -201,16 +207,26 @@ instructions:
     en: Submit
     es: Enviar
     zh: 提交
-  'submit:instructions':
-    en: Your claim will not be filed unless you click Submit below.
-    es: Su reclamo no se archivará a menos que haga clic en Enviar a continuación.
-    zh: 除非您单击下面的提交，否则不会提出您的索赔。
+  submit-instructions:
+    en: |-
+      Please review and verify the information section below. If there are errors in any section, you may select 'Edit' to revisit that page of your application.
+
+      Once all sections have been verified, please select 'Submit' to complete filling your claim. Your claim will not be filed unless you click 'Submit' below.
+    es: |-
+      Revise y verifique la sección de información a continuación. Si hay errores en alguna sección, puede seleccionar 'Editar' para volver a visitar esa página de su aplicación.
+
+      Una vez que se hayan verificado todas las secciones, seleccione 'Enviar' para completar el llenado de su reclamo. Su reclamo no se archivará a menos que haga clic en 'Enviar' a continuación.
+    zh: |-
+      请查看并验证下面的信息部分。如果任何部分有错误，则可以选择“编辑”以重新访问应用程序的该页面。
+
+      所有部分均通过验证后，请选择“提交”以完成您的索赔。除非您单击下面的“提交”，否则不会提出您的索赔。
   demo-warning:
     en: |-
-      This is for demo purposes only. Email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.
+      This is a simplified Pandemic Unemployment Assistance sample application that captures the minimum required data and helps users submit a clean claim. Read [our blog post](https://medium.com/u-s-digital-response/what-states-must-do-about-pandemic-unemployment-assistance-e4a96b6c7db) or email [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) to learn more.
     es: |-
-      Esto es solo para fines de demostración. Envíe un correo electrónico a [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) para obtener más información.
-    zh: '这仅用于演示目的。向[pua-requests@usdigitalresponse.org](mailto：pua-requests@usdigitalresponse.org)发送电子邮件以了解更多信息。'
+      Esta es una aplicación simplificada de muestra de Asistencia de desempleo pandémico que captura los datos mínimos requeridos y ayuda a los usuarios a presentar un reclamo limpio. Lea [nuestra publicación de blog](https://medium.com/us-digital-response/what-states-must-do-about-pandemic-unemployment-assistance-e4a96b6c7db) o envíe un correo electrónico [pua-requests@usdigitalresponse.org](mailto:pua-requests@usdigitalresponse.org) para obtener más información.
+    zh: |-
+      这是一个简化的大流行性失业援助示例应用程序，可捕获所需的最少数据并帮助用户提交明确的索赔要求。阅读[我们的博客文章](https://medium.com/us-digital-response/what-states-must-do-about-pandemic-unemployment-assistance-e4a96b6c7db)或发送电子邮件至[pua-requests@usdigitalresponse.org](mailto：pua-requests@usdigitalresponse.org)了解更多信息。
   back:
     en: Go Back
     es: Regresa
@@ -227,6 +243,38 @@ instructions:
     en: complete
     es: completar
     zh: 完成
+  invalid-email:
+    en: Please enter a valid email address.
+    es: 'Por favor, introduce una dirección de correo electrónico válida.'
+    zh: 请输入有效的电子邮件地址。
+  field-is-required:
+    en: An answer is required to this question.
+    es: Se requiere una respuesta a esta pregunta.
+    zh: 必须回答这个问题。
+  invalid-decimal:
+    en: Answer must be a valid number.
+  invalid-integer:
+    en: Answer must be an integer.
+  invalid-dollar:
+    en: Answer must be a valid dollar amount.
+  invalid-text:
+    en: Answer must be a valid string.
+  invalid-date:
+    en: Answer must be a valid date.
+  invalid-select:
+    en: Answer must be one of the pre-determined options.
+  invalid-boolean:
+    en: Answer must be a valid boolean.
+  invalid-phone:
+    en: Answer must be a valid phone number.
+  invalid-ssn:
+    en: Social Security Numbers should be 9 digits.
+  invalid-instructions-only:
+    en: An answer is not expected for this question.
+  invalid-arn:
+    en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
+    es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
+    zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
 pages:
   - title:
       en: Name
@@ -279,6 +327,15 @@ pages:
         id: dob
         required: true
         type: date
+        validate:
+          - type: max
+            value: -14y
+            error:
+              en: You must be at least 14 years old.
+          - type: min
+            value: -130y
+            error:
+              en: Please enter a valid birth date.
       - name:
           en: What gender do you identify with?
           es: ¿Con qué género te identificas?
@@ -387,7 +444,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'true': null
           'false':
             - name:
                 en: Mailing address
@@ -419,7 +475,7 @@ pages:
           zh: 这是可选的。提供您的电子邮件，即表示您同意允许美国商务部向您发送信函，其中可能包括与您提出的失业保险索赔有关的问题以及有关失业保险计划的重要信息。请仔细检查是否正确。
         id: email
         required: false
-        type: shorttext
+        type: email
       - name:
           en: Preferred language
           es: Idioma preferido
@@ -472,7 +528,7 @@ pages:
         type: ssn
         validate:
           - type: matches_field
-            value: ssn
+            value: id:ssn
             error:
               en: Social Security Numbers do not match
               es: Los números de la seguridad social no coinciden
@@ -485,12 +541,11 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Enter your Driver's License or state-issued Identification (ID) number
                 es: Ingrese su licencia de conducir o número de identificación (ID) emitido por el estado
-                zh: 输入您的驾驶执照或国家签发的身份证（ID）号
+                zh: 输入您的驾驶执照或国家签发的身份证(ID)号
               id: dl_or_state_id
               required: true
               type: shorttext
@@ -501,6 +556,11 @@ pages:
               id: dl_or_state_id_exp
               required: true
               type: date
+              validate:
+                - type: min
+                  value: +0d
+                  error:
+                    en: Your license cannot have expired.
       - name:
           en: Are you a U.S. Citizen?
           es: ¿Eres un ciudadano de los Estados Unidos?
@@ -516,24 +576,17 @@ pages:
                 zh: 请输入您的外国人注册号：
               id: alien_reg_number
               required: true
-              type: shorttext
-              validate:
-                - type: regex
-                  value: '^A(\d){7,9}$'
-                  error:
-                    en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
-                    es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
-                    zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
+              type: arn
             - name:
                 en: 'Re-enter your Alien Registration Number:'
                 es: 'Vuelva a ingresar su número de registro de extranjero:'
                 zh: 重新输入您的外国人注册号：
               id: alien_reg_number_confirm
               required: true
-              type: shorttext
+              type: arn
               validate:
                 - type: matches_field
-                  value: alien_reg_number
+                  value: id:alien_reg_number
                   error:
                     en: Alien Registration Numbers do not match
                     es: Los números de registro de extranjeros no coinciden
@@ -545,7 +598,6 @@ pages:
               id: citizenship_country
               required: true
               type: shorttext
-          'true': null
   - title:
       en: Military Service
       es: Servicio militar
@@ -563,7 +615,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Active duty start date
@@ -572,6 +623,11 @@ pages:
               required: true
               id: active-duty-start
               type: date
+              validate:
+                - type: max
+                  value: id:active-duty-end
+                  error:
+                    en: Start date must be before end date.
             - name:
                 en: Active duty end date
                 es: Fecha de finalización del servicio activo
@@ -579,6 +635,11 @@ pages:
               required: true
               id: active-duty-end
               type: date
+              validate:
+                - type: min
+                  value: id:active-duty-start
+                  error:
+                    en: End date must be after start date.
             - name:
                 en: Disability status
                 es: Estado de Discapacidad
@@ -610,56 +671,55 @@ pages:
               id: military-active-last-two-years
               type: boolean
               switch:
-                'false': null
                 'true':
                   - name:
                       en: 'Last pay grade (Box #4b)'
                       es: 'Última calificación salarial (Casilla # 4b)'
-                      zh: 最后薪资等级（方框4b）
+                      zh: 最后薪资等级(方框4b)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #4b'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 4b'
-                      zh: 请从DD214-成员4，框＃4b输入以下数据
+                      zh: 请从DD214-成员4，框#4b输入以下数据
                     required: true
                     id: military-last-pay-grade
                     type: shorttext
                   - name:
                       en: 'Net service for this period (Box #12c)'
                       es: 'Servicio neto para este período (Cuadro # 12c)'
-                      zh: 此期间的净服务（方框12c）
+                      zh: 此期间的净服务(方框12c)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #12c'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 12c'
-                      zh: 请从DD214-成员4，框＃12c中输入以下数据
+                      zh: 请从DD214-成员4，框#12c中输入以下数据
                     required: true
                     id: military-net-service
                     type: shorttext
                   - name:
                       en: 'Number of days of accrued paid leave (Box #16)'
                       es: 'Número de días de vacaciones pagadas acumuladas (Casilla # 16)'
-                      zh: 应计带薪休假天数（方框16）
+                      zh: 应计带薪休假天数(方框16)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #16'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 16'
-                      zh: 请从DD214-成员4，框＃16中输入以下数据
+                      zh: 请从DD214-成员4，框#16中输入以下数据
                     required: true
                     id: military-accured-paid-leave
                     type: decimal
                   - name:
                       en: 'Character of Service (Box #24)'
                       es: Carácter del servicio (casilla n. ° 24)
-                      zh: 服务性质（第24号方框）
+                      zh: 服务性质(第24号方框)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #24'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 24'
-                      zh: 请从DD214-成员4，方框＃24中输入以下数据
+                      zh: 请从DD214-成员4，方框#24中输入以下数据
                     required: true
                     id: military-character-of-service
                     type: shorttext
                   - name:
                       en: 'Reason for Separation (Box #28)'
                       es: 'Motivo de la separación (casilla # 28)'
-                      zh: 分离原因（第28号方框）
+                      zh: 分离原因(第28号方框)
                     instructions:
                       en: 'Please enter the following data from your DD214-Member 4, Box #28'
                       es: 'Ingrese los siguientes datos de su DD214-Miembro 4, Casilla # 28'
@@ -819,12 +879,11 @@ pages:
           en: |-
             Have you been employed by the Federal Government as a civilian (not active military) during the last 2 years?
           es: ¿Ha estado empleado por el gobierno federal como civil (no militar activo) durante los últimos 2 años?
-          zh: 在过去的两年中，您是否曾被联邦政府雇用为文职人员（非现役军人）？
+          zh: 在过去的两年中，您是否曾被联邦政府雇用为文职人员(非现役军人)？
         id: employment-federal-employee
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Please enter the last actual day of work with Federal Employer
@@ -841,7 +900,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Please select the Trade Union you belong to.
@@ -943,7 +1001,7 @@ pages:
       - name:
           en: 'Employer Registration # or Federal Employer ID (FEIN)'
           es: N. ° de registro de empleador o ID de empleador federal (FEIN)
-          zh: 雇主注册号或联邦雇主ID（FEIN）
+          zh: 雇主注册号或联邦雇主ID(FEIN)
         id: employer-id-number
         required: true
         type: integer
@@ -1217,7 +1275,7 @@ pages:
             We need your Adjusted Gross Income (AGI) from your most recent tax return to determine your benefits. Do you have your Adjusted Gross Income form on hand?
           es: |-
             Necesitamos su Ingreso Bruto Ajustado (AGI) de su declaración de impuestos más reciente para determinar sus beneficios. ¿Tiene a mano su formulario de ingreso bruto ajustado?
-          zh: 我们需要您最近的纳税申报单中的调整后总收入（AGI）来确定您的权益。您手头有“调整后的总收入”表格吗？
+          zh: 我们需要您最近的纳税申报单中的调整后总收入(AGI)来确定您的权益。您手头有“调整后的总收入”表格吗？
         id: tax-info-have-tax-return
         required: true
         type: boolean
@@ -1256,7 +1314,7 @@ pages:
               instructions:
                 en: |-
                   You can find your Adjusted Gross Income on your most recently filed 1040 form. It is on different lines, depending on which form you submitted:
-
+                    
                     - Line 8b on Form 1040 (for tax year 2019)
                     - Line 8b on Form 1040-SR (for tax year 2019)
                     - Line 7 on Form 1040 (for tax year 2018)
@@ -1265,7 +1323,7 @@ pages:
                     - Line 35 on Form 1040NR (for tax year 2019 or 2019)
                 es: |-
                   Puede encontrar su Ingreso bruto ajustado en su formulario 1040 presentado más recientemente. Está en diferentes líneas, dependiendo del formulario que haya enviado:
-
+                    
                     - Línea 8b en el Formulario 1040 (para el año fiscal 2019)
                     - Línea 8b en el Formulario 1040-SR (para el año fiscal 2019)
                     - Línea 7 en el Formulario 1040 (para el año fiscal 2018)
@@ -1274,13 +1332,13 @@ pages:
                     - Línea 35 en el Formulario 1040NR (para el año fiscal 2019 o 2019)
                 zh: |-
                   您可以在最近提交的1040表格中找到调整后的总收入。它位于不同的行，具体取决于您提交的表单：
-
-                    - 表格1040的第8b行（适用于2019纳税年度）
-                    - 1040-SR表格上的第8b行（适用于2019纳税年度）
-                    - 表格1040的第7行（适用于2018纳税年度）
-                    - 表格1040A的第21行（适用于2018年之前的纳税年度）
-                    - 1040EZ表格上的第4行（适用于2018年之前的纳税年度）
-                    - 1040NR表格上的第35行（适用于2019或2019纳税年度）
+                    
+                    - 表格1040的第8b行(适用于2019纳税年度)
+                    - 1040-SR表格上的第8b行(适用于2019纳税年度)
+                    - 表格1040的第7行(适用于2018纳税年度)
+                    - 表格1040A的第21行(适用于2018年之前的纳税年度)
+                    - 1040EZ表格上的第4行(适用于2018年之前的纳税年度)
+                    - 1040NR表格上的第35行(适用于2019或2019纳税年度)
               id: tax-info-agi
               required: true
               type: dollar-amount
@@ -1381,7 +1439,6 @@ pages:
         required: true
         type: boolean
         switch:
-          'false': null
           'true':
             - name:
                 en: Select the state where you filed a claim for benefits within the last 12 months
@@ -1415,14 +1472,14 @@ pages:
           en: Are you or anyone in your household participating in a Department of Human Services (DHS) Work Program?
           es: |-
             ¿Usted o alguien en su hogar participa en un programa de trabajo del Departamento de Servicios Humanos (DHS)?
-          zh: 您或您家庭中的任何人都参加了人类服务部（DHS）工作计划吗？
+          zh: 您或您家庭中的任何人都参加了人类服务部(DHS)工作计划吗？
         id: other-income-dhs-work
         required: true
         type: boolean
       - name:
           en: Are you or anyone in your household receiving SNAP benefits (also known as Food Stamps)?
           es: ¿Usted o alguien en su hogar recibe beneficios de SNAP (también conocidos como cupones de alimentos)?
-          zh: 您或您家庭中的任何人都在享受SNAP福利（也称为食品券）吗？
+          zh: 您或您家庭中的任何人都在享受SNAP福利(也称为食品券)吗？
         id: other-income-snap
         required: true
         type: boolean
@@ -1519,19 +1576,19 @@ pages:
         instructions:
           en: |-
             There are two payments options for your COVID-19 Emergency Unemployment Insurance benefits:
-
+              
               - Direct Deposit (DD), which deposits your unemployment benefits into your checking or savings account.
               - Electronic Payment Card (EPC), which works just like a debit card. The EPC is administered by J.P. Morgan Chase Bank. If you choose to receive your benefits via EPC, you will receive your card in the mail within 7-10 days from the date your claim is processed.
           es: |-
             Hay dos opciones de pago para sus beneficios del Seguro de desempleo de emergencia COVID-19:
-
+              
               - Depósito directo (DD), que deposita sus beneficios de desempleo en su cuenta corriente o de ahorros.
               - Tarjeta de pago electrónico (EPC), que funciona igual que una tarjeta de débito. El EPC es administrado por J.P.Morgan Chase Bank. Si elige recibir sus beneficios a través de EPC, recibirá su tarjeta por correo dentro de los 7-10 días a partir de la fecha en que se procese su reclamo.
           zh: |-
             COVID-19紧急失业保险金有两种付款方式：
-
-              -直接存款（DD），将您的失业救济金存入您的支票或储蓄帐户。
-              -电子支付卡（EPC），其作用类似于借记卡。 EPC由摩根大通银行（J.P. Morgan Chase Bank）管理。如果您选择通过EPC领取保险金，则将从您的索赔处理之日起7-10天内以邮件方式收到您的卡。
+              
+              - 直接存款(DD)，将您的失业救济金存入您的支票或储蓄帐户。
+              - 电子支付卡(EPC)，其作用类似于借记卡。 EPC由摩根大通银行(J.P. Morgan Chase Bank)管理。如果您选择通过EPC领取保险金，则将从您的索赔处理之日起7-10天内以邮件方式收到您的卡。
         id: payment-option
         required: true
         type: dropdown
@@ -1611,7 +1668,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: payment-account-number
+                  value: id:payment-account-number
                   error:
                     en: Account numbers do not match
                     es: Los números de cuenta no coinciden
@@ -1636,7 +1693,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: payment-routing-number
+                  value: id:payment-routing-number
                   error:
                     en: Routing numbers do not match
                     es: Los números de ruta no coinciden

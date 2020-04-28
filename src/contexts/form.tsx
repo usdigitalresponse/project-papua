@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import formSchema from '../form.schema.json'
-import { Form, Question, Copy } from '../forms/types'
+import { Question, Copy, Form, Value, Values, Errors } from '../lib/types'
 import { canContinue } from '../forms'
 import { Box } from 'grommet'
 import { omit } from 'lodash'
@@ -24,16 +24,6 @@ interface FormState {
   pageIndex: number
   setPage: (index: number) => void
 }
-
-export interface Values {
-  [key: string]: Value
-}
-
-export interface Errors {
-  [key: string]: Copy[]
-}
-
-export type Value = string | string[] | Date | number | boolean | undefined
 
 const initialState = {
   /* eslint-disable @typescript-eslint/no-unused-vars */

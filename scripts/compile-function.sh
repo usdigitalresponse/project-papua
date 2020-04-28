@@ -31,6 +31,16 @@ echo "Compiling assets for function=${FUNCTION_NAME}"
 mkdir -p amplify/backend/function/${FUNCTION_NAME}/src
 rm -rf amplify/backend/function/${FUNCTION_NAME}/src/*
 
+# Copy form data and library code (both of which are used for validation)
+if [ "${FUNCTION_NAME}" == "resolverFunctions" ]; then
+  # Form Data
+  cp public/form*.yml backend/functions/resolverFunctions/src/validation/
+  # Library Code
+  rm -f backend/functions/resolverFunctions/src/client/lib/*.ts
+  mkdir -p backend/functions/resolverFunctions/src/client/lib
+  cp src/lib/* backend/functions/resolverFunctions/src/client/lib
+fi
+
 # Compile the TS into JS.
 cd backend/functions/${FUNCTION_NAME}
 yarn --frozen-lockfile
@@ -41,11 +51,6 @@ cd -
 cp -r backend/functions/${FUNCTION_NAME}/dist/* amplify/backend/function/${FUNCTION_NAME}/src
 cp backend/functions/${FUNCTION_NAME}/package.json amplify/backend/function/${FUNCTION_NAME}/src/package.json
 cp backend/functions/${FUNCTION_NAME}/yarn.lock amplify/backend/function/${FUNCTION_NAME}/src/yarn.lock
-
-if [ "${FUNCTION_NAME}" == "resolverFunctions" ]; then
-  # Copy form data to validation Lambda function
-  cp public/form*.yml amplify/backend/function/resolverFunctions/src/validation/
-fi
 
 # The STATE_CODE is set as an Amplify Environment Variable. But those envs are only available
 # at build-time so we copy it over.
