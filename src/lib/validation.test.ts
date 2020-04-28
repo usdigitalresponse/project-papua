@@ -2,6 +2,7 @@ import { isQuestionValid } from './validation'
 import { Form, Copy, Question } from '../forms/types'
 import { Value, Values } from '../contexts/form'
 import { merge } from './merge'
+import moment from 'moment'
 
 function toForm(question: Question, instructions: Record<string, Copy>): Form {
   const predefinedErrors = [
@@ -14,6 +15,7 @@ function toForm(question: Question, instructions: Record<string, Copy>): Form {
     'invalid-integer',
     'invalid-dollar',
     'invalid-date',
+    'invalid-phone',
   ]
   return {
     title: { en: '' },
@@ -356,16 +358,259 @@ describe('validation test suite', () => {
     },
 
     // Boolean
+    {
+      name: 'boolean: stringified booleans error',
+      question: {
+        type: 'boolean',
+      },
+      value: 'true',
+      expectedErrors: [{ en: 'invalid-boolean' }],
+    },
+    {
+      name: 'boolean: numeric booleans error',
+      question: {
+        type: 'boolean',
+      },
+      value: 1,
+      expectedErrors: [{ en: 'invalid-boolean' }],
+    },
+    {
+      name: 'boolean: true passes',
+      question: {
+        type: 'boolean',
+      },
+      value: true,
+    },
+    {
+      name: 'boolean: false passes',
+      question: {
+        type: 'boolean',
+      },
+      value: false,
+    },
 
     // Phone
+    {
+      name: 'phone: stringified phone numbers error',
+      question: {
+        type: 'phone',
+      },
+      value: '1234567890',
+      expectedErrors: [{ en: 'invalid-phone' }],
+    },
+    {
+      name: 'phone: numbers with country code error',
+      question: {
+        type: 'phone',
+      },
+      value: 11234567890,
+      expectedErrors: [{ en: 'invalid-phone' }],
+    },
+    {
+      name: 'phone: fake numbers error',
+      question: {
+        type: 'phone',
+      },
+      value: 200,
+      expectedErrors: [{ en: 'invalid-phone' }],
+    },
+    {
+      name: 'phone: real numbers pass',
+      question: {
+        type: 'phone',
+      },
+      value: 1234567890,
+    },
 
     // Custom Validation: Regex
+    {
+      name: 'regex: strings that do not match error',
+      question: {
+        type: 'shorttext',
+        validate: [
+          {
+            type: 'regex',
+            value: '^(hello|goodbye)$',
+            error: { en: 'invalid-regex' },
+          },
+        ],
+      },
+      value: 'not valid',
+      expectedErrors: [{ en: 'invalid-regex' }],
+    },
+    {
+      name: 'regex: strings that match do not error',
+      question: {
+        type: 'shorttext',
+        validate: [
+          {
+            type: 'regex',
+            value: '^(hello|goodbye)$',
+            error: { en: 'invalid-regex' },
+          },
+        ],
+      },
+      value: 'hello',
+    },
 
     // Custom Validation: Field Matching
+    {
+      name: 'matches_field: strings that do not match error',
+      question: {
+        type: 'shorttext',
+        validate: [
+          {
+            type: 'matches_field',
+            value: 'id:other',
+            error: { en: 'invalid-matches-field' },
+          },
+        ],
+      },
+      value: 'goodbye',
+      values: {
+        other: 'hello',
+      },
+      expectedErrors: [{ en: 'invalid-matches-field' }],
+      dependencies: ['other'],
+    },
+    {
+      name: 'matches_field: strings that match do not error',
+      question: {
+        type: 'shorttext',
+        validate: [
+          {
+            type: 'matches_field',
+            value: 'id:other',
+            error: { en: 'invalid-matches-field' },
+          },
+        ],
+      },
+      value: 'hello',
+      values: {
+        other: 'hello',
+      },
+      dependencies: ['other'],
+    },
 
     // Custom Validation: Min (Dates)
+    {
+      name: 'min(date): dates before min in past error',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'min',
+            value: '-15d',
+            error: { en: 'invalid-min' },
+          },
+        ],
+      },
+      value: moment().add(-20, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+      expectedErrors: [{ en: 'invalid-min' }],
+    },
+    {
+      name: 'min(date): dates after min in past pass',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'min',
+            value: '-15d',
+            error: { en: 'invalid-min' },
+          },
+        ],
+      },
+      value: moment().add(-5, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+    },
+    {
+      name: 'min(date): dates before min in future error',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'min',
+            value: '+15d',
+            error: { en: 'invalid-min' },
+          },
+        ],
+      },
+      value: moment().add(5, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+      expectedErrors: [{ en: 'invalid-min' }],
+    },
+    {
+      name: 'min(date): dates after min in future pass',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'min',
+            value: '+15d',
+            error: { en: 'invalid-min' },
+          },
+        ],
+      },
+      value: moment().add(20, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+    },
 
     // Custom Validation: Max (Dates)
+    {
+      name: 'max(date): dates after max in past error',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'max',
+            value: '-15d',
+            error: { en: 'invalid-max' },
+          },
+        ],
+      },
+      value: moment().add(-5, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+      expectedErrors: [{ en: 'invalid-max' }],
+    },
+    {
+      name: 'max(date): dates before max in past pass',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'max',
+            value: '-15d',
+            error: { en: 'invalid-max' },
+          },
+        ],
+      },
+      value: moment().add(-20, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+    },
+    {
+      name: 'max(date): dates after max in future error',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'max',
+            value: '+15d',
+            error: { en: 'invalid-max' },
+          },
+        ],
+      },
+      value: moment().add(20, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+      expectedErrors: [{ en: 'invalid-max' }],
+    },
+    {
+      name: 'max(date): dates before max in future pass',
+      question: {
+        type: 'date',
+        validate: [
+          {
+            type: 'max',
+            value: '+15d',
+            error: { en: 'invalid-max' },
+          },
+        ],
+      },
+      value: moment().add(5, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+    },
   ]
 
   for (const t of tests) {
