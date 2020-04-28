@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "ajv": "^6.12.2",
     "aws-amplify": "^3.0.7",
     "aws-amplify-react": "^4.1.6",
@@ -17,14 +18,16 @@
     "react": "^16.13.1",
     "react-date-picker": "^8.0.1",
     "react-dom": "^16.13.1",
+    "react-number-format": "^4.4.1",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
     "uuid": "^7.0.3",
     "validator": "^13.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
+    "test": "jest --testPathIgnorePatterns 'backend/.*'",
     "eject": "react-scripts eject",
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
     "amplify:resolverFunctions": "FUNCTION_NAME=resolverFunctions scripts/compile-function.sh",
@@ -53,6 +56,21 @@
       "post-checkout": "yarnhook",
       "post-rewrite": "yarnhook"
     }
+  },
+  "jest": {
+    "modulePaths": [
+      "<rootDir>/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ]
   },
   "prettier": {
     "semi": false,
@@ -87,9 +105,11 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/ajv": "^1.0.0",
     "@types/email-validator": "^1.0.6",
-    "@types/jest": "^24.0.0",
+    "@types/hapi__joi": "^16.0.12",
+    "@types/jest": "^25.2.1",
     "@types/js-yaml": "^3.12.3",
     "@types/lodash": "^4.14.149",
+    "@types/moment": "^2.13.0",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
@@ -108,9 +128,11 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.5",
     "imagemin-lint-staged": "^0.4.0",
+    "jest": "^25.4.0",
     "lint-staged": "^10.1.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
+    "ts-jest": "^25.4.0",
     "typescript": "^3.8.3",
     "yarnhook": "^0.4.3"
   }

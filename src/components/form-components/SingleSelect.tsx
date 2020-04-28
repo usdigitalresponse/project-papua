@@ -1,21 +1,13 @@
 import React, { useContext } from 'react'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import { Box, RadioButtonGroup } from 'grommet'
 import './single-select.css'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
   question: Question
+  onChange?: (id: string) => void
 }
-
-/**
- * 
- * @param props "disabled": false,
-    "id": "ONE",
-    "name": "one",
-    "value": "1",
-    "label": "one"
- */
 
 const SingleSelectRadio: React.FC<Props> = (props) => {
   const { question } = props
@@ -41,7 +33,7 @@ const SingleSelectRadio: React.FC<Props> = (props) => {
       value={`${question.id}:${value}`}
       onChange={(e) => {
         const id = e.target.value.split(':')[1]
-        setValue(question, question.options?.find((o) => id === o.id)!.id)
+        props.onChange ? props.onChange(id) : setValue(question, id)
       }}
     />
   )

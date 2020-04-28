@@ -1,7 +1,7 @@
 import React from 'react'
-import { states } from '../../forms/states'
+import { states } from '../../lib/states'
 import Select from './Select'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 
 interface Props {
   question: Question

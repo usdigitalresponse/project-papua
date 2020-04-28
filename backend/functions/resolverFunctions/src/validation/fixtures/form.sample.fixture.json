@@ -339,7 +339,7 @@
           },
           "id": "dob",
           "required": true,
-          "type": "datepicker"
+          "type": "date"
         },
         {
           "name": {
@@ -495,7 +495,7 @@
           },
           "id": "home_address",
           "required": true,
-          "type": "address_picker"
+          "type": "address"
         },
         {
           "name": {
@@ -517,7 +517,7 @@
                 },
                 "id": "mailing_address",
                 "required": true,
-                "type": "address_picker"
+                "type": "address"
               }
             ]
           }
@@ -668,7 +668,7 @@
                 },
                 "id": "dl_or_state_id_exp",
                 "required": true,
-                "type": "datepicker"
+                "type": "date"
               }
             ]
           }
@@ -774,7 +774,7 @@
                 },
                 "required": true,
                 "id": "active-duty-start",
-                "type": "datepicker"
+                "type": "date"
               },
               {
                 "name": {
@@ -784,7 +784,7 @@
                 },
                 "required": true,
                 "id": "active-duty-end",
-                "type": "datepicker"
+                "type": "date"
               },
               {
                 "name": {
@@ -794,7 +794,7 @@
                 },
                 "required": true,
                 "id": "military-disability",
-                "type": "singleselect",
+                "type": "single-select",
                 "options": [
                   {
                     "name": {
@@ -977,7 +977,7 @@
                       },
                       "required": true,
                       "id": "military-work-end",
-                      "type": "datepicker"
+                      "type": "date"
                     }
                   ]
                 }
@@ -1157,7 +1157,7 @@
                 },
                 "id": "employment-federal-employee-last-date",
                 "required": true,
-                "type": "datepicker"
+                "type": "date"
               }
             ]
           }
@@ -1182,7 +1182,7 @@
                 },
                 "id": "employment-trade-union",
                 "required": true,
-                "type": "singleselect",
+                "type": "single-select",
                 "options": [
                   {
                     "name": {
@@ -1349,7 +1349,7 @@
           },
           "id": "employer-first-day-of-work",
           "required": true,
-          "type": "datepicker"
+          "type": "date"
         },
         {
           "name": {
@@ -1364,7 +1364,7 @@
           },
           "id": "employer-last-day-of-work",
           "required": true,
-          "type": "datepicker"
+          "type": "date"
         },
         {
           "name": {
@@ -1374,7 +1374,7 @@
           },
           "id": "employer-type",
           "required": true,
-          "type": "singleselect",
+          "type": "single-select",
           "options": [
             {
               "name": {
@@ -1505,7 +1505,7 @@
                 },
                 "id": "non-covid-19-reason",
                 "required": true,
-                "type": "singleselect",
+                "type": "single-select",
                 "options": [
                   {
                     "name": {
@@ -1583,7 +1583,7 @@
                 },
                 "id": "covid-19-reason",
                 "required": true,
-                "type": "singleselect",
+                "type": "single-select",
                 "options": [
                   {
                     "name": {
@@ -1787,7 +1787,7 @@
                 },
                 "id": "tax-info-dependents",
                 "required": true,
-                "type": "singleselect",
+                "type": "single-select",
                 "options": [
                   {
                     "name": {
@@ -1905,7 +1905,7 @@
                   "zh": "您在该州的哪个日期提出了失业保险索赔？"
                 },
                 "id": "unemployment-in-another-state-date",
-                "type": "datepicker",
+                "type": "date",
                 "required": true
               },
               {
@@ -2038,7 +2038,7 @@
           },
           "id": "payment-income-withheld",
           "required": true,
-          "type": "singleselect",
+          "type": "single-select",
           "options": [
             {
               "name": {
@@ -2141,7 +2141,7 @@
                   "zh": "帐户类型"
                 },
                 "id": "payment-account-type",
-                "type": "singleselect",
+                "type": "single-select",
                 "required": true,
                 "options": [
                   {

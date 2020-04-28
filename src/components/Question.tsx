@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Question as QuestionInterface } from '../forms/types'
+import { Question as QuestionInterface } from '../lib/types'
 import { getComponent } from '../forms'
 import { Box, Heading, Text } from 'grommet'
 import { FormContext } from '../contexts/form'
@@ -11,7 +11,7 @@ interface Props {
 
 const Question: React.FC<Props> = (props) => {
   const { question } = props
-  const Component: React.FC<{ [key: string]: any }> = getComponent(question.type)
+  const Component = getComponent(question.type)
 
   const { values, errors, translateCopy } = useContext(FormContext)
 
@@ -44,11 +44,11 @@ const Question: React.FC<Props> = (props) => {
           </Markdown>
         )}
       </Box>
-      <Component width="100%" question={question} />
+      <Component question={question} />
       {error && (
         <Box>
           {error.map((e) => (
-            <Text key={String(e)} margin={{ top: 'xsmall' }} color="#FF4040">
+            <Text key={e.en} margin={{ top: 'xsmall' }} color="#FF4040">
               {translateCopy(e)}
             </Text>
           ))}

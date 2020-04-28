@@ -245,6 +245,36 @@ instructions:
     zh: 完成
   invalid-email:
     en: Please enter a valid email address.
+    es: 'Por favor, introduce una dirección de correo electrónico válida.'
+    zh: 请输入有效的电子邮件地址。
+  field-is-required:
+    en: An answer is required to this question.
+    es: Se requiere una respuesta a esta pregunta.
+    zh: 必须回答这个问题。
+  invalid-decimal:
+    en: Answer must be a valid number.
+  invalid-integer:
+    en: Answer must be an integer.
+  invalid-dollar:
+    en: Answer must be a valid dollar amount.
+  invalid-text:
+    en: Answer must be a valid string.
+  invalid-date:
+    en: Answer must be a valid date.
+  invalid-select:
+    en: Answer must be one of the pre-determined options.
+  invalid-boolean:
+    en: Answer must be a valid boolean.
+  invalid-phone:
+    en: Answer must be a valid phone number.
+  invalid-ssn:
+    en: Social Security Numbers should be 9 digits.
+  invalid-instructions-only:
+    en: An answer is not expected for this question.
+  invalid-arn:
+    en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
+    es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
+    zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
 pages:
   - title:
       en: Name
@@ -296,7 +326,16 @@ pages:
           zh: 你什么时候出生？
         id: dob
         required: true
-        type: datepicker
+        type: date
+        validate:
+          - type: max
+            value: -14y
+            error:
+              en: You must be at least 14 years old.
+          - type: min
+            value: -130y
+            error:
+              en: Please enter a valid birth date.
       - name:
           en: What gender do you identify with?
           es: ¿Con qué género te identificas?
@@ -396,7 +435,7 @@ pages:
           zh: 家庭地址
         id: home_address
         required: true
-        type: address_picker
+        type: address
       - name:
           en: Is your mailing address the same as your home address?
           es: ¿Su dirección postal es la misma que su domicilio?
@@ -412,7 +451,7 @@ pages:
                 zh: 邮寄地址
               id: mailing_address
               required: true
-              type: address_picker
+              type: address
       - name:
           en: Telephone number
           es: Número de teléfono
@@ -489,7 +528,7 @@ pages:
         type: ssn
         validate:
           - type: matches_field
-            value: ssn
+            value: id:ssn
             error:
               en: Social Security Numbers do not match
               es: Los números de la seguridad social no coinciden
@@ -516,7 +555,12 @@ pages:
                 zh: 您的驾驶执照或州签发的身份证件的到期日期是什么？
               id: dl_or_state_id_exp
               required: true
-              type: datepicker
+              type: date
+              validate:
+                - type: min
+                  value: +0d
+                  error:
+                    en: Your license cannot have expired.
       - name:
           en: Are you a U.S. Citizen?
           es: ¿Eres un ciudadano de los Estados Unidos?
@@ -532,24 +576,17 @@ pages:
                 zh: 请输入您的外国人注册号：
               id: alien_reg_number
               required: true
-              type: shorttext
-              validate:
-                - type: regex
-                  value: '^A(\d){7,9}$'
-                  error:
-                    en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
-                    es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
-                    zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
+              type: arn
             - name:
                 en: 'Re-enter your Alien Registration Number:'
                 es: 'Vuelva a ingresar su número de registro de extranjero:'
                 zh: 重新输入您的外国人注册号：
               id: alien_reg_number_confirm
               required: true
-              type: shorttext
+              type: arn
               validate:
                 - type: matches_field
-                  value: alien_reg_number
+                  value: id:alien_reg_number
                   error:
                     en: Alien Registration Numbers do not match
                     es: Los números de registro de extranjeros no coinciden
@@ -585,21 +622,31 @@ pages:
                 zh: 现役开始日期
               required: true
               id: active-duty-start
-              type: datepicker
+              type: date
+              validate:
+                - type: max
+                  value: id:active-duty-end
+                  error:
+                    en: Start date must be before end date.
             - name:
                 en: Active duty end date
                 es: Fecha de finalización del servicio activo
                 zh: 现役结束日期
               required: true
               id: active-duty-end
-              type: datepicker
+              type: date
+              validate:
+                - type: min
+                  value: id:active-duty-start
+                  error:
+                    en: End date must be after start date.
             - name:
                 en: Disability status
                 es: Estado de Discapacidad
                 zh: 残疾状况
               required: true
               id: military-disability
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: Veteran with no disability
@@ -724,7 +771,7 @@ pages:
                       zh: 与军事雇主的最后实际工作日
                     required: true
                     id: military-work-end
-                    type: datepicker
+                    type: date
   - title:
       en: Employment Status
       es: Estado de Empleo
@@ -844,7 +891,7 @@ pages:
                 zh: 请输入与联邦雇主的最后实际工作日
               id: employment-federal-employee-last-date
               required: true
-              type: datepicker
+              type: date
       - name:
           en: Are you a member of a Hiring Hall Trade Union?
           es: ¿Eres miembro de un sindicato Hiring Hall?
@@ -860,7 +907,7 @@ pages:
                 zh: 请选择您所属的工会。
               id: employment-trade-union
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: Local 1196 Brotherhood of Electrical Workers
@@ -971,7 +1018,7 @@ pages:
           zh: 工作的第一天
         id: employer-first-day-of-work
         required: true
-        type: datepicker
+        type: date
       - name:
           en: Last actual Day of Work
           es: Último día real de trabajo
@@ -982,14 +1029,14 @@ pages:
           zh: 请提供您实际为雇主执行工作的最后一天。
         id: employer-last-day-of-work
         required: true
-        type: datepicker
+        type: date
       - name:
           en: 'Did you work for this employer full-time, part-time or on a staggered schedule?'
           es: '¿Trabajó para este empleador a tiempo completo, a tiempo parcial o en un horario escalonado?'
           zh: 您是为该雇主全职，兼职还是按时间表工作？
         id: employer-type
         required: true
-        type: singleselect
+        type: single-select
         options:
           - name:
               en: I work or worked for this employer full-time.
@@ -1075,7 +1122,7 @@ pages:
                 zh: 请选择您申请失业救济的以下原因之一。
               id: non-covid-19-reason
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: Layoff/Lack of Work
@@ -1124,7 +1171,7 @@ pages:
                 zh: 请选择您申请失业救济的以下原因之一。
               id: covid-19-reason
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: |-
@@ -1326,7 +1373,7 @@ pages:
                   注意：只有一位父母或监护人有权获得每周一周的失业救济金。
               id: tax-info-dependents
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: '0'
@@ -1405,7 +1452,7 @@ pages:
                 es: ¿En qué fecha presentó un reclamo de seguro de desempleo en ese estado?
                 zh: 您在该州的哪个日期提出了失业保险索赔？
               id: unemployment-in-another-state-date
-              type: datepicker
+              type: date
               required: true
             - name:
                 en: Have you had any employment since you last filed a claim?
@@ -1500,7 +1547,7 @@ pages:
             失业是应税收入。如果您没有从福利中预扣州税或联邦税，则您有责任在提交纳税申报表时支付这些税。领取失业救济金的每个人都将收到1099，详细说明已收到的总付款以及对该收入支付的任何税款。您可以随时要求更改索赔的税款扣除额。
         id: payment-income-withheld
         required: true
-        type: singleselect
+        type: single-select
         options:
           - name:
               en: 'Yes, I would like both {{STATE_NAME}} and Federal Income Taxes withheld'
@@ -1584,7 +1631,7 @@ pages:
                 es: Tipo de cuenta
                 zh: 帐户类型
               id: payment-account-type
-              type: singleselect
+              type: single-select
               required: true
               options:
                 - name:
@@ -1621,7 +1668,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: payment-account-number
+                  value: id:payment-account-number
                   error:
                     en: Account numbers do not match
                     es: Los números de cuenta no coinciden
@@ -1646,7 +1693,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: payment-routing-number
+                  value: id:payment-routing-number
                   error:
                     en: Routing numbers do not match
                     es: Los números de ruta no coinciden

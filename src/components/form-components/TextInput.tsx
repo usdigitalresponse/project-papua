@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { TextInput as GrommetTextInput } from 'grommet'
 import { FormContext } from '../../contexts/form'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 
 interface Props {
   question: Question

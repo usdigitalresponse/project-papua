@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import SingleSelect from './SingleSelect'
 import { FormContext } from '../../contexts/form'
 
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Boolean: React.FC<Props> = (props) => {
-  const { form } = useContext(FormContext)
+  const { form, setValue } = useContext(FormContext)
 
   const question = props.question
   question.options = [
@@ -24,7 +24,12 @@ const Boolean: React.FC<Props> = (props) => {
     },
   ]
 
-  return <SingleSelect question={question} />
+  // Override the SingleSelect's onChange in order to cast the ID (string) to a boolean.
+  const onChange = (id: string) => {
+    setValue(question, id === 'true')
+  }
+
+  return <SingleSelect question={question} onChange={onChange} />
 }
 
 export default Boolean

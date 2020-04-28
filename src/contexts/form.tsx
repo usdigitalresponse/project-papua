@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import formSchema from '../form.schema.json'
-import { Form, Question, Copy } from '../forms/types'
-import { isValid, canContinue } from '../forms'
+import { Question, Copy, Form, Value, Values, Errors } from '../lib/types'
+import { canContinue } from '../forms'
 import { Box } from 'grommet'
 import { omit } from 'lodash'
 import { Spinner, Markdown, Card } from '../components/helper-components'
@@ -9,6 +9,8 @@ import { LanguageContext } from './language'
 import ky from 'ky'
 import yaml from 'js-yaml'
 import Ajv from 'ajv'
+import { getFlattenedQuestions } from '../forms/index'
+import { isQuestionValid } from '../lib/validation'
 
 interface FormState {
   form: Form
@@ -22,16 +24,6 @@ interface FormState {
   pageIndex: number
   setPage: (index: number) => void
 }
-
-export interface Values {
-  [key: string]: Value
-}
-
-export interface Errors {
-  [key: string]: Copy[]
-}
-
-export type Value = string | string[] | Date
 
 const initialState = {
   /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -127,15 +119,31 @@ export const FormProvider: React.FC = (props) => {
 
   const setError = (key: string, value: Copy[]) => setErrors({ ...errors, [key]: value })
   const setValue = (question: Question, value: Value) => {
-    const newValues = { ...values, [question.id]: value }
+    const newValues = value !== undefined ? { ...values, [question.id]: value } : omit(values, question.id)
     setValues(newValues)
 
-    const validationErrors = isValid(question, value, values, form!)
-    const newErrors =
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Form values: ', newValues)
+    }
+
+    const { errors: validationErrors, dependencies } = isQuestionValid(question, value, values, form!)
+    let newErrors =
       validationErrors.length > 0 ? { ...errors, [question.id]: validationErrors } : omit(errors, question.id)
+    // Note: we only support question references within the same page. That's probably good enough,
+    // but we could expand this in the future if needed.
+    const page = form!.pages[pageIndex - 1]
+    for (const dep of dependencies) {
+      if (values[dep] !== undefined) {
+        const q = getFlattenedQuestions(page.questions, values).find((q) => q.id === dep)!
+        // Note: we ignore deps here. We could recursively traverse them if we want, but we'll need
+        // to avoid cycles. So we just handle a single level of depth (which should be good enough) for now.
+        const { errors: depErrors } = isQuestionValid(q, values[dep], newValues, form!)
+        newErrors = depErrors.length > 0 ? { ...newErrors, [q.id]: depErrors } : omit(newErrors, q.id)
+      }
+    }
     setErrors(newErrors)
 
-    const canContinueFromPage = canContinue(form!.pages[pageIndex - 1], newValues, newErrors)
+    const canContinueFromPage = canContinue(page, newValues, newErrors)
     setCompletion({
       ...completion,
       [pageIndex]: canContinueFromPage,
@@ -149,7 +157,7 @@ export const FormProvider: React.FC = (props) => {
       // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
       text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
         // `key` is the regex-captured value inside the curly braces:
-        const value = form!.variables[key]
+        const value = form?.variables?.[key]
         // If we don't recognize this variable, then default to rendering
         // all of `{{VARIABLE_NAME}}` since that'll make the issue clearest.
         return value ? value : m

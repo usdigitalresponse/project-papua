@@ -1,4 +1,4 @@
-import { Question, QuestionType, Copy, Page } from './types'
+import { Question, QuestionType, Page, Values, Errors } from '../lib/types'
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -7,41 +7,9 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
+import { Number as NumberComponent } from '../components/form-components/Number'
 
 import { Box } from 'grommet'
-import validator from 'email-validator'
-import { Values, Errors, Value } from '../contexts/form'
-import { Form } from './types'
-
-export function isValid(question: Question, value: Value, values: Values, form: Form): Copy[] {
-  const { validate } = question
-  const errors: Copy[] = []
-
-  if (question.type === 'email') {
-    if (!validator.validate(value as string)) {
-      errors.push(form.instructions['invalid-email'])
-    }
-  }
-
-  validate?.forEach((validation) => {
-    const { type, value: validationValue, error } = validation
-    let isValid
-    if (type === 'regex') {
-      const regex = new RegExp(validationValue)
-      isValid = typeof value === 'string' && regex.test(value)
-    }
-
-    if (type === 'matches_field') {
-      isValid = value === values[validationValue]
-    }
-
-    if (!isValid) {
-      errors.push(error)
-    }
-  })
-
-  return errors
-}
 
 /**
  * Determines if a user can proceed to the next form, if they have:
@@ -88,20 +56,23 @@ export function getFlattenedQuestions(questions: Question[], values: Values): Qu
   return flattenedQuestions
 }
 
-const typeComponentMappings: { [type: string]: React.FC } = {
+const typeComponentMappings: Partial<Record<QuestionType, React.FC>> = {
   shorttext: TextInput as React.FC,
-  datepicker: DatePicker as React.FC,
+  date: DatePicker as React.FC,
   dropdown: Select as React.FC,
-  singleselect: SingleSelect as React.FC,
+  'single-select': SingleSelect as React.FC,
   boolean: Boolean as React.FC,
   multiselect: Multiselect as React.FC,
   longtext: TextArea as React.FC,
   'instructions-only': Box,
   'state-picker': StateSelect as React.FC,
+  decimal: NumberComponent as React.FC,
+  integer: NumberComponent as React.FC,
+  'dollar-amount': NumberComponent as React.FC,
+  phone: NumberComponent as React.FC,
+  ssn: NumberComponent as React.FC,
 }
 
-//   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount'
-
-export function getComponent(type: QuestionType): React.FC {
+export function getComponent(type: QuestionType): React.FC<{ question: Question }> {
   return typeComponentMappings[type] || TextInput
 }

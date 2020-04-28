@@ -42,14 +42,14 @@
           "type": "string",
           "enum": [
             "shorttext",
-            "datepicker",
+            "date",
             "dropdown",
-            "singleselect",
-            "address_picker",
+            "single-select",
+            "address",
             "boolean",
             "phone",
             "ssn",
-            "address",
+            "arn",
             "integer",
             "decimal",
             "dollar-amount",
@@ -67,7 +67,7 @@
         },
         "options": {
           "type": "array",
-          "description": "The set of valid options that a user can select from for this question. Only relevant to dropdown/singleselect/multiselect questions.",
+          "description": "The set of valid options that a user can select from for this question. Only relevant to dropdown/single-select/multiselect questions.",
           "items": {
             "type": "object",
             "additionalProperties": false,
@@ -132,7 +132,50 @@
                   },
                   "value": {
                     "type": "string",
-                    "description": "The ID of the question whose value should match the value of this question."
+                    "description": "The ID of the question whose value should match the value of this question. It should be prefixed with 'id:'.",
+                    "pattern": "^id:.*$"
+                  },
+                  "error": {
+                    "$ref": "#/definitions/copy",
+                    "description": "The error message to render when an answer does not satisfy this validation."
+                  }
+                },
+                "required": ["type", "value", "error"]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "min",
+                    "description": "This validation enforces that the provided value is greater than or equal to the provided value."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "The minimum value allowed. If this starts with 'id:', then the remainder of the value is interpreted as a reference to another question ID and the values will be compared. For dates this is a +/-{number}[y/d] relative to today's date.",
+                    "pattern": "^([+-][0-9]+[yd])|(id:.*)$"
+                  },
+                  "error": {
+                    "$ref": "#/definitions/copy",
+                    "description": "The error message to render when an answer does not satisfy this validation."
+                  }
+                },
+                "required": ["type", "value", "error"]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "max",
+                    "description": "This validation enforces that the provided value is less than or equal to the provided value."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "The maximum value allowed. If this starts with 'id:', then the remainder of the value is interpreted as a reference to another question ID and the values will be compared. For dates this can be a +/-{number}[y/d] relative to today's date.",
+                    "pattern": "^([+-][0-9]+[yd])|(id:.*)$"
                   },
                   "error": {
                     "$ref": "#/definitions/copy",

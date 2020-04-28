@@ -50,10 +50,9 @@ app.post('/claims', async function (req: Request, res: Response) {
   const key = `claims/day=${day}/hour=${hour}/${uuid}.json`
   const bucket = `papua-data-${process.env.ACCT_ID}`
 
-  const result = validateAnswers(req.body.questions)
-
-  if (result.error) {
-    res.status(400).json({ message: result.error?.message, id: uuid })
+  const errors = validateAnswers(req.body.questions)
+  if (Object.keys(errors).length > 0) {
+    res.status(400).json({ message: errors, id: uuid })
     return
   }
 

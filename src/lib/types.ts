@@ -5,7 +5,7 @@
 export interface Form {
   title: Copy
   description: Copy
-  variables: Record<string, string>
+  variables?: Record<string, string>
   instructions: Record<string, Copy>
   pages: Page[]
   seal: string
@@ -35,7 +35,7 @@ export interface Option {
   value?: string
 }
 interface Switch {
-  [option: string]: Question[] | undefined
+  [option: string]: Question[]
 }
 
 export interface Copy {
@@ -44,13 +44,13 @@ export interface Copy {
 
 export type QuestionType =
   | 'shorttext'
-  | 'datepicker'
+  | 'date'
   | 'dropdown'
-  | 'singleselect'
-  | 'address_picker'
+  | 'single-select'
   | 'boolean'
   | 'phone'
   | 'ssn'
+  | 'arn'
   | 'address'
   | 'integer'
   | 'decimal'
@@ -62,7 +62,7 @@ export type QuestionType =
   | 'email'
 
 export interface QuestionValidation {
-  type: 'matches_field' | 'regex'
+  type: 'matches_field' | 'regex' | 'min' | 'max'
   value: string
   error: Copy
 }
@@ -70,3 +70,13 @@ export interface QuestionValidation {
 export interface ErrorMessage {
   message: string
 }
+
+export interface Values {
+  [key: string]: Value
+}
+
+export interface Errors {
+  [key: string]: Copy[]
+}
+
+export type Value = string | string[] | Date | number | boolean | undefined

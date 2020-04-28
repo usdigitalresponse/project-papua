@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Question } from '../../forms/types'
+import { Question } from '../../lib/types'
 import { TextArea as GrommetTextArea } from 'grommet'
 import { FormContext } from '../../contexts/form'
 

@@ -83,7 +83,7 @@ jobs:
       - name: Run Tests
         run: yarn --cwd backend/functions/transformer test
 
-  test-resovler:
+  test-client:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -91,7 +91,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: cd backend/functions/resolverFunctions
 
       # yarn install with caching
       - name: Get yarn cache directory path
@@ -101,14 +100,14 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('backend/functions/resolverFunctions/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install Dependencies
-        run: yarn --cwd backend/functions/resolverFunctions install
+        run: yarn install
 
       - name: Run Tests
-        run: yarn --cwd backend/functions/resolverFunctions test
+        run: yarn test
 
   test-api:
     # The type of runner that the job will run on
