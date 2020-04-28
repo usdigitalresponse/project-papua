@@ -49,6 +49,7 @@
             "boolean",
             "phone",
             "ssn",
+            "arn",
             "integer",
             "decimal",
             "dollar-amount",

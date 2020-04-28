@@ -112,6 +112,9 @@ export function isQuestionValid(
     case 'ssn':
       validate(Joi.number().precision(0).min(100000000).max(999999999), value, 'invalid-ssn')
       break
+    case 'arn':
+      validate(Joi.string().regex(/^A[0-9]{7,9}$/), value, 'invalid-arn')
+      break
     case 'address':
       // TODO: we should do more validation than this for address, but this depends on the new
       // UI for entering addresses.

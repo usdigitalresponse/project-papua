@@ -50,6 +50,7 @@ export type QuestionType =
   | 'boolean'
   | 'phone'
   | 'ssn'
+  | 'arn'
   | 'address'
   | 'integer'
   | 'decimal'

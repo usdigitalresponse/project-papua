@@ -268,9 +268,13 @@ instructions:
   invalid-phone:
     en: Answer must be a valid phone number.
   invalid-ssn:
-    en: Answer must be a valid Social Security Number (9 digits).
+    en: Social Security Numbers should be 9 digits.
   invalid-instructions-only:
     en: An answer is not expected for this question.
+  invalid-arn:
+    en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
+    es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
+    zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
 pages:
   - title:
       en: Name
@@ -572,21 +576,14 @@ pages:
                 zh: 请输入您的外国人注册号：
               id: alien_reg_number
               required: true
-              type: shorttext
-              validate:
-                - type: regex
-                  value: '^A(\d){7,9}$'
-                  error:
-                    en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
-                    es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
-                    zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
+              type: arn
             - name:
                 en: 'Re-enter your Alien Registration Number:'
                 es: 'Vuelva a ingresar su número de registro de extranjero:'
                 zh: 重新输入您的外国人注册号：
               id: alien_reg_number_confirm
               required: true
-              type: shorttext
+              type: arn
               validate:
                 - type: matches_field
                   value: id:alien_reg_number

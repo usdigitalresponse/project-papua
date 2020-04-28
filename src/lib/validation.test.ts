@@ -16,6 +16,10 @@ function toForm(question: Question, instructions: Record<string, Copy>): Form {
     'invalid-dollar',
     'invalid-date',
     'invalid-phone',
+    'invalid-ssn',
+    'invalid-address',
+    'invalid-instructions-only',
+    'invalid-arn',
   ]
   return {
     title: { en: '' },
@@ -538,12 +542,97 @@ describe('validation test suite', () => {
     },
 
     // SSN
+    {
+      name: 'ssn: stringified ssn numbers error',
+      question: {
+        type: 'ssn',
+      },
+      value: '123456789',
+      expectedErrors: [{ en: 'invalid-ssn' }],
+    },
+    {
+      name: 'ssn: fake numbers error',
+      question: {
+        type: 'ssn',
+      },
+      value: 123,
+      expectedErrors: [{ en: 'invalid-ssn' }],
+    },
+    {
+      name: 'ssn: real numbers pass',
+      question: {
+        type: 'ssn',
+      },
+      value: 123456789,
+    },
 
     // ARN
+    {
+      name: 'arn: numeric arns error',
+      question: {
+        type: 'arn',
+      },
+      value: 123456789,
+      expectedErrors: [{ en: 'invalid-arn' }],
+    },
+    {
+      name: 'arn: fake arns error',
+      question: {
+        type: 'arn',
+      },
+      value: 'A123',
+      expectedErrors: [{ en: 'invalid-arn' }],
+    },
+    {
+      name: 'arn: numbers without A error',
+      question: {
+        type: 'arn',
+      },
+      value: '123456789',
+      expectedErrors: [{ en: 'invalid-arn' }],
+    },
+    {
+      name: 'arn: real numbers pass',
+      question: {
+        type: 'arn',
+      },
+      value: 'A123456789',
+    },
 
     // Address
+    {
+      name: 'address: invalid types error',
+      question: {
+        type: 'address',
+      },
+      value: true,
+      expectedErrors: [{ en: 'invalid-address' }],
+    },
+    {
+      name: 'address: empty strings error',
+      question: {
+        type: 'address',
+      },
+      value: '',
+      expectedErrors: [{ en: 'invalid-address' }],
+    },
+    {
+      name: 'address: real addresses pass',
+      question: {
+        type: 'address',
+      },
+      value: '100 California St.',
+    },
 
     // Instructions Only
+    {
+      name: 'instructions-only: any value should error',
+      question: {
+        type: 'instructions-only',
+      },
+      value: 'wasssup',
+      expectedErrors: [{ en: 'invalid-instructions-only' }],
+    },
 
     // Custom Validation: Regex
     {
