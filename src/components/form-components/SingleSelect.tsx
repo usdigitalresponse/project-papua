@@ -6,6 +6,7 @@ import { FormContext } from '../../contexts/form'
 
 interface Props {
   question: Question
+  onChange?: (id: string) => void
 }
 
 const SingleSelectRadio: React.FC<Props> = (props) => {
@@ -32,7 +33,7 @@ const SingleSelectRadio: React.FC<Props> = (props) => {
       value={`${question.id}:${value}`}
       onChange={(e) => {
         const id = e.target.value.split(':')[1]
-        setValue(question, question.options?.find((o) => id === o.id)!.id)
+        props.onChange ? props.onChange(id) : setValue(question, id)
       }}
     />
   )

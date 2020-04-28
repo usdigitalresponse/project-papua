@@ -4,6 +4,7 @@ import validator from 'email-validator'
 import { Values, Value } from '../contexts/form'
 import Joi from '@hapi/joi'
 import moment from 'moment'
+import { states } from './states'
 
 function getInstructions(form: Form, id: string): Copy {
   const c = form.instructions[id]
@@ -82,10 +83,12 @@ export function isQuestionValid(
       )
       break
     case 'dropdown':
-    case 'singleselect':
-      if (validate<string>(Joi.string(), value, 'invalid-decimal')) {
+    case 'single-select':
+    case 'state-picker':
+      if (validate<string>(Joi.string(), value, 'invalid-select')) {
+        const options = question.type === 'state-picker' ? states : question.options
         // Check if we selected a pre-defined option id:
-        if (!question.options?.find((o) => o.id === value)) {
+        if (!options?.find((o) => o.id === value)) {
           errors.push(getInstructions(form, 'invalid-select'))
         }
       }
@@ -105,6 +108,18 @@ export function isQuestionValid(
       break
     case 'phone':
       validate(Joi.number().precision(0).min(1000000000).max(9999999999), value, 'invalid-phone')
+      break
+    case 'ssn':
+      validate(Joi.number().precision(0).min(100000000).max(999999999), value, 'invalid-ssn')
+      break
+    case 'address':
+      // TODO: we should do more validation than this for address, but this depends on the new
+      // UI for entering addresses.
+      validate(Joi.string(), value, 'invalid-address')
+      break
+    case 'instructions-only':
+      // There should not be an answer for this question.
+      errors.push(getInstructions(form, 'invalid-instructions-only'))
       break
   }
 

@@ -46,7 +46,7 @@ export type QuestionType =
   | 'shorttext'
   | 'date'
   | 'dropdown'
-  | 'singleselect'
+  | 'single-select'
   | 'boolean'
   | 'phone'
   | 'ssn'

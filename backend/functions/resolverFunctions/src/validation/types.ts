@@ -98,7 +98,7 @@ export type QuestionType =
   | 'shorttext'
   | 'date'
   | 'dropdown'
-  | 'singleselect'
+  | 'single-select'
   | 'address'
   | 'boolean'
   | 'phone'

@@ -310,6 +310,113 @@ describe('validation test suite', () => {
       value: '2020-01-20T10:00:00Z',
     },
 
+    // Dropdown
+    {
+      name: 'dropdown: invalid option errors',
+      question: {
+        type: 'dropdown',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 'goodbye',
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'dropdown: invalid type errors (array)',
+      question: {
+        type: 'dropdown',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: ['hello'],
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'dropdown: invalid type errors (number)',
+      question: {
+        type: 'dropdown',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 1,
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'dropdown: valid option passes',
+      question: {
+        type: 'dropdown',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 'hello',
+    },
+
+    // Single Select
+    {
+      name: 'single-select: invalid option errors',
+      question: {
+        type: 'single-select',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 'goodbye',
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'single-select: invalid type errors (array)',
+      question: {
+        type: 'single-select',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: ['hello'],
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'single-select: invalid type errors (number)',
+      question: {
+        type: 'single-select',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 1,
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'single-select: valid option passes',
+      question: {
+        type: 'single-select',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: 'hello',
+    },
+
+    // Single Select
+    {
+      name: 'state-picker: invalid option errors',
+      question: {
+        type: 'state-picker',
+      },
+      value: 'East Virginia',
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'state-picker: invalid type errors (array)',
+      question: {
+        type: 'state-picker',
+      },
+      value: ['wy'],
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'state-picker: invalid type errors (number)',
+      question: {
+        type: 'state-picker',
+      },
+      value: 1,
+      expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'state-picker: valid option passes',
+      question: {
+        type: 'state-picker',
+      },
+      value: 'ca',
+    },
+
     // Multi select
     {
       name: 'multi-select: invalid option errors',
@@ -355,6 +462,14 @@ describe('validation test suite', () => {
       },
       value: [1] as any,
       expectedErrors: [{ en: 'invalid-select' }],
+    },
+    {
+      name: 'multi-select: valid option passes',
+      question: {
+        type: 'multiselect',
+        options: [{ id: 'hello', name: { en: 'Hello' } }],
+      },
+      value: ['hello'],
     },
 
     // Boolean
@@ -421,6 +536,14 @@ describe('validation test suite', () => {
       },
       value: 1234567890,
     },
+
+    // SSN
+
+    // ARN
+
+    // Address
+
+    // Instructions Only
 
     // Custom Validation: Regex
     {
@@ -575,12 +698,12 @@ describe('validation test suite', () => {
         validate: [
           {
             type: 'max',
-            value: '-15d',
+            value: '-2y',
             error: { en: 'invalid-max' },
           },
         ],
       },
-      value: moment().add(-20, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+      value: moment().add(-3, 'years').format('YYYY-MM-DDTHH:mm:ssZ'),
     },
     {
       name: 'max(date): dates after max in future error',
@@ -604,12 +727,12 @@ describe('validation test suite', () => {
         validate: [
           {
             type: 'max',
-            value: '+15d',
+            value: '+2y',
             error: { en: 'invalid-max' },
           },
         ],
       },
-      value: moment().add(5, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
+      value: moment().add(1, 'years').format('YYYY-MM-DDTHH:mm:ssZ'),
     },
   ]
 

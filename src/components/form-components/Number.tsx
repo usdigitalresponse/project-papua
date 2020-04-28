@@ -47,6 +47,14 @@ export const Number: React.FC<Props> = (props) => {
       allowEmptyFormatting: true,
       mask: '_',
     }
+  } else if (question.type === 'ssn') {
+    typeProps = {
+      ...typeProps,
+      decimalScale: 0,
+      format: '###-##-####',
+      allowEmptyFormatting: true,
+      mask: '_',
+    }
   }
 
   const hasError = Boolean(errors[question.id])

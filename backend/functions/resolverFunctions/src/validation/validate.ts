@@ -118,7 +118,7 @@ function generateValidation(question: Question): Joi.AnySchema {
     // these types represent form actions, types are nested as parameters
     case 'dropdown':
     case 'multiselect':
-    case 'singleselect':
+    case 'single-select':
       validation = Joi.any()
       break
     default:

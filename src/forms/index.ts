@@ -61,7 +61,7 @@ const typeComponentMappings: Partial<Record<QuestionType, React.FC>> = {
   shorttext: TextInput as React.FC,
   date: DatePicker as React.FC,
   dropdown: Select as React.FC,
-  singleselect: SingleSelect as React.FC,
+  'single-select': SingleSelect as React.FC,
   boolean: Boolean as React.FC,
   multiselect: Multiselect as React.FC,
   longtext: TextArea as React.FC,
@@ -71,6 +71,7 @@ const typeComponentMappings: Partial<Record<QuestionType, React.FC>> = {
   integer: NumberComponent as React.FC,
   'dollar-amount': NumberComponent as React.FC,
   phone: NumberComponent as React.FC,
+  ssn: NumberComponent as React.FC,
 }
 
 export function getComponent(type: QuestionType): React.FC<{ question: Question }> {

@@ -36,7 +36,7 @@ const Review: React.FC<Props> = (props) => {
       console.log(resp)
     } catch (err) {
       setCanSubmit(true)
-      console.error(err)
+      console.error(JSON.stringify(err, null, 2))
     }
   }
 

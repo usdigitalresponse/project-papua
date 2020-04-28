@@ -267,6 +267,10 @@ instructions:
     en: Answer must be a valid boolean.
   invalid-phone:
     en: Answer must be a valid phone number.
+  invalid-ssn:
+    en: Answer must be a valid Social Security Number (9 digits).
+  invalid-instructions-only:
+    en: An answer is not expected for this question.
 pages:
   - title:
       en: Name
@@ -645,7 +649,7 @@ pages:
                 zh: 残疾状况
               required: true
               id: military-disability
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: Veteran with no disability
@@ -906,7 +910,7 @@ pages:
                 zh: 请选择您所属的工会。
               id: employment-trade-union
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: Local 1196 Brotherhood of Electrical Workers
@@ -1035,7 +1039,7 @@ pages:
           zh: 您是为该雇主全职，兼职还是按时间表工作？
         id: employer-type
         required: true
-        type: singleselect
+        type: single-select
         options:
           - name:
               en: I work or worked for this employer full-time.
@@ -1121,7 +1125,7 @@ pages:
                 zh: 请选择您申请失业救济的以下原因之一。
               id: non-covid-19-reason
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: Layoff/Lack of Work
@@ -1170,7 +1174,7 @@ pages:
                 zh: 请选择您申请失业救济的以下原因之一。
               id: covid-19-reason
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: |-
@@ -1372,7 +1376,7 @@ pages:
                   注意：只有一位父母或监护人有权获得每周一周的失业救济金。
               id: tax-info-dependents
               required: true
-              type: singleselect
+              type: single-select
               options:
                 - name:
                     en: '0'
@@ -1546,7 +1550,7 @@ pages:
             失业是应税收入。如果您没有从福利中预扣州税或联邦税，则您有责任在提交纳税申报表时支付这些税。领取失业救济金的每个人都将收到1099，详细说明已收到的总付款以及对该收入支付的任何税款。您可以随时要求更改索赔的税款扣除额。
         id: payment-income-withheld
         required: true
-        type: singleselect
+        type: single-select
         options:
           - name:
               en: 'Yes, I would like both {{STATE_NAME}} and Federal Income Taxes withheld'
@@ -1630,7 +1634,7 @@ pages:
                 es: Tipo de cuenta
                 zh: 帐户类型
               id: payment-account-type
-              type: singleselect
+              type: single-select
               required: true
               options:
                 - name:
