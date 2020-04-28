@@ -6,12 +6,12 @@ process.env.FILE = 'validation/fixtures/form.sample.fixture.yml'
 describe('input validation', () => {
   test('input should be valid', () => {
     const errors = validateAnswers(validUserInput.questions)
-    expect(errors.length).toBe(0)
+    expect(Object.keys(errors).length).toBe(0)
   })
 
   test('input should be invalid', () => {
     const errors = validateAnswers(invalidUserInput.questions)
-    expect(errors.length).toBeGreaterThan(0)
+    expect(Object.keys(errors).length).toBeGreaterThan(0)
   })
 })
 

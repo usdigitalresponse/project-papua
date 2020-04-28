@@ -39,6 +39,7 @@ if [ "${FUNCTION_NAME}" == "resolverFunctions" ]; then
   rm -f backend/functions/resolverFunctions/src/client/lib/*.ts
   mkdir -p backend/functions/resolverFunctions/src/client/lib
   cp src/lib/* backend/functions/resolverFunctions/src/client/lib
+  rm -f backend/functions/resolverFunctions/src/client/lib/*test.ts
 fi
 
 # Compile the TS into JS.

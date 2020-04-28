@@ -1,4 +1,4 @@
-export function merge<T>(...sources: Record<string, T>[]) {
+export function merge(...sources: Record<string, any>[]) {
   const result: Record<string, any> = {}
   for (const source of sources) {
     for (const key of Object.keys(source)) {
