@@ -54,7 +54,7 @@ export function isQuestionValid(
     // luck with that. Kept hitting undocumented issues with the format function.
     schema = Joi.string().custom((v: string, helpers) => {
       const strict = true
-      return moment(v, 'YYYY-MM-DDTHH:mm:ssZ', strict).isValid() ? v : helpers.error('any.invalid')
+      return moment(v, 'YYYY-MM-DDTHH:mm:ss', strict).isValid() ? v : helpers.error('any.invalid')
     })
     copyID = 'invalid-date'
   } else if (['dropdown', 'singleselect'].includes(question.type)) {

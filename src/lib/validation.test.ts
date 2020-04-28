@@ -305,7 +305,7 @@ describe('validation test suite', () => {
       question: {
         type: 'date',
       },
-      value: '2020-01-20T10:00:00Z',
+      value: '2020-01-20T10:00:00',
     },
 
     // Multi select

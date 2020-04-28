@@ -13,7 +13,14 @@ const DatePicker: React.FC<{ question: Question }> = (props) => {
   return (
     <ReactDatePicker
       className="date-picker"
-      onChange={(date) => setValue(question, moment(date as Date).format('YYYY-MM-DDTHH:mm:ssZ'))}
+      onChange={(date) =>
+        setValue(
+          question,
+          moment(date as Date)
+            .startOf('day')
+            .format('YYYY-MM-DDTHH:mm:ss')
+        )
+      }
       value={value ? new Date(value as string) : undefined}
       clearIcon={null}
     />
