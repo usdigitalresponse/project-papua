@@ -297,6 +297,8 @@ instructions:
     zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
   invalid-file:
     en: Please upload a valid file.
+    es: Sube un archivo válido.
+    zh: 请上传有效文件。
   file-uploader-drag-drop:
     en: Drag and drop files here
     es: Arrastra y suelta archivos aquí
@@ -323,50 +325,6 @@ pages:
       es: ¿Cuál es su nombre?
       zh: 你叫什么名字？
     questions:
-      - name:
-          en: Please upload a document as proof of income
-          es: Cargue un documento como comprobante de ingresos.
-          zh: 请上传文件作为收入证明
-        instructions:
-          en: |-
-            In order to determine your weekly benefit amount, we need to verify your income from your most recent tax filing year.
-
-            Please upload the following documents by dragging files to or clicking the upload panel below:
-
-              1. Form 1040 Page 1
-              2. Form 1040 Page 2
-              3. Form 1040 Schedule 1
-
-            Accepted file formats: PNG, JPG, PDF
-
-            File size must be under 5MB
-          es: |-
-            Para determinar el monto de su beneficio semanal, necesitamos verificar sus ingresos de su año fiscal más reciente.
-
-            Cargue los siguientes documentos arrastrando archivos o haciendo clic en el panel de carga a continuación:
-
-              1. Formulario 1040 Página 1
-              2. Formulario 1040 Página 2
-              3. Formulario 1040, Anexo 1
-
-            Formatos de archivo aceptados: PNG, JPG, PDF
-
-            El tamaño del archivo debe ser inferior a 5 MB
-          zh: |-
-            为了确定您的每周福利金额，我们需要核实您最近纳税年度的收入。
-
-            请通过将文件拖到下面或单击下面的上传面板来上传以下文档：
-
-              1. 表格1040第1页
-              2. 表格1040第2页
-              3. 1040表1
-
-            可接受的文件格式：PNG，JPG，PDF
-
-            档案大小必须小于5MB
-        id: proof-of-income
-        required: true
-        type: file
       - name:
           en: First Name
           es: Primer nombre
