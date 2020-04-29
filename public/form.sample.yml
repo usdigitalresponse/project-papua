@@ -253,28 +253,68 @@ instructions:
     zh: 必须回答这个问题。
   invalid-decimal:
     en: Answer must be a valid number.
+    es: La respuesta debe ser un número válido.
+    zh: 答案必须是有效数字。
   invalid-integer:
     en: Answer must be an integer.
+    es: La respuesta debe ser un número entero.
+    zh: 答案必须是整数。
   invalid-dollar:
     en: Answer must be a valid dollar amount.
+    es: La respuesta debe ser una cantidad válida en dólares.
+    zh: 答案必须是有效的美元金额。
   invalid-text:
     en: Answer must be a valid string.
+    es: La respuesta debe ser una cadena válida.
+    zh: 答案必须是有效的字符串。
   invalid-date:
     en: Answer must be a valid date.
+    es: La respuesta debe ser una fecha válida.
+    zh: 答案必须是有效日期。
   invalid-select:
     en: Answer must be one of the pre-determined options.
+    es: La respuesta debe ser una de las opciones predeterminadas.
+    zh: 答案必须是预定选项之一。
   invalid-boolean:
     en: Answer must be a valid boolean.
+    es: La respuesta debe ser un booleano válido.
+    zh: 答案必须是有效的布尔值。
   invalid-phone:
     en: Answer must be a valid phone number.
+    es: La respuesta debe ser un número de teléfono válido.
+    zh: 答案必须是有效的电话号码。
   invalid-ssn:
     en: Social Security Numbers should be 9 digits.
+    es: Los números de la Seguridad Social deben tener 9 dígitos.
+    zh: 社会安全号码应为9位数字。
   invalid-instructions-only:
     en: An answer is not expected for this question.
+    es: No se espera una respuesta para esta pregunta.
+    zh: 这个问题不希望有答案。
   invalid-arn:
     en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
     es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
     zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
+  invalid-file:
+    en: Please upload a valid file.
+    es: Sube un archivo válido.
+    zh: 请上传有效文件。
+  file-uploader-drag-drop:
+    en: Drag and drop files here
+    es: Arrastra y suelta archivos aquí
+    zh: 将文件拖放到此处
+  file-uploader-or:
+    en: or
+    es: o
+    zh: 要么
+  file-uploader-choose-file:
+    en: Choose a File
+    es: Escoge un archivo
+    zh: 选择一个文件
+  file-uploader-uploaded:
+    en: Uploaded!
+    es: Subido!
+    zh: 已上传！
 pages:
   - title:
       en: Name
@@ -329,13 +369,17 @@ pages:
         type: date
         validate:
           - type: max
-            value: -14y
+            value: '-14y'
             error:
               en: You must be at least 14 years old.
+              es: Debes tener al menos 14 años.
+              zh: 您必须年满14岁。
           - type: min
-            value: -130y
+            value: '-130y'
             error:
               en: Please enter a valid birth date.
+              es: Por favor introduzca una fecha de cumpleaños válida.
+              zh: 请输入一个有效的生日。
       - name:
           en: What gender do you identify with?
           es: ¿Con qué género te identificas?
@@ -528,7 +572,7 @@ pages:
         type: ssn
         validate:
           - type: matches_field
-            value: id:ssn
+            value: 'id:ssn'
             error:
               en: Social Security Numbers do not match
               es: Los números de la seguridad social no coinciden
@@ -561,6 +605,8 @@ pages:
                   value: +0d
                   error:
                     en: Your license cannot have expired.
+                    es: Su licencia no puede haber expirado.
+                    zh: 您的许可证不能过期。
       - name:
           en: Are you a U.S. Citizen?
           es: ¿Eres un ciudadano de los Estados Unidos?
@@ -586,7 +632,7 @@ pages:
               type: arn
               validate:
                 - type: matches_field
-                  value: id:alien_reg_number
+                  value: 'id:alien_reg_number'
                   error:
                     en: Alien Registration Numbers do not match
                     es: Los números de registro de extranjeros no coinciden
@@ -625,9 +671,11 @@ pages:
               type: date
               validate:
                 - type: max
-                  value: id:active-duty-end
+                  value: 'id:active-duty-end'
                   error:
                     en: Start date must be before end date.
+                    es: La fecha de inicio debe ser anterior a la fecha de finalización.
+                    zh: 开始日期必须早于结束日期。
             - name:
                 en: Active duty end date
                 es: Fecha de finalización del servicio activo
@@ -637,9 +685,11 @@ pages:
               type: date
               validate:
                 - type: min
-                  value: id:active-duty-start
+                  value: 'id:active-duty-start'
                   error:
                     en: End date must be after start date.
+                    es: La fecha de finalización debe ser posterior a la fecha de inicio.
+                    zh: 结束日期必须晚于开始日期。
             - name:
                 en: Disability status
                 es: Estado de Discapacidad
@@ -1343,6 +1393,50 @@ pages:
               required: true
               type: dollar-amount
             - name:
+                en: Please upload a document as proof of income
+                es: Cargue un documento como comprobante de ingresos.
+                zh: 请上传文件作为收入证明
+              instructions:
+                en: |-
+                  In order to determine your weekly benefit amount, we need to verify your income from your most recent tax filing year.
+
+                  Please upload the following documents by dragging files to or clicking the upload panel below:
+
+                    1. Form 1040 Page 1
+                    2. Form 1040 Page 2
+                    3. Form 1040 Schedule 1
+
+                  Accepted file formats: PNG, JPG, PDF
+
+                  File size must be under 5MB
+                es: |-
+                  Para determinar el monto de su beneficio semanal, necesitamos verificar sus ingresos de su año fiscal más reciente.
+
+                  Cargue los siguientes documentos arrastrando archivos o haciendo clic en el panel de carga a continuación:
+
+                    1. Formulario 1040 Página 1
+                    2. Formulario 1040 Página 2
+                    3. Formulario 1040, Anexo 1
+
+                  Formatos de archivo aceptados: PNG, JPG, PDF
+
+                  El tamaño del archivo debe ser inferior a 5 MB
+                zh: |-
+                  为了确定您的每周福利金额，我们需要核实您最近纳税年度的收入。
+
+                  请通过将文件拖到下面或单击下面的上传面板来上传以下文档：
+
+                    1. 表格1040第1页
+                    2. 表格1040第2页
+                    3. 1040表1
+
+                  可接受的文件格式：PNG，JPG，PDF
+
+                  档案大小必须小于5MB
+              id: proof-of-income
+              required: true
+              type: file
+            - name:
                 en: How many dependent children do you have?
                 es: ¿Cuántos hijos dependientes tienes?
                 zh: 您有几个受抚养子女？
@@ -1668,7 +1762,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: id:payment-account-number
+                  value: 'id:payment-account-number'
                   error:
                     en: Account numbers do not match
                     es: Los números de cuenta no coinciden
@@ -1693,7 +1787,7 @@ pages:
               required: true
               validate:
                 - type: matches_field
-                  value: id:payment-routing-number
+                  value: 'id:payment-routing-number'
                   error:
                     en: Routing numbers do not match
                     es: Los números de ruta no coinciden

@@ -1,0 +1,14 @@
+.circle-icon {
+  margin-top: 1px;
+}
+
+.circle-icon > svg {
+  height: 20px;
+  width: 20px;
+}
+
+.circle-icon > svg > path,
+.circle-icon > svg > polyline {
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
