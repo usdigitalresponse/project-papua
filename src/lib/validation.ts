@@ -128,12 +128,12 @@ export function isQuestionValid(
     case 'file':
       validate(
         Joi.array()
-          .min(0)
+          .min(question.required ? 1 : 0)
           .max(10)
           .items(
             Joi.object({
               name: Joi.string().optional(),
-              type: Joi.string().optional(),
+              type: Joi.string().valid('image/png', 'image/jpeg', 'image/jpg', 'application/pdf'),
               size: Joi.number().min(0),
               contents: Joi.string().min(1),
             })

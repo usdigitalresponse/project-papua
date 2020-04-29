@@ -19,6 +19,7 @@ function toForm(question: Question, instructions: Record<string, Copy>): Form {
     'invalid-address',
     'invalid-instructions-only',
     'invalid-arn',
+    'invalid-file',
   ]
   return {
     title: { en: '' },
@@ -631,6 +632,73 @@ describe('validation test suite', () => {
       },
       value: 'wasssup',
       expectedErrors: [{ en: 'invalid-instructions-only' }],
+    },
+
+    // Files
+    {
+      name: 'file: invalid type errors',
+      question: {
+        type: 'file',
+      },
+      value: true,
+      expectedErrors: [{ en: 'invalid-file' }],
+    },
+    {
+      name: 'file: empty array of files fails if required',
+      question: {
+        type: 'file',
+        required: true,
+      },
+      value: [],
+      expectedErrors: [{ en: 'invalid-file' }],
+    },
+    {
+      name: 'file: empty array of files passes if not required ',
+      question: {
+        type: 'file',
+      },
+      value: [],
+    },
+    {
+      name: 'file: unknown fields error',
+      question: {
+        type: 'file',
+      },
+      value: [
+        {
+          idk: 'hello world',
+        },
+      ] as any,
+      expectedErrors: [{ en: 'invalid-file' }],
+    },
+    {
+      name: 'file: unacceptable format errors',
+      question: {
+        type: 'file',
+      },
+      value: [
+        {
+          name: 'example.gif',
+          type: 'image/gif',
+          size: 1001,
+          contents: '123==',
+        },
+      ],
+      expectedErrors: [{ en: 'invalid-file' }],
+    },
+    {
+      name: 'file: real file passes',
+      question: {
+        type: 'file',
+      },
+      value: [
+        {
+          name: 'hello-world.png',
+          type: 'image/png',
+          size: 1001,
+          contents: '123==',
+        },
+      ],
     },
 
     // Custom Validation: Regex
