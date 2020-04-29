@@ -32,11 +32,14 @@ export function isQuestionValid(
   }
 
   function validate<T>(schema: Joi.Schema, value: any, copyID: string): value is T {
-    const valid = !schema.strict().validate(value).error
-    if (!valid) {
+    const { error } = schema.strict().validate(value)
+    if (error) {
       errors.push(getInstructions(form, copyID!))
+      if (process.env.NODE_ENV === 'development') {
+        console.error(error)
+      }
     }
-    return valid
+    return !error
   }
 
   // Handle type-specified validation, which is generic
@@ -121,6 +124,23 @@ export function isQuestionValid(
     case 'instructions-only':
       // There should not be an answer for this question.
       errors.push(getInstructions(form, 'invalid-instructions-only'))
+      break
+    case 'file':
+      validate(
+        Joi.array()
+          .min(0)
+          .max(10)
+          .items(
+            Joi.object({
+              name: Joi.string().optional(),
+              type: Joi.string().optional(),
+              size: Joi.number().min(0),
+              contents: Joi.string().min(1),
+            })
+          ),
+        value,
+        'invalid-file'
+      )
       break
   }
 

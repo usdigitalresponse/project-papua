@@ -295,6 +295,8 @@ instructions:
     en: "Alien Registration Numbers all start with the letter 'A', followed by 7-9 digits."
     es: "Todos los números de registro de extranjeros comienzan con la letra 'A', seguidos de 7-9 dígitos."
     zh: 所有外国人注册号码均以字母“ A”开头，后跟7-9位数字。
+  invalid-file:
+    en: Please upload a valid file.
   file-uploader-drag-drop:
     en: Drag and drop files here
     es: Arrastra y suelta archivos aquí
