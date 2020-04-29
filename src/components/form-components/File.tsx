@@ -30,7 +30,7 @@ interface Props {
  */
 const File: React.FC<Props> = (props) => {
   const { question } = props
-  const { values, setValue } = useContext(FormContext)
+  const { values, setValue, translateByID } = useContext(FormContext)
   const value = values[question.id] as FileValues | undefined
 
   const onDrop = (acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
@@ -75,7 +75,6 @@ const File: React.FC<Props> = (props) => {
 
   const color = isDragActive || isFocused ? '#4776F6' : '#CCCCCC'
 
-  // TODO: i18n the copy below
   return (
     <>
       <Box
@@ -96,13 +95,13 @@ const File: React.FC<Props> = (props) => {
       >
         <input {...getInputProps()} />
         <Paragraph margin={{ vertical: 'none' }} color="black">
-          Drag and drop files here
+          {translateByID('file-uploader-drag-drop')}
         </Paragraph>
         <Paragraph margin={{ vertical: 'none' }} color="black">
-          or
+          {translateByID('file-uploader-or')}
         </Paragraph>
         <Paragraph margin={{ vertical: 'none' }} color="#4776F6" style={{ display: 'flex', fontWeight: 600 }}>
-          Choose a File
+          {translateByID('file-uploader-choose-file')}
           <CircleIcon color="#4776F6" margin={{ left: '6px' }}>
             <FormNextLink color="white" className="file-upload-icon" />
           </CircleIcon>
@@ -113,11 +112,13 @@ const File: React.FC<Props> = (props) => {
           <Box direction="row" pad="medum" height="75px" key={i} align="center" justify="between">
             <Box direction="row">
               {/* TODO: use other SVGs for PDF/JPEG/etc. when those are available */}
-              <Image src="/file.jpg.svg" />
+              <Image src="/file.jpg.svg" width="45px" />
               <Paragraph margin={{ left: '12px', bottom: '12px' }}>{v.name}</Paragraph>
             </Box>
             <Box direction="row" align="center">
-              <Paragraph margin={{ vertical: 'none', right: '12px' }}>Uploaded!</Paragraph>
+              <Paragraph margin={{ vertical: 'none', right: '12px' }}>
+                {translateByID('file-uploader-uploaded')}
+              </Paragraph>
               <CircleIcon color="#4776F6">
                 <Checkmark color="white" style={{ width: '12px', height: '12px' }} />
               </CircleIcon>
