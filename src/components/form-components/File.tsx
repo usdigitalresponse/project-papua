@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
-import { Question, FileValue } from '../../lib/types'
+import { Question, FileValues } from '../../lib/types'
 import { FormContext } from '../../contexts/form'
-import { FormNextLink, Trash } from 'grommet-icons'
+import { FormNextLink, Checkmark, FormClose } from 'grommet-icons'
 import { useDropzone, DropEvent } from 'react-dropzone'
-import { Box, Text, Button, Image, Paragraph } from 'grommet'
+import { Box, Button, Paragraph, Image } from 'grommet'
 import { encode } from 'base64-arraybuffer'
 import './file.css'
+import { CircleIcon } from '../helper-components/CircleIcon'
 
 interface Props {
   [key: string]: any
@@ -30,7 +31,7 @@ interface Props {
 const File: React.FC<Props> = (props) => {
   const { question } = props
   const { values, setValue } = useContext(FormContext)
-  const value = values[question.id] as FileValue | undefined
+  const value = values[question.id] as FileValues | undefined
 
   const onDrop = (acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
     console.log(acceptedFiles)
@@ -45,12 +46,15 @@ const File: React.FC<Props> = (props) => {
       reader.onerror = () => console.log('file reading has failed')
       // onload fired only after the read operation has finished
       reader.onload = () => {
-        setValue(question, {
-          name: file.name,
-          type: file.type,
-          size: file.size,
-          contents: encode(reader.result as ArrayBuffer),
-        })
+        setValue(question, [
+          ...(value || []),
+          {
+            name: file.name,
+            type: file.type,
+            size: file.size,
+            contents: encode(reader.result as ArrayBuffer),
+          },
+        ])
       }
       reader.readAsArrayBuffer(file)
     })
@@ -63,16 +67,12 @@ const File: React.FC<Props> = (props) => {
     onDrop,
     // Accept PNGs, JPGs and PDFs
     accept: ['image/png', 'image/jpeg', 'image/jpg', 'application/pdf'],
-    // We currently only support a single image, but TBD if states
-    // want more than one.
-    multiple: false,
   })
 
   const onRemove = () => {
     setValue(question, undefined)
   }
 
-  // TODO: make these styles align with Grommet focus styles.
   const color = isDragActive || isFocused ? '#4776F6' : '#CCCCCC'
 
   // TODO: i18n the copy below
@@ -91,6 +91,7 @@ const File: React.FC<Props> = (props) => {
           color: '#F6F7F9',
         }}
         className="file-upload-box"
+        margin={{ bottom: '12px' }}
         {...getRootProps()}
       >
         <input {...getInputProps()} />
@@ -102,32 +103,42 @@ const File: React.FC<Props> = (props) => {
         </Paragraph>
         <Paragraph margin={{ vertical: 'none' }} color="#4776F6" style={{ display: 'flex', fontWeight: 600 }}>
           Choose a File
-          <Box
-            style={{ height: '20px', width: '20px', borderRadius: '12px' }}
-            background={{ color: '#4776F6' }}
-            margin={{ left: '6px', top: '1px' }}
-            flex={true}
-            justify="center"
-            align="center"
-          >
-            <FormNextLink color="white" className="file-upload-icon" style={{ height: '20px', width: '20px' }} />
-          </Box>
+          <CircleIcon color="#4776F6" margin={{ left: '6px' }}>
+            <FormNextLink color="white" className="file-upload-icon" />
+          </CircleIcon>
         </Paragraph>
       </Box>
-      {value && (
-        <Box direction="row" pad="medum" margin={{ top: '12px' }}>
-          {/* TODO: rendering PDFs may require more work */}
-          {value.type !== 'application/pdf' && (
-            <Box border="all" width={{ max: '300px' }} height={{ max: '200px' }}>
-              <Image fit="contain" src={`data:${value.type};base64,${value.contents}`} />
+      {value &&
+        value.map((v, i) => (
+          <Box direction="row" pad="medum" height="75px" key={i} align="center" justify="between">
+            <Box direction="row">
+              {/* TODO: use other SVGs for PDF/JPEG/etc. when those are available */}
+              <Image src="/file.jpg.svg" />
+              <Paragraph margin={{ left: '12px', bottom: '12px' }}>{v.name}</Paragraph>
             </Box>
-          )}
-          <Box direction="column" pad="medium">
-            <Text margin={{ bottom: '12px' }}>{value.name}</Text>
-            <Button icon={<Trash />} onClick={onRemove} label={<Text>Delete</Text>} />
+            <Box direction="row" align="center">
+              <Paragraph margin={{ vertical: 'none', right: '12px' }}>Uploaded!</Paragraph>
+              <CircleIcon color="#4776F6">
+                <Checkmark color="white" style={{ width: '12px', height: '12px' }} />
+              </CircleIcon>
+              <Button
+                icon={<FormClose />}
+                onClick={onRemove}
+                size="small"
+                margin={{ left: '20px' }}
+                style={{
+                  borderRadius: '20px',
+                  padding: '3px',
+                }}
+                primary={true}
+                color="#eee"
+                hoverIndicator={{
+                  color: 'lightgrey',
+                }}
+              />
+            </Box>
           </Box>
-        </Box>
-      )}
+        ))}
     </>
   )
 }

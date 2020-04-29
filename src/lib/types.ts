@@ -80,7 +80,9 @@ export interface Errors {
   [key: string]: Copy[]
 }
 
-export type Value = string | string[] | Date | number | boolean | FileValue | undefined
+export type Value = string | string[] | Date | number | boolean | FileValues | undefined
+
+export type FileValues = FileValue[]
 
 export type FileValue = {
   name: string | undefined

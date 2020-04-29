@@ -2,9 +2,9 @@
   transform: rotate(-90deg);
 }
 
-.file-upload-icon > path {
-  stroke-width: 2.5;
-  stroke-linecap: round;
+.file-upload-box {
+  outline-color: #cccccc;
+  transition: outline 0.1s linear;
 }
 
 .file-upload-box:hover {
