@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { Question, FileValues } from '../../lib/types'
+import { Question, FileValues, FileValue } from '../../lib/types'
 import { FormContext } from '../../contexts/form'
 import { FormNextLink, Checkmark, FormClose } from 'grommet-icons'
-import { useDropzone, DropEvent } from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 import { Box, Button, Paragraph, Image } from 'grommet'
 import { encode } from 'base64-arraybuffer'
 import './file.css'
@@ -33,31 +33,33 @@ const File: React.FC<Props> = (props) => {
   const { values, setValue, translateByID } = useContext(FormContext)
   const value = values[question.id] as FileValues | undefined
 
-  const onDrop = (acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
-    console.log(acceptedFiles)
-    console.log(rejectedFiles)
-    console.log(event)
+  const onDrop = async (acceptedFiles: File[]) => {
+    const files = await Promise.all(
+      acceptedFiles.map((file) => {
+        return new Promise<FileValue | undefined>((resolve) => {
+          const reader = new FileReader()
 
-    acceptedFiles.forEach((file) => {
-      const reader = new FileReader()
+          reader.onerror = () => {
+            resolve()
+          }
+          reader.onabort = () => {
+            resolve()
+          }
+          // onload fired only after the read operation has finished
+          reader.onload = () => {
+            resolve({
+              name: file.name,
+              type: file.type,
+              size: file.size,
+              contents: encode(reader.result as ArrayBuffer),
+            })
+          }
+          reader.readAsArrayBuffer(file)
+        })
+      })
+    )
 
-      // TODO: handle aborts + errors
-      reader.onabort = () => console.log('file reading was aborted')
-      reader.onerror = () => console.log('file reading has failed')
-      // onload fired only after the read operation has finished
-      reader.onload = () => {
-        setValue(question, [
-          ...(value || []),
-          {
-            name: file.name,
-            type: file.type,
-            size: file.size,
-            contents: encode(reader.result as ArrayBuffer),
-          },
-        ])
-      }
-      reader.readAsArrayBuffer(file)
-    })
+    setValue(question, [...(value || []), ...(files.filter((f) => !!f) as FileValue[])])
   }
 
   const { getRootProps, getInputProps, isDragActive, isFocused } = useDropzone({
