@@ -21,7 +21,7 @@ const Sidebar: React.FC<Props> = (props) => {
   const { language, setLanguage } = useContext(LanguageContext)
 
   const currentPage = pages[pageIndex]
-  const percent = Math.floor(((pageIndex + 1) / pages.length) * 100)
+  const percent = Math.floor((pageIndex / (pages.length - 1)) * 100)
 
   return (
     <Card flex={{ shrink: 0 }} margin={{ left: 'small' }} height="0%" background="white" pad="medium" width="350px">
