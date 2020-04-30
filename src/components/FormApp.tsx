@@ -7,7 +7,7 @@ import Form from './Form'
 import { FormContext } from '../contexts/form'
 
 const FormApp: React.FC<{}> = () => {
-  const { form, translateByID, translateCopy, completion, pageIndex, setPage, errors } = useContext(FormContext)
+  const { form, translateByID, translateCopy, completion, pageIndex, setPage } = useContext(FormContext)
   const size = useContext(ResponsiveContext)
 
   const pageTitles = [...form.pages.map((page) => translateCopy(page.title)), translateByID('submit')]
@@ -19,8 +19,6 @@ const FormApp: React.FC<{}> = () => {
 
   const onClickNext = () => setPage(pageIndex + 1)
   const onClickBack = () => setPage(pageIndex - 1)
-
-  console.log(completion, pageIndex, errors)
 
   return (
     <Box align="center" pad="medium" direction="column" width={{ max: '1200px' }} margin="auto">
