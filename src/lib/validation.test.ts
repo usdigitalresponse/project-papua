@@ -20,6 +20,7 @@ function toForm(question: Question, instructions: Record<string, Copy>): Form {
     'invalid-instructions-only',
     'invalid-arn',
     'invalid-file',
+    'invalid-checkbox',
   ]
   return {
     title: { en: '' },
