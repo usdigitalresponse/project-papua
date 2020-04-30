@@ -60,6 +60,7 @@ export type QuestionType =
   | 'state-picker'
   | 'instructions-only'
   | 'email'
+  | 'checkbox'
 
 export interface QuestionValidation {
   type: 'matches_field' | 'regex' | 'min' | 'max'

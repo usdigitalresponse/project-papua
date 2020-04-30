@@ -61,6 +61,7 @@ export type QuestionType =
   | 'instructions-only'
   | 'email'
   | 'file'
+  | 'checkbox'
 
 export interface QuestionValidation {
   type: 'matches_field' | 'regex' | 'min' | 'max'

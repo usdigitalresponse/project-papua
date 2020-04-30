@@ -701,6 +701,31 @@ describe('validation test suite', () => {
       ],
     },
 
+    // Checkbox
+    {
+      name: 'checkbox: invalid types error',
+      question: {
+        type: 'checkbox',
+      },
+      value: 123,
+      expectedErrors: [{ en: 'invalid-checkbox' }],
+    },
+    {
+      name: 'checkbox: false errors',
+      question: {
+        type: 'checkbox',
+      },
+      value: false,
+      expectedErrors: [{ en: 'invalid-checkbox' }],
+    },
+    {
+      name: 'checkbox: true passes',
+      question: {
+        type: 'checkbox',
+      },
+      value: true,
+    },
+
     // Custom Validation: Regex
     {
       name: 'regex: strings that do not match error',

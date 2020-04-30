@@ -122,6 +122,10 @@ export function isQuestionValid(
       // There should not be an answer for this question.
       errors.push(getInstructions(form, 'invalid-instructions-only'))
       break
+    case 'checkbox':
+      if (value !== true) {
+        errors.push(getInstructions(form, 'invalid-checkbox'))
+      }
   }
 
   // Handle question-specific validation, as specified in the form.
