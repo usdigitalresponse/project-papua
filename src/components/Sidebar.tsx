@@ -19,10 +19,9 @@ const Sidebar: React.FC<Props> = (props) => {
   const { pages } = props
   const { translateByID, form, pageIndex, setPage, completion } = useContext(FormContext)
   const { language, setLanguage } = useContext(LanguageContext)
-  console.log(language)
 
   const currentPage = pages[pageIndex]
-  const percent = Math.floor((pageIndex / (pages.length - 1)) * 100)
+  const percent = Math.floor(((pageIndex + 1) / pages.length) * 100)
 
   return (
     <Card flex={{ shrink: 0 }} margin={{ left: 'small' }} height="0%" background="white" pad="medium" width="350px">
@@ -40,9 +39,9 @@ const Sidebar: React.FC<Props> = (props) => {
           margin={{ top: 'xsmall' }}
           options={languages}
           labelKey="title"
-          valueKey="value"
+          valueKey={{ key: 'value', reduce: true }}
           value={language}
-          onChange={({ option }: { option: { title: string; value: string } }) => setLanguage(option.value)}
+          onChange={({ value }) => setLanguage(value)}
         />
       </Box>
       <Box margin={{ top: 'medium' }}>
