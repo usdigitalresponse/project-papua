@@ -58,7 +58,8 @@
             "state-picker",
             "instructions-only",
             "email",
-            "file"
+            "file",
+            "checkbox"
           ],
           "description": "The type of values to accept from this form. This determines what type of form input is generated."
         },

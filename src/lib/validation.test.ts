@@ -20,6 +20,7 @@ function toForm(question: Question, instructions: Record<string, Copy>): Form {
     'invalid-instructions-only',
     'invalid-arn',
     'invalid-file',
+    'invalid-checkbox',
   ]
   return {
     title: { en: '' },
@@ -699,6 +700,31 @@ describe('validation test suite', () => {
           contents: '123==',
         },
       ],
+    },
+
+    // Checkbox
+    {
+      name: 'checkbox: invalid types error',
+      question: {
+        type: 'checkbox',
+      },
+      value: 123,
+      expectedErrors: [{ en: 'invalid-checkbox' }],
+    },
+    {
+      name: 'checkbox: false errors',
+      question: {
+        type: 'checkbox',
+      },
+      value: false,
+      expectedErrors: [{ en: 'invalid-checkbox' }],
+    },
+    {
+      name: 'checkbox: true passes',
+      question: {
+        type: 'checkbox',
+      },
+      value: true,
     },
 
     // Custom Validation: Regex

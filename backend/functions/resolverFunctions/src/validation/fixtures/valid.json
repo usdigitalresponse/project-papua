@@ -5,6 +5,7 @@
     "host": "papua.usdigitalresponse.org"
   },
   "questions": {
+    "agreement": true,
     "first_name": "Jasper",
     "middle_name": "Q",
     "last_name": "Loudkeys",
@@ -51,6 +52,14 @@
     "tax-info-married": "single",
     "tax-info-agi": 100000,
     "tax-info-dependents": "1",
+    "proof-of-income": [
+      {
+        "name": "test.png",
+        "size": 9001,
+        "type": "image/png",
+        "contents": "ooooohhhyeaaahhh"
+      }
+    ],
     "unemployment-in-another-state": false,
     "other-income-public-assistance": false,
     "other-income-dhs-work": false,

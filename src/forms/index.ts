@@ -9,7 +9,7 @@ import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
 import { Number as NumberComponent } from '../components/form-components/Number'
 import File from '../components/form-components/File'
-
+import { Checkbox } from '../components/form-components/Checkbox'
 import { Box } from 'grommet'
 
 /**
@@ -73,6 +73,7 @@ const typeComponentMappings: Partial<Record<QuestionType, React.FC>> = {
   phone: NumberComponent as React.FC,
   ssn: NumberComponent as React.FC,
   file: File as React.FC,
+  checkbox: Checkbox as React.FC,
 }
 
 export function getComponent(type: QuestionType): React.FC<{ question: Question }> {

@@ -131,7 +131,7 @@ export const FormProvider: React.FC = (props) => {
       validationErrors.length > 0 ? { ...errors, [question.id]: validationErrors } : omit(errors, question.id)
     // Note: we only support question references within the same page. That's probably good enough,
     // but we could expand this in the future if needed.
-    const page = form!.pages[pageIndex - 1]
+    const page = form!.pages[pageIndex]
     for (const dep of dependencies) {
       if (values[dep] !== undefined) {
         const q = getFlattenedQuestions(page.questions, values).find((q) => q.id === dep)!
