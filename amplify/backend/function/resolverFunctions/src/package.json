@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "local": "S3_ENDPOINT='http://localhost:4572' ACCT_ID=123456789 ts-node src/local.ts",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc && copyfiles -u 2 'src/validation/form*.yml' dist/validation/"
   },
   "jest": {
     "modulePaths": [
@@ -49,6 +50,7 @@
     "@types/js-yaml": "^3.12.3",
     "@types/moment": "^2.13.0",
     "@types/node": "^13.11.1",
+    "copyfiles": "^2.2.0",
     "jest": "^25.4.0",
     "nodemon": "^2.0.3",
     "ts-jest": "^25.4.0",

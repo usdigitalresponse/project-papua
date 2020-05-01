@@ -45,7 +45,7 @@ fi
 # Compile the TS into JS.
 cd backend/functions/${FUNCTION_NAME}
 yarn --frozen-lockfile
-yarn tsc
+yarn build
 cd -
 
 # Copy over the compiled JS + package.json + yarn.lock files.
