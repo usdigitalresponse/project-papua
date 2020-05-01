@@ -8,6 +8,7 @@ import { FormContext } from '../contexts/form'
 import Amplify, { API } from 'aws-amplify'
 import awsconfig from '../aws-exports'
 import { v5 as uuid } from 'uuid'
+import { Confirmation } from './Confirmation'
 
 Amplify.configure(awsconfig)
 
@@ -16,23 +17,27 @@ const FormApp: React.FC<{}> = () => {
   const size = useContext(ResponsiveContext)
 
   const [canSubmit, setCanSubmit] = useState(true)
+  const [claimID, setClaimID] = useState<string>()
 
   const onSubmit = async () => {
     setCanSubmit(false)
-    const resp = await API.post('resolverAPI', '/claims', {
-      body: {
-        metadata: {
-          uuid: uuid(window.location.hostname, uuid.DNS),
-          timestamp: new Date(),
-          host: window.location.hostname,
+    try {
+      const resp = await API.post('resolverAPI', '/claims', {
+        body: {
+          metadata: {
+            uuid: uuid(window.location.hostname, uuid.DNS),
+            timestamp: new Date(),
+            host: window.location.hostname,
+          },
+          questions: values,
         },
-        questions: values,
-      },
-    }).catch((err) => {
+      })
+      console.log(resp)
+      setClaimID(resp.id)
+    } catch (err) {
       setCanSubmit(true)
       console.error(JSON.stringify(err.response.data, null, 2))
-    })
-    console.log(resp)
+    }
   }
 
   const pageTitles = [...form.pages.map((page) => translateCopy(page.title)), translateByID('submit')]
@@ -44,6 +49,11 @@ const FormApp: React.FC<{}> = () => {
 
   const onClickNext = () => setPage(pageIndex + 1)
   const onClickBack = () => setPage(pageIndex - 1)
+
+  if (claimID) {
+    // Render the confirmation page
+    return <Confirmation id={claimID} />
+  }
 
   return (
     <Box align="center" pad="medium" direction="column" width={{ max: '1200px' }} margin="auto">
