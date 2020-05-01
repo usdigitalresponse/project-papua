@@ -175,7 +175,7 @@ export const FormProvider: React.FC = (props) => {
 
       return text
     },
-    [form, language]
+    [form, language, values]
   )
 
   const translateByID = (id: string, variables?: Record<string, string>): string => {
