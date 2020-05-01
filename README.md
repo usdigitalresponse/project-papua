@@ -7,7 +7,7 @@ Give it a spin at https://papua.usdigitalresponse.org
 
 ## Features
 
-- Generates a custom form from a json config doc provided by the state.
+- Generates a custom form from a yaml config doc provided by the state.
 - Validated form data is stored in S3 as json.
 - A transform function converts the json to csv and re-uploads, in batches.
 - The state writes a script to load the converted s3 into whatever environment they need.
@@ -25,10 +25,6 @@ Components:
 [Check out the System Design Doc here.][5]
 
 ![amplify-cicd](./media/amplify-cicd.png)
-
-# Documentation
-
-[link(s) to documentation]
 
 # Running locally
 
@@ -76,13 +72,9 @@ To deploy PAPUA for your state:
 
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/usdigitalresponse/project-papua)
 
-During this setup, make sure to:
-
-- Click `Environment Variables` and set `STATE_CODE` to `csv`. We'll update this to use your state code below.
-
 Your fork is now configured to auto-deploy the `master` branch to your Amplify deployment.
 
-3. [Optional] Update the questions used in your state's PAPUA form by editing `forms.json` and committing those changes to the `master` branch of your fork.
+3. [Optional] Update the questions used in your state's PAPUA form by editing `forms.yml` and committing those changes to the `master` branch of your fork.
 
 4. [Optional] Update the state logo by dropping a `<state code>.png` file into `public` and commiting that change to the `master` branch of your fork.
 
