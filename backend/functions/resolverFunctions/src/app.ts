@@ -51,7 +51,10 @@ app.post('/claims', async function (req: Request, res: Response) {
   const bucket = `papua-data-${process.env.ACCT_ID}`
 
   const errors = validateAnswers(req.body.questions)
-  if (Object.keys(errors).length > 0) {
+  // For demos, we want to be able to show off the full application flow without
+  // having to complete the form first. This environment variable should only be
+  // set for demos (such as on papua.usdigitalresponse.org). Name says it all!
+  if (Object.keys(errors).length > 0 && process.env.DANGEROUS_DEMO_SKIP_VALIDATION !== 'true') {
     res.status(400).json({ message: errors, id: uuid })
     return
   }
