@@ -33,7 +33,6 @@ export const Confirmation: React.FC<Props> = (props) => {
         </Heading>
         <Markdown>
           {translateByID('confirmation-instructions', {
-            DATE_TIME: 'just now', // TODO: use a real date
             // NOTE: this is a hack for demos -- if we forgot to fill out the first and last name
             // and then skip ahead to the confirmation (past all of the validation that would
             // ensure you've provided a name), then we would render something ugly like
