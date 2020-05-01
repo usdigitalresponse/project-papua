@@ -35,15 +35,7 @@ const FormApp: React.FC<{}> = () => {
           {pageComponents[pageIndex]}
           <Box justify="between" pad="medium" direction="row">
             {(pageIndex > 0 && (
-              <Button
-                border={{ radius: 0 }}
-                color="black"
-                onClick={onClickBack}
-                hoverIndicator={{
-                  color: pageIndex === 0 ? '#3E73FF !important' : 'black !important',
-                }}
-                label={translateByID('back')}
-              />
+              <Button border={{ radius: 0 }} color="black" onClick={onClickBack} label={translateByID('back')} />
             )) || <Box />}
             {pageIndex + 1 < pageTitles.length && (
               <Button
@@ -51,12 +43,6 @@ const FormApp: React.FC<{}> = () => {
                 onClick={onClickNext}
                 disabled={!completion[pageIndex]}
                 label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
-                hoverIndicator={{
-                  color: pageIndex === 0 ? '#3E73FF !important' : 'black !important',
-                  style: {
-                    color: 'white !important',
-                  },
-                }}
               />
             )}
           </Box>
