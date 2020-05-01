@@ -1,14 +1,39 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { Card, Button, Markdown } from './helper-components'
 import { Box, ResponsiveContext } from 'grommet'
 import Sidebar from './Sidebar'
 import Review from './Review'
 import Form from './Form'
 import { FormContext } from '../contexts/form'
+import Amplify, { API } from 'aws-amplify'
+import awsconfig from '../aws-exports'
+import { v5 as uuid } from 'uuid'
+
+Amplify.configure(awsconfig)
 
 const FormApp: React.FC<{}> = () => {
-  const { form, translateByID, translateCopy, completion, pageIndex, setPage } = useContext(FormContext)
+  const { form, translateByID, translateCopy, completion, pageIndex, setPage, values } = useContext(FormContext)
   const size = useContext(ResponsiveContext)
+
+  const [canSubmit, setCanSubmit] = useState(true)
+
+  const onSubmit = async () => {
+    setCanSubmit(false)
+    const resp = await API.post('resolverAPI', '/claims', {
+      body: {
+        metadata: {
+          uuid: uuid(window.location.hostname, uuid.DNS),
+          timestamp: new Date(),
+          host: window.location.hostname,
+        },
+        questions: values,
+      },
+    }).catch((err) => {
+      setCanSubmit(true)
+      console.error(JSON.stringify(err.response.data, null, 2))
+    })
+    console.log(resp)
+  }
 
   const pageTitles = [...form.pages.map((page) => translateCopy(page.title)), translateByID('submit')]
 
@@ -43,6 +68,15 @@ const FormApp: React.FC<{}> = () => {
                 onClick={onClickNext}
                 disabled={!completion[pageIndex]}
                 label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
+              />
+            )}
+            {pageIndex === pageTitles.length - 1 && (
+              <Button
+                color={'#3E73FF'}
+                primary={true}
+                onClick={onSubmit}
+                disabled={!canSubmit}
+                label={translateByID('submit:button')}
               />
             )}
           </Box>

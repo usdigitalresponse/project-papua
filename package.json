@@ -37,7 +37,7 @@
     "compile": "run-p amplify:*",
     "lint:check": "eslint '**/*.{js,jsx,ts,tsx}' --max-warnings=0 && prettier --check .",
     "lint": "eslint --fix '**/*.{js,jsx,ts,tsx}' --max-warnings=0 && prettier --write .",
-    "backend": "cd backend/functions/resolverFunctions && yarn --frozen-lockfile && FILE='form.sample.yml' yarn nodemon",
+    "backend": "cd backend/functions/resolverFunctions && yarn --frozen-lockfile && DANGEROUS_DEMO_SKIP_VALIDATION=true FILE='form.sample.yml' yarn nodemon",
     "transform": "cd backend/functions/transformer && yarn --frozen-lockfile && yarn local"
   },
   "browserslist": {

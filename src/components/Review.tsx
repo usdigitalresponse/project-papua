@@ -1,14 +1,9 @@
-import React, { useContext, useState } from 'react'
-import { Box, Heading, Button } from 'grommet'
-import Amplify, { API } from 'aws-amplify'
+import React, { useContext } from 'react'
+import { Box, Heading } from 'grommet'
 import { FormContext } from '../contexts/form'
-import { v5 as uuid } from 'uuid'
 import Summary from './Summary'
 import { Markdown } from './helper-components/Markdown'
-import awsconfig from '../aws-exports'
 import { Page } from '../lib/types'
-
-Amplify.configure(awsconfig)
 
 interface Props {
   pages: Page[]
@@ -17,26 +12,6 @@ interface Props {
 const Review: React.FC<Props> = (props) => {
   const { pages } = props
   const { values, translateByID, setPage } = useContext(FormContext)
-
-  const [canSubmit, setCanSubmit] = useState(true)
-
-  const onSubmit = async () => {
-    setCanSubmit(false)
-    const resp = await API.post('resolverAPI', '/claims', {
-      body: {
-        metadata: {
-          uuid: uuid(window.location.hostname, uuid.DNS),
-          timestamp: new Date(),
-          host: window.location.hostname,
-        },
-        questions: values,
-      },
-    }).catch((err) => {
-      setCanSubmit(true)
-      console.error(JSON.stringify(err.response.data, null, 2))
-    })
-    console.log(resp)
-  }
 
   return (
     <Box pad="48px">
@@ -47,13 +22,6 @@ const Review: React.FC<Props> = (props) => {
       <Markdown>{translateByID('submit-instructions')}</Markdown>
 
       <Summary setPage={setPage} values={values} pages={pages} />
-      <Button
-        margin={{ top: 'small' }}
-        color="black !important"
-        onClick={onSubmit}
-        disabled={!canSubmit}
-        label={translateByID('submit:button')}
-      />
     </Box>
   )
 }
