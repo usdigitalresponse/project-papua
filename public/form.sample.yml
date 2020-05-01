@@ -10,6 +10,7 @@ seal: /generic-state-seal.png
 variables:
   STATE_CODE: '[ST]'
   STATE_NAME: '[State]'
+  DOMAIN: usdigitalresponse.org
 instructions:
   get-started:
     en: Get Started
@@ -151,6 +152,19 @@ instructions:
     en: You must agree before continuing.
     es: Debe aceptar antes de continuar.
     zh: 您必须先同意才能继续。
+  confirmation-heading:
+    en: Your application has been submitted!
+  confirmation-instructions:
+    en: Thank you, {{id:first_name}} {{id:last_name}}, you have successfully submitted your Pandemic Unemployment Assistance (PUA) Application at {{DATE_TIME}}.
+  confirmation-number:
+    en: |-
+      Your confirmation number:
+  copy:
+    en: Copy
+  confirmation-warning:
+    en: Please record, print, or take a screenshot of your confirmation number for your records.
+  confirmation-exit:
+    en: Back to {{DOMAIN}}
 pages:
   - title:
       en: Instructions

@@ -17,7 +17,7 @@ const FormApp: React.FC<{}> = () => {
   const size = useContext(ResponsiveContext)
 
   const [canSubmit, setCanSubmit] = useState(true)
-  const [claimID, setClaimID] = useState<string>()
+  const [claimID, setClaimID] = useState<string>('yeet') // useState<string>()
 
   const onSubmit = async () => {
     setCanSubmit(false)
@@ -50,11 +50,6 @@ const FormApp: React.FC<{}> = () => {
   const onClickNext = () => setPage(pageIndex + 1)
   const onClickBack = () => setPage(pageIndex - 1)
 
-  if (claimID) {
-    // Render the confirmation page
-    return <Confirmation id={claimID} />
-  }
-
   return (
     <Box align="center" pad="medium" direction="column" width={{ max: '1200px' }} margin="auto">
       <Card
@@ -67,29 +62,33 @@ const FormApp: React.FC<{}> = () => {
       </Card>
       <Box width="100%" height="100%" justify="center" direction="row">
         <Card background="white" justify="between" flex={{ grow: 1, shrink: 1 }}>
-          {pageComponents[pageIndex]}
-          <Box justify="between" pad="medium" direction="row">
-            {(pageIndex > 0 && (
-              <Button border={{ radius: 0 }} color="black" onClick={onClickBack} label={translateByID('back')} />
-            )) || <Box />}
-            {pageIndex + 1 < pageTitles.length && (
-              <Button
-                color={pageIndex === 0 ? '#3E73FF' : 'black'}
-                onClick={onClickNext}
-                disabled={!completion[pageIndex]}
-                label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
-              />
-            )}
-            {pageIndex === pageTitles.length - 1 && (
-              <Button
-                color={'#3E73FF'}
-                primary={true}
-                onClick={onSubmit}
-                disabled={!canSubmit}
-                label={translateByID('submit:button')}
-              />
-            )}
-          </Box>
+          {(claimID && <Confirmation id={claimID} />) || (
+            <>
+              {pageComponents[pageIndex]}
+              <Box justify="between" pad="medium" direction="row">
+                {(pageIndex > 0 && (
+                  <Button border={{ radius: 0 }} color="black" onClick={onClickBack} label={translateByID('back')} />
+                )) || <Box />}
+                {pageIndex + 1 < pageTitles.length && (
+                  <Button
+                    color={pageIndex === 0 ? '#3E73FF' : 'black'}
+                    onClick={onClickNext}
+                    disabled={!completion[pageIndex]}
+                    label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
+                  />
+                )}
+                {pageIndex === pageTitles.length - 1 && (
+                  <Button
+                    color={'#3E73FF'}
+                    primary={true}
+                    onClick={onSubmit}
+                    disabled={!canSubmit}
+                    label={translateByID('submit:button')}
+                  />
+                )}
+              </Box>
+            </>
+          )}
         </Card>
         {size !== 'small' && <Sidebar pages={pageTitles} />}
       </Box>

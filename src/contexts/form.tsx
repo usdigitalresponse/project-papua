@@ -18,8 +18,8 @@ interface FormState {
   setError: (id: string, value: Copy[]) => void
   values: Values
   errors: Errors
-  translateCopy: (copy: Copy) => string
-  translateByID: (id: string) => string
+  translateCopy: (copy: Copy, variables?: Record<string, string>) => string
+  translateByID: (id: string, variables?: Record<string, string>) => string
   completion: Record<string, boolean>
   pageIndex: number
   setPage: (index: number) => void
@@ -151,13 +151,23 @@ export const FormProvider: React.FC = (props) => {
   }
 
   const translateCopy = useCallback(
-    (copy: Copy) => {
+    (copy: Copy, variables?: Record<string, string>) => {
       let text = copy[language]
 
-      // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields:
-      text = text.replace(/\{\{([A-Z_]+)\}\}/g, (m, key) => {
+      // Apply templating variables by looking for `{{VARIABLE_NAME}}` fields.
+      // The value is evaluated as the first truthy value of:
+      //  1. If the key starts with `id:`, then the remainder of the key is considered a question ID
+      //     and the corresponding value from the current set of form values is used.
+      //  2. If a matching key is supplied in the `variables` argument to `translateCopy`.
+      //  3. If a matching key exists in the form's top-level variables map.
+      //  4. If nothing else, then the variable is left as-is (f.e.: {{VARIABLE_NAME}}).
+      text = text.replace(/\{\{([a-ziA-Z_:-]+)\}\}/g, (m, key) => {
         // `key` is the regex-captured value inside the curly braces:
-        const value = form?.variables?.[key]
+        let value = variables?.[key] || form?.variables?.[key]
+        if (key.startsWith('id:')) {
+          const questionID = key.slice(3)
+          value = values[questionID] ? String(values[questionID]) : value
+        }
         // If we don't recognize this variable, then default to rendering
         // all of `{{VARIABLE_NAME}}` since that'll make the issue clearest.
         return value ? value : m
@@ -168,8 +178,8 @@ export const FormProvider: React.FC = (props) => {
     [form, language]
   )
 
-  const translateByID = (id: string): string => {
-    return translateCopy(form!.instructions[id])
+  const translateByID = (id: string, variables?: Record<string, string>): string => {
+    return translateCopy(form!.instructions[id], variables)
   }
 
   const setPage = (index: number) => {
