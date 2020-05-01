@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "local": "S3_ENDPOINT='http://localhost:4572' STATE_CODE=csv ACCT_ID=123456789 yarn ts-node ./src/local.ts",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "jest": {
     "modulePaths": [
