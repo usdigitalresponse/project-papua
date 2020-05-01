@@ -33,6 +33,22 @@
     -->
   </head>
   <body>
+  <div id='jujibot-icon'
+       background=''
+       img_url='https://juji-user-uploads.s3.amazonaws.com/f3018067-cc2b-4bda-af08-9f03ea3ad3a8.png'>
+  </div>
+  <script>
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://juji.ai/assets/js/webplugin.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'juji-webplugin'));
+  </script>
+  <div id='juji-chatbot'
+       chat_url='https://juji.ai/pre-chat/5ea7948b-4eb7-4cbb-beaf-4dc1d38a101e'>
+  </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
