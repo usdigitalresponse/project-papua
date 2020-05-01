@@ -31,7 +31,10 @@ const Select: React.FC<Props> = (props) => {
       margin={{ top: 'xsmall' }}
       options={options}
       labelKey="name"
-      valueKey="id"
+      valueKey={{
+        key: 'id',
+        reduce: true,
+      }}
       value={value as string}
       onChange={({ option }: { option: { id: string; name: string } }) => setValue(question, option.id)}
     />
