@@ -17,7 +17,7 @@ const FormApp: React.FC<{}> = () => {
   const size = useContext(ResponsiveContext)
 
   const [canSubmit, setCanSubmit] = useState(true)
-  const [claimID, setClaimID] = useState<string>('yeet') // useState<string>()
+  const [claimID, setClaimID] = useState<string>()
 
   const onSubmit = async () => {
     setCanSubmit(false)

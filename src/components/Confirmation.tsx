@@ -3,20 +3,25 @@ import { FormContext } from '../contexts/form'
 import { Heading, Box, Paragraph } from 'grommet'
 import { Markdown } from './helper-components/Markdown'
 import Button from './helper-components/Button'
+import { Clipboard } from 'grommet-icons'
+import copy from 'copy-to-clipboard'
 
 export interface Props {
   id: string
 }
 
 export const Confirmation: React.FC<Props> = (props) => {
-  const { translateByID } = useContext(FormContext)
+  const { translateByID, form } = useContext(FormContext)
 
   const onCopy = () => {
-    // TODO
+    copy(props.id)
   }
 
   const onExit = () => {
-    // TODO
+    const domain = form.variables?.['DOMAIN']
+    if (domain) {
+      window.location.href = `https://${domain}`
+    }
   }
 
   return (
@@ -26,7 +31,7 @@ export const Confirmation: React.FC<Props> = (props) => {
         <Heading color="black" margin="none" level={3}>
           {translateByID('confirmation-heading')}
         </Heading>
-        <Markdown size="small">
+        <Markdown>
           {translateByID('confirmation-instructions', {
             DATE_TIME: 'just now', // TODO: use a real date
             // NOTE: this is a hack for demos -- if we forgot to fill out the first and last name
@@ -42,29 +47,55 @@ export const Confirmation: React.FC<Props> = (props) => {
         </Markdown>
       </Box>
       {/* Confirmation number + copy button */}
-      <Box background={{ color: 'grey' }} direction="row">
-        <Box direction="row">
-          <Paragraph>{translateByID('confirmation-number')}</Paragraph>
-          <Paragraph>{props.id}</Paragraph>
+      <Box
+        background={{ color: '#F6F7F9' }}
+        direction="row"
+        pad={{ horizontal: '48px', vertical: '16px' }}
+        justify="between"
+      >
+        <Box direction="column">
+          <Paragraph size="small" margin={{ top: 'none', bottom: 'small' }}>
+            {translateByID('confirmation-number')}
+          </Paragraph>
+          <Paragraph size="large" margin="none">
+            {props.id}
+          </Paragraph>
         </Box>
-        <Box>
-          <Button onClick={onCopy}>{translateByID('copy')}</Button>
+        <Box height="100%" justify="center" pad={{ top: '16px' }}>
+          <Button
+            color={'black'}
+            onClick={onCopy}
+            label={translateByID('copy')}
+            reverse={true}
+            icon={<Clipboard size="small" color="black" />}
+          />
         </Box>
       </Box>
       {/* Warning */}
-      <Box direction="row">
-        <Box direction="row">
-          <Paragraph>{translateByID('confirmation-number')}</Paragraph>
-          <Paragraph>{props.id}</Paragraph>
-        </Box>
-        <Box>
-          <Button onClick={onCopy}>{translateByID('copy')}</Button>
+      <Box style={{ position: 'relative' }} margin={{ vertical: '16px' }} direction="row">
+        <Box
+          style={{
+            position: 'absolute',
+            height: '100%',
+            width: '8px',
+            backgroundColor: '#FFAE00',
+          }}
+        />
+        <Box pad={{ vertical: 'none', horizontal: '48px' }}>
+          <Markdown>{translateByID('confirmation-warning')}</Markdown>
         </Box>
       </Box>
       {/* Exit button */}
-      <Box direction="row">
+      <Box direction="row" justify="between" margin={{ horizontal: '48px', vertical: '16px' }}>
+        <Box />
         <Box>
-          <Button onClick={onExit}>{translateByID('confirmation-exit')}</Button>
+          <Button
+            color="#3E73FF"
+            primary={true}
+            onClick={onExit}
+            label={translateByID('confirmation-exit')}
+            size="small"
+          />
         </Box>
       </Box>
     </Box>
