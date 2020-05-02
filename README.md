@@ -2,7 +2,7 @@
 
 The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers validated unemployment claims to various State backends. This project is a volunteer-led effort and part of the [US Digital Response network.][1]
 
-Give it a spin at https://papua.usdigitalresponse.org
+Give it a spin at https://papua.usdigitalresponse.org, or deploy it to your own AWS account in under 5 mins [with one click.](#deploying) 
 ![](./media/validation.gif)
 
 ## Features
@@ -12,6 +12,7 @@ Give it a spin at https://papua.usdigitalresponse.org
 - A transform function converts the json to csv and re-uploads, in batches.
 - The state writes a script to load the converted s3 into whatever environment they need.
 - Minimal deployment overhead
+- intellisense for form.yml fields makes editing a breeze 
 
 # Technical overview
 
@@ -65,6 +66,12 @@ aws s3 --endpoint-url=http://localhost:4572 cp s3://papua-data-123456789/claims/
 ```
 
 # Deploying
+Requirements:
+- GitHub account
+- AWS account
+
+Note: this process will fork this repo into your GitHub account, as well as create real AWS resources. Take a moment to review your AWS account's security settings, and remember to tear down this project when you're done using it.
+![amplify-fork-and-deploy](./media/amplify-deployment-flow.png)
 
 To deploy PAPUA for your state:
 
@@ -74,11 +81,11 @@ To deploy PAPUA for your state:
 
 Your fork is now configured to auto-deploy the `master` branch to your Amplify deployment.
 
-3. [Optional] Update the questions used in your state's PAPUA form by editing `forms.yml` and committing those changes to the `master` branch of your fork.
+2. [Optional] Update the questions used in your state's PAPUA form by editing `forms.yml` and committing those changes to the `master` branch of your fork.
 
-4. [Optional] Update the state logo by dropping a `<state code>.png` file into `public` and commiting that change to the `master` branch of your fork.
+3. [Optional] Update the state logo by dropping a `<state code>.png` file into `public` and commiting that change to the `master` branch of your fork.
 
-5. [Optional] By default, this system will produce an hourly CSV of claim submissions. If you want to customize this, you can implement a "transformer" which will write claims in batches into your state's system. You can do this by adding a file to `backend/functions/transformer/src/transformers/<state code>.ts` where `<state code>` is your state's two-letter state abbreviation (CA, OR, etc.).
+4. [Optional] By default, this system will produce an hourly CSV of claim submissions. If you want to customize this, you can implement a "transformer" which will write claims in batches into your state's system. You can do this by adding a file to `backend/functions/transformer/src/transformers/<state code>.ts` where `<state code>` is your state's two-letter state abbreviation (CA, OR, etc.).
 
 Inside that file, implement a function like so:
 
