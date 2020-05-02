@@ -79,7 +79,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Snyk test
-        run: yarn synk test --fail-on=upgradeable --severity-threshold=high
+        run: yarn snyk test --fail-on=upgradeable --severity-threshold=high
 
   test-transformer:
     # The type of runner that the job will run on
