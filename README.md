@@ -108,7 +108,7 @@ You can this commit this file to the `master` branch in your fork, which will up
 
 At this point, you can now reboot your Lambda to pick up this environment change by clicking on your backend environment and selecting `Redeploy this version`.
 
-6. [Optional] Redirect a subdomain from your state's website to this Amplify app. [Docs](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html)
+5. [Optional] Redirect a subdomain from your state's website to this Amplify app. [Docs](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html)
 
 # Contributing
 
