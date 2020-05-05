@@ -31,7 +31,6 @@ export const Number: React.FC<Props> = (props) => {
     typeProps = {
       ...typeProps,
       decimalScale: 0,
-      thousandSeparator: true,
     }
   } else if (question.type === 'decimal') {
     typeProps = {
