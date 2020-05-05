@@ -187,8 +187,12 @@ export const FormProvider: React.FC = (props) => {
     window.scrollTo(0, 0)
   }
 
+  /**
+   * This hook is purely for testing, where it'll prefill form values so we can test
+   * functionality later on in the form.
+   */
   useEffect(() => {
-    if (!form) return
+    if (!form || process.env.NODE_ENV !== 'development') return
 
     // Initialize form with some starter values for testing.
     const testValues = {

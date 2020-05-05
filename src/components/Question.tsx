@@ -31,12 +31,8 @@ const Question: React.FC<Props> = (props) => {
             margin="none"
           >
             {translateCopy(question.name)}
+            {question.required && <span style={{ color: '#FF4040' }}> *</span>}
           </Heading>
-          {question.required && (
-            <Heading level={4} margin="none" color="#FF4040">
-              *
-            </Heading>
-          )}
         </Box>
         {question.instructions && (
           <Markdown margin={{ vertical: 'xsmall' }} size="small">
