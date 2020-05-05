@@ -74,6 +74,8 @@ instructions:
     zh: 进展
   section:
     en: Section
+    es: Sección
+    zh: 部分
   complete:
     en: complete
     es: completar
@@ -136,6 +138,8 @@ instructions:
     zh: 请上传有效文件。
   invalid-address:
     en: Please enter a valid address.
+    es: Por favor introduce una dirección válida.
+    zh: 请输入一个有效的地址。
   invalid-checkbox:
     en: You must agree before continuing.
     es: Debe aceptar antes de continuar.
@@ -748,9 +752,13 @@ pages:
                   id: no-disability
                 - name:
                     en: Veteran with Service-Connected Disability rated at less than 30%
+                    es: Veterano con discapacidad relacionada con el servicio calificado con menos del 30%
+                    zh: 退役军人的残障率低于30％
                   id: disability-less-than-30
                 - name:
                     en: Veteran with Service-Connected Disability rated at 30% or more
+                    es: Veterano con discapacidad relacionada con el servicio con una calificación del 30% o más
+                    zh: 具有与服务相关的残障人士的经验丰富度达到30％以上
                   id: disability-more-than-30
             - name:
                 en: Have you performed active military service during the last 2 years?
