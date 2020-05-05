@@ -60,7 +60,7 @@ const FormApp: React.FC<{}> = () => {
       >
         <Markdown>{translateByID('demo-warning')}</Markdown>
       </Card>
-      <Box width="100%" height="100%" justify="center" direction="row">
+      <Box width="100%" height="100%" justify="center" direction={size === 'small' ? 'column' : 'row'}>
         <Card pad="medium" background="white" justify="between" flex={{ grow: 1, shrink: 1 }}>
           {(claimID && <Confirmation id={claimID} />) || (
             <>
@@ -90,8 +90,7 @@ const FormApp: React.FC<{}> = () => {
             </>
           )}
         </Card>
-        {/* TODO: bring me back on mobile! */}
-        {size !== 'small' && <Sidebar pages={pageTitles} />}
+        <Sidebar pages={pageTitles} />
       </Box>
     </Box>
   )

@@ -72,6 +72,8 @@ instructions:
     en: Progress
     es: Progreso
     zh: 进展
+  section:
+    en: Section
   complete:
     en: complete
     es: completar
