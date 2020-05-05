@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grommet } from 'grommet'
 import './App.css'
-import FormApp from './components/FormApp'
+import Form from './components/Form'
 import { LanguageProvider } from './contexts/language'
 import { FormProvider } from './contexts/form'
 
@@ -88,7 +88,7 @@ function App() {
     <Grommet className="App" theme={theme as any}>
       <LanguageProvider>
         <FormProvider>
-          <FormApp />
+          <Form />
         </FormProvider>
       </LanguageProvider>
     </Grommet>
