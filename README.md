@@ -2,7 +2,7 @@
 
 The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers validated unemployment claims to various State backends. This project is a volunteer-led effort and part of the [US Digital Response network.][1]
 
-Give it a spin at https://papua.usdigitalresponse.org, or deploy it to your own AWS account in under 5 mins [with one click.](#deploying) 
+Give it a spin at https://papua.usdigitalresponse.org, or deploy it to your own AWS account in under 5 mins [with one click.](#deploying)
 ![](./media/validation.gif)
 
 ## Features
@@ -12,7 +12,7 @@ Give it a spin at https://papua.usdigitalresponse.org, or deploy it to your own 
 - A transform function converts the json to csv and re-uploads, in batches.
 - The state writes a script to load the converted s3 into whatever environment they need.
 - Minimal deployment overhead
-- intellisense for form.yml fields makes editing a breeze 
+- intellisense for form.yml fields makes editing a breeze
 
 # Technical overview
 
@@ -66,7 +66,9 @@ aws s3 --endpoint-url=http://localhost:4572 cp s3://papua-data-123456789/claims/
 ```
 
 # Deploying
+
 Requirements:
+
 - GitHub account
 - AWS account
 
