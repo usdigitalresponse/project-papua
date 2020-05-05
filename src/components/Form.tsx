@@ -75,14 +75,6 @@ const Form: React.FC<{}> = () => {
 
   return (
     <Box align="center" pad="medium" direction="column" width={{ max: '1200px' }} margin="auto">
-      <Card
-        margin={{ bottom: 'small' }}
-        pad={{ horizontal: size === 'small' ? '24px' : 'medium', vertical: 'small' }}
-        background="white"
-        width={{ max: '600px' }}
-      >
-        <Markdown>{translateByID('demo-warning')}</Markdown>
-      </Card>
       <Box width="100%" height="100%" justify="center" direction={size === 'small' ? 'column' : 'row'}>
         <Card pad="medium" background="white" justify="between" flex={{ grow: 1, shrink: 1 }}>
           {(claimID && <Confirmation id={claimID} />) || (
