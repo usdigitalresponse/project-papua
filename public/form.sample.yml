@@ -134,6 +134,12 @@ instructions:
     en: Please upload a valid file.
     es: Sube un archivo válido.
     zh: 请上传有效文件。
+  invalid-address:
+    en: Please enter a valid address.
+  invalid-checkbox:
+    en: You must agree before continuing.
+    es: Debe aceptar antes de continuar.
+    zh: 您必须先同意才能继续。
   file-uploader-drag-drop:
     en: Drag and drop files here
     es: Arrastra y suelta archivos aquí
@@ -150,10 +156,6 @@ instructions:
     en: Uploaded!
     es: Subido!
     zh: 已上传！
-  invalid-checkbox:
-    en: You must agree before continuing.
-    es: Debe aceptar antes de continuar.
-    zh: 您必须先同意才能继续。
   confirmation-heading:
     en: Your application has been submitted!
     es: ¡Tu solicitud ha sido enviada!

@@ -188,6 +188,49 @@ export const FormProvider: React.FC = (props) => {
   }
 
   useEffect(() => {
+    if (!form) return
+
+    // Initialize form with some starter values for testing.
+    const testValues = {
+      /* eslint-disable @typescript-eslint/camelcase */
+      agreement: true,
+      first_name: 'Colin',
+      last_name: 'King',
+      dob: '2001-01-02T00:00:00+00:00',
+      gender: 'male',
+      race: 'white',
+      ethnicity: 'hispanic',
+      home_address: '123 Home St.',
+      telephone: 1234567890,
+      preferred_language: 'en',
+    }
+    for (const [id, v] of Object.entries(testValues)) {
+      if (values[id] === v) {
+        continue
+      }
+
+      for (const [i, page] of form.pages.entries()) {
+        for (const question of getFlattenedQuestions(page.questions, values)) {
+          if (question.id === id) {
+            if (i !== pageIndex) {
+              setPageIndex(i)
+
+              // 1337 hacks
+              return
+            }
+
+            console.log('setting value', question, v, completion)
+            setValue(question, v)
+
+            // 1337 hacks
+            return
+          }
+        }
+      }
+    }
+  })
+
+  useEffect(() => {
     if (form) {
       // Update the page title
       document.title = translateCopy(form.title)

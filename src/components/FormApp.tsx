@@ -22,6 +22,12 @@ const FormApp: React.FC<{}> = () => {
   const onSubmit = async () => {
     setCanSubmit(false)
     try {
+      /**
+       * TODO: clear any subquestion values if the subquestion is hidden, s.t. we don't submit those values.
+       *
+       * We should only do this at submission time, so that users can toggle switches without losing
+       * their WIP content.
+       */
       const resp = await API.post('resolverAPI', '/claims', {
         body: {
           metadata: {
