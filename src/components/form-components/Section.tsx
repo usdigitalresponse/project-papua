@@ -21,6 +21,7 @@ const Section: React.FC<Props> = (props) => {
           background="#F8F8F8"
           style={{
             border: '1px solid black',
+            overflowWrap: 'break-word',
           }}
           justify="between"
           key={`section_${index}`}
