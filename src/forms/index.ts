@@ -75,7 +75,7 @@ const typeComponentMappings: Partial<Record<QuestionType, React.FC>> = {
   ssn: NumberComponent as React.FC,
   file: File as React.FC,
   checkbox: Checkbox as React.FC,
-  sections: Sections as React.FC
+  sections: Sections as React.FC,
 }
 
 export function getComponent(type: QuestionType): React.FC<{ question: Question }> {
@@ -86,8 +86,11 @@ export function getSwitch(questionSwitch: Question['switch'], value: string | st
   if (!questionSwitch || !value) {
     return []
   }
-  const switchKey = Object.keys(questionSwitch).find(key => {
-    return key.split(',').includes(value.toString()) || (value as string[]).some(val => key.split(',').includes(val))
+  const switchKey = Object.keys(questionSwitch).find((key) => {
+    return (
+      key.split(',').includes(value.toString()) ||
+      (typeof value !== 'string' && (value as string[]).some((val) => key.split(',').includes(val)))
+    )
   })
   if (!switchKey) {
     return []
@@ -108,7 +111,7 @@ export function getSections(sectionIds: Question['sections'], form: Form, values
       return []
     }
 
-    ids.split(',').forEach(id => {
+    ids.split(',').forEach((id) => {
       const section = form.sections![id]
       if (section) {
         sections.push(section)
@@ -118,7 +121,7 @@ export function getSections(sectionIds: Question['sections'], form: Form, values
     return sections
   }
 
-  sectionIds?.split(',').forEach(id => {
+  sectionIds?.split(',').forEach((id) => {
     const section = form.sections![id]
     if (section) {
       sections.push(section)
