@@ -107,6 +107,12 @@ async function map(f) {
     form.instructions[id] = await f(form.instructions[id])
   }
 
+  // Update the top-level sections copy:
+  for (const id of Object.keys(form.sections)) {
+    form.sections[id].title = await f(form.sections[id].title)
+    form.sections[id].content = await f(form.sections[id].content)
+  }
+
   // Update the copy in each page:
   const pages = form.pages
   for (let i = 0; i < pages.length; i++) {
