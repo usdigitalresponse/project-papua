@@ -40,9 +40,11 @@ const FormApp: React.FC<{}> = () => {
     }
   }
 
-  const pageTitles = [...form.pages.map((page) => {
-    return translateCopy(page.title)
-  })]
+  const pageTitles = [
+    ...form.pages.map((page) => {
+      return translateCopy(page.title)
+    }),
+  ]
 
   const pageComponents = [
     ...form.pages.map((page) => <Form page={page} key={page.heading.en} />),
@@ -85,7 +87,7 @@ const FormApp: React.FC<{}> = () => {
                     primary={true}
                     onClick={onSubmit}
                     disabled={!canSubmit}
-                    label={translateByID('submit:button')}
+                    label={translateByID('download:button')}
                   />
                 )}
               </Box>

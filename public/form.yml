@@ -156,6 +156,8 @@ instructions:
     en: Submit
     es: Enviar
     zh: 提交
+  'download:button':
+    en: Download
   submit-instructions:
     en: |-
       Please review and verify the information section below. If there are errors in any section, you may select 'Edit' to revisit that page of your application.
