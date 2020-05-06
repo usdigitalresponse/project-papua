@@ -82,9 +82,7 @@ export const FormProvider: React.FC = (props) => {
       // `form.yml`.
       const useSample = contents === null
       const rawForm = useSample ? sampleContents : contents
-      rawForm.seal = './generic-state-seal.png'
-      // rawForm.seal = '.' + rawForm.seal
-      console.log(rawForm)
+      rawForm.seal = `./project-papua/${rawForm.seal}`
 
       // During local development, we validate the form structure against
       // our JSON Schema and render any errors.
