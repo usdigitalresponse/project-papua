@@ -21,6 +21,12 @@ html {
   background: #e5e5e5;
 }
 
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .App {
   background-color: #e5e5e5;
   width: 100%;
