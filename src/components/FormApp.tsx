@@ -40,7 +40,9 @@ const FormApp: React.FC<{}> = () => {
     }
   }
 
-  const pageTitles = [...form.pages.map((page) => translateCopy(page.title)), translateByID('submit')]
+  const pageTitles = [...form.pages.map((page) => {
+    return translateCopy(page.title)
+  })]
 
   const pageComponents = [
     ...form.pages.map((page) => <Form page={page} key={page.heading.en} />),

@@ -26,7 +26,16 @@ const theme = {
       border: {
         color: 'black',
       },
-    },
+    }
+  },
+  heading: {
+    level: {
+      4: {
+        small: { maxWidth: 'none !important' },
+        medium: { maxWidth: 'none !important' },
+        large: { maxWidth: 'none !important' }
+      }
+    }
   },
   select: {
     icons: {

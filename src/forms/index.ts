@@ -1,4 +1,4 @@
-import { Question, QuestionType, Page, Values, Errors } from '../lib/types'
+import { Question, QuestionType, Page, Values, Errors, Form, Section } from '../lib/types'
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -7,6 +7,7 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import TextArea from '../components/form-components/TextArea'
 import StateSelect from '../components/form-components/StateSelect'
+import Sections from '../components/form-components/Section'
 import { Number as NumberComponent } from '../components/form-components/Number'
 import File from '../components/form-components/File'
 import { Checkbox } from '../components/form-components/Checkbox'
@@ -74,8 +75,55 @@ const typeComponentMappings: Partial<Record<QuestionType, React.FC>> = {
   ssn: NumberComponent as React.FC,
   file: File as React.FC,
   checkbox: Checkbox as React.FC,
+  sections: Sections as React.FC
 }
 
 export function getComponent(type: QuestionType): React.FC<{ question: Question }> {
   return typeComponentMappings[type] || TextInput
+}
+
+export function getSwitch(questionSwitch: Question['switch'], value: string | string[]): Question[] {
+  if (!questionSwitch || !value) {
+    return []
+  }
+  const switchKey = Object.keys(questionSwitch).find(key => {
+    return key.split(',').includes(value.toString()) || (value as string[]).some(val => key.split(',').includes(val))
+  })
+  if (!switchKey) {
+    return []
+  }
+
+  return questionSwitch[switchKey]
+}
+
+export function getSections(sectionIds: Question['sections'], form: Form, values: Values): Section[] {
+  if (!form.sections) {
+    return []
+  }
+
+  const sections: Section[] = []
+  if (sectionIds?.includes('id:')) {
+    const ids = values[sectionIds.slice(3)]
+    if (!ids || typeof ids !== 'string') {
+      return []
+    }
+
+    ids.split(',').forEach(id => {
+      const section = form.sections![id]
+      if (section) {
+        sections.push(section)
+      }
+    })
+
+    return sections
+  }
+
+  sectionIds?.split(',').forEach(id => {
+    const section = form.sections![id]
+    if (section) {
+      sections.push(section)
+    }
+  })
+
+  return sections
 }

@@ -3,7 +3,7 @@ import formSchema from '../form.schema.json'
 import { Question, Copy, Form, Value, Values, Errors } from '../lib/types'
 import { canContinue } from '../forms'
 import { Box } from 'grommet'
-import { omit } from 'lodash'
+import { omit, get } from 'lodash'
 import { Spinner, Markdown, Card } from '../components/helper-components'
 import { LanguageContext } from './language'
 import ky from 'ky'
@@ -14,7 +14,7 @@ import { isQuestionValid } from '../lib/validation'
 
 interface FormState {
   form: Form
-  setValue: (question: Question, value: Value) => void
+  setValue: (question: Question, value: Value, additionalValues?: Record<string, Value>) => void
   setError: (id: string, value: Copy[]) => void
   values: Values
   errors: Errors
@@ -31,8 +31,8 @@ const initialState = {
   form: undefined,
   values: {},
   errors: {},
-  setValue: (question: Question, value: Value) => {},
-  setError: (id: string, value: Copy[]) => {},
+  setValue: (question: Question, value: Value, additionalValues?: Record<string, Value>) => { },
+  setError: (id: string, value: Copy[]) => { },
 }
 
 export const FormContext = createContext<FormState>(initialState as any)
@@ -118,8 +118,11 @@ export const FormProvider: React.FC = (props) => {
   }, [])
 
   const setError = (key: string, value: Copy[]) => setErrors({ ...errors, [key]: value })
-  const setValue = (question: Question, value: Value) => {
-    const newValues = value !== undefined ? { ...values, [question.id]: value } : omit(values, question.id)
+  const setValue = (question: Question, value: Value, additionalValues?: Record<string, Value>) => {
+    const newValues = value !== undefined ? {
+      ...values, [question.id]: value, ...additionalValues
+    } : omit(values, question.id)
+
     setValues(newValues)
 
     if (process.env.NODE_ENV === 'development') {
@@ -161,9 +164,9 @@ export const FormProvider: React.FC = (props) => {
       //  2. If a matching key is supplied in the `variables` argument to `translateCopy`.
       //  3. If a matching key exists in the form's top-level variables map.
       //  4. If nothing else, then the variable is left as-is (f.e.: {{VARIABLE_NAME}}).
-      text = text.replace(/\{\{([a-ziA-Z_:-]+)\}\}/g, (m, key) => {
+      text = text.replace(/\{\{([a-ziA-Z0-9\._:-]+)\}\}/g, (m, key) => {
         // `key` is the regex-captured value inside the curly braces:
-        let value = variables?.[key] || form?.variables?.[key]
+        let value = get(variables || form?.variables, key)
         if (key.startsWith('id:')) {
           const questionID = key.slice(3)
           value = values[questionID] ? String(values[questionID]) : value

@@ -6,9 +6,16 @@ export interface Form {
   title: Copy
   description: Copy
   variables?: Record<string, string>
+  sections?: Record<string, Section>
   instructions: Record<string, Copy>
   pages: Page[]
   seal: string
+}
+
+
+export interface Section {
+  title: Copy
+  content: Copy
 }
 
 export interface Page {
@@ -27,12 +34,15 @@ export interface Question {
   id: string
   options?: Option[]
   switch?: Switch
+  sections?: string
+  additionalKeys?: string
 }
 
 export interface Option {
   name: Copy
   id: string
   value?: string
+  [key: string]: string | undefined | Copy
 }
 interface Switch {
   [option: string]: Question[]
@@ -62,6 +72,7 @@ export type QuestionType =
   | 'email'
   | 'file'
   | 'checkbox'
+  | 'sections'
 
 export interface QuestionValidation {
   type: 'matches_field' | 'regex' | 'min' | 'max'

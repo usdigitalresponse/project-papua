@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Question as QuestionInterface } from '../lib/types'
-import { getComponent } from '../forms'
+import { getComponent, getSwitch } from '../forms'
 import { Box, Heading, Text } from 'grommet'
 import { FormContext } from '../contexts/form'
 import { Markdown } from './helper-components'
@@ -17,6 +17,13 @@ const Question: React.FC<Props> = (props) => {
 
   const value = values[question.id]
   const error = errors[question.id]
+  let switchComponent: HTMLDivElement | null
+
+  useEffect(() => {
+    if (value) {
+      switchComponent?.scrollIntoView({ behavior: "smooth" })
+    }
+  }, [value])
 
   return (
     <Box direction="column" margin={{ bottom: 'small' }}>
@@ -44,6 +51,7 @@ const Question: React.FC<Props> = (props) => {
           </Markdown>
         )}
       </Box>
+
       <Component question={question} />
       {error && (
         <Box>
@@ -54,8 +62,8 @@ const Question: React.FC<Props> = (props) => {
           ))}
         </Box>
       )}
-      <Box margin={{ top: 'medium' }}>
-        {question.switch && question.switch[value as string]?.map((q) => <Question question={q} key={q.id} />)}
+      <Box ref={el => switchComponent = el} margin={{ top: 'medium' }}>
+        {question.switch && getSwitch(question.switch, value as string | string[])?.map((q) => <Question question={q} key={q.id} />)}
       </Box>
     </Box>
   )
