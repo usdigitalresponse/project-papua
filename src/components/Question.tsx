@@ -21,7 +21,7 @@ const Question: React.FC<Props> = (props) => {
 
   useEffect(() => {
     if (value) {
-      switchComponent?.scrollIntoView({ behavior: "smooth" })
+      switchComponent?.scrollIntoView({ behavior: 'smooth' })
     }
   }, [value])
 
@@ -58,8 +58,9 @@ const Question: React.FC<Props> = (props) => {
           ))}
         </Box>
       )}
-      <Box ref={el => switchComponent = el} margin={{ top: 'medium' }}>
-        {question.switch && getSwitch(question.switch, value as string | string[])?.map((q) => <Question question={q} key={q.id} />)}
+      <Box ref={(el) => (switchComponent = el)} margin={{ top: 'medium' }}>
+        {question.switch &&
+          getSwitch(question.switch, value as string | string[])?.map((q) => <Question question={q} key={q.id} />)}
       </Box>
     </Box>
   )

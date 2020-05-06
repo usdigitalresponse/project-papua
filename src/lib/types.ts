@@ -12,7 +12,6 @@ export interface Form {
   seal: string
 }
 
-
 export interface Section {
   title: Copy
   content: Copy

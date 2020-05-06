@@ -15,4 +15,4 @@ const Caret: React.FC<{ open: boolean }> = (props) => {
   )
 }
 
-export default Caret 
+export default Caret

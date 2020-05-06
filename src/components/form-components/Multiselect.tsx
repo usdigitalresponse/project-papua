@@ -25,16 +25,18 @@ const Multiselect: React.FC<Props> = (props) => {
     }
 
     let newValue = value ? [...value] : []
-    let additionalValues: Record<string, string[]> = question.additionalKeys ? pick(values, question.additionalKeys?.split(',')) as Record<string, string[]> : {}
-    keys.forEach(key => {
+    const additionalValues: Record<string, string[]> = question.additionalKeys
+      ? (pick(values, question.additionalKeys?.split(',')) as Record<string, string[]>)
+      : {}
+    keys.forEach((key) => {
       // This option is being deselected
       if (value && typeof value !== 'string' && value.includes(primaryKey)) {
         if (key === primaryKey) {
-          (newValue as string[]).splice(newValue.indexOf(key), 1)
+          ;(newValue as string[]).splice(newValue.indexOf(key), 1)
         }
         if (option[key] && typeof option[key] === 'string') {
-          let vals: string[] = (additionalValues[key] as string[]) || [] as string[]
-          (option[key] as string).split(',').forEach((additionalValue: string) => {
+          const vals: string[] = (additionalValues[key] as string[]) || ([] as string[])
+          ;(option[key] as string).split(',').forEach((additionalValue: string) => {
             vals.splice(vals.indexOf(additionalValue), 1)
           })
           additionalValues[key] = vals
@@ -55,7 +57,7 @@ const Multiselect: React.FC<Props> = (props) => {
           newValue = [primaryKey]
         }
         if (option[key]) {
-          additionalValues[key] = (option[key] as string || '').split(',')
+          additionalValues[key] = ((option[key] as string) || '').split(',')
         }
       }
     })
