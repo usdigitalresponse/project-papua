@@ -898,8 +898,7 @@ pages:
                             A mi empleador se le permite estar abierto, pero tengo miedo de la exposición y me niego a trabajar.
                           zh: 允许我的雇主开放，但我担心自己会暴露并拒绝工作。
                         id: situation-8
-                        state-benefits: 'ESL-NJ,TDI-NJ'
-                        federal-benefits: EPSL-FED
+                        state-benefits: ESL-NJ
                       - name:
                           en: |-
                             My employer was ordered to close, but has remained open. I am afraid of exposure and refuse to work.
@@ -907,8 +906,7 @@ pages:
                             A mi empleador se le ordenó cerrar, pero se ha mantenido abierto. Tengo miedo a la exposición y me niego a trabajar.
                           zh: 我的雇主被勒令停业，但一直保持营业。我害怕接触并拒绝工作。
                         id: situation-9
-                        state-benefits: 'ESL-NJ,TDI-NJ'
-                        federal-benefits: EPSL-FED
+                        state-benefits: ESL-NJ
                       - name:
                           en: |-
                             None of the above statements describe my situation. I would like to know more about all program benefits.
@@ -919,8 +917,8 @@ pages:
                         state-benefits: 'ESL-NJ,FLI-NJ,UI-NJ,FLA-NJ,TDI-NJ'
                         federal-benefits: 'A3848,EPSL-FED,FMLA-FED,FPUC-FED,FEC-FMLA-FED,PEUC-FED,PUA-FED'
                     switch:
-                      ? 'situation-1,situation-2,situation-3,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9'
-                      : - name:
+                      'situation-1,situation-2,situation-3,situation-4,situation-5,situation-6,situation-7':
+                        - name:
                             en: ''
                             es: ''
                             zh: ''
@@ -957,6 +955,33 @@ pages:
                             en: '#### Federal Benefits Programs'
                             es: '#### Programas de beneficios federales'
                             zh: '####联邦福利计划'
+                      situation-8,situation-9:
+                        - name:
+                            en: ''
+                            es: ''
+                            zh: ''
+                          id: terminal-eligibility-4
+                          type: sections
+                          sections: 'id:state-benefits'
+                          instructions:
+                            en: |-
+                              ### You may be eligible for...
+
+                              Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):
+
+                              #### State Benefits Programs
+                            es: |-
+                              ### Puede ser elegible para ...
+
+                              Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
+
+                              #### Programas de beneficios estatales
+                            zh: |-
+                              ###您可能有资格...
+
+                              根据您提供的信息，您可能有资格获得以下计划的保护或经济资助：
+
+                              ####国家福利计划
                       situation-10:
                         - name:
                             en: ''
