@@ -289,6 +289,8 @@ instructions:
     en: 'Back to {{DOMAIN}}'
     es: 'Volver a {{DOMAIN}}'
     zh: '返回{{DOMAIN}}'
+  section:
+    en: Section
 sections:
   PEUC-FED:
     title:
