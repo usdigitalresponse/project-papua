@@ -12,7 +12,7 @@ import { Number as NumberComponent } from '../components/form-components/Number'
 import File from '../components/form-components/File'
 import { Checkbox } from '../components/form-components/Checkbox'
 import { Box } from 'grommet'
-
+import { uniq } from 'lodash'
 /**
  * Determines if a user can proceed to the next form, if they have:
  * 1) Finished all required questions
@@ -106,12 +106,13 @@ export function getSections(sectionIds: Question['sections'], form: Form, values
 
   const sections: Section[] = []
   if (sectionIds?.includes('id:')) {
-    const ids = values[sectionIds.slice(3)]
-    if (!ids || typeof ids !== 'string') {
+    const ids = uniq(values[sectionIds.slice(3)] as string[])
+
+    if (!ids || typeof ids === 'string') {
       return []
     }
 
-    ids.split(',').forEach((id) => {
+    ids.forEach((id) => {
       const section = form.sections![id]
       if (section) {
         sections.push(section)

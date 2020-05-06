@@ -3,6 +3,7 @@ import { Question } from '../../lib/types'
 import { FormContext } from '../../contexts/form'
 import { getSections } from '../../forms'
 import { Box, Heading } from 'grommet'
+import { Markdown } from '../helper-components/Markdown'
 import Caret from './Caret'
 
 interface Props {
@@ -14,7 +15,6 @@ const Section: React.FC<Props> = (props) => {
   const { values, form, translateCopy } = useContext(FormContext)
 
   const sections = getSections(question.sections, form, values)
-
   return (
     <Box>
       {sections.map((section, index) => (
@@ -23,18 +23,17 @@ const Section: React.FC<Props> = (props) => {
           style={{
             border: '1px solid black',
           }}
-          direction="row"
           justify="between"
-          align="center"
           key={`section_${index}`}
           pad={{ horizontal: 'medium', vertical: 'small' }}
+          margin={{ bottom: 'small' }}
         >
-          <Box direction="row">
-            <Heading margin="none" level={5} style={{ width: "100%" }}>
-              {translateCopy(section.title)}
-            </Heading>
-          </Box>
-          <Caret open={true} />
+          <Heading margin="none" level={5} style={{ color: 'black' }}>
+            {translateCopy(section.title)}
+          </Heading>
+          <Markdown margin={{ vertical: 'xsmall' }} size="small">
+            {translateCopy(section.content)}
+          </Markdown>
         </Box>
       ))}
     </Box>

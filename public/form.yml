@@ -7,7 +7,7 @@ variables:
   STATE_CODE: '[ST]'
   STATE_NAME: '[State]'
   DOMAIN: usdigitalresponse.org
-  PEUC-FED: 
+  PEUC-FED:
     en: |-
       ####Pandemic Emergency Unemployment Compensation (PEUC) via the CARES Act
 
@@ -16,7 +16,7 @@ variables:
       **Suggested next step:**
 
       Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
-  ESL-NJ: 
+  ESL-NJ:
     en: |-
       ####Earned Sick Leave (ESL)
 
@@ -27,7 +27,7 @@ variables:
       1. Get more information: mysickdays.nj.gov
       2. Talk to your employer about your right to utilize this leave
       3. If they don't comply, file a wage claim (online preferred): https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html
-  UI-NJ: 
+  UI-NJ:
     en: |-
       ####Unemployment Insurance (UI)
       You may be eligible for Unemployment Insurance in New Jersey. Unemployment Insurance is a program that gives financial support to people who lose their jobs through no fault of their own.
@@ -37,7 +37,7 @@ variables:
       1. Go to my myunemployment.nj.gov
       2. Create an account
       3. File an application (online preferred): https://myunemployment.nj.gov/
-  FLI-NJ: 
+  FLI-NJ:
     en: |-
       ####Family Leave (FLI)
 
@@ -60,7 +60,7 @@ variables:
       2. Talk to your employer about your job protection situation
       3. If they do not comply, file a complaint (need link)
   FEC-FMLA-FED:
-    en: |- 
+    en: |-
       ####Federal Emergency Childcare FMLA
 
       You may be eligible for up to 12 weeks of protected leave, 10 paid by your employer. This protected leave gives certain workers access to emergency paid leave to care for themselves or a loved one, or to care for their children at home, due to COVID-19.
@@ -69,7 +69,7 @@ variables:
 
       1. Get more information: Emergency Paid Sick Leave & Expanded Family & Medical Leave Act https://myunemployment.nj.gov/assets/pdfs/UI_process_selfemployed.pdf
       2. Talk to your employer about your right to utilize this leave
-  FMLA-FED: 
+  FMLA-FED:
     en: |-
       ####Family and Medical Leave Act (FMLA)
 
@@ -288,8 +288,8 @@ instructions:
     es: 'Volver a {{DOMAIN}}'
     zh: '返回{{DOMAIN}}'
 sections:
-  PEUC-FED: 
-    title: 
+  PEUC-FED:
+    title:
       en: Pandemic Emergency Unemployment Compensation (PEUC) via the CARES Act
     content:
       en: |-
@@ -298,10 +298,10 @@ sections:
         **Suggested next step:**
 
         Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
-  ESL-NJ: 
-    title: 
+  ESL-NJ:
+    title:
       en: Earned Sick Leave (ESL)
-    content: 
+    content:
       en: |-
         You may be eligible for sick leave from your employer through New Jersey's Earned Sick Leave. The New Jersey Earned Sick Leave Law allows employees to accrue 1 hour of earned sick leave for every 30 hours worked, up to 40 hours each year.
 
@@ -310,12 +310,11 @@ sections:
         1. Get more information: mysickdays.nj.gov
         2. Talk to your employer about your right to utilize this leave
         3. If they don't comply, file a wage claim (online preferred): https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html
-  UI-NJ: 
-    title: 
-      en: Unemployment Insurance
+  UI-NJ:
+    title:
+      en: Unemployment Insurance (UI)
     content:
       en: |-
-        ####Unemployment Insurance (UI)
         You may be eligible for Unemployment Insurance in New Jersey. Unemployment Insurance is a program that gives financial support to people who lose their jobs through no fault of their own.
 
         **Suggested next steps:**
@@ -323,7 +322,7 @@ sections:
         1. Go to my myunemployment.nj.gov
         2. Create an account
         3. File an application (online preferred): https://myunemployment.nj.gov/
-  FLI-NJ: 
+  FLI-NJ:
     title:
       en: Family Leave
     content:
@@ -351,14 +350,14 @@ sections:
     title:
       en: Federal Emergency Childcare FMLA
     content:
-      en: |- 
+      en: |-
         You may be eligible for up to 12 weeks of protected leave, 10 paid by your employer. This protected leave gives certain workers access to emergency paid leave to care for themselves or a loved one, or to care for their children at home, due to COVID-19.
 
         **Suggested next steps**
 
         1. Get more information: Emergency Paid Sick Leave & Expanded Family & Medical Leave Act https://myunemployment.nj.gov/assets/pdfs/UI_process_selfemployed.pdf
         2. Talk to your employer about your right to utilize this leave
-  FMLA-FED: 
+  FMLA-FED:
     title:
       en: Familiy and Medical Leave Act (FMLA)
     content:
@@ -391,7 +390,7 @@ sections:
         2. Create an account
         3. File an application (online preferred): https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/tdi/
   A3848:
-    title: 
+    title:
       en: A3848 Legislation
     content:
       en: |-
@@ -426,9 +425,9 @@ sections:
         3. Talk to your employer about your right to utilize this leave
 
 pages:
-  - title: 
+  - title:
       en: Introduction
-    heading: 
+    heading:
       en: NJDOL Benefits Eligibility Tool
     instructions:
       en: |-
@@ -462,21 +461,21 @@ pages:
 
         The information you share for purposes of this screening tool will be anonymous and may be shared with New Jersey State agencies to improve access to benefits and programs.
     questions:
-      - name: 
-          en: Agreement 
+      - name:
+          en: Agreement
         instructions:
-          en: I agree to the Terms of Service 
-        id: agreement 
+          en: I agree to the Terms of Service
+        id: agreement
         type: checkbox
-        options: 
-          - name: 
-              en: I agree 
+        options:
+          - name:
+              en: I agree
             id: agreed
 
-  - title: 
+  - title:
       en: Eligibility
     heading:
-      en: Check your eligibility for different benefits by filling out this questionnaire. 
+      en: Check your eligibility for different benefits by filling out this questionnaire.
     questions:
       - name:
           en: Are you currently employed in New Jersey?
@@ -487,18 +486,18 @@ pages:
           - name:
               en: 'Yes'
             id: 'yes'
-          - name: 
+          - name:
               en: No. I was laid off, furloughed, or am otherwise not receiving pay for my job in New Jersey.
             id: laid-off-in-new-jersey
-          - name: 
+          - name:
               en: No, I work in another state
             id: works-in-another-state
           - name:
               en: No, I was laid off, furloughed, or am otherwise not receiving pay for my job in another state.
             id: laid-off-in-another-state
-        switch: 
+        switch:
           'yes,laid-off-in-new-jersey':
-            - name: 
+            - name:
                 en: What is your relationship to your employer?
               id: relationship-to-employer
               type: single-select
@@ -506,14 +505,14 @@ pages:
               options:
                 - name:
                     en: 'I am/was paid hourly or salaried by an employer. (Hint: you receive(d) a W-2 form for tax purposes)'
-                  id: paid-hourly-by-employer 
+                  id: paid-hourly-by-employer
                 - name:
                     en: I am receiving partial unemployment and I am partially employed.
-                  id: receiving-partial-unemployment 
-                - name: 
+                  id: receiving-partial-unemployment
+                - name:
                     en: 'I am/was self employed or an independent contractor. (Hint: You receive(d) a 1099 form for tax purposes)'
-                  id: self-employed-by-independent-contractor 
-                - name: 
+                  id: self-employed-by-independent-contractor
+                - name:
                     en: I have been receiving unemployment and I am not otherwise employed.
                   id: receiving-unemployment
               switch:
@@ -532,7 +531,7 @@ pages:
                       - name:
                           en: I can't work, or my hours are reduced, because I am caring for a family member who is diagnosed with COVID-19 or in quarantine with suspicion of exposure.
                         id: 'situation-2'
-                        state-benefits: ESL-NJ,UI-NJ,FLI-NJ,FLA-NJ 
+                        state-benefits: ESL-NJ,UI-NJ,FLI-NJ,FLA-NJ
                         federal-benefits: EPSL-FED,FEC-FMLA-FED,FMLA-FED,FPUC-FED,PUA-FED
                       - name:
                           en: I can't work, or my hours are reduced, because I'm advised to by a doctor or public health authority to quarantine.
@@ -540,22 +539,22 @@ pages:
                       - name:
                           en: I can't work, or my hours are reduced, because I was exposed in my workplace and was told to quarantine by a health authority.
                         id: 'situation-4'
-                        state-benefits: ESL-NJ,UI-NJ,TDI-NJ 
+                        state-benefits: ESL-NJ,UI-NJ,TDI-NJ
                         federal-benefits: A3848,EPSL-FED,FMLA-FED,FPUC-FED,PEUC-FED,PUA-FED
                       - name:
                           en: I can't work, or my hours are reduced, because there are less hours available due to business slowdown or lack of demand.
                         id: 'situation-5'
-                        state-benefits: UI-NJ 
+                        state-benefits: UI-NJ
                         federal-benefits: FPUC-FED,PEUC-FED,PUA-FED
                       - name:
                           en: I can't work, or my hours are reduced, because my employer was ordered to close.
                         id: 'situation-6'
-                        state-benefits: UI-NJ 
+                        state-benefits: UI-NJ
                         federal-benefits: FPUC-FED,PEUC-FED,PUA-FED
                       - name:
                           en: I can't work, or my hours are reduced, because my employer voluntarily closed.
-                        id: 'situation-7' 
-                        state-benefits: UI-NJ 
+                        id: 'situation-7'
+                        state-benefits: UI-NJ
                         federal-benefits: FPUC-FED,PEUC-FED,PUA-FED
                       - name:
                           en: My employer is permitted to be open, but I am afraid of exposure and refuse to work.
@@ -567,7 +566,7 @@ pages:
                         id: 'situation-9'
                         state-benefits: ESL-NJ,TDI-NJ
                         federal-benefits: EPSL-FED
-                      - name: 
+                      - name:
                           en: None of the above statements describe my situation. I would like to know more about all program benefits.
                         id: 'situation-10'
                         state-benefits: ESL-NJ,FLI-NJ,UI-NJ,FLA-NJ,TDI-NJ
@@ -575,47 +574,60 @@ pages:
                     switch:
                       'situation-1,situation-2,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9':
                         - name:
-                            en: 'You may be eligible for...'
+                            en: ''
                           id: terminal-eligibility-4
                           type: sections
-                          sections: "id:benefits"
-                          instructions: 
-                            en: "Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):"
+                          sections: 'id:state-benefits'
+                          instructions:
+                            en: |-
+                              ### You may be eligible for...
+
+                              Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):
+
+                              #### State Benefits Programs
+                        - name:
+                            en: ''
+                          id: terminal-eligibility-4
+                          type: sections
+                          sections: 'id:federal-benefits'
+                          instructions:
+                            en: |-
+                              #### Federal Benefits Programs
                       'situation-10':
                         - name:
                             en: ''
                           id: terminal-eligibility-3
                           type: sections
-                          sections: "id:benefits"
-                          instructions: 
-                            en: "Based on the information, you may not be eligible for any of the following benefits that are being offered at this time:"
+                          sections: 'id:benefits'
+                          instructions:
+                            en: 'Based on the information, you may not be eligible for any of the following benefits that are being offered at this time:'
                 'self-employed-by-independent-contractor':
-                  - name: 
+                  - name:
                       en: Have you already applied for unemployment insurance through the state of New Jersey?
-                    id: already-applied 
+                    id: already-applied
                     type: boolean
                     switch:
-                      'true': 
-                        - name: 
+                      'true':
+                        - name:
                             en: 'Eligibility'
-                          type: instructions-only 
+                          type: instructions-only
                           id: 'terminal-eligibility-2'
-                          instructions: 
+                          instructions:
                             en: |-
                               **If you applied for Unemployment Insurance, then your case will automatically be assessed for federal unemployment benefits.**
 
                               We encourage you to proceed to see if you are eligible for any additional benefits.
                 'receiving-unemployment':
-                  - name: 
-                      en: "Eligibility"
+                  - name:
+                      en: 'Eligibility'
                     type: sections
                     id: 'terminal-eligibility-2'
                     sections: PEUC-FED
-                    instructions: 
+                    instructions:
                       en: "Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):"
           'works-in-another-state,laid-off-in-another-state':
-            - name: 
-                en: "Eligibility"
+            - name:
+                en: 'Eligibility'
               type: instructions-only
               id: 'terminal-eligibility-1'
               instructions:
@@ -625,15 +637,3 @@ pages:
                   Check with the state where you are/were formerly employed to see if you qualify for benefits there.
 
                   *You may also qualify for federal benefits under the CARES Act.*
-
-
-
-
-
-
-            
-
-
-
-  
-  
