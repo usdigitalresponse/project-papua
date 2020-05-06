@@ -858,6 +858,8 @@ pages:
                             No puedo trabajar, o mis horas se reducen, porque un médico o una autoridad de salud pública me lo recomiendan para poner en cuarentena.
                           zh: 我不能工作或工作时间减少，因为医生或公共卫生机构建议我进行检疫。
                         id: situation-3
+                        state-benefits: ESL-NJ,UI-NJ,TDI-NJ
+                        federal-benefits: A3848,EPSL-FED,FMLA-FED,FPUC-FED,PEUC-FED,PUA-FED
                       - name:
                           en: |-
                             I can't work, or my hours are reduced, because I was exposed in my workplace and was told to quarantine by a health authority.
@@ -917,8 +919,8 @@ pages:
                         state-benefits: 'ESL-NJ,FLI-NJ,UI-NJ,FLA-NJ,TDI-NJ'
                         federal-benefits: 'A3848,EPSL-FED,FMLA-FED,FPUC-FED,FEC-FMLA-FED,PEUC-FED,PUA-FED'
                     switch:
-                      'situation-1,situation-2,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9':
-                        - name:
+                      ? 'situation-1,situation-2,situation-3,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9'
+                      : - name:
                             en: ''
                             es: ''
                             zh: ''
@@ -1004,10 +1006,12 @@ pages:
                       zh: 合格
                     type: sections
                     id: terminal-eligibility-2
-                    sections: PEUC-FED
+                    sections: PEUC-FED,FPUC-FED
                     instructions:
                       en: |-
                         Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):
+
+                        #### Federal Benefits Programs and Legislation
                       es: |-
                         Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
                       zh: 根据您提供的信息，您可能有资格获得以下计划的保护或经济资助：
