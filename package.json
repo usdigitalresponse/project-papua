@@ -1,6 +1,5 @@
 {
   "name": "project-papua-ts",
-  "homepage": "https://usdigitalresponse.github.io/project-papua",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -33,7 +32,8 @@
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
-    "predeploy": "yarn run build",
+    "build-gh-pages": "SKIP_PREFLIGHT_CHECK=true PUBLIC_URL=https://usdigitalresponse.github.io/project-papua/ react-scripts build",
+    "predeploy": "yarn run build-gh-pages",
     "deploy": "gh-pages -d build",
     "test": "jest --testPathIgnorePatterns 'backend/.*'",
     "eject": "react-scripts eject",
