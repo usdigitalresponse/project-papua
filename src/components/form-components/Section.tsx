@@ -4,7 +4,6 @@ import { FormContext } from '../../contexts/form'
 import { getSections } from '../../forms'
 import { Box, Heading } from 'grommet'
 import { Markdown } from '../helper-components/Markdown'
-import Caret from './Caret'
 
 interface Props {
   question: Question
