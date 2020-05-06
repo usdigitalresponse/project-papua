@@ -29,7 +29,7 @@ export function canContinue(page: Page, values: Values, errors: Errors): boolean
   const questions = getFlattenedQuestions(page.questions, values)
   const questionIds = questions.map((q) => q.id)
   const requiredQuestions = questions.filter((q) => q.required).map((q) => q.id)
-  return requiredQuestions.every((id) => values[id]) && !questionIds.some((id) => errors[id])
+  return requiredQuestions.every((id) => values[id] !== undefined) && !questionIds.some((id) => errors[id])
 }
 
 /**
@@ -38,22 +38,19 @@ export function canContinue(page: Page, values: Values, errors: Errors): boolean
  * @param values
  */
 export function getFlattenedQuestions(questions: Question[], values: Values): Question[] {
-  let flattenedQuestions: Question[] = []
+  const flattenedQuestions: Question[] = []
 
-  questions.forEach((question) => {
+  for (const question of questions) {
     flattenedQuestions.push(question)
     const { id } = question
 
     const value = values[id] as string
-    const hasSubQuestions = value && question.switch && typeof value === 'string' && question.switch[value]
-
+    const hasSubQuestions = value !== undefined && question.switch && question.switch[value] !== undefined
     if (hasSubQuestions) {
       const subQuestions = question.switch![value]
-      flattenedQuestions = subQuestions
-        ? flattenedQuestions.concat(getFlattenedQuestions(subQuestions, values))
-        : flattenedQuestions
+      flattenedQuestions.push(...getFlattenedQuestions(subQuestions, values))
     }
-  })
+  }
 
   return flattenedQuestions
 }
