@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Question } from '../../lib/types'
-import { CheckBox as GrommetCheckBox } from 'grommet'
+import { CheckBox as GrommetCheckBox, Paragraph } from 'grommet'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
@@ -16,7 +16,7 @@ export const Checkbox: React.FC<Props> = (props) => {
   return (
     <GrommetCheckBox
       checked={value === true}
-      label={translateCopy(question.options![0].name)}
+      label={<Paragraph>{translateCopy(question.options![0].name)}</Paragraph>}
       onChange={() => setValue(question, !value)}
     />
   )

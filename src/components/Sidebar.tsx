@@ -26,8 +26,7 @@ const Sidebar: React.FC<Props> = (props) => {
   const percent = Math.floor((pageIndex / (pages.length - 1)) * 100)
 
   const canClickPage = (i: number) => {
-    // Always set to true right now for demo purposes
-    return true || range(0, i).every((index) => completion[index])
+    return range(0, i).every((index) => completion[index])
   }
 
   return (
@@ -51,9 +50,7 @@ const Sidebar: React.FC<Props> = (props) => {
           </Box>
         )}
         <Box>
-          <Text weight={600} color="black">
-            {translateByID('language')}
-          </Text>
+          <Text weight={600}>{translateByID('language')}</Text>
           <Select
             a11yTitle="select language"
             margin={{ top: 'xsmall' }}
@@ -65,9 +62,7 @@ const Sidebar: React.FC<Props> = (props) => {
           />
         </Box>
         <Box margin={{ top: 'medium' }}>
-          <Text weight={600} color="black">
-            {translateByID('progress')}
-          </Text>
+          <Text weight={600}>{translateByID('progress')}</Text>
           <Box
             margin={{ top: 'xsmall' }}
             style={{ width: '100%', height: '8px', borderRadius: '12px', background: '#E4E7EB' }}
@@ -76,7 +71,7 @@ const Sidebar: React.FC<Props> = (props) => {
           </Box>
           <Box align="center">
             {' '}
-            <Text color="black" weight={300} size="xsmall">
+            <Text weight={300} size="xsmall">
               {percent}% {translateByID('complete')}
             </Text>{' '}
           </Box>
@@ -85,9 +80,7 @@ const Sidebar: React.FC<Props> = (props) => {
           {size === 'small' ? (
             <>
               {/* On small screens, we collapse the section titles to a Select */}
-              <Text weight={600} color="black">
-                {translateByID('section')}
-              </Text>
+              <Text weight={600}>{translateByID('section')}</Text>
               <Select
                 a11yTitle="select section"
                 margin={{ top: 'xsmall' }}
@@ -96,7 +89,8 @@ const Sidebar: React.FC<Props> = (props) => {
                 valueKey={{ key: 'i', reduce: true }}
                 disabledKey="disabled"
                 value={pageIndex as any} /* These type definitions don't support values as numbers */
-                onChange={({ value: i }) => canClickPage(i) && setPage(i)}
+                // TODO: In production, add a `canClickPage(i) && ` below to prevent folks from jumping forward.
+                onChange={({ value: i }) => setPage(i)}
               />
             </>
           ) : (
@@ -104,9 +98,12 @@ const Sidebar: React.FC<Props> = (props) => {
             pages.map((page, i) => {
               return (
                 <Text
-                  style={{ cursor: canClickPage ? 'pointer' : 'not-allowed' }}
-                  onClick={() => canClickPage && setPage(i)}
-                  color={currentPage === page ? 'black' : '#66788A'}
+                  style={{
+                    cursor: canClickPage(i) ? 'pointer' : 'not-allowed',
+                    opacity: currentPage === page ? '100%' : canClickPage(i) ? '50%' : '20%',
+                  }}
+                  // TODO: In production, add a `canClickPage(i) && ` below to prevent folks from jumping forward.
+                  onClick={() => setPage(i)}
                   margin={{ bottom: 'xsmall' }}
                   key={page}
                 >

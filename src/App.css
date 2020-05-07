@@ -17,7 +17,7 @@ body {
 ol {
   list-style: none;
   counter-reset: aCounter;
-  padding-left: 24px;
+  padding-left: 12px;
 }
 ol li {
   counter-increment: aCounter;
@@ -25,26 +25,16 @@ ol li {
   padding-bottom: 4px;
 }
 ol li::before {
+  display: flex;
   content: counter(aCounter) '.';
-  color: black;
   font-size: 14px;
   line-height: 20px;
   flex-basis: 24px;
   flex-shrink: 0;
+  justify-content: flex-end;
+  padding-right: 12px;
 }
 
 .App {
-  background-color: #e5e5e5;
   width: 100%;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }

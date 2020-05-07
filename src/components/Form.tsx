@@ -57,7 +57,7 @@ const Form: React.FC<{}> = () => {
         justify="start"
         key={page.heading.en}
       >
-        <Heading color="black" margin="none" level={3}>
+        <Heading margin="none" level={3}>
           {translateCopy(page.heading)}
         </Heading>
         {page.instructions && <Markdown size="small">{translateCopy(page.instructions)}</Markdown>}

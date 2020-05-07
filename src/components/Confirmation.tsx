@@ -28,7 +28,7 @@ export const Confirmation: React.FC<Props> = (props) => {
     <Box direction="column" justify="start">
       {/* Instructions */}
       <Box pad={{ horizontal: '48px', top: '48px', bottom: 'none' }}>
-        <Heading color="black" margin="none" level={3}>
+        <Heading margin="none" level={3}>
           {translateByID('confirmation-heading')}
         </Heading>
         <Markdown>

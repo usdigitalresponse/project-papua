@@ -17,7 +17,7 @@ const Review: React.FC<Props> = (props) => {
   const padding = size === 'small' ? '12px' : '24px'
   return (
     <Box pad={{ horizontal: padding, top: padding, bottom: 'none' }} direction="column" justify="start">
-      <Heading color="black" margin="none" level={3}>
+      <Heading margin="none" level={3}>
         {translateByID('submit')}
       </Heading>
 

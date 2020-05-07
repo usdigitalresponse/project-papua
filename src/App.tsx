@@ -21,9 +21,16 @@ const sizing = {
 
 const theme = {
   global: {
+    colors: {
+      text: {
+        dark: 'white',
+        light: 'black',
+      },
+    },
     text: {
       align: 'left',
     },
+    paragraph: {},
     selected: {
       background: '#F2F2F2',
       color: 'black',
@@ -98,7 +105,7 @@ const theme = {
     },
     options: {
       text: {
-        size: 'small',
+        color: 'black',
       },
     },
     container: {
