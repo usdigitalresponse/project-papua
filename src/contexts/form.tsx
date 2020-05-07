@@ -332,7 +332,6 @@ ${formValidationError.error ? '```' + JSON.stringify(formValidationError.error, 
       <Card
         margin={{ vertical: 'medium', horizontal: 'auto' }}
         pad={{ horizontal: 'medium', vertical: 'small' }}
-        background="white"
         width={{ max: '800px' }}
       >
         <Box pad="medium">

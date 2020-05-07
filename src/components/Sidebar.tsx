@@ -36,14 +36,10 @@ const Sidebar: React.FC<Props> = (props) => {
       direction="column"
       width={size === 'small' ? '100%' : '350px'}
     >
-      <Card
-        margin={{ bottom: 'small' }}
-        pad={{ horizontal: size === 'small' ? '24px' : 'medium', vertical: 'small' }}
-        background="white"
-      >
+      <Card margin={{ bottom: 'small' }} pad={{ horizontal: size === 'small' ? '24px' : 'medium', vertical: 'small' }}>
         <Markdown>{translateByID('demo-warning')}</Markdown>
       </Card>
-      <Card background="white" pad="medium">
+      <Card pad="medium">
         {form.seal && (
           <Box margin={{ bottom: 'medium' }}>
             <Image src={form.seal} style={{ maxHeight: '175px', maxWidth: '100%', objectFit: 'contain' }} />

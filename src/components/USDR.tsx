@@ -1,12 +1,10 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 
-interface Props {}
-
 /**
  * The USDR component wraps an underlying component with USDR branding.
  */
-export const USDR: React.FC<Props> = (props) => {
+export const USDR: React.FC = (props) => {
   /**
    * - Header with USDR logo, app name, link to GitHub
    * - Footer with "built by etc", links to socials
@@ -28,12 +26,9 @@ export const USDR: React.FC<Props> = (props) => {
 
 const Header: React.FC = () => {
   return (
-    <Box width="#0050d8" background={{ color: '#0050d8' }} justify="between">
-      <Box>
-        <Text>USDR</Text>
-      </Box>
-      <Box>
-        <Text>GitHub</Text>
+    <Box width="#0050d8" background={{ color: '#FFFFFF' }} pad="16px" elevation="xsmall" align="center">
+      <Box width="100%" justify="start" style={{ maxWidth: '1200px' }}>
+        <Text>Pandemic Unemployment Assistance Demo</Text>
       </Box>
     </Box>
   )
