@@ -142,8 +142,15 @@ const resp = await API.post('resolverAPI', '/claims', {
   },
 }). 
 ```
-
 6. [Optional] Configure a custom domain on github.com, found under Settings in your fork. [See the docs.][7] 
+7. To deploy:
+```bash
+yarn install
+yarn predeploy
+yarn deploy
+```
+
+Your form is now hosted at `https://<username>.github.io/<repository>/`
 
 
 # Contributing
