@@ -42,7 +42,7 @@ export const Markdown: React.FC<Props> = ({ margin, size, children }) => {
             props: merge({ fill: true, size: 'small' }, { margin, size }),
           },
           a: {
-            props: { target: '_blank' },
+            props: { target: '_blank', rel: 'noopener noreferrer' },
           },
         },
         ...headings
