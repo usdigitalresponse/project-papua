@@ -66,9 +66,11 @@ aws s3 --endpoint-url=http://localhost:4572 cp s3://papua-data-123456789/claims/
 ```
 
 # Deploying
-You can deploy the complete PAPUA service with AWS Amplify, or deploy the front-end form with Github Pages.  
+
+You can deploy the complete PAPUA service with AWS Amplify, or deploy the front-end form with Github Pages.
 
 ## Deploying with AWS Amplify
+
 Requirements:
 
 - GitHub account
@@ -115,6 +117,7 @@ At this point, you can now reboot your Lambda to pick up this environment change
 5. [Optional] Redirect a subdomain from your state's website to this Amplify app. [Docs][6]
 
 ## Deploying with Github Pages
+
 With this method, you'll be able to quickly get your form hosted without having to configure AWS infrastructure or custom backend components. This method is great for standing up a self-guided qualifaction wizard, or if you want to use PAPUA templating with a non-AWS backend.
 
 Requirements:
@@ -140,10 +143,12 @@ const resp = await API.post('resolverAPI', '/claims', {
     },
     questions: values,
   },
-}). 
+}).
 ```
-6. [Optional] Configure a custom domain on github.com, found under Settings in your fork. [See the docs.][7] 
+
+6. [Optional] Configure a custom domain on github.com, found under Settings in your fork. [See the docs.][7]
 7. To deploy:
+
 ```bash
 yarn install
 yarn predeploy
@@ -151,7 +156,6 @@ yarn deploy
 ```
 
 Your form is now hosted at `https://<username>.github.io/<repository>/`
-
 
 # Contributing
 
