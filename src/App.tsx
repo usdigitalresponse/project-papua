@@ -30,7 +30,6 @@ const theme = {
     text: {
       align: 'left',
     },
-    paragraph: {},
     selected: {
       background: '#F2F2F2',
       color: 'black',
@@ -43,6 +42,7 @@ const theme = {
     control: {
       border: {
         color: 'black',
+        radius: '8px',
       },
     },
   },

@@ -1,19 +1,26 @@
 .date-picker {
   color: #425a70;
+  height: 45px;
 }
 
 .date-picker .react-date-picker__wrapper {
   border: none;
   background-color: white;
   border: black 1px solid;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 10px;
 }
 
 .date-picker .react-date-picker__wrapper *,
 .react-calendar * {
-  font-size: 14px;
+  font-size: 18px;
   color: black;
+}
+
+.react-calendar {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .react-calendar__tile--now,

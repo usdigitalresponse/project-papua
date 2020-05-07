@@ -17,7 +17,7 @@ const TextInput: React.FC<Props> = (props) => {
     <GrommetTextInput
       value={(value as string) || ''}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(question, e.target.value)}
-      style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid' }}
+      style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid', maxWidth: '600px' }}
     />
   )
 }
