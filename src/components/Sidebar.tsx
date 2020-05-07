@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Card } from './helper-components'
-import { Box, Text, Select, Image, ResponsiveContext } from 'grommet'
+import { Box, Text, Select, Image, ResponsiveContext, Heading, Paragraph } from 'grommet'
 import { LanguageContext } from '../contexts/language'
 import { FormContext } from '../contexts/form'
 import { range } from 'lodash'
@@ -46,7 +46,9 @@ const Sidebar: React.FC<Props> = (props) => {
           </Box>
         )}
         <Box>
-          <Text weight={600}>{translateByID('language')}</Text>
+          <Heading level={4} margin="none">
+            {translateByID('language')}
+          </Heading>
           <Select
             a11yTitle="select language"
             margin={{ top: 'xsmall' }}
@@ -58,25 +60,26 @@ const Sidebar: React.FC<Props> = (props) => {
           />
         </Box>
         <Box margin={{ top: 'medium' }}>
-          <Text weight={600}>{translateByID('progress')}</Text>
+          <Box direction="row" justify="between">
+            <Heading level={4} margin="none">
+              {translateByID('progress')}
+            </Heading>
+            <Paragraph margin="none">{percent}%</Paragraph>
+          </Box>
           <Box
             margin={{ top: 'xsmall' }}
             style={{ width: '100%', height: '8px', borderRadius: '12px', background: '#E4E7EB' }}
           >
             <Box style={{ width: `${percent}%`, height: '100%', borderRadius: '12px', background: '#3E73FF' }} />
           </Box>
-          <Box align="center">
-            {' '}
-            <Text weight={300} size="xsmall">
-              {percent}% {translateByID('complete')}
-            </Text>{' '}
-          </Box>
         </Box>
         <Box margin={{ top: 'small' }}>
           {size === 'small' ? (
             <>
               {/* On small screens, we collapse the section titles to a Select */}
-              <Text weight={600}>{translateByID('section')}</Text>
+              <Heading level={4} margin="none">
+                {translateByID('section')}
+              </Heading>
               <Select
                 a11yTitle="select section"
                 margin={{ top: 'xsmall' }}
