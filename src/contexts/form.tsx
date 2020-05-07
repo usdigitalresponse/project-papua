@@ -9,8 +9,9 @@ import { LanguageContext } from './language'
 import ky from 'ky'
 import yaml from 'js-yaml'
 import Ajv from 'ajv'
-import { getFlattenedQuestions, transformInlineDefinitions } from '../forms/index'
+import { getFlattenedQuestions } from '../forms/index'
 import { isQuestionValid } from '../lib/validation'
+import { transformInlineDefinitions } from '../lib/inline'
 
 interface FormState {
   form: Form
