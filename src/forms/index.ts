@@ -13,6 +13,45 @@ import File from '../components/form-components/File'
 import { Checkbox } from '../components/form-components/Checkbox'
 import { Box } from 'grommet'
 import { uniq } from 'lodash'
+
+export function transformInlineDefinitions(form: Form): Form {
+  if (!form.definitions) {
+    return form
+  }
+
+  const transformInlineDefinitionsQuestions = (questions: Question[]): Question[] => {
+    for (let qi = 0; qi < questions.length; qi++) {
+      const question = questions[qi]
+      if (question.switch) {
+        for (const switchKey of Object.keys(question.switch)) {
+          const value = question.switch[switchKey]
+          if (typeof value === 'string' && value.startsWith('definition:')) {
+            const definitionID = value.replace(/^definition:/, '')
+            const definition = form.definitions![definitionID]
+            if (!definition) {
+              console.error(`Unknown question set definition: ${definitionID}`)
+            }
+            console.log('embedded definition: ', question.name.en, switchKey, value, definition)
+            questions[qi].switch![switchKey] = definition
+          } else {
+            questions[qi].switch![switchKey] = transformInlineDefinitionsQuestions(
+              question.switch[switchKey] as Question[]
+            )
+          }
+        }
+      }
+    }
+
+    return questions
+  }
+
+  for (let pi = 0; pi < form.pages.length; pi++) {
+    form.pages[pi].questions = transformInlineDefinitionsQuestions(form.pages[pi].questions)
+  }
+
+  return form
+}
+
 /**
  * Determines if a user can proceed to the next form, if they have:
  * 1) Finished all required questions
@@ -47,7 +86,8 @@ export function getFlattenedQuestions(questions: Question[], values: Values): Qu
     const value = values[id] as string
     const hasSubQuestions = value !== undefined && question.switch && question.switch[value] !== undefined
     if (hasSubQuestions) {
-      const subQuestions = question.switch![value]
+      // NOTE: we inline definitions in transformInlineDefinitions above, so it'll always be Question[].
+      const subQuestions = question.switch![value] as Question[]
       flattenedQuestions.push(...getFlattenedQuestions(subQuestions, values))
     }
   }
@@ -80,20 +120,22 @@ export function getComponent(type: QuestionType): React.FC<{ question: Question 
 }
 
 export function getSwitch(questionSwitch: Question['switch'], value: string | string[]): Question[] {
-  if (!questionSwitch || !value) {
+  if (!questionSwitch || value === undefined) {
     return []
   }
   const switchKey = Object.keys(questionSwitch).find((key) => {
+    console.log(value, typeof value)
     return (
       key.split(',').includes(value.toString()) ||
-      (typeof value !== 'string' && (value as string[]).some((val) => key.split(',').includes(val)))
+      (Array.isArray(value) && (value as string[]).some((val) => key.split(',').includes(val)))
     )
   })
   if (!switchKey) {
     return []
   }
 
-  return questionSwitch[switchKey]
+  // NOTE: we inline definitions in transformInlineDefinitions above, so it'll always be Question[].
+  return questionSwitch[switchKey] as Question[]
 }
 
 export function getSections(sectionIds: Question['sections'], form: Form, values: Values): Section[] {

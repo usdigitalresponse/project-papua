@@ -80,7 +80,8 @@ async function map(f) {
     // Update the questions's switches, if any
     if (question.switch) {
       for (const field of Object.keys(question.switch)) {
-        if (question.switch[field]) {
+        const s = question.switch[field]
+        if (s && Array.isArray(s)) {
           for (let j = 0; j < question.switch[field].length; j++) {
             question.switch[field][j] = await updateQuestion(question.switch[field][j])
           }
@@ -111,6 +112,13 @@ async function map(f) {
   for (const id of Object.keys(form.sections)) {
     form.sections[id].title = await f(form.sections[id].title)
     form.sections[id].content = await f(form.sections[id].content)
+  }
+
+  // Update the top-level instructional copy:
+  for (const id of Object.keys(form.definitions)) {
+    for (let i = 0; i < form.definitions[id].length; i++) {
+      form.definitions[id][i] = await updateQuestion(form.definitions[id][i])
+    }
   }
 
   // Update the copy in each page:
