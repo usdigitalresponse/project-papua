@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         align="center"
       >
         <a href="https://www.usdigitalresponse.org/" target="_blank" rel="noopener noreferrer">
-          <Image width="26px" src="./USDR-icon-BW.png" margin={{ right: '12px' }} />
+          <Image style={{ display: 'block' }} width="32px" src="./USDR-icon-BW.png" margin={{ right: '12px' }} />
         </a>
         <Heading level={4} margin="none">
           Pandemic Unemployment Assistance Demo
@@ -61,7 +61,12 @@ const Footer: React.FC = () => {
           Built by
         </Paragraph>
         <a href="https://www.usdigitalresponse.org/" target="_blank" rel="noopener noreferrer">
-          <Image width="100px" src="./USDR-full-logo-color.png" margin={{ horizontal: '12px' }} />
+          <Image
+            style={{ display: 'block' }}
+            width="100px"
+            src="./USDR-full-logo-color.png"
+            margin={{ horizontal: '12px' }}
+          />
         </a>
         <Paragraph size="small">a nonpartisan effort to assist the U.S. government.</Paragraph>
       </Box>
