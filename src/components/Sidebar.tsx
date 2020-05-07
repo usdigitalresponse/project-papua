@@ -68,9 +68,9 @@ const Sidebar: React.FC<Props> = (props) => {
           </Box>
           <Box
             margin={{ top: 'xsmall' }}
-            style={{ width: '100%', height: '8px', borderRadius: '12px', background: '#E4E7EB' }}
+            style={{ width: '100%', height: '12px', borderRadius: '12px', background: '#F2F2F2' }}
           >
-            <Box style={{ width: `${percent}%`, height: '100%', borderRadius: '12px', background: '#3E73FF' }} />
+            <Box style={{ width: `${percent}%`, height: '100%', borderRadius: '12px', background: '#3A80C2' }} />
           </Box>
         </Box>
         <Box margin={{ top: 'small' }}>
