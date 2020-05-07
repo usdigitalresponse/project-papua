@@ -74,14 +74,7 @@ const Form: React.FC<{}> = () => {
   const onClickBack = () => setPage(pageIndex - 1)
 
   return (
-    <Box
-      align="center"
-      pad={{ vertical: 'medium' }}
-      direction="column"
-      width="100%"
-      style={{ maxWidth: '1200px' }}
-      margin="auto"
-    >
+    <Box align="center" pad="medium" direction="column" width="100%" style={{ maxWidth: '1200px' }} margin="auto">
       <Box width="100%" height="100%" justify="center" direction={size === 'small' ? 'column' : 'row'}>
         <Card pad="medium" justify="between" flex={{ grow: 1, shrink: 1 }}>
           {(claimID && <Confirmation id={claimID} />) || (
