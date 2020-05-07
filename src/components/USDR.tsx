@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading, Image } from 'grommet'
+import { Box, Heading, Image, Paragraph } from 'grommet'
 
 /**
  * The USDR component wraps an underlying component with USDR branding.
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         direction="row"
         align="center"
       >
-        <Image width="26px" src="./USDR-icon-BW.png" margin={{ right: '8px' }} />
+        <Image width="26px" src="./USDR-icon-BW.png" margin={{ right: '12px' }} />
         <Heading level={4} margin="none">
           Pandemic Unemployment Assistance Demo
         </Heading>
@@ -45,5 +45,22 @@ const Header: React.FC = () => {
 }
 
 const Footer: React.FC = () => {
-  return null
+  return (
+    <Box background={{ color: '#FFFFFF' }} elevation="medium" align="center">
+      <Box
+        width="100%"
+        justify="start"
+        style={{ maxWidth: '1200px' }}
+        pad={{ horizontal: 'medium', vertical: '16px' }}
+        direction="row"
+        align="center"
+      >
+        <Paragraph style={{ fontWeight: 600 }} size="small">
+          Built by
+        </Paragraph>
+        <Image width="100px" src="./USDR-full-logo-color.png" margin={{ horizontal: '12px' }} />
+        <Paragraph size="small">a nonpartisan effort to assist the U.S. government.</Paragraph>
+      </Box>
+    </Box>
+  )
 }
