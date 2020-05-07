@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'grommet'
+import { Box, Text } from 'grommet'
 
 interface Props {}
 
@@ -29,8 +29,12 @@ export const USDR: React.FC<Props> = (props) => {
 const Header: React.FC = () => {
   return (
     <Box width="#0050d8" background={{ color: '#0050d8' }} justify="between">
-      <Box>Left</Box>
-      <Box>Right</Box>
+      <Box>
+        <Text>USDR</Text>
+      </Box>
+      <Box>
+        <Text>GitHub</Text>
+      </Box>
     </Box>
   )
 }

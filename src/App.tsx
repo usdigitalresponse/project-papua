@@ -6,13 +6,23 @@ import { LanguageProvider } from './contexts/language'
 import { FormProvider } from './contexts/form'
 import { USDR } from './components/USDR'
 
+const colors = {
+  accent: '#3E73FF',
+  warning: '#FFCA58',
+  danger: '#FF4040',
+}
+
+const sizing = {
+  header: '26px',
+  subheader: '18px',
+  body: '18px',
+  detail: '14px',
+}
+
 const theme = {
   global: {
     text: {
       align: 'left',
-    },
-    font: {
-      size: '14px',
     },
     selected: {
       background: '#F2F2F2',
@@ -26,6 +36,59 @@ const theme = {
     control: {
       border: {
         color: 'black',
+      },
+    },
+  },
+  paragraph: {
+    small: { size: sizing.detail },
+    medium: { size: sizing.body },
+    large: { size: sizing.body },
+    xlarge: { size: sizing.body },
+    xxlarge: { size: sizing.body },
+  },
+  heading: {
+    level: {
+      1: {
+        small: { size: sizing.header },
+        medium: { size: sizing.header },
+        large: { size: sizing.header },
+        xlarge: { size: sizing.header },
+        xxlarge: { size: sizing.header },
+      },
+      2: {
+        small: { size: sizing.header },
+        medium: { size: sizing.header },
+        large: { size: sizing.header },
+        xlarge: { size: sizing.header },
+        xxlarge: { size: sizing.header },
+      },
+      3: {
+        small: { size: sizing.header },
+        medium: { size: sizing.header },
+        large: { size: sizing.header },
+        xlarge: { size: sizing.header },
+        xxlarge: { size: sizing.header },
+      },
+      4: {
+        small: { size: sizing.subheader },
+        medium: { size: sizing.subheader },
+        large: { size: sizing.subheader },
+        xlarge: { size: sizing.subheader },
+        xxlarge: { size: sizing.subheader },
+      },
+      5: {
+        small: { size: sizing.subheader },
+        medium: { size: sizing.subheader },
+        large: { size: sizing.subheader },
+        xlarge: { size: sizing.subheader },
+        xxlarge: { size: sizing.subheader },
+      },
+      6: {
+        small: { size: sizing.subheader },
+        medium: { size: sizing.subheader },
+        large: { size: sizing.subheader },
+        xlarge: { size: sizing.subheader },
+        xxlarge: { size: sizing.subheader },
       },
     },
   },

@@ -1,20 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap'); */
-
 /* TODO: replace with Helvetica Neue */
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
   font-family: 'Roboto', sans-serif;
-}
-
-/* TODO: replace with Orpheus Pro */
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Playfair Display', serif;
 }
 
 html {
@@ -25,6 +12,25 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+ol {
+  list-style: none;
+  counter-reset: aCounter;
+  padding-left: 24px;
+}
+ol li {
+  counter-increment: aCounter;
+  display: flex;
+  padding-bottom: 4px;
+}
+ol li::before {
+  content: counter(aCounter) '.';
+  color: black;
+  font-size: 14px;
+  line-height: 20px;
+  flex-basis: 24px;
+  flex-shrink: 0;
 }
 
 .App {
