@@ -32,8 +32,7 @@
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
-    "build-gh-pages": "SKIP_PREFLIGHT_CHECK=true PUBLIC_URL=https://usdigitalresponse.github.io/project-papua/ react-scripts build",
-    "predeploy": "yarn run build-gh-pages",
+    "predeploy": "PUBLIC_URL=https://usdigitalresponse.github.io/project-papua/ yarn run build",
     "deploy": "gh-pages -d build",
     "test": "jest --testPathIgnorePatterns 'backend/.*'",
     "eject": "react-scripts eject",

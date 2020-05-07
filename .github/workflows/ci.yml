@@ -167,3 +167,12 @@ jobs:
         run: |-
           yarn run --silent js-yaml ./public/form.yml > ./public/form.json
           yarn ajv validate -s ./src/form.schema.json -d ./public/form.json
+
+  deploy-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build for gh-pages
+        run: yarn predeploy
+      - name: deploy to gh-pages
+        run: yarn deploy
