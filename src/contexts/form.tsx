@@ -58,7 +58,7 @@ export const FormProvider: React.FC = (props) => {
       // TODO: experiment with nextjs to see if we can embed this file instead
       // of fetching it. This'll speed up page load. Next would allow us to
       // get the benefits of ejecting CRA without ejecting.
-      const [form, formSample] = await Promise.all([ky.get('/form.yml').text(), ky.get('/form.sample.yml').text()])
+      const [form, formSample] = await Promise.all([ky.get('form.yml').text(), ky.get('form.sample.yml').text()])
 
       let contents, sampleContents
       try {
