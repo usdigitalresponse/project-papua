@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Question } from '../../lib/types'
 import { Box, CheckBox } from 'grommet'
-import './single-select.css'
 import { FormContext } from '../../contexts/form'
 
 interface Props {

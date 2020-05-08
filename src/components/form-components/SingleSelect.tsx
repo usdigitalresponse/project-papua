@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Question } from '../../lib/types'
 import { Box, RadioButtonGroup } from 'grommet'
-import './single-select.css'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
@@ -19,23 +18,28 @@ const SingleSelectRadio: React.FC<Props> = (props) => {
     return <Box />
   }
 
-  const options = question.options.map((o) => ({
-    id: `${question.id}:${o.id}`,
-    value: `${question.id}:${o.id}`,
-    name: `${question.id}:${o.id}`,
-    label: translateCopy(o.name),
-  }))
+  const options = question.options.map((o) => {
+    const v = `${question.id}:${o.id}`
+    return {
+      id: v,
+      value: v,
+      name: v,
+      label: translateCopy(o.name),
+    }
+  })
 
   return (
-    <RadioButtonGroup
-      name={translateCopy(question.name)}
-      options={options}
-      value={`${question.id}:${value}`}
-      onChange={(e) => {
-        const id = e.target.value.split(':')[1]
-        props.onChange ? props.onChange(id) : setValue(question, id)
-      }}
-    />
+    <Box className="radio-button-group">
+      <RadioButtonGroup
+        name={translateCopy(question.name)}
+        options={options}
+        value={`${question.id}:${value}`}
+        onChange={(e) => {
+          const id = e.target.value.split(':')[1]
+          props.onChange ? props.onChange(id) : setValue(question, id)
+        }}
+      />
+    </Box>
   )
 }
 

@@ -120,27 +120,6 @@ const theme = {
       color: '#205EFF',
     },
   },
-  radioButton: {
-    size: '24px',
-    extend: {
-      flexShrink: 0,
-    },
-    hover: {
-      color: '#BCCFFF !important',
-      border: {
-        color: '#BCCFFF !important',
-      },
-    },
-    border: {
-      color: '#333333 !important',
-    },
-    check: {
-      color: '#205EFF',
-      extend: {
-        border: '#205EFF 2px solid',
-      },
-    },
-  },
 }
 
 function App() {

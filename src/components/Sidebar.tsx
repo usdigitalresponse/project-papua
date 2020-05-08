@@ -81,7 +81,7 @@ const Sidebar: React.FC<Props> = (props) => {
               <Heading level={4} margin="none">
                 {translateByID('section')}
               </Heading>
-              <Select
+              <StyledSelect
                 a11yTitle="select section"
                 margin={{ top: 'xsmall' }}
                 options={pages.map((page, i) => ({ page, i, disabled: !canClickPage(i) }))}
