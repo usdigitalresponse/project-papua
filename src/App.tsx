@@ -6,12 +6,6 @@ import { LanguageProvider } from './contexts/language'
 import { FormProvider } from './contexts/form'
 import { USDR } from './components/USDR'
 
-const colors = {
-  accent: '#3E73FF',
-  warning: '#FFCA58',
-  danger: '#FF4040',
-}
-
 const sizing = {
   header: '26px',
   subheader: '18px',

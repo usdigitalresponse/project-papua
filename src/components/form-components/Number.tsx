@@ -61,7 +61,7 @@ export const Number: React.FC<Props> = (props) => {
     <NumberFormat
       customInput={GrommetTextInput}
       onValueChange={onChange}
-      style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid' }}
+      style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid', maxWidth: '600px' }}
       {...typeProps}
     />
   )
