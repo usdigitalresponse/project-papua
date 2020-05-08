@@ -30,14 +30,12 @@ const Question: React.FC<Props> = (props) => {
             margin="none"
           >
             {translateCopy(question.name)}
-            {!question.required && <em> ({translateByID('optional')})</em>}
+            {!question.required && !['instructions-only'].includes(question.type) && (
+              <em> ({translateByID('optional')})</em>
+            )}
           </Heading>
         </Box>
-        {question.instructions && (
-          <Markdown margin={{ vertical: 'xsmall' }} size="small">
-            {translateCopy(question.instructions)}
-          </Markdown>
-        )}
+        {question.instructions && <Markdown size="small">{translateCopy(question.instructions)}</Markdown>}
       </Box>
       <Component question={question} />
       {error && (
