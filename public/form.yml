@@ -884,8 +884,8 @@ definitions:
             es: 'No puedo trabajar, o mis horas se reducen, porque mi empleador cerró voluntariamente.'
             zh: 由于雇主自愿关闭，我无法工作或工作时间减少。
           id: situation-7
-          state-benefits: UI-NJ
-          federal-benefits: 'FPUC-FED,PEUC-FED,PUA-FED'
+          benefits: UI-NJ
+          job-protections: 'FPUC-FED,PEUC-FED,PUA-FED'
         - name:
             en: |-
               I was laid off, or furloughed, while on Family or Temporary Disability Leave, because there are fewer hours available due to business slowdown or lack of demand.
