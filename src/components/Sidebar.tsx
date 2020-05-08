@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Card } from './helper-components'
-import { Box, Text, Select, Image, ResponsiveContext, Heading, Paragraph } from 'grommet'
+import { Box, Text, Image, ResponsiveContext, Heading, Paragraph } from 'grommet'
 import { LanguageContext } from '../contexts/language'
 import { FormContext } from '../contexts/form'
 import { range } from 'lodash'
