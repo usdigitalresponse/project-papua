@@ -21,6 +21,11 @@ const theme = {
         light: 'black',
       },
     },
+    focus: {
+      border: {
+        color: '#bfcffb',
+      },
+    },
     text: {
       align: 'left',
     },
