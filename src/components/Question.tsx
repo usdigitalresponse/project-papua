@@ -42,7 +42,9 @@ const Question: React.FC<Props> = (props) => {
             margin="none"
           >
             {translateCopy(question.name)}
-            {!question.required && question.type !== 'instructions-only' && <em> ({translateByID('optional')})</em>}
+            {!question.required && !['instructions-only', 'sections'].includes(question.type) && (
+              <em> ({translateByID('optional')})</em>
+            )}
           </Heading>
         </Box>
         {question.instructions && (
