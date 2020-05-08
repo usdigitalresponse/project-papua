@@ -11,126 +11,6 @@ variables:
   STATE_CODE: '[ST]'
   STATE_NAME: '[State]'
   DOMAIN: usdigitalresponse.org
-  PEUC-FED:
-    en: |-
-      ####Pandemic Emergency Unemployment Compensation (PEUC) via the CARES Act
-
-      You may be eligible for federal benefits through Pandemic Emergency Unemployment Compensation due to COVID-19. The Coronavirus Aid, Relief, and Economic Security (CARES) Act created a new temporary federal program called Pandemic Emergency Unemployment Compensation that provides up to 13 additional weeks of benefits to individuals who have exhausted their regular unemployment Insurance entitlement.
-
-      **Suggested next step:**
-
-      Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
-  ESL-NJ:
-    en: |-
-      ####Earned Sick Leave (ESL)
-
-      You may be eligible for sick leave from your employer through New Jersey's Earned Sick Leave. The New Jersey Earned Sick Leave Law allows employees to accrue 1 hour of earned sick leave for every 30 hours worked, up to 40 hours each year.
-
-      **Suggested next steps:**
-
-      1. Get more information: mysickdays.nj.gov
-      2. Talk to your employer about your right to utilize this leave
-      3. If they don't comply, file a wage claim (online preferred): https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html
-  UI-NJ:
-    en: |-
-      ####Unemployment Insurance (UI)
-      You may be eligible for Unemployment Insurance in New Jersey. Unemployment Insurance is a program that gives financial support to people who lose their jobs through no fault of their own.
-
-      **Suggested next steps:**
-
-      1. Go to my myunemployment.nj.gov
-      2. Create an account
-      3. File an application (online preferred): https://myunemployment.nj.gov/
-  FLI-NJ:
-    en: |-
-      ####Family Leave (FLI)
-
-      You may be eligible for Family Leave Insurance from your employer. Family Leave Insurance provides New Jersey workers cash benefits for up to six weeks to provide care for a seriously ill or injured family member.
-
-      **Suggested next steps:**
-
-      1. Go to MyLeaveBenefits.NJ.gov
-      2. Create an account
-      3. File an application (online preferred): https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/fli/
-  FLA-NJ:
-    en: |-
-      ####The Family Leave Act (FLA)
-
-      You may be eligible for Family Leave from your employer under The New Jersey Family Leave Act. Under the New Jersey Family Leave Act, certain employees are entitled to take leave without losing their jobs to care for a family member, or someone who is the “equivalent” of family, who has a serious health condition.
-
-      **Suggested next steps:**
-
-      1. Get more information: NJ Family Leave Act https://www.state.nj.us/lps/dcr/downloads/flafactsheet.pdf
-      2. Talk to your employer about your job protection situation
-      3. If they do not comply, file a complaint (need link)
-  FEC-FMLA-FED:
-    en: |-
-      ####Federal Emergency Childcare FMLA
-
-      You may be eligible for up to 12 weeks of protected leave, 10 paid by your employer. This protected leave gives certain workers access to emergency paid leave to care for themselves or a loved one, or to care for their children at home, due to COVID-19.
-
-      **Suggested next steps**
-
-      1. Get more information: Emergency Paid Sick Leave & Expanded Family & Medical Leave Act https://myunemployment.nj.gov/assets/pdfs/UI_process_selfemployed.pdf
-      2. Talk to your employer about your right to utilize this leave
-  FMLA-FED:
-    en: |-
-      ####Family and Medical Leave Act (FMLA)
-
-      You may be eligible for job protected leave, enforced by the United States Department of Labor, for your medical condition.
-
-      **Suggested next steps:**
-
-      1. Get more information: Family and Medical Leave Act https://www.dol.gov/agencies/whd/fmla
-      2. Talk to your employer about your right to utilize this leave
-  FPUC-FED:
-    en: |-
-      ####Pandemic Unemployment Compensation (FPUC) via the CARES Act
-
-      You may be eligible for federal benefits through the Pandemic Unemployment Compensation due to COVID-19. The Coronavirus Aid, Relief, and Economic Security (CARES) Act includes Federal Pandemic Unemployment Compensation which provides certain benefits to individuals who have exhausted their entitlement to regular unemployment insurance and who are not eligible for regular unemployment insurance, such as individuals who are self-employed or have limited recent work history.
-
-      **Suggested next step:**
-      Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
-  TDI-NJ:
-    en: |-
-      ####Temporary Disability Insurance (TDI)
-      You may be eligible for Temporary Disability Insurance from your employer. Temporary Disability Insurance provides cash benefits to New Jersey workers who suffer an illness, injury, or other disability that prevents them from working, and wasn’t caused by their job.
-
-      **Suggested next steps:**
-
-      1. Go to MyLeaveBenefits.NJ.gov
-      2. Create an account
-      3. File an application (online preferred): https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/tdi/
-  A3848:
-    en: |-
-      ####A3848 Legislation
-      You may be eligible for special job protection, due to COVID-19. Your employer cannot terminate or refuse to reinstate your employment status if you have, or is likely to have, an infectious disease which requires you to miss time at work.
-
-      **Suggested next steps:**
-
-      1. Get more information: (need link)
-      2. Talk to your employer about your right to utilize this leave
-      3. If they don't comply, file a wage claim
-  PUA-FED:
-    en: |-
-      ####Pandemic Unemployment Assistance (PUA) via the CARES Act
-
-      You may be eligible for federal benefits through Pandemic Unemployment Assistance due to COVID-19. The Coronavirus Aid, Relief, and Economic Security (CARES) Act created a new temporary federal program called Pandemic Unemployment Assistance that provides up to 39 weeks of unemployment benefits.
-
-      **Suggested next step:**
-
-      Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
-  EPSL-FED:
-    en: |-
-      ####Emergency Paid Sick Leave
-
-      You may be eligible for job protection rights enforced by the United States Department of Labor. Emergency Paid Sick Leave gives certain workers access to emergency paid leave to care for themselves, or a loved one, or to care for their children at home, due to COVID-19.
-
-      **Suggested next steps:**
-
-      1. Get more information: Overview: Emergency Paid Sick Leave & Expanded https://www.nj.gov/labor/assets/PDFs/FamiliesFirstCoronaResAct.pdf
-      2. Family & Medical Leave Act
-      3. Talk to your employer about your right to utilize this leave
 instructions:
   get-started:
     en: Get Started
@@ -301,6 +181,17 @@ instructions:
     es: Sección
     zh: 部分
 sections:
+  UA:
+    title:
+      en: Unemployment Assistance
+    content:
+      en: |-
+        You may be eligible for federal benefits through the Coronavirus Aid, Relief, and Economic Security (CARES) Act. The new law created temporary federal program called Pandemic Unemployment Assistance (PUA) that provides up to 26 weeks of unemployment benefits. 
+        The CARES Act also created federal Pandemic Unemployment Compensation (FPUC), which provides an additional $600 per week to individuals collecting either PUA or traditional unemployment insurance benefits.
+        **Suggested next steps:**
+        1. Learn [how to apply](https://myunemployment.nj.gov/labor/myunemployment/before/about/howtoapply/)
+        2. Create an account at myunemployment.nj.gov
+        3. File an [application](https://myunemployment.nj.gov/) (online preferred)
   PEUC-FED:
     title:
       en: Pandemic Emergency Unemployment Compensation (PEUC) via the CARES Act
@@ -309,21 +200,15 @@ sections:
     content:
       en: |-
         You may be eligible for federal benefits through Pandemic Emergency Unemployment Compensation due to COVID-19. The Coronavirus Aid, Relief, and Economic Security (CARES) Act created a new temporary federal program called Pandemic Emergency Unemployment Compensation that provides up to 13 additional weeks of benefits to individuals who have exhausted their regular unemployment Insurance entitlement.
-
         **Suggested next step:**
-
-        Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
+        Get more information [here](https://www.dol.gov/coronavirus/unemployment-insurance)
       es: |-
         Puede ser elegible para beneficios federales a través de la Compensación de desempleo de emergencia pandémica debido a COVID-19. La Ley de Ayuda, Alivio y Seguridad Económica de Coronavirus (CARES) creó un nuevo programa federal temporal llamado Compensación de emergencia por desempleo pandémico que brinda hasta 13 semanas adicionales de beneficios a las personas que han agotado su derecho regular de seguro de desempleo.
-
         ** Siguiente paso sugerido: **
-
         Obtenga más información aquí: https://www.dol.gov/coronavirus/unemployment-insurance
       zh: |-
         由于COVID-19，您可能有资格通过大流行紧急失业补偿获得联邦福利。 《冠状病毒援助，救济和经济安全(CARES)法案》创建了一个新的临时联邦计划，称为大流行紧急失业补偿，该计划为用尽定期失业保险金的个人提供最多13周的福利。
-
         **建议下一步：**
-
         在此处获取更多信息：https://www.dol.gov/coronavirus/unemployment-insurance
   ESL-NJ:
     title:
@@ -333,25 +218,19 @@ sections:
     content:
       en: |-
         You may be eligible for sick leave from your employer through New Jersey's Earned Sick Leave. The New Jersey Earned Sick Leave Law allows employees to accrue 1 hour of earned sick leave for every 30 hours worked, up to 40 hours each year.
-
         **Suggested next steps:**
-
-        1. Get more information: mysickdays.nj.gov
+        1. Get more information: [mysickdays.nj.gov](http://mysickdays.nj.gov/)
         2. Talk to your employer about your right to utilize this leave
-        3. If they don't comply, file a wage claim (online preferred): https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html
+        3. If they don't comply, [file a wage claim (online preferred):](https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html)
       es: |-
         Puede ser elegible para licencia por enfermedad de su empleador a través de la licencia por enfermedad ganada de Nueva Jersey. La Ley de licencia por enfermedad ganada de Nueva Jersey permite a los empleados acumular 1 hora de licencia por enfermedad por cada 30 horas trabajadas, hasta 40 horas cada año.
-
         ** Próximos pasos sugeridos: **
-
         1. Obtenga más información: mysickdays.nj.gov
         2. Hable con su empleador sobre su derecho a utilizar este permiso
         3. Si no cumplen, presente un reclamo salarial (preferido en línea): https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html
       zh: |-
         您可能有资格通过新泽西州的有薪病假从雇主那里获得病假。新泽西《有薪病假法》允许员工每工作30个小时即可累积1个小时的病假，每年最多40个小时。
-
         **建议的后续步骤：**
-
         1. 获取更多信息：mysickdays.nj.gov
         2. 与您的雇主谈谈您使用此假期的权利
         3. 如果他们不遵守，请提出工资要求(首选在线)：https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html
@@ -363,25 +242,19 @@ sections:
     content:
       en: |-
         You may be eligible for Unemployment Insurance in New Jersey. Unemployment Insurance is a program that gives financial support to people who lose their jobs through no fault of their own.
-
         **Suggested next steps:**
-
         1. Go to my myunemployment.nj.gov
         2. Create an account
-        3. File an application (online preferred): https://myunemployment.nj.gov/
+        3. [File an application (online preferred)](https://myunemployment.nj.gov/)
       es: |-
         Puede ser elegible para el seguro de desempleo en Nueva Jersey. El seguro de desempleo es un programa que brinda apoyo financiero a las personas que pierden sus empleos por causas ajenas a su voluntad.
-
         ** Próximos pasos sugeridos: **
-
         1. Vaya a myunemployment.nj.gov
         2. Crear una cuenta
         3. Presente una solicitud (preferida en línea): https://myunemployment.nj.gov/
       zh: |-
         您可能有资格获得新泽西州的失业保险。失业保险是一项计划，旨在为无故失业的人们提供经济支持。
-
         **建议的后续步骤：**
-
         1. 转到myunemployment.nj.gov
         2. 创建一个帐户
         3. 提交申请(首选在线)：https://myunemployment.nj.gov/
@@ -393,25 +266,19 @@ sections:
     content:
       en: |-
         You may be eligible for Family Leave Insurance from your employer. Family Leave Insurance provides New Jersey workers cash benefits for up to six weeks to provide care for a seriously ill or injured family member.
-
         **Suggested next steps:**
-
-        1. Go to MyLeaveBenefits.NJ.gov
+        1. Go to [MyLeaveBenefits.NJ.gov](http://myleavebenefits.nj.gov/)
         2. Create an account
-        3. File an application (online preferred): https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/fli/
+        3. [File an application (online preferred)](https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/fli/)
       es: |-
         Puede ser elegible para el seguro de licencia familiar de su empleador. El seguro de licencia familiar brinda a los trabajadores de Nueva Jersey beneficios en efectivo de hasta seis semanas para brindar atención a un familiar gravemente enfermo o lesionado.
-
         ** Próximos pasos sugeridos: **
-
         1. Vaya a MyLeaveBenefits.NJ.gov
         2. Crear una cuenta
         3. Presente una solicitud (en línea preferida): https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/fli/
       zh: |-
         您可能有资格从雇主那里获得家庭假期保险。家庭休假保险为新泽西州工人提供长达六周的现金福利，以为重病或受伤的家庭成员提供护理。
-
         **建议的后续步骤：**
-
         1. 转到MyLeaveBenefits.NJ.gov
         2. 创建一个帐户
         3. 提交申请(首选在线)：https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/fli/
@@ -423,25 +290,19 @@ sections:
     content:
       en: |-
         You may be eligible for Family Leave from your employer under The New Jersey Family Leave Act. Under the New Jersey Family Leave Act, certain employees are entitled to take leave without losing their jobs to care for a family member, or someone who is the “equivalent” of family, who has a serious health condition.
-
         **Suggested next steps:**
-
-        1. Get more information: NJ Family Leave Act https://www.state.nj.us/lps/dcr/downloads/flafactsheet.pdf
+        1. Get more information: [NJ Family Leave Act](https://www.nj.gov/oag/dcr/downloads/posters/8x11_flaposter.pdf)
         2. Talk to your employer about your job protection situation
-        3. If they do not comply, file a complaint (need link)
+        3. If they do not comply, [file a complaint](https://www.nj.gov/oag/dcr/filing.html)
       es: |-
         Puede ser elegible para el permiso familiar de su empleador bajo la Ley de Permiso Familiar de Nueva Jersey. Según la Ley de Licencia Familiar de Nueva Jersey, ciertos empleados tienen derecho a tomarse una licencia sin perder su trabajo para cuidar a un miembro de la familia, o alguien que es el "equivalente" de la familia, que tiene una condición de salud grave.
-
         ** Próximos pasos sugeridos: **
-
         1. Obtenga más información: NJ Family Leave Act https://www.state.nj.us/lps/dcr/downloads/flafactsheet.pdf
         2. Hable con su empleador sobre su situación de protección laboral
         3. Si no cumplen, presente una queja (necesita enlace)
       zh: |-
         根据《新泽西州家庭休假法》，您可能有资格从雇主那里获得家庭假。根据《新泽西州家庭休假法》，某些雇员有权休假而不会失去工作以照顾家庭成员或健康状况严重的家庭成员。
-
         **建议的后续步骤：**
-
         1. 获取更多信息：《新泽西州家庭休假法》 https://www.state.nj.us/lps/dcr/downloads/flafactsheet.pdf
         2. 与您的雇主谈谈您的工作保护情况
         3. 如果他们不遵守，请提出投诉(需要链接)
@@ -453,23 +314,17 @@ sections:
     content:
       en: |-
         You may be eligible for up to 12 weeks of protected leave, 10 paid by your employer. This protected leave gives certain workers access to emergency paid leave to care for themselves or a loved one, or to care for their children at home, due to COVID-19.
-
         **Suggested next steps**
-
-        1. Get more information: Emergency Paid Sick Leave & Expanded Family & Medical Leave Act https://myunemployment.nj.gov/assets/pdfs/UI_process_selfemployed.pdf
+        1. Get more information: [Families First Coronavirus Response Act](https://www.nj.gov/labor/assets/PDFs/FamiliesFirstCoronaResAct.pdf)
         2. Talk to your employer about your right to utilize this leave
       es: |-
         Puede ser elegible para hasta 12 semanas de licencia protegida, 10 pagadas por su empleador. Esta licencia protegida le da a ciertos trabajadores acceso a licencia pagada de emergencia para cuidar de sí mismos o de un ser querido, o para cuidar a sus hijos en el hogar, debido a COVID-19.
-
         ** Los siguientes pasos sugeridos **
-
         1. Obtenga más información: Licencia por enfermedad pagada de emergencia y Ley de licencia médica y familiar ampliada https://myunemployment.nj.gov/assets/pdfs/UI_process_selfemployed.pdf
         2. Hable con su empleador sobre su derecho a utilizar este permiso
       zh: |-
         您可能有资格享受长达12周的带薪休假，其中10天由雇主支付。受保护的休假使某些工人可以享受紧急带薪休假，以照顾自己或亲人，或在家中照顾自己的孩子(由于COVID-19)。
-
         **建议的后续步骤**
-
         1. 获取更多信息：《紧急有薪病假和扩大的家庭与病假法》 https://myunemployment.nj.gov/assets/pdfs/UI_process_selfemployed.pdf
         2. 与您的雇主谈谈您使用此假期的权利
   FMLA-FED:
@@ -480,23 +335,17 @@ sections:
     content:
       en: |-
         You may be eligible for job protected leave, enforced by the United States Department of Labor, for your medical condition.
-
         **Suggested next steps:**
-
-        1. Get more information: Family and Medical Leave Act https://www.dol.gov/agencies/whd/fmla
+        1. Get more information: [Family and Medical Leave Act](https://www.dol.gov/agencies/whd/fmla)
         2. Talk to your employer about your right to utilize this leave
       es: |-
         Puede ser elegible para un permiso de trabajo protegido, impuesto por el Departamento de Trabajo de los Estados Unidos, por su condición médica.
-
         ** Próximos pasos sugeridos: **
-
         1. Obtenga más información: Ley de licencia médica y familiar https://www.dol.gov/agencies/whd/fmla
         2. Hable con su empleador sobre su derecho a utilizar este permiso
       zh: |-
         您可能有资格享受美国劳工部针对您的医疗状况而享有的有工作保障的假期。
-
         **建议的后续步骤：**
-
         1. 获取更多信息：《家庭和病假法》 https://www.dol.gov/agencies/whd/fmla
         2. 与您的雇主谈谈您使用此假期的权利
   FPUC-FED:
@@ -507,17 +356,14 @@ sections:
     content:
       en: |-
         You may be eligible for federal benefits through the Pandemic Unemployment Compensation due to COVID-19. The Coronavirus Aid, Relief, and Economic Security (CARES) Act includes Federal Pandemic Unemployment Compensation which provides certain benefits to individuals who have exhausted their entitlement to regular unemployment insurance and who are not eligible for regular unemployment insurance, such as individuals who are self-employed or have limited recent work history.
-
         **Suggested next step:**
-        Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
+        Get more information [here.](https://www.dol.gov/coronavirus/unemployment-insurance)
       es: |-
         Puede ser elegible para beneficios federales a través de la Compensación de desempleo pandémico debido a COVID-19. La Ley de Ayuda, Alivio y Seguridad Económica del Coronavirus (CARES) incluye la Compensación Federal de Desempleo por Pandemia que brinda ciertos beneficios a las personas que han agotado su derecho a un seguro de desempleo regular y que no son elegibles para el seguro de desempleo regular, como las personas empleado o tiene historial de trabajo reciente limitado.
-
         ** Siguiente paso sugerido: **
         Obtenga más información aquí: https://www.dol.gov/coronavirus/unemployment-insurance
       zh: |-
         由于COVID-19，您可能有资格通过大流行性失业补偿获得联邦福利。 《冠状病毒援助，救济和经济安全(CARES)法案》包括《联邦大流行性失业补偿》，该法案为已用完定期失业保险资格且不符合定期失业保险资格的个人(例如自受雇或近期工作经历有限。
-
         **建议下一步：**
         在此处获取更多信息：https://www.dol.gov/coronavirus/unemployment-insurance
   TDI-NJ:
@@ -528,25 +374,19 @@ sections:
     content:
       en: |-
         You may be eligible for Temporary Disability Insurance from your employer. Temporary Disability Insurance provides cash benefits to New Jersey workers who suffer an illness, injury, or other disability that prevents them from working, and wasn’t caused by their job.
-
         **Suggested next steps:**
-
-        1. Go to MyLeaveBenefits.NJ.gov
+        1. Go to [MyLeaveBenefits.NJ.gov](MyLeaveBenefits.NJ.gov)
         2. Create an account
-        3. File an application (online preferred): https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/tdi/
+        3. File an [application](https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/tdi/) (online preferred)
       es: |-
         Puede ser elegible para el Seguro de Incapacidad Temporal de su empleador. El Seguro de Incapacidad Temporal brinda beneficios en efectivo a los trabajadores de Nueva Jersey que sufren una enfermedad, lesión u otra discapacidad que les impide trabajar y que no fue causado por su trabajo.
-
         ** Próximos pasos sugeridos: **
-
         1. Vaya a MyLeaveBenefits.NJ.gov
         2. Crear una cuenta
         3. Presente una solicitud (preferida en línea): https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/tdi/
       zh: |-
         您可能有资格从雇主那里获得临时伤残保险。临时残障保险为患有疾病，受伤或其他致残疾病的新泽西州工人提供现金福利，这些疾病会导致他们无法工作，而并非由工作引起。
-
         **建议的后续步骤：**
-
         1. 转到MyLeaveBenefits.NJ.gov
         2. 创建一个帐户
         3. 提交申请(首选在线)：https://myleavebenefits.nj.gov/labor/myleavebenefits/worker/tdi/
@@ -558,25 +398,20 @@ sections:
     content:
       en: |-
         You may be eligible for special job protection, due to COVID-19. Your employer cannot terminate or refuse to reinstate your employment status if you have, or is likely to have, an infectious disease which requires you to miss time at work.
-
         **Suggested next steps:**
-
-        1. Get more information: (need link)
-        2. Talk to your employer about your right to utilize this leave
-        3. If they don't comply, file a wage claim
+          
+        1. Get more information [here](https://www.njleg.state.nj.us/2020/Bills/A4000/3848_I1.HTM)
+        2. Talk to your employer about your right to job protection
+        3. If they don't comply, [file a wage claim](https://www.nj.gov/labor/wagehour/complnt/filing_wage_claim.html)
       es: |-
         Puede ser elegible para protección laboral especial, debido a COVID-19. Su empleador no puede rescindir o negarse a restablecer su situación laboral si tiene, o es probable que tenga, una enfermedad infecciosa que requiera que pierda tiempo en el trabajo.
-
         ** Próximos pasos sugeridos: **
-
         1. Obtenga más información: (necesita enlace)
         2. Hable con su empleador sobre su derecho a utilizar este permiso
         3. Si no cumplen, presente un reclamo salarial
       zh: |-
         由于COVID-19，您可能有资格获得特殊工作保护。如果您患有或可能患有传染病而需要您上班的时间，则您的雇主不能终止或拒绝恢复您的工作状态。
-
         **建议的后续步骤：**
-
         1. 获取更多信息：(需要链接)
         2. 与您的雇主谈谈您使用此假期的权利
         3. 如果他们不遵守，请提出工资要求
@@ -588,21 +423,15 @@ sections:
     content:
       en: |-
         You may be eligible for federal benefits through Pandemic Unemployment Assistance due to COVID-19. The Coronavirus Aid, Relief, and Economic Security (CARES) Act created a new temporary federal program called Pandemic Unemployment Assistance that provides up to 39 weeks of unemployment benefits.
-
         **Suggested next step:**
-
-        Get more information here: https://www.dol.gov/coronavirus/unemployment-insurance
+        Get more information [here.](https://www.dol.gov/coronavirus/unemployment-insurance)
       es: |-
         Puede ser elegible para beneficios federales a través de la Asistencia de desempleo pandémico debido a COVID-19. La Ley de Ayuda, Alivio y Seguridad Económica de Coronavirus (CARES) creó un nuevo programa federal temporal llamado Asistencia de desempleo pandémico que brinda hasta 39 semanas de beneficios de desempleo.
-
         ** Siguiente paso sugerido: **
-
         Obtenga más información aquí: https://www.dol.gov/coronavirus/unemployment-insurance
       zh: |-
         由于COVID-19，您可能有资格通过大流行性失业援助获得联邦福利。 《冠状病毒援助，救济和经济安全(CARES)法案》创建了一个新的临时联邦计划，称为大流行性失业援助，该计划可提供长达39周的失业救济金。
-
         **建议下一步：**
-
         在此处获取更多信息：https://www.dol.gov/coronavirus/unemployment-insurance
   EPSL-FED:
     title:
@@ -612,25 +441,19 @@ sections:
     content:
       en: |-
         You may be eligible for job protection rights enforced by the United States Department of Labor. Emergency Paid Sick Leave gives certain workers access to emergency paid leave to care for themselves, or a loved one, or to care for their children at home, due to COVID-19.
-
         **Suggested next steps:**
-
-        1. Get more information: Overview: Emergency Paid Sick Leave & Expanded https://www.nj.gov/labor/assets/PDFs/FamiliesFirstCoronaResAct.pdf
+        1. Get more information: Overview: [Emergency Paid Sick Leave & Expanded](https://www.nj.gov/labor/assets/PDFs/FamiliesFirstCoronaResAct.pdf)
         2. Family & Medical Leave Act
         3. Talk to your employer about your right to utilize this leave
       es: |-
         Usted puede ser elegible para los derechos de protección laboral impuestos por el Departamento de Trabajo de los Estados Unidos. La licencia por enfermedad pagada de emergencia brinda a ciertos trabajadores acceso a la licencia pagada de emergencia para cuidarse a sí mismos, a un ser querido, o para cuidar a sus hijos en el hogar, debido a COVID-19.
-
         ** Próximos pasos sugeridos: **
-
         1. Obtenga más información: Descripción general: Licencia por enfermedad pagada de emergencia y https://www.nj.gov/labor/assets/PDFs/FamiliesFirstCoronaResAct.pdf ampliado
         2. Ley de licencia médica y familiar
         3. Hable con su empleador sobre su derecho a utilizar este permiso
       zh: |-
         您可能有资格获得美国劳工部强制执行的工作保护权利。紧急带薪病假使某些工人可以享受紧急带薪病假，以照顾自己或亲人，或在家中照顾孩子(由于COVID-19)。
-
         **建议的后续步骤：**
-
         1. 获取更多信息：概述：紧急带薪病假和扩展https://www.nj.gov/labor/assets/PDFs/FamiliesFirstCoronaResAct.pdf
         2. 《家庭和病假法》
         3. 与您的雇主谈谈您有权使用该假期的权利
@@ -646,18 +469,14 @@ pages:
     instructions:
       en: |-
         This is a beta version of this tool. We will be updating it regularly as new federal, state, and local benefits become available. We will check your eligibility for the programs below based on the information you provide.
-
-        #### Included Programs 
-
+        ### Included Programs 
         - State Benefits Programs
         - Earned Sick Leave (ESL)
         - Unemployment Insurance (UI)
         - Family Leave (FLI)
         - The Family Leave Act (FLA)
         - Temporary Disablity Insurance (TDI)
-
-        #### Federal Benefits Programs and Legislation
-
+        ### Federal Benefits Programs and Legislation
         - A3848 Legislation
         - Coronovirus Aid, Relief, and Economic + Security Act (CARES) Act 
         - Federal Pandemic Unemployment Compensation (FPUC)
@@ -666,28 +485,20 @@ pages:
         - Emergency Paid Sick Leave
         - Family and Medical Leave Act (FMLA)
         - Federal Emergency Childcare
-
-        #### Terms of Service
-
+        ### Terms of Service
         NJDOL is offering this screening tool that lists benefits programs that you may decide to consider based upon information you provide about your most recent employment.
-
         This screening tool will provide suggested next steps that may include apply for benefits outside of this website, but cannot guarantee eligibility and does not reserve any benefits or a place in any application queue. The administering organization or agency will determine all eligibility requirements upon your submission of an application, and/or other relevant documents, to that organization or agency for the respective program.
-
         The information you share for purposes of this screening tool will be anonymous and may be shared with New Jersey State agencies to improve access to benefits and programs.
       es: |-
         Esta es una versión beta de esta herramienta. Lo actualizaremos regularmente a medida que estén disponibles nuevos beneficios federales, estatales y locales. Verificaremos su elegibilidad para los siguientes programas según la información que proporcione.
-
-        #### Programas incluidos
-
+        ### Programas incluidos
         - Programas de beneficios estatales
         - Permiso por enfermedad por enfermedad (ESL)
         - Seguro de desempleo (UI)
         - Licencia familiar (FLI)
         - La Ley de licencia familiar (FLA)
         - Seguro de discapacidad temporal (TDI)
-
-        #### Programas de beneficios federales y legislación
-
+        ### Programas de beneficios federales y legislación
         - Legislación A3848
         - Ley de Ayuda, Ayuda y Ayuda Económica y de Seguridad contra el Coronovirus (CARES)
         - Compensación federal de desempleo pandémico (FPUC)
@@ -696,28 +507,20 @@ pages:
         - Licencia por enfermedad pagada de emergencia
         - Ley de licencia médica y familiar (FMLA)
         - Cuidado de niños federal de emergencia
-
-        #### Términos de servicio
-
+        ### Términos de servicio
         NJDOL ofrece esta herramienta de evaluación que enumera los programas de beneficios que puede decidir considerar en función de la información que proporcione sobre su empleo más reciente.
-
         Esta herramienta de evaluación proporcionará los siguientes pasos sugeridos que pueden incluir solicitar beneficios fuera de este sitio web, pero no puede garantizar la elegibilidad y no reserva ningún beneficio ni un lugar en ninguna cola de solicitud. La organización o agencia administradora determinará todos los requisitos de elegibilidad al momento de enviar una solicitud y / u otros documentos relevantes a esa organización o agencia para el programa respectivo.
-
         La información que comparta para los fines de esta herramienta de evaluación será anónima y puede compartirse con las agencias estatales de Nueva Jersey para mejorar el acceso a los beneficios y programas.
       zh: |-
         这是此工具的测试版。随着新的联邦，州和地方福利的推出，我们将定期对其进行更新。我们将根据您提供的信息检查您是否符合以下计划的资格。
-
-        ####包含的程序
-
+        ###包含的程序
         - 国家福利计划
         - 病假(ESL)
         - 失业保险(UI)
         - 休假(FLI)
         - 《家庭假法》(FLA)
         - 临时伤残保险(TDI)
-
-        ####联邦福利计划和法律
-
+        ###联邦福利计划和法律
         - A3848立法
         - 冠状病毒援助，救济和经济与安全法(CARES)法案
         - 联邦大流行性失业补偿(FPUC)
@@ -726,13 +529,9 @@ pages:
         - 紧急带薪病假
         - 《家庭和病假法》(FMLA)
         - 联邦紧急托儿服务
-
-        #### 服务条款
-
+        ### 服务条款
         NJDOL正在提供此筛选工具，其中列出了您可以根据所提供的有关最近工作的信息来决定考虑的福利计划。
-
         此筛选工具将提供建议的后续步骤，包括在本网站外申请福利，但不能保证资格，并且不保留任何福利或在任何申请队列中的位置。在您向相应组织的机构或机构提交申请和/或其他相关文件后，管理机构或机构将确定所有资格要求。
-
         您为此筛选工具共享的信息将是匿名的，并可能与新泽西州的机构共享，以改善获取福利和计划的机会。
     questions:
       - name:
@@ -744,8 +543,8 @@ pages:
           es: Estoy de acuerdo con los términos de servicio
           zh: 我同意服务条款
         id: agreement
-        type: checkbox
         required: true
+        type: checkbox
         options:
           - name:
               en: I agree
@@ -845,15 +644,12 @@ pages:
                           instructions:
                             en: |-
                               **If you applied for Unemployment Insurance, then your case will automatically be assessed for federal unemployment benefits.**
-
                               We encourage you to proceed to see if you are eligible for any additional benefits.
                             es: |-
                               ** Si solicitó el seguro de desempleo, su caso será evaluado automáticamente para los beneficios federales de desempleo. **
-
                               Le recomendamos que continúe para ver si es elegible para algún beneficio adicional.
                             zh: |-
                               **如果您申请了失业保险，那么您的案件将自动获得联邦失业补助金。**
-
                               我们鼓励您继续查看您是否有资格享受任何其他福利。
                 receiving-unemployment:
                   - name:
@@ -861,13 +657,12 @@ pages:
                       es: Elegibilidad
                       zh: 合格
                     type: sections
-                    required: true
                     id: terminal-eligibility-2
                     sections: 'PEUC-FED,FPUC-FED'
+                    required: true
                     instructions:
                       en: |-
                         Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):
-
                         #### Federal Benefits Programs and Legislation
                       es: |-
                         Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
@@ -878,26 +673,20 @@ pages:
                 es: Elegibilidad
                 zh: 合格
               type: instructions-only
-              required: true
               id: terminal-eligibility-1
+              required: true
               instructions:
                 en: |-
                   **The State of New Jersey COVID-19 Benefits Eligibility Tool is designed to help individuals working in New Jersey identify benefits programs for which they may be eligible.**
-
                   Check with the state where you are/were formerly employed to see if you qualify for benefits there.
-
-                  *You may also qualify for federal benefits under the CARES Act.*
+                  *You may also qualify for federal benefits under the [CARES Act.](https://www.dol.gov/coronavirus/unemployment-insurance)*
                 es: |-
                   ** La herramienta de elegibilidad de beneficios COVID-19 del estado de Nueva Jersey está diseñada para ayudar a las personas que trabajan en Nueva Jersey a identificar programas de beneficios para los que pueden ser elegibles. **
-
                   Verifique con el estado donde está / estuvo empleado anteriormente para ver si califica para los beneficios allí.
-
                   * También puede calificar para beneficios federales bajo la Ley CARES. *
                 zh: |-
                   **新泽西州COVID-19福利资格工具旨在帮助在新泽西工作的个人确定他们可能有资格参加的福利计划。**
-
                   请与您以前/曾经工作过的州联系，以查看您是否有资格在那里获得福利。
-
                   *您也可以根据《 CARES法》获得联邦福利。*
 definitions:
   situations:
@@ -906,17 +695,17 @@ definitions:
         es: ¿Cuál de las siguientes afirmaciones describe mejor su situación? Seleccione todas las que correspondan.
         zh: 下列哪个陈述最能描述您的情况？选择所有符合条件的。
       id: describe-situation
-      type: multiselect
       required: true
-      additionalKeys: 'federal-benefits,state-benefits'
+      type: multiselect
+      additionalKeys: 'benefits,job-protections'
       options:
         - name:
             en: "I can't work, or my hours are reduced, because I need to care for children due to COVID-19."
             es: 'No puedo trabajar, o mis horas se reducen, porque necesito cuidar a los niños debido a COVID-19.'
             zh: 由于COVID-19，我需要照顾孩子，因此我无法工作或工作时间减少。
           id: situation-1
-          state-benefits: 'ESL-NJ,UI-NJ,FLA-NJ'
-          federal-benefits: 'FEC-FMLA-FED,FMLA-FED,FPUC-FED,PUA-FED'
+          benefits: 'UA,ESL-NJ,FEC-FMLA-FED'
+          job-protections: 'FMLA-FED,FLA-NJ'
         - name:
             en: |-
               I can't work, or my hours are reduced, because I am caring for a family member who is diagnosed with COVID-19 or in quarantine with suspicion of exposure.
@@ -924,8 +713,8 @@ definitions:
               No puedo trabajar, o mis horas se reducen, porque estoy cuidando a un miembro de la familia que es diagnosticado con COVID-19 o en cuarentena con sospecha de exposición.
             zh: 我无法工作或工作时间减少，因为我正在照顾一名被诊断出患有COVID-19的家庭成员，或者因为怀疑有接触而被隔离。
           id: situation-2
-          state-benefits: 'ESL-NJ,UI-NJ,FLI-NJ,FLA-NJ'
-          federal-benefits: 'EPSL-FED,FEC-FMLA-FED,FMLA-FED,FPUC-FED,PUA-FED'
+          benefits: 'UA,ESL-NJ,FLI-NJ,EPSL-FED'
+          job-protections: 'FMLA-FED,FLA-NJ'
         - name:
             en: |-
               I can't work, or my hours are reduced, because I'm advised to by a doctor or public health authority to quarantine.
@@ -933,8 +722,8 @@ definitions:
               No puedo trabajar, o mis horas se reducen, porque un médico o una autoridad de salud pública me lo recomiendan para poner en cuarentena.
             zh: 我不能工作或工作时间减少，因为医生或公共卫生机构建议我进行检疫。
           id: situation-3
-          state-benefits: 'ESL-NJ,UI-NJ,TDI-NJ'
-          federal-benefits: 'A3848,EPSL-FED,FMLA-FED,FPUC-FED,PEUC-FED,PUA-FED'
+          benefits: 'UA,ESL-NJ,TDI-NJ,EPSL-FED'
+          job-protections: 'A3848,FMLA-FED'
         - name:
             en: |-
               I can't work, or my hours are reduced, because I was exposed in my workplace and was told to quarantine by a health authority.
@@ -942,24 +731,22 @@ definitions:
               No puedo trabajar, o mis horas se reducen, porque fui expuesto en mi lugar de trabajo y una autoridad de salud me ordenó poner en cuarentena.
             zh: 我无法工作，或减少了工作时间，因为我被暴露在工作场所，并被卫生当局告知要隔离。
           id: situation-4
-          state-benefits: 'ESL-NJ,UI-NJ,TDI-NJ'
-          federal-benefits: 'A3848,EPSL-FED,FMLA-FED,FPUC-FED,PEUC-FED,PUA-FED'
+          benefits: 'UA,ESL-NJ,TDI-NJ,EPSL-FED'
+          job-protections: 'A3848,FMLA-FED'
         - name:
             en: |-
-              I can't work, or my hours are reduced, because there are less hours available due to business slowdown or lack of demand.
+              There is no work for me, or my hours are reduced, because there are fewer hours available due to business slowdown or lack of demand.
             es: |-
               No puedo trabajar, o mis horas se reducen, porque hay menos horas disponibles debido a la desaceleración del negocio o la falta de demanda.
             zh: 我无法工作或减少了工作时间，因为由于业务放缓或需求不足，可用的工作时间减少了。
           id: situation-5
-          state-benefits: UI-NJ
-          federal-benefits: 'FPUC-FED,PEUC-FED,PUA-FED'
+          benefits: 'UA'
         - name:
-            en: "I can't work, or my hours are reduced, because my employer was ordered to close."
+            en: 'There is no work for me, or my hours are reduced, because my employer was ordered to close.'
             es: 'No puedo trabajar, o mis horas se reducen, porque mi empleador recibió la orden de cerrar.'
             zh: 我不能工作，或减少了工作时间，因为我的老板被勒令关闭。
           id: situation-6
-          state-benefits: UI-NJ
-          federal-benefits: 'FPUC-FED,PEUC-FED,PUA-FED'
+          benefits: 'UA'
         - name:
             en: "I can't work, or my hours are reduced, because my employer voluntarily closed."
             es: 'No puedo trabajar, o mis horas se reducen, porque mi empleador cerró voluntariamente.'
@@ -968,67 +755,61 @@ definitions:
           state-benefits: UI-NJ
           federal-benefits: 'FPUC-FED,PEUC-FED,PUA-FED'
         - name:
+            en: 'I was laid off, or furloughed, while on Family or Temporary Disability Leave, because there are fewer hours available due to business slowdown or lack of demand.'
+          id: situation-11
+          benefits: 'UA'
+        - name:
             en: 'My employer is permitted to be open, but I am afraid of exposure and refuse to work.'
             es: 'A mi empleador se le permite estar abierto, pero tengo miedo de la exposición y me niego a trabajar.'
             zh: 允许我的雇主开放，但我担心自己会暴露并拒绝工作。
           id: situation-8
-          state-benefits: 'ESL-NJ,TDI-NJ'
-          federal-benefits: EPSL-FED
+          benefits: 'ESL-NJ'
         - name:
             en: 'My employer was ordered to close, but has remained open. I am afraid of exposure and refuse to work.'
             es: |-
               A mi empleador se le ordenó cerrar, pero se ha mantenido abierto. Tengo miedo a la exposición y me niego a trabajar.
             zh: 我的雇主被勒令停业，但一直保持营业。我害怕接触并拒绝工作。
           id: situation-9
-          state-benefits: 'ESL-NJ,TDI-NJ'
-          federal-benefits: EPSL-FED
+          benefits: 'ESL-NJ'
         - name:
             en: None of the above statements describe my situation. I would like to know more about all program benefits.
             es: |-
               Ninguna de las declaraciones anteriores describe mi situación. Me gustaría saber más sobre todos los beneficios del programa.
             zh: 以上陈述均未描述我的情况。我想了解更多有关所有计划收益的信息。
           id: situation-10
-          state-benefits: 'ESL-NJ,FLI-NJ,UI-NJ,FLA-NJ,TDI-NJ'
-          federal-benefits: 'A3848,EPSL-FED,FMLA-FED,FPUC-FED,FEC-FMLA-FED,PEUC-FED,PUA-FED'
+          benefits: 'UA,EPSL-FED,ESL-NJ,TDI-NJ,FLI-NJ,FEC-FMLA-FED'
+          job-protections: 'A3848,FMLA-FED,FLA-NJ'
       switch:
-        'situation-1,situation-2,situation-3,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9':
-          - name:
+        ? 'situation-1,situation-2,situation-3,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9,situation-11'
+        : - name:
               en: ''
               es: ''
               zh: ''
-            id: terminal-eligibility-4
-            required: true
+            id: terminal-eligibility-benefits
             type: sections
-            sections: 'id:state-benefits'
+            sections: 'id:benefits'
             instructions:
               en: |-
                 ### You may be eligible for...
-
                 Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):
-
-                #### State Benefits Programs
+                #### Benefits
               es: |-
                 ### Puede ser elegible para ...
-
                 Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
-
                 #### Programas de beneficios estatales
               zh: |-
                 ###您可能有资格...
-
                 根据您提供的信息，您可能有资格获得以下计划的保护或经济资助：
-
                 ####国家福利计划
           - name:
               en: ''
               es: ''
               zh: ''
-            id: terminal-eligibility-4
-            required: true
+            id: terminal-eligibility-job-protections
             type: sections
-            sections: 'id:federal-benefits'
+            sections: 'id:job-protections'
             instructions:
-              en: '#### Federal Benefits Programs'
+              en: '#### Job Protections'
               es: '#### Programas de beneficios federales'
               zh: '####联邦福利计划'
         situation-10:
@@ -1036,13 +817,30 @@ definitions:
               en: ''
               es: ''
               zh: ''
-            id: terminal-eligibility-3
-            required: true
+            id: terminal-eligibility-benefits-not-eligible
             type: sections
             sections: 'id:benefits'
             instructions:
               en: |-
-                Based on the information, you may not be eligible for any of the following benefits that are being offered at this time:
+                ### Additional Information
+                Based on the information you may not be eligible for any of the following benefits that are being offered at this time:
+                #### Benefits
               es: |-
-                Según la información, es posible que no sea elegible para ninguno de los siguientes beneficios que se ofrecen en este momento:
-              zh: 根据这些信息，您可能没有资格获得当前提供的以下任何好处：
+                ### Puede ser elegible para ...
+                Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
+                #### Programas de beneficios estatales
+              zh: |-
+                ###您可能有资格...
+                根据您提供的信息，您可能有资格获得以下计划的保护或经济资助：
+                ####国家福利计划
+          - name:
+              en: ''
+              es: ''
+              zh: ''
+            id: terminal-eligibility-job-protections-not-eligible
+            type: sections
+            sections: 'id:job-protections'
+            instructions:
+              en: '#### Job Protections'
+              es: '#### Programas de beneficios federales'
+              zh: '####联邦福利计划'

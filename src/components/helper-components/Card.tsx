@@ -1,7 +1,11 @@
 import React from 'react'
 import { Box, BoxProps } from 'grommet'
 
-const Card: React.FC<BoxProps> = (props) => {
+interface Props extends BoxProps {
+  ref?: React.Ref<HTMLDivElement>
+}
+
+const Card: React.FC<Props> = (props) => {
   const { children, ...otherProps } = props
   return (
     <Box

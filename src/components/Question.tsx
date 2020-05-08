@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Question as QuestionInterface } from '../lib/types'
-import { getComponent, getSwitch } from '../forms'
+import { getComponent, getSwitch, getSections } from '../forms'
 import { Box, Heading, Text } from 'grommet'
 import { FormContext } from '../contexts/form'
 import { Markdown } from './helper-components'
@@ -13,7 +13,7 @@ const Question: React.FC<Props> = (props) => {
   const { question } = props
   const Component = getComponent(question.type)
 
-  const { values, errors, translateCopy, translateByID } = useContext(FormContext)
+  const { values, errors, form, translateCopy, translateByID } = useContext(FormContext)
 
   const value = values[question.id]
   const error = errors[question.id]
@@ -24,6 +24,11 @@ const Question: React.FC<Props> = (props) => {
       switchComponent?.scrollIntoView({ behavior: 'smooth' })
     }
   }, [value])
+
+  // If question is "sections" but there are no sections, don't render.
+  if (question.type === 'sections' && getSections(question.sections, form, values).length === 0) {
+    return <Box />
+  }
 
   return (
     <Box direction="column" margin={{ bottom: 'small' }}>

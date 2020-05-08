@@ -1,21 +1,20 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, Ref } from 'react'
 import { Card, Button, Markdown } from './helper-components'
-import { Box, ResponsiveContext, Heading } from 'grommet'
+import { Box, ResponsiveContext } from 'grommet'
 import Sidebar from './Sidebar'
 import Review from './Review'
+import Form from './Form'
 import { FormContext } from '../contexts/form'
 import Amplify, { API } from 'aws-amplify'
 import awsconfig from '../aws-exports'
 import { v5 as uuid } from 'uuid'
 import { Confirmation } from './Confirmation'
-import Question from './Question'
-import { FormPrevious, FormNext } from 'grommet-icons'
 import PDF from './PDF'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 
 Amplify.configure(awsconfig)
 
-const Form: React.FC<{}> = () => {
+const FormApp: React.FC<{}> = () => {
   const { form, translateByID, translateCopy, completion, pageIndex, setPage, values } = useContext(FormContext)
   const size = useContext(ResponsiveContext)
 
@@ -49,27 +48,14 @@ const Form: React.FC<{}> = () => {
     }
   }
 
-  const pageTitles = [...form.pages.map((page) => translateCopy(page.title))]
+  const pageTitles = [
+    ...form.pages.map((page) => {
+      return translateCopy(page.title)
+    }),
+  ]
 
-  const padding = size === 'small' ? '12px' : '24px'
   const pageComponents = [
-    ...form.pages.map((page) => (
-      <Box
-        pad={{ horizontal: padding, top: padding, bottom: 'none' }}
-        direction="column"
-        justify="start"
-        key={page.heading.en}
-      >
-        <Heading margin="none" level={3}>
-          {translateCopy(page.heading)}
-        </Heading>
-        {page.instructions && <Markdown size="small">{translateCopy(page.instructions)}</Markdown>}
-        <Box margin={{ bottom: 'medium' }}></Box>
-        {page.questions.map((question) => (
-          <Question question={question} key={question.id} />
-        ))}
-      </Box>
-    )),
+    ...form.pages.map((page) => <Form page={page} key={page.heading.en} />),
     <Review key="review" pages={form.pages} />,
   ]
 
@@ -79,23 +65,29 @@ const Form: React.FC<{}> = () => {
   const pdf = <PDF form={form} values={values} translateCopy={translateCopy} />
 
   return (
-    <Box align="center" pad="medium" direction="column" width="100%" style={{ maxWidth: '1200px' }}>
+    <Box align="center" pad="medium" direction="column" width={{ max: '1200px' }} margin="auto">
+      <Card
+        margin={{ bottom: 'small' }}
+        pad={{ horizontal: size === 'small' ? '24px' : 'medium', vertical: 'small' }}
+        background="white"
+        width={{ max: '600px' }}
+      >
+        <Markdown>{translateByID('demo-warning')}</Markdown>
+      </Card>
       <Box width="100%" height="100%" justify="center" direction={size === 'small' ? 'column' : 'row'}>
-        <Card pad="medium" justify="between" flex={{ grow: 1, shrink: 1 }}>
+        <Card pad="medium" background="white" justify="between" flex={{ grow: 1, shrink: 1 }}>
           {(claimID && <Confirmation id={claimID} />) || (
             <>
               {pageComponents[pageIndex]}
               <Box justify="between" pad="medium" direction="row">
                 {(pageIndex > 0 && (
-                  <Button onClick={onClickBack} label={translateByID('back')} icon={<FormPrevious />} />
+                  <Button border={{ radius: 0 }} color="black" onClick={onClickBack} label={translateByID('back')} />
                 )) || <Box />}
                 {pageIndex + 1 < pageTitles.length && (
                   <Button
-                    primary={pageIndex === 0}
+                    color={pageIndex === 0 ? '#3E73FF' : 'black'}
                     onClick={onClickNext}
                     disabled={!completion[pageIndex]}
-                    icon={<FormNext />}
-                    reverse={true}
                     label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
                   />
                 )}
@@ -125,4 +117,4 @@ const Form: React.FC<{}> = () => {
   )
 }
 
-export default Form
+export default FormApp
