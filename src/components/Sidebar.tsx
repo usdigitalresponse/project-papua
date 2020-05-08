@@ -74,8 +74,8 @@ const Sidebar: React.FC<Props> = (props) => {
             <Box style={{ width: `${percent}%`, height: '100%', borderRadius: '12px', background: '#3A80C2' }} />
           </Box>
         </Box>
-        <Box margin={{ top: 'small' }}>
-          {size === 'small' ? (
+        <Box margin={{ top: 'medium' }}>
+          {size === 'small' && pages.length > 2 ? (
             <>
               {/* On small screens, we collapse the section titles to a Select */}
               <Heading level={4} margin="none">

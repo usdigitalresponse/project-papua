@@ -159,6 +159,10 @@ ol li::before {
   fill: white !important;
   stroke: white !important;
 }
+div[data-g-portal-id] {
+  overflow: hidden;
+  border-radius: 4px;
+}
 
 /* Radio Button Groups */
 .radio-button-group label > div > div {
