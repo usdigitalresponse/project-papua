@@ -165,6 +165,9 @@ div[data-g-portal-id] {
 }
 
 /* Radio Button Groups */
+.radio-button-group label > div {
+  flex-shrink: 0;
+}
 .radio-button-group label > div > div {
   background-color: #f8f8f8 !important;
   border: 1px solid #403f40 !important;
