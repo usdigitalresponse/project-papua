@@ -10,12 +10,14 @@ export const USDR: React.FC = (props) => {
    * - Footer with "built by etc", links to socials
    */
   return (
-    <Box direction="column">
+    <Box direction="column" height={{ min: '100vh' }}>
       <Box>
         <Header />
       </Box>
 
-      <Box>{props.children}</Box>
+      <Box flex={{ grow: 1 }} align="center">
+        {props.children}
+      </Box>
 
       <Box>
         <Footer />
