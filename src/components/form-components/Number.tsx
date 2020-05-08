@@ -59,9 +59,10 @@ export const Number: React.FC<Props> = (props) => {
   const hasError = Boolean(errors[question.id])
   return (
     <NumberFormat
+      className={hasError ? 'text-input errored' : 'text-input'}
       customInput={GrommetTextInput}
       onValueChange={onChange}
-      style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid', maxWidth: '600px' }}
+      style={{ maxWidth: '600px' }}
       {...typeProps}
     />
   )
