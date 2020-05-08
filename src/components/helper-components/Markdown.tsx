@@ -1,5 +1,5 @@
 import React from 'react'
-import { Markdown as GrommetMarkdown, Paragraph, ParagraphProps } from 'grommet'
+import { Markdown as GrommetMarkdown, Paragraph, ParagraphProps, Heading } from 'grommet'
 import { MarginType } from 'grommet/utils'
 import { merge } from '../../lib/merge'
 
@@ -23,7 +23,11 @@ export const Markdown: React.FC<Props> = ({ margin, size, children }) => {
   // HTML elements. It handles a few components by default, but there are a few
   // extra cases we want to handle (or customize).
   const headings = [1, 2, 3, 4, 5, 6].map((n) => ({
-    [`h${n}`]: { props: merge({ margin: { vertical: 'small' } }, { merge, size }) },
+    [`h${n}`]: {
+      /* eslint-disable-next-line react/display-name */
+      component: (props: any) => <Heading level={n as any} {...props} />,
+      props: merge({ margin: { vertical: n > 4 ? 'none' : 'small' } }, { margin, size }),
+    },
   }))
   return (
     <GrommetMarkdown

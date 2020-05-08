@@ -79,7 +79,11 @@ const Multiselect: React.FC<Props> = (props) => {
                 marginTop: '8px',
               }}
               checked={isSelected}
-              label={<Paragraph margin="none">{translateCopy(o.name)}</Paragraph>}
+              label={
+                <Paragraph margin="none" fill={true}>
+                  {translateCopy(o.name)}
+                </Paragraph>
+              }
               onChange={() => onSelect(o)}
             />
           </Box>
