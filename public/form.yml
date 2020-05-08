@@ -832,6 +832,7 @@ pages:
                       zh: 您是否已经通过新泽西州申请了失业保险？
                     id: already-applied
                     type: boolean
+                    required: true
                     switch:
                       'false': 'definition:situations'
                       'true':
@@ -860,6 +861,7 @@ pages:
                       es: Elegibilidad
                       zh: 合格
                     type: sections
+                    required: true
                     id: terminal-eligibility-2
                     sections: 'PEUC-FED,FPUC-FED'
                     instructions:
@@ -876,6 +878,7 @@ pages:
                 es: Elegibilidad
                 zh: 合格
               type: instructions-only
+              required: true
               id: terminal-eligibility-1
               instructions:
                 en: |-
@@ -904,6 +907,7 @@ definitions:
         zh: 下列哪个陈述最能描述您的情况？选择所有符合条件的。
       id: describe-situation
       type: multiselect
+      required: true
       additionalKeys: 'federal-benefits,state-benefits'
       options:
         - name:
@@ -993,6 +997,7 @@ definitions:
               es: ''
               zh: ''
             id: terminal-eligibility-4
+            required: true
             type: sections
             sections: 'id:state-benefits'
             instructions:
@@ -1019,6 +1024,7 @@ definitions:
               es: ''
               zh: ''
             id: terminal-eligibility-4
+            required: true
             type: sections
             sections: 'id:federal-benefits'
             instructions:
@@ -1031,6 +1037,7 @@ definitions:
               es: ''
               zh: ''
             id: terminal-eligibility-3
+            required: true
             type: sections
             sections: 'id:benefits'
             instructions:
