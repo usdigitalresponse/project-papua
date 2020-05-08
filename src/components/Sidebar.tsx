@@ -103,7 +103,7 @@ const Sidebar: React.FC<Props> = (props) => {
                     opacity: currentPage === page ? '100%' : canClickPage(i) ? '50%' : '20%',
                   }}
                   // TODO: In production, add a `canClickPage(i) && ` below to prevent folks from jumping forward.
-                  onClick={() => setPage(i)}
+                  onClick={() => canClickPage(i) && setPage(i)}
                   margin={{ bottom: 'xsmall' }}
                   key={page}
                 >
