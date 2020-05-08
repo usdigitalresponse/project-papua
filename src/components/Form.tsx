@@ -1,53 +1,17 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Card, Button, Markdown } from './helper-components'
 import { Box, ResponsiveContext, Heading } from 'grommet'
 import Sidebar from './Sidebar'
 import Review from './Review'
 import { FormContext } from '../contexts/form'
-import Amplify, { API } from 'aws-amplify'
-import awsconfig from '../aws-exports'
-import { v5 as uuid } from 'uuid'
-import { Confirmation } from './Confirmation'
 import Question from './Question'
 import { FormPrevious, FormNext } from 'grommet-icons'
 import PDF from './PDF'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 
-Amplify.configure(awsconfig)
-
 const Form: React.FC<{}> = () => {
   const { form, translateByID, translateCopy, completion, pageIndex, setPage, values } = useContext(FormContext)
   const size = useContext(ResponsiveContext)
-
-  const [canSubmit, setCanSubmit] = useState(true)
-  const [claimID, setClaimID] = useState<string>()
-
-  const onSubmit = async () => {
-    setCanSubmit(false)
-    try {
-      /**
-       * TODO: clear any subquestion values if the subquestion is hidden, s.t. we don't submit those values.
-       *
-       * We should only do this at submission time, so that users can toggle switches without losing
-       * their WIP content.
-       */
-      const resp = await API.post('resolverAPI', '/claims', {
-        body: {
-          metadata: {
-            uuid: uuid(window.location.hostname, uuid.DNS),
-            timestamp: new Date(),
-            host: window.location.hostname,
-          },
-          questions: values,
-        },
-      })
-      console.log(resp)
-      setClaimID(resp.id)
-    } catch (err) {
-      setCanSubmit(true)
-      console.error(JSON.stringify(err.response.data, null, 2))
-    }
-  }
 
   const pageTitles = [...form.pages.map((page) => translateCopy(page.title))]
 
@@ -82,42 +46,38 @@ const Form: React.FC<{}> = () => {
     <Box align="center" pad="medium" direction="column" width="100%" style={{ maxWidth: '1200px' }}>
       <Box width="100%" height="100%" justify="center" direction={size === 'small' ? 'column' : 'row'}>
         <Card pad="medium" justify="between" flex={{ grow: 1, shrink: 1 }}>
-          {(claimID && <Confirmation id={claimID} />) || (
-            <>
-              {pageComponents[pageIndex]}
-              <Box justify="between" pad="medium" direction="row">
-                {(pageIndex > 0 && (
-                  <Button onClick={onClickBack} label={translateByID('back')} icon={<FormPrevious />} />
-                )) || <Box />}
-                {pageIndex + 1 < pageTitles.length && (
-                  <Button
-                    primary={pageIndex === 0}
-                    onClick={onClickNext}
-                    disabled={!completion[pageIndex]}
-                    icon={<FormNext />}
-                    reverse={true}
-                    label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
-                  />
-                )}
-                {pageIndex === pageTitles.length - 1 && (
-                  <PDFDownloadLink
-                    style={{
-                      padding: '4px 22px',
-                      backgroundColor: '#3E73FF',
-                      borderRadius: '18px',
-                      color: 'white',
-                      fontSize: '18px',
-                      textDecoration: 'none',
-                    }}
-                    document={pdf}
-                    fileName="new-jersey-eligiblity.pdf"
-                  >
-                    {({ loading }) => (loading ? 'Downloading...' : 'Download')}
-                  </PDFDownloadLink>
-                )}
-              </Box>
-            </>
-          )}
+          {pageComponents[pageIndex]}
+          <Box justify="between" pad="medium" direction="row">
+            {(pageIndex > 0 && (
+              <Button onClick={onClickBack} label={translateByID('back')} icon={<FormPrevious />} />
+            )) || <Box />}
+            {pageIndex + 1 < pageTitles.length && (
+              <Button
+                primary={pageIndex === 0}
+                onClick={onClickNext}
+                disabled={!completion[pageIndex]}
+                icon={<FormNext />}
+                reverse={true}
+                label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
+              />
+            )}
+            {pageIndex === pageTitles.length - 1 && (
+              <PDFDownloadLink
+                style={{
+                  padding: '4px 22px',
+                  backgroundColor: '#3E73FF',
+                  borderRadius: '18px',
+                  color: 'white',
+                  fontSize: '18px',
+                  textDecoration: 'none',
+                }}
+                document={pdf}
+                fileName="new-jersey-eligiblity.pdf"
+              >
+                {({ loading }) => (loading ? 'Downloading...' : 'Download')}
+              </PDFDownloadLink>
+            )}
+          </Box>
         </Card>
         <Sidebar pages={pageTitles} />
       </Box>
