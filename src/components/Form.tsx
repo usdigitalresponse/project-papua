@@ -73,7 +73,7 @@ const Form: React.FC<{}> = () => {
                   <Button
                     primary={true}
                     href={params.url || undefined}
-                    disabled={params.loading}
+                    disabled={params.loading || !completion[pageIndex]}
                     label={<Paragraph margin="none">{params.loading ? 'Downloading...' : 'Download'}</Paragraph>}
                     onClick={() => onDownloadIE(params.blob)}
                     {...{ download: fileName }}
