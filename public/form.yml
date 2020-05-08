@@ -6,11 +6,11 @@ description:
   en: Determine what benefits you are eligible in the state of New Jersey.
   es: Determine qué beneficios es elegible en el estado de Nueva Jersey.
   zh: 确定您在新泽西州有资格享受哪些福利。
-seal: 'https://www.ereferencedesk.com/images/seals/New_Jersey.png'
+seal: nj.svg
 variables:
-  STATE_CODE: '[ST]'
-  STATE_NAME: '[State]'
-  DOMAIN: usdigitalresponse.org
+  STATE_CODE: 'NJ'
+  STATE_NAME: 'New Jersey'
+  DOMAIN: nj.gov
 instructions:
   get-started:
     en: Get Started
