@@ -674,6 +674,66 @@ pages:
         This screening tool will provide suggested next steps that may include apply for benefits outside of this website, but cannot guarantee eligibility and does not reserve any benefits or a place in any application queue. The administering organization or agency will determine all eligibility requirements upon your submission of an application, and/or other relevant documents, to that organization or agency for the respective program.
 
         The information you share for purposes of this screening tool will be anonymous and may be shared with New Jersey State agencies to improve access to benefits and programs.
+      es: |-
+        Esta es una versión beta de esta herramienta. Lo actualizaremos regularmente a medida que estén disponibles nuevos beneficios federales, estatales y locales. Verificaremos su elegibilidad para los siguientes programas según la información que proporcione.
+
+        #### Programas incluidos
+
+        - Programas de beneficios estatales
+        - Permiso por enfermedad por enfermedad (ESL)
+        - Seguro de desempleo (UI)
+        - Licencia familiar (FLI)
+        - La Ley de licencia familiar (FLA)
+        - Seguro de discapacidad temporal (TDI)
+
+        #### Programas de beneficios federales y legislación
+
+        - Legislación A3848
+        - Ley de Ayuda, Ayuda y Ayuda Económica y de Seguridad contra el Coronovirus (CARES)
+        - Compensación federal de desempleo pandémico (FPUC)
+        - Compensación por desempleo de emergencia pandémica (PEUC)
+        - Asistencia de desempleo pandémico (PUA)
+        - Licencia por enfermedad pagada de emergencia
+        - Ley de licencia médica y familiar (FMLA)
+        - Cuidado de niños federal de emergencia
+
+        #### Términos de servicio
+
+        NJDOL ofrece esta herramienta de evaluación que enumera los programas de beneficios que puede decidir considerar en función de la información que proporcione sobre su empleo más reciente.
+
+        Esta herramienta de evaluación proporcionará los siguientes pasos sugeridos que pueden incluir solicitar beneficios fuera de este sitio web, pero no puede garantizar la elegibilidad y no reserva ningún beneficio ni un lugar en ninguna cola de solicitud. La organización o agencia administradora determinará todos los requisitos de elegibilidad al momento de enviar una solicitud y / u otros documentos relevantes a esa organización o agencia para el programa respectivo.
+
+        La información que comparta para los fines de esta herramienta de evaluación será anónima y puede compartirse con las agencias estatales de Nueva Jersey para mejorar el acceso a los beneficios y programas.
+      zh: |-
+        这是此工具的测试版。随着新的联邦，州和地方福利的推出，我们将定期对其进行更新。我们将根据您提供的信息检查您是否符合以下计划的资格。
+
+        ####包含的程序
+
+        - 国家福利计划
+        - 病假(ESL)
+        - 失业保险(UI)
+        - 休假(FLI)
+        - 《家庭假法》(FLA)
+        - 临时伤残保险(TDI)
+
+        ####联邦福利计划和法律
+
+        - A3848立法
+        - 冠状病毒援助，救济和经济与安全法(CARES)法案
+        - 联邦大流行性失业补偿(FPUC)
+        - 大流行紧急失业补偿金(PEUC)
+        - 大流行性失业援助(PUA)
+        - 紧急带薪病假
+        - 《家庭和病假法》(FMLA)
+        - 联邦紧急托儿服务
+
+        #### 服务条款
+
+        NJDOL正在提供此筛选工具，其中列出了您可以根据所提供的有关最近工作的信息来决定考虑的福利计划。
+
+        此筛选工具将提供建议的后续步骤，包括在本网站外申请福利，但不能保证资格，并且不保留任何福利或在任何申请队列中的位置。在您向相应组织的机构或机构提交申请和/或其他相关文件后，管理机构或机构将确定所有资格要求。
+
+        您为此筛选工具共享的信息将是匿名的，并可能与新泽西州的机构共享，以改善获取福利和计划的机会。
     questions:
       - name:
           en: Agreement
