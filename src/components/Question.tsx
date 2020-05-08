@@ -13,7 +13,7 @@ const Question: React.FC<Props> = (props) => {
   const { question } = props
   const Component = getComponent(question.type)
 
-  const { values, errors, translateCopy } = useContext(FormContext)
+  const { values, errors, translateCopy, translateByID } = useContext(FormContext)
 
   const value = values[question.id]
   const error = errors[question.id]
@@ -33,12 +33,11 @@ const Question: React.FC<Props> = (props) => {
             style={{
               maxWidth: 'none',
             }}
-            color="black"
             level={4}
             margin="none"
           >
             {translateCopy(question.name)}
-            {question.required && <span style={{ color: '#FF4040' }}> *</span>}
+            {!question.required && <em> ({translateByID('optional')})</em>}
           </Heading>
         </Box>
         {question.instructions && (

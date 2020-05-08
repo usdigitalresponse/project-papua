@@ -140,6 +140,10 @@ instructions:
     en: Next
     es: próximo
     zh: 下一个
+  optional:
+    en: optional
+    es: opcional
+    zh: 可选的
   yes:
     en: Yes
     es: si
@@ -190,10 +194,6 @@ instructions:
     en: Progress
     es: Progreso
     zh: 进展
-  complete:
-    en: complete
-    es: completar
-    zh: 完成
   invalid-email:
     en: Please enter a valid email address.
     es: 'Por favor, introduce una dirección de correo electrónico válida.'
@@ -745,6 +745,7 @@ pages:
           zh: 我同意服务条款
         id: agreement
         type: checkbox
+        required: true
         options:
           - name:
               en: I agree
