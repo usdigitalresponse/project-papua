@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, Ref } from 'react'
 import { Card, Button, Markdown } from './helper-components'
 import { Box, ResponsiveContext } from 'grommet'
 import Sidebar from './Sidebar'
@@ -9,6 +9,8 @@ import Amplify, { API } from 'aws-amplify'
 import awsconfig from '../aws-exports'
 import { v5 as uuid } from 'uuid'
 import { Confirmation } from './Confirmation'
+import PDF from './PDF'
+import { PDFDownloadLink } from '@react-pdf/renderer'
 
 Amplify.configure(awsconfig)
 
@@ -60,6 +62,8 @@ const FormApp: React.FC<{}> = () => {
   const onClickNext = () => setPage(pageIndex + 1)
   const onClickBack = () => setPage(pageIndex - 1)
 
+  const pdf = <PDF form={form} values={values} translateCopy={translateCopy} />
+
   return (
     <Box align="center" pad="medium" direction="column" width={{ max: '1200px' }} margin="auto">
       <Card
@@ -88,13 +92,20 @@ const FormApp: React.FC<{}> = () => {
                   />
                 )}
                 {pageIndex === pageTitles.length - 1 && (
-                  <Button
-                    color={'#3E73FF'}
-                    primary={true}
-                    onClick={onSubmit}
-                    disabled={!canSubmit}
-                    label={translateByID('download:button')}
-                  />
+                  <PDFDownloadLink
+                    style={{
+                      padding: '4px 22px',
+                      backgroundColor: '#3E73FF',
+                      borderRadius: '18px',
+                      color: 'white',
+                      fontSize: '18px',
+                      textDecoration: 'none',
+                    }}
+                    document={pdf}
+                    fileName="new-jersey-eligiblity.pdf"
+                  >
+                    {({ loading }) => (loading ? 'Downloading...' : 'Download')}
+                  </PDFDownloadLink>
                 )}
               </Box>
             </>

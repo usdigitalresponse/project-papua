@@ -45,9 +45,10 @@ export function getFlattenedQuestions(questions: Question[], values: Values): Qu
     const { id } = question
 
     const value = values[id] as string
-    const hasSubQuestions = value !== undefined && question.switch && question.switch[value] !== undefined
+    const hasSubQuestions = value !== undefined && question.switch && getSwitch(question.switch, value)
+
     if (hasSubQuestions) {
-      const subQuestions = question.switch![value]
+      const subQuestions = getSwitch(question.switch, value)
       flattenedQuestions.push(...getFlattenedQuestions(subQuestions, values))
     }
   }

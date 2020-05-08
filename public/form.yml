@@ -850,7 +850,7 @@ pages:
                           zh: 我无法工作或工作时间减少，因为我正在照顾一名被诊断出患有COVID-19的家庭成员，或者因为怀疑有接触而被隔离。
                         id: situation-2
                         state-benefits: 'ESL-NJ,UI-NJ,FLI-NJ,FLA-NJ'
-                        federal-benefits: 'EPSL-FED,FEC-FMLA-FED,FMLA-FED,FPUC-FED,PUA-FED'
+                        federal-benefits: 'EPSL-FED,FMLA-FED,FPUC-FED,PUA-FED,PEUC-FED'
                       - name:
                           en: |-
                             I can't work, or my hours are reduced, because I'm advised to by a doctor or public health authority to quarantine.
