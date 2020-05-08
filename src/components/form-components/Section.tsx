@@ -32,9 +32,7 @@ const Section: React.FC<Props> = (props) => {
           <Heading margin="none" level={5} style={{ color: 'black' }}>
             {translateCopy(section.title)}
           </Heading>
-          <Markdown margin={{ vertical: 'xsmall' }} size="small">
-            {translateCopy(section.content)}
-          </Markdown>
+          <Markdown size="small">{translateCopy(section.content)}</Markdown>
         </Box>
       ))}
     </Box>

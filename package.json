@@ -13,6 +13,7 @@
     "copy-to-clipboard": "^3.3.1",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
+    "gh-pages": "^2.2.0",
     "grommet": "^2.12.0",
     "grommet-icons": "^4.4.0",
     "js-yaml": "colinking/js-yaml#2a635bc6563d609c0124fcbdcb0ebcaf7dd12d40",
@@ -33,6 +34,8 @@
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
+    "predeploy": "PUBLIC_URL=https://usdigitalresponse.github.io/project-papua/ yarn run build",
+    "deploy": "gh-pages -d build",
     "test": "jest --testPathIgnorePatterns 'backend/.*'",
     "eject": "react-scripts eject",
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",

@@ -67,6 +67,10 @@ aws s3 --endpoint-url=http://localhost:4572 cp s3://papua-data-123456789/claims/
 
 # Deploying
 
+You can deploy the complete PAPUA service with AWS Amplify, or deploy the front-end form with Github Pages.
+
+## Deploying with AWS Amplify
+
 Requirements:
 
 - GitHub account
@@ -85,7 +89,7 @@ Your fork is now configured to auto-deploy the `master` branch to your Amplify d
 
 2. [Optional] Update the questions used in your state's PAPUA form by editing `forms.yml` and committing those changes to the `master` branch of your fork.
 
-3. [Optional] Update the state logo by dropping a `<state code>.png` file into `public` and commiting that change to the `master` branch of your fork.
+3. [Optional] Update the state logo by dropping a `<state code>.png` file into `public` and committing that change to the `master` branch of your fork.
 
 4. [Optional] By default, this system will produce an hourly CSV of claim submissions. If you want to customize this, you can implement a "transformer" which will write claims in batches into your state's system. You can do this by adding a file to `backend/functions/transformer/src/transformers/<state code>.ts` where `<state code>` is your state's two-letter state abbreviation (CA, OR, etc.).
 
@@ -110,13 +114,54 @@ You can this commit this file to the `master` branch in your fork, which will up
 
 At this point, you can now reboot your Lambda to pick up this environment change by clicking on your backend environment and selecting `Redeploy this version`.
 
-5. [Optional] Redirect a subdomain from your state's website to this Amplify app. [Docs](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html)
+5. [Optional] Redirect a subdomain from your state's website to this Amplify app. [Docs][6]
+
+## Deploying with Github Pages
+
+With this method, you'll be able to quickly get your form hosted without having to configure AWS infrastructure or custom backend components. This method is great for standing up a self-guided qualifaction wizard, or if you want to use PAPUA templating with a non-AWS backend.
+
+Requirements:
+
+- GitHub account
+
+1. Fork this repo
+2. Update the `predeploy` script found in `package.json` to `https://<username>.github.io/<repository>/`
+3. [Optional] Update the questions used in your state's PAPUA form by editing `forms.yml` and committing those changes to the `master` branch of your fork.
+4. [Optional] Update the state logo by dropping a `<state code>.png` file into `public` and committing that change to the `master` branch of your fork.
+5. [Optional] Update the API call. By default, PAPUA make a post request to an AWS endpoint, this will break with non-Amplify deployments.
+
+Remove or change the below code block to match your needs. (You can also remove the submit button altogether)
+
+```ts
+// src/components/FormApp.tsx
+const resp = await API.post('resolverAPI', '/claims', {
+  body: {
+    metadata: {
+      uuid: uuid(window.location.hostname, uuid.DNS),
+      timestamp: new Date(),
+      host: window.location.hostname,
+    },
+    questions: values,
+  },
+}).
+```
+
+6. [Optional] Configure a custom domain on github.com, found under Settings in your fork. [See the docs.][7]
+7. To deploy:
+
+```bash
+yarn install
+yarn predeploy
+yarn deploy
+```
+
+Your form is now hosted at `https://<username>.github.io/<repository>/`
 
 # Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for additional information.
 
-If you are editing a form ([`public/form.yml`](public/form.yml)), then consider using [VSCode](https://code.visualstudio.com/) with the [YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml). With this, you'll get syntax validation and intellisense while editing the form.
+If you are editing a form ([`public/form.yml`](public/form.yml)), then consider using [VSCode][8] with the [YAML extension][9]. With this, you'll get syntax validation and intellisense while editing the form.
 
 # License
 
@@ -127,3 +172,7 @@ If you are editing a form ([`public/form.yml`](public/form.yml)), then consider 
 [3]: https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
 [4]: https://aws.amazon.com/lambda/
 [5]: https://docs.google.com/document/d/1Jntt7jOtc_5Qj4SP7GdC4u3Uyg9z_kU6jsm3CpCaeWU/edit?usp=sharing
+[6]: https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html
+[7]: https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
+[8]: https://code.visualstudio.com/
+[9]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml

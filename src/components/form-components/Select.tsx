@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import './select.css'
 import { Question } from '../../lib/types'
-import { Select as GrommetSelect, Box } from 'grommet'
+import { Box } from 'grommet'
 import { FormContext } from '../../contexts/form'
+import { StyledSelect } from '../helper-components/StyledSelect'
 
 interface Props {
   [key: string]: any
@@ -26,7 +26,7 @@ const Select: React.FC<Props> = (props) => {
   const options = question.options.map((option) => ({ name: translateCopy(option.name), id: option.id }))
 
   return (
-    <GrommetSelect
+    <StyledSelect
       a11yTitle={translateCopy(question.name)}
       margin={{ top: 'xsmall' }}
       options={options}

@@ -10,8 +10,9 @@ const Card: React.FC<Props> = (props) => {
   return (
     <Box
       className="card"
+      background="#FFFFFF"
       style={{
-        border: '1px solid #CCCCCC',
+        border: '2px solid #CCCCCC',
         borderRadius: '8px',
       }}
       {...otherProps}

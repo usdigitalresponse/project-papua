@@ -20,6 +20,10 @@ instructions:
     en: Next
     es: próximo
     zh: 下一个
+  optional:
+    en: optional
+    es: opcional
+    zh: 可选的
   yes:
     en: Yes
     es: si
