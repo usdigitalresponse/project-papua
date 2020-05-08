@@ -85,16 +85,19 @@ export function getSwitch(questionSwitch: Question['switch'], value: string | st
   if (!questionSwitch || value === undefined) {
     return []
   }
-  const switchKey = Object.keys(questionSwitch).find((key) => {
-    console.log(value, typeof value)
+  const switchKeys = Object.keys(questionSwitch).filter((key) => {
     return (
       key.split(',').includes(value.toString()) ||
       (Array.isArray(value) && (value as string[]).some((val) => key.split(',').includes(val)))
     )
   })
-  if (!switchKey) {
+
+  if (switchKeys.length === 0) {
     return []
   }
+
+  // In case this is a multiselect, always choose the last switch.
+  const switchKey = switchKeys[switchKeys.length - 1]
 
   // NOTE: we inline definitions in transformInlineDefinitions above, so it'll always be Question[].
   return questionSwitch[switchKey] as Question[]

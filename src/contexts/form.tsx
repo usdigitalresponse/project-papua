@@ -112,7 +112,6 @@ export const FormProvider: React.FC = (props) => {
 
       // Inline any top-level quesiton set definitions:
       rawForm = transformInlineDefinitions(rawForm)
-      console.log(rawForm)
 
       setForm(rawForm)
     }

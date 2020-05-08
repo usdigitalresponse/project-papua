@@ -48,7 +48,7 @@ const Multiselect: React.FC<Props> = (props) => {
           newValue = [...value, primaryKey]
         }
         if (option[key]) {
-          additionalValues[key] = [...additionalValues[key], ...(option[key] as string).split(',')]
+          additionalValues[key] = [...(additionalValues[key] || []), ...(option[key] as string).split(',')]
         }
       }
       // This option is being selected, and there are no other selections yet

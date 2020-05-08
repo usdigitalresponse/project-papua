@@ -14,6 +14,7 @@ const Section: React.FC<Props> = (props) => {
   const { values, form, translateCopy } = useContext(FormContext)
 
   const sections = getSections(question.sections, form, values)
+
   return (
     <Box>
       {sections.map((section, index) => (
