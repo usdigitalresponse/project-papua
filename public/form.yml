@@ -956,11 +956,16 @@ definitions:
               zh: '####联邦福利计划'
           - name:
               en: ''
+              es: ''
+              zh: ''
             id: faq-terminal-not-eligible
             type: instructions-only
             instructions:
               en: |-
                 For more information, please visit our [FAQ page.](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
+              es: |-
+                Para obtener más información, visite nuestra [página de preguntas frecuentes](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
+              zh: '有关更多信息，请访问我们的[FAQ页面。](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)'
         situation-10:
           - name:
               en: ''
@@ -1001,8 +1006,13 @@ definitions:
               zh: '####联邦福利计划'
           - name:
               en: ''
+              es: ''
+              zh: ''
             id: faq-terminal-not-eligible
             type: instructions-only
             instructions:
               en: |-
                 For more information, please visit our [FAQ page.](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
+              es: |-
+                Para obtener más información, visite nuestra [página de preguntas frecuentes](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
+              zh: '有关更多信息，请访问我们的[FAQ页面。](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)'
