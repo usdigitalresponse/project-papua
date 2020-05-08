@@ -7,7 +7,7 @@
   border: none;
   background-color: white;
   border: black 1px solid;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 10px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .react-calendar {
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }

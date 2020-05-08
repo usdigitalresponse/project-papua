@@ -34,15 +34,10 @@ const theme = {
       background: '#F2F2F2',
       color: 'black',
     },
-    focus: {
-      border: {
-        color: '#BCCFFF',
-      },
-    },
     control: {
       border: {
         color: 'black',
-        radius: '8px',
+        radius: '4px',
       },
     },
   },
@@ -109,7 +104,15 @@ const theme = {
       },
     },
     container: {
-      borderRadius: '8px',
+      borderRadius: '4px',
+    },
+  },
+  button: {
+    border: {
+      color: 'transparent',
+    },
+    primary: {
+      color: '#3E7EFF',
     },
   },
   checkBox: {

@@ -81,12 +81,10 @@ const Form: React.FC<{}> = () => {
             <>
               {pageComponents[pageIndex]}
               <Box justify="between" pad="medium" direction="row">
-                {(pageIndex > 0 && (
-                  <Button border={{ radius: 0 }} color="black" onClick={onClickBack} label={translateByID('back')} />
-                )) || <Box />}
+                {(pageIndex > 0 && <Button onClick={onClickBack} label={translateByID('back')} />) || <Box />}
                 {pageIndex + 1 < pageTitles.length && (
                   <Button
-                    color={pageIndex === 0 ? '#3E73FF' : 'black'}
+                    primary={pageIndex === 0}
                     onClick={onClickNext}
                     disabled={!completion[pageIndex]}
                     label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
@@ -94,7 +92,6 @@ const Form: React.FC<{}> = () => {
                 )}
                 {pageIndex === pageTitles.length - 1 && (
                   <Button
-                    color={'#3E73FF'}
                     primary={true}
                     onClick={onSubmit}
                     disabled={!canSubmit}

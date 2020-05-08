@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         direction="row"
         align="center"
       >
-        <a href="https://www.usdigitalresponse.org/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.usdigitalresponse.org/" target="_blank" rel="noopener noreferrer" tabIndex={-1}>
           <Image style={{ display: 'block' }} width="32px" src="./USDR-icon-BW.png" margin={{ right: '12px' }} />
         </a>
         <Heading level={4} margin="none">
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
         <Paragraph style={{ fontWeight: 600 }} size="small">
           Built by
         </Paragraph>
-        <a href="https://www.usdigitalresponse.org/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.usdigitalresponse.org/" target="_blank" rel="noopener noreferrer" tabIndex={-1}>
           <Image
             style={{ display: 'block' }}
             width="100px"

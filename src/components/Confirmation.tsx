@@ -62,7 +62,7 @@ export const Confirmation: React.FC<Props> = (props) => {
         </Box>
         <Box height="100%" justify="center" pad={{ top: '16px' }}>
           <Button
-            color={'black'}
+            color="black"
             onClick={onCopy}
             label={translateByID('copy')}
             reverse={true}
@@ -88,13 +88,7 @@ export const Confirmation: React.FC<Props> = (props) => {
       <Box direction="row" justify="between" margin={{ horizontal: '48px', vertical: '16px' }}>
         <Box />
         <Box>
-          <Button
-            color="#3E73FF"
-            primary={true}
-            onClick={onExit}
-            label={translateByID('confirmation-exit')}
-            size="small"
-          />
+          <Button primary={true} onClick={onExit} label={translateByID('confirmation-exit')} size="small" />
         </Box>
       </Box>
     </Box>
