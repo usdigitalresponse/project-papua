@@ -32,7 +32,7 @@ const Question: React.FC<Props> = (props) => {
 
   return (
     <Box direction="column" margin={{ top: 'small' }}>
-      <Box fill={true}>
+      <Box fill={true} className="question-heading-box">
         <Box direction="row" align="start">
           <Heading
             style={{
