@@ -44,7 +44,7 @@ ol li::before {
   cursor: not-allowed;
   background-color: #f2f2f2;
   color: #cccccc;
-  opacity: 100%;
+  opacity: 1;
 }
 .primary-button:disabled svg {
   fill: #cccccc;
