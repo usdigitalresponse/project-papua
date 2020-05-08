@@ -13,6 +13,7 @@ import File from '../components/form-components/File'
 import { Checkbox } from '../components/form-components/Checkbox'
 import { Box } from 'grommet'
 import { uniq } from 'lodash'
+
 /**
  * Determines if a user can proceed to the next form, if they have:
  * 1) Finished all required questions
@@ -81,20 +82,22 @@ export function getComponent(type: QuestionType): React.FC<{ question: Question 
 }
 
 export function getSwitch(questionSwitch: Question['switch'], value: string | string[]): Question[] {
-  if (!questionSwitch || !value) {
+  if (!questionSwitch || value === undefined) {
     return []
   }
   const switchKey = Object.keys(questionSwitch).find((key) => {
+    console.log(value, typeof value)
     return (
       key.split(',').includes(value.toString()) ||
-      (typeof value !== 'string' && (value as string[]).some((val) => key.split(',').includes(val)))
+      (Array.isArray(value) && (value as string[]).some((val) => key.split(',').includes(val)))
     )
   })
   if (!switchKey) {
     return []
   }
 
-  return questionSwitch[switchKey]
+  // NOTE: we inline definitions in transformInlineDefinitions above, so it'll always be Question[].
+  return questionSwitch[switchKey] as Question[]
 }
 
 export function getSections(sectionIds: Question['sections'], form: Form, values: Values): Section[] {

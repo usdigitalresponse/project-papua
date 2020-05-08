@@ -1,6 +1,7 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
-import { Page, Form, Values, Copy } from '../client/lib/types'
+import { Page, Form, Values, Copy, Question } from '../client/lib/types'
+import { transformInlineDefinitions } from '../client/lib/inline'
 import { isQuestionValid } from '../client/lib/validation'
 
 // Maps from [question ID] -> list of errors
@@ -20,7 +21,7 @@ export function getForm(): Form {
   const useSample = contents === null
   const rawForm = useSample ? sampleContents : contents
 
-  return rawForm
+  return transformInlineDefinitions(rawForm)
 }
 
 // Parse the form data, creating a hashmap of question objects by questionId.
@@ -46,7 +47,8 @@ function isPageValid(page: Page, values: Values, form: Form): ValidationResponse
   let errors: ValidationResponse = {}
   for (const question of page.questions) {
     if (question.switch && question.switch[values[question.id] as any]) {
-      const subQuestions = question.switch[values[question.id] as any]
+      // NOTE: we inline definitions in transformInlineDefinitions above, so it'll always be Question[].
+      const subQuestions = question.switch[values[question.id] as any] as Question[]
       for (const subquestion of subQuestions) {
         // Check the validity of this subquestion:
         const e = isQuestionValid(subquestion, values[subquestion.id], values, form).errors

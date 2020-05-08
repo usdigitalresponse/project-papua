@@ -11,6 +11,7 @@ import yaml from 'js-yaml'
 import Ajv from 'ajv'
 import { getFlattenedQuestions } from '../forms/index'
 import { isQuestionValid } from '../lib/validation'
+import { transformInlineDefinitions } from '../lib/inline'
 
 interface FormState {
   form: Form
@@ -81,7 +82,7 @@ export const FormProvider: React.FC = (props) => {
       // By default, we'll use the sample version until a state starts building their form in
       // `form.yml`.
       const useSample = contents === null
-      const rawForm = useSample ? sampleContents : contents
+      let rawForm = useSample ? sampleContents : contents
 
       // During local development, we validate the form structure against
       // our JSON Schema and render any errors.
@@ -108,6 +109,10 @@ export const FormProvider: React.FC = (props) => {
           })
         }
       }
+
+      // Inline any top-level quesiton set definitions:
+      rawForm = transformInlineDefinitions(rawForm)
+      console.log(rawForm)
 
       setForm(rawForm)
     }

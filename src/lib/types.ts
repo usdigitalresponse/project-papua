@@ -5,6 +5,7 @@
 export interface Form {
   title: Copy
   description: Copy
+  definitions?: Record<string, Question[]>
   variables?: Record<string, string>
   sections?: Record<string, Section>
   instructions: Record<string, Copy>
@@ -44,7 +45,7 @@ export interface Option {
   [key: string]: string | undefined | Copy
 }
 interface Switch {
-  [option: string]: Question[]
+  [option: string]: string | Question[]
 }
 
 export interface Copy {
