@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Card, Button, Markdown } from './helper-components'
-import { Box, ResponsiveContext, Heading, Paragraph } from 'grommet'
+import { Box, ResponsiveContext, Heading } from 'grommet'
 import Sidebar from './Sidebar'
 import Review from './Review'
 import { FormContext } from '../contexts/form'
@@ -46,11 +46,28 @@ const Form: React.FC<{}> = () => {
 
   const pdf = <PDF form={form} values={values} translateCopy={translateCopy} />
   const fileName = 'new-jersey-eligiblity.pdf'
-  const onDownloadIE = (blob: Blob | null) => {
+  const onDownload = (blob: Blob | null) => {
+    console.log('[Google Analytics] sending event: Download')
+    gtag('event', 'Download')
+
+    // Downloads are fired via the href, but on IE we have to use the msSaveBlob API.
+    // This code is based on the react-pdf codebase.
     if (blob && window.navigator.msSaveBlob) {
       window.navigator.msSaveBlob(blob, fileName)
     }
   }
+
+  // Track page views
+  useEffect(() => {
+    if (!form) {
+      return
+    }
+
+    console.log('[Google Analytics] sending page call: ', form.pages[pageIndex].title.en)
+    gtag('event', 'page_view', {
+      title: form.pages[pageIndex].title.en,
+    })
+  }, [form, pageIndex])
 
   return (
     <Box align="center" pad="medium" direction="column" width="100%" style={{ maxWidth: '1200px' }}>
@@ -79,7 +96,7 @@ const Form: React.FC<{}> = () => {
                     href={!params.loading && completion[pageIndex] ? params.url || undefined : undefined}
                     disabled={params.loading || !completion[pageIndex]}
                     label={params.loading ? 'Downloading...' : 'Download'}
-                    onClick={() => !params.loading && completion[pageIndex] && onDownloadIE(params.blob)}
+                    onClick={() => !params.loading && completion[pageIndex] && onDownload(params.blob)}
                     {...{ download: fileName }}
                   />
                 )}

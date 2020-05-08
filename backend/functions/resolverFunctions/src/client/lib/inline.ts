@@ -17,7 +17,6 @@ export function transformInlineDefinitions(form: Form): Form {
             if (!definition) {
               console.error(`Unknown question set definition: ${definitionID}`)
             }
-            console.log('embedded definition: ', question.name.en, switchKey, value, definition)
             questions[qi].switch![switchKey] = definition
           } else {
             questions[qi].switch![switchKey] = transformInlineDefinitionsQuestions(

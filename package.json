@@ -117,6 +117,7 @@
     "@types/ajv": "^1.0.0",
     "@types/base64-arraybuffer": "^0.1.0",
     "@types/email-validator": "^1.0.6",
+    "@types/gtag.js": "^0.0.3",
     "@types/hapi__joi": "^16.0.12",
     "@types/jest": "^25.2.1",
     "@types/js-yaml": "^3.12.3",

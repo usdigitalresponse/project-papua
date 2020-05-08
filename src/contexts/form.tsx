@@ -123,6 +123,12 @@ export const FormProvider: React.FC = (props) => {
 
   const setError = (key: string, value: Copy[]) => setErrors({ ...errors, [key]: value })
   const setValue = (question: Question, value: Value, additionalValues?: Record<string, Value>) => {
+    console.log('[Google Analytics] sending event: Answer Updated')
+    gtag('event', 'Answer Updated', {
+      id: question.id,
+      value,
+    })
+
     const newValues =
       value !== undefined
         ? {

@@ -31,6 +31,16 @@ const Sidebar: React.FC<Props> = (props) => {
     return range(0, i).every((index) => completion[index])
   }
 
+  const onChangeLanguage = ({ value }: any) => {
+    console.log('[Google Analytics] sending event: Change Language')
+    gtag('event', 'Change Language', {
+      prevLanguage: language,
+      newLanguage: value,
+    })
+
+    setLanguage(value)
+  }
+
   return (
     <Box
       flex={{ shrink: 0 }}
@@ -58,7 +68,7 @@ const Sidebar: React.FC<Props> = (props) => {
             labelKey="title"
             valueKey={{ key: 'value', reduce: true }}
             value={language}
-            onChange={({ value }) => setLanguage(value)}
+            onChange={onChangeLanguage}
           />
         </Box>
         <Box margin={{ top: 'medium' }}>

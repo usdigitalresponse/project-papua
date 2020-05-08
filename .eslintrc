@@ -15,6 +15,9 @@
     "es6": true,
     "jest/globals": true
   },
+  "globals": {
+    "gtag": true
+  },
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "prettier/prettier": [
