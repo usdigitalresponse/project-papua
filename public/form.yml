@@ -8,8 +8,8 @@ description:
   zh: 确定您在新泽西州有资格享受哪些福利。
 seal: nj.svg
 variables:
-  STATE_CODE: 'NJ'
-  STATE_NAME: 'New Jersey'
+  STATE_CODE: NJ
+  STATE_NAME: New Jersey
   DOMAIN: nj.gov
 instructions:
   get-started:
@@ -563,23 +563,26 @@ pages:
       en: |-
         This is a beta version of this tool. We will be updating it regularly as new federal, state, and local benefits become available. We will check your eligibility for the programs below based on the information you provide.
 
-        #### Included Programs 
-        - State Benefits Programs
-        - Earned Sick Leave (ESL)
-        - Unemployment Insurance (UI)
-        - Family Leave (FLI)
-        - The Family Leave Act (FLA)
-        - Temporary Disablity Insurance (TDI)
+        #### Included programs
 
-        #### Federal Benefits Programs and Legislation
-        - A3848 Legislation
-        - Coronovirus Aid, Relief, and Economic + Security Act (CARES) Act 
+        ###### Benefits
+
+        - Earned Sick Leave (ESL)
+        - Unemployment Assistance
+        - Family Leave (FLI)
+        - Coronavirus Aid, Relief, and Economic - Security (CARES) Act
         - Federal Pandemic Unemployment Compensation (FPUC)
         - Pandemic Emergency Unemployment Compensation (PEUC)
         - Pandemic Unemployment Assistance (PUA)
         - Emergency Paid Sick Leave
-        - Family and Medical Leave Act (FMLA)
         - Federal Emergency Childcare
+        - Temporary Disability Insurance (TDI)
+
+        ###### Job Protections
+
+        - A3848 Legislation
+        - Family and Medical Leave Act (FMLA)
+        - The Family Leave Act (FLA)
 
         #### Terms of Service
 
@@ -592,22 +595,25 @@ pages:
         Esta es una versión beta de esta herramienta. Lo actualizaremos regularmente a medida que estén disponibles nuevos beneficios federales, estatales y locales. Verificaremos su elegibilidad para los siguientes programas según la información que proporcione.
 
         #### Programas incluidos
-        - Programas de beneficios estatales
-        - Permiso por enfermedad por enfermedad (ESL)
-        - Seguro de desempleo (UI)
-        - Licencia familiar (FLI)
-        - La Ley de licencia familiar (FLA)
-        - Seguro de discapacidad temporal (TDI)
 
-        #### Programas de beneficios federales y legislación
-        - Legislación A3848
-        - Ley de Ayuda, Ayuda y Ayuda Económica y de Seguridad contra el Coronovirus (CARES)
+        ###### Beneficios
+
+        - Permiso por enfermedad por enfermedad (ESL)
+        - Asistencia de desempleo
+        - Licencia familiar (FLI)
+        - Ley de ayuda, socorro y seguridad económica de coronavirus (CARES)
         - Compensación federal de desempleo pandémico (FPUC)
         - Compensación por desempleo de emergencia pandémica (PEUC)
         - Asistencia de desempleo pandémico (PUA)
         - Licencia por enfermedad pagada de emergencia
-        - Ley de licencia médica y familiar (FMLA)
         - Cuidado de niños federal de emergencia
+        - Seguro de discapacidad temporal (TDI)
+
+        ###### Protecciones laborales
+
+        - Legislación A3848
+        - Ley de licencia médica y familiar (FMLA)
+        - La Ley de licencia familiar (FLA)
 
         #### Términos de servicio
 
@@ -620,22 +626,25 @@ pages:
         这是此工具的测试版。随着新的联邦，州和地方福利的推出，我们将定期对其进行更新。我们将根据您提供的信息检查您是否符合以下计划的资格。
 
         ####包含的程序
-        - 国家福利计划
-        - 病假(ESL)
-        - 失业保险(UI)
-        - 休假(FLI)
-        - 《家庭假法》(FLA)
-        - 临时伤残保险(TDI)
 
-        ####联邦福利计划和法律
-        - A3848立法
-        - 冠状病毒援助，救济和经济与安全法(CARES)法案
+        ######好处
+
+        - 病假(ESL)
+        - 失业援助
+        - 休假(FLI)
+        - 冠状病毒援助，救济与经济-安全(CARES)法案
         - 联邦大流行性失业补偿(FPUC)
         - 大流行紧急失业补偿金(PEUC)
         - 大流行性失业援助(PUA)
         - 紧急带薪病假
-        - 《家庭和病假法》(FMLA)
         - 联邦紧急托儿服务
+        - 临时伤残保险(TDI)
+
+        ######工作保护
+
+        - A3848立法
+        - 《家庭和病假法》(FMLA)
+        - 《家庭假法》(FLA)
 
         #### 服务条款
 
