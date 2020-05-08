@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import './select.css'
 import { Question } from '../../lib/types'
-import { Select as GrommetSelect, Box } from 'grommet'
+import { Box } from 'grommet'
 import { FormContext } from '../../contexts/form'
+import { StyledSelect } from '../helper-components/StyledSelect'
 
 interface Props {
   [key: string]: any
@@ -26,20 +26,18 @@ const Select: React.FC<Props> = (props) => {
   const options = question.options.map((option) => ({ name: translateCopy(option.name), id: option.id }))
 
   return (
-    <Box style={{ maxWidth: '600px' }}>
-      <GrommetSelect
-        a11yTitle={translateCopy(question.name)}
-        margin={{ top: 'xsmall' }}
-        options={options}
-        labelKey="name"
-        valueKey={{
-          key: 'id',
-          reduce: true,
-        }}
-        value={value as string}
-        onChange={({ option }: { option: { id: string; name: string } }) => setValue(question, option.id)}
-      />
-    </Box>
+    <StyledSelect
+      a11yTitle={translateCopy(question.name)}
+      margin={{ top: 'xsmall' }}
+      options={options}
+      labelKey="name"
+      valueKey={{
+        key: 'id',
+        reduce: true,
+      }}
+      value={value as string}
+      onChange={({ option }: { option: { id: string; name: string } }) => setValue(question, option.id)}
+    />
   )
 }
 export default Select

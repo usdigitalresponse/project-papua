@@ -5,6 +5,7 @@ import { LanguageContext } from '../contexts/language'
 import { FormContext } from '../contexts/form'
 import { range } from 'lodash'
 import { Markdown } from './helper-components/Markdown'
+import { StyledSelect } from './helper-components/StyledSelect'
 
 interface Props {
   pages: string[]
@@ -49,7 +50,7 @@ const Sidebar: React.FC<Props> = (props) => {
           <Heading level={4} margin="none">
             {translateByID('language')}
           </Heading>
-          <Select
+          <StyledSelect
             a11yTitle="select language"
             margin={{ top: 'xsmall' }}
             options={languages}

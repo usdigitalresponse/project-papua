@@ -117,7 +117,6 @@ ol li::before {
 }
 .checkbox > label > div:focus-within > div,
 .checkbox > label > div:active > div {
-  /* TODO */
   box-shadow: 0px 0px 0px 3px #bfcffb !important;
 }
 .checkbox-selected > label > div > div {
@@ -126,6 +125,39 @@ ol li::before {
 }
 .checkbox-selected > label:hover > div > div {
   background-color: #2c63f6 !important;
+}
+
+/* Dropdowns (Selects) */
+.dropdown:not(.dropdown-open) > button:hover {
+  background-color: #f2f2f2 !important;
+}
+.dropdown:not(.dropdown-open) input {
+  color: #333333 !important;
+}
+.dropdown:not(.dropdown-open) svg {
+  fill: #333333 !important;
+  stroke: #333333 !important;
+}
+.dropdown:not(.dropdown-open) > button:focus,
+.dropdown:not(.dropdown-open) > button:active {
+  background-color: #f2f2f2 !important;
+}
+.dropdown > button:focus,
+.dropdown > button:active {
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.dropdown input {
+  font-weight: 400;
+}
+.dropdown-open > button {
+  background-color: #555555 !important;
+}
+.dropdown-open input {
+  color: white !important;
+}
+.dropdown-open svg {
+  fill: white !important;
+  stroke: white !important;
 }
 
 .App {
