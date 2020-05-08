@@ -191,118 +191,118 @@ export const FormProvider: React.FC = (props) => {
    * This hook is purely for testing, where it'll prefill form values so we can test
    * functionality later on in the form.
    */
-  const [prefilled, setPrefilled] = useState(false)
-  useEffect(() => {
-    if (prefilled || !form || process.env.NODE_ENV !== 'development') return
+  // const [prefilled, setPrefilled] = useState(false)
+  // useEffect(() => {
+  //   if (prefilled || !form || process.env.NODE_ENV !== 'development') return
 
-    // Initialize form with some starter values for testing.
-    // Note Number values won't render, but the value is there.
-    const testValues: Record<string, Value> = {
-      /* eslint-disable @typescript-eslint/camelcase */
-      agreement: true,
-      first_name: 'Colin',
-      last_name: 'King',
-      // dob: '2001-01-02T00:00:00+00:00',
-      // gender: 'male',
-      // race: 'white',
-      // ethnicity: 'hispanic',
-      // home_address: '123 Home St.',
-      // telephone: 1234567890,
-      // preferred_language: 'en',
-      // mailing_home_address_same: true,
-      // ssn: 123456789,
-      // ssn_confirm: 123456789,
-      // has_dl_or_state_id: false,
-      // is_us_citizen: true,
-      // 'military-veteran': true,
-      // 'active-duty-start': '2020-05-06T00:00:00+00:00',
-      // 'active-duty-end': '2020-05-22T00:00:00+00:00',
-      // 'military-disability': 'disability-more-than-30',
-      // 'military-active-last-two-years': true,
-      // 'military-last-pay-grade': '12345',
-      // 'military-accured-paid-leave': 12345,
-      // 'military-reason-for-separation': '123',
-      // 'military-branch': 'army',
-      // 'military-work-end': '2020-04-29T00:00:00+00:00',
-      // 'military-character-of-service': 'Test',
-      // 'military-net-service': '123',
-      // 'last-week-paid': 12345,
-      // 'employment-current-status': true,
-      // 'last-week-hours': 1234,
-      // 'employment-able-to-work': true,
-      // 'employment-option-to-telework': true,
-      // 'employment-available-to-work': true,
-      // 'employment-last-12-months': true,
-      // 'employment-employers-in-last-18-months': '5-or-more',
-      // 'employment-federal-employee': true,
-      // 'employment-federal-employee-last-date': '2020-05-27T00:00:00+00:00',
-      // 'employment-in-trade-union': true,
-      // 'employment-trade-union': '1033',
-      // 'employer-name': 'Another One',
-      // 'employer-address': '123456 Test',
-      // 'employer-phone-number': 1234567890,
-      // 'employer-id-number': 1234567890,
-      // 'employer-job-title': 'Testing Engineer',
-      // 'employer-first-day-of-work': '2020-05-19T00:00:00+00:00',
-      // 'employer-last-day-of-work': '2020-04-29T00:00:00+00:00',
-      // 'employer-type': 'fulltime',
-      // 'employer-pay-rate': 12345678,
-      // 'employer-pay-unit': 'per-hour',
-      // 'employer-reason-for-separation': true,
-      // 'covid-19-reason': 'household_diagnosed',
-      // 'employer-current-benefits': true,
-      // 'employer-current-teleworking': true,
-      // 'tax-info-have-tax-return': true,
-      // 'tax-info-married': 'married-jointly',
-      // 'tax-info-agi': 12345678,
-      // 'tax-info-dependents': '2',
-      // 'unemployment-in-another-state': true,
-      // 'unemployment-in-another-state-state': 'ak',
-      // 'unemployment-in-another-state-date': '2020-05-20T00:00:00+00:00',
-      // 'unemployment-in-another-state-employment-since': true,
-      // 'other-income-public-assistance': true,
-      // 'other-income-dhs-work': false,
-      // 'other-income-snap': false,
-      // 'other-income-temp-disability-insurance': false,
-      // 'other-income-workers-comp': false,
-      // 'other-income-disability-payments': false,
-      // 'other-income-retirement-pension': true,
-      // 'other-income-retirement annuity': true,
-      // 'other-income-social-security': false,
-      // 'payment-income-withheld': 'state-and-fed',
-      // 'payment-option': 'direct-deposit',
-      // 'payment-bank-name': 'Yees',
-      // 'payment-account-type': 'savings',
-      // 'payment-account-number': 1234567890,
-      // 'payment-account-number-confirm': 1234567890,
-      // 'payment-routing-number': 23456789,
-      // 'payment-routing-number-confirm': 23456789,
-    }
-    for (const [id, v] of Object.entries(testValues)) {
-      if (values[id] === v) {
-        continue
-      }
+  //   // Initialize form with some starter values for testing.
+  //   // Note Number values won't render, but the value is there.
+  //   const testValues: Record<string, Value> = {
+  //     /* eslint-disable @typescript-eslint/camelcase */
+  //     agreement: true,
+  //     first_name: 'Colin',
+  //     last_name: 'King',
+  //     dob: '2001-01-02T00:00:00+00:00',
+  //     gender: 'male',
+  //     race: 'white',
+  //     ethnicity: 'hispanic',
+  //     home_address: '123 Home St.',
+  //     telephone: 1234567890,
+  //     preferred_language: 'en',
+  //     mailing_home_address_same: true,
+  //     ssn: 123456789,
+  //     ssn_confirm: 123456789,
+  //     has_dl_or_state_id: false,
+  //     is_us_citizen: true,
+  //     'military-veteran': true,
+  //     'active-duty-start': '2020-05-06T00:00:00+00:00',
+  //     'active-duty-end': '2020-05-22T00:00:00+00:00',
+  //     'military-disability': 'disability-more-than-30',
+  //     'military-active-last-two-years': true,
+  //     'military-last-pay-grade': '12345',
+  //     'military-accured-paid-leave': 12345,
+  //     'military-reason-for-separation': '123',
+  //     'military-branch': 'army',
+  //     'military-work-end': '2020-04-29T00:00:00+00:00',
+  //     'military-character-of-service': 'Test',
+  //     'military-net-service': '123',
+  //     'last-week-paid': 12345,
+  //     'employment-current-status': true,
+  //     'last-week-hours': 1234,
+  //     'employment-able-to-work': true,
+  //     'employment-option-to-telework': true,
+  //     'employment-available-to-work': true,
+  //     'employment-last-12-months': true,
+  //     'employment-employers-in-last-18-months': '5-or-more',
+  //     'employment-federal-employee': true,
+  //     'employment-federal-employee-last-date': '2020-05-27T00:00:00+00:00',
+  //     'employment-in-trade-union': true,
+  //     'employment-trade-union': '1033',
+  //     'employer-name': 'Another One',
+  //     'employer-address': '123456 Test',
+  //     'employer-phone-number': 1234567890,
+  //     'employer-id-number': 1234567890,
+  //     'employer-job-title': 'Testing Engineer',
+  //     'employer-first-day-of-work': '2020-05-19T00:00:00+00:00',
+  //     'employer-last-day-of-work': '2020-04-29T00:00:00+00:00',
+  //     'employer-type': 'fulltime',
+  //     'employer-pay-rate': 12345678,
+  //     'employer-pay-unit': 'per-hour',
+  //     'employer-reason-for-separation': true,
+  //     'covid-19-reason': 'household_diagnosed',
+  //     'employer-current-benefits': true,
+  //     'employer-current-teleworking': true,
+  //     'tax-info-have-tax-return': true,
+  //     'tax-info-married': 'married-jointly',
+  //     'tax-info-agi': 12345678,
+  //     'tax-info-dependents': '2',
+  //     'unemployment-in-another-state': true,
+  //     'unemployment-in-another-state-state': 'ak',
+  //     'unemployment-in-another-state-date': '2020-05-20T00:00:00+00:00',
+  //     'unemployment-in-another-state-employment-since': true,
+  //     'other-income-public-assistance': true,
+  //     'other-income-dhs-work': false,
+  //     'other-income-snap': false,
+  //     'other-income-temp-disability-insurance': false,
+  //     'other-income-workers-comp': false,
+  //     'other-income-disability-payments': false,
+  //     'other-income-retirement-pension': true,
+  //     'other-income-retirement annuity': true,
+  //     'other-income-social-security': false,
+  //     'payment-income-withheld': 'state-and-fed',
+  //     'payment-option': 'direct-deposit',
+  //     'payment-bank-name': 'Yees',
+  //     'payment-account-type': 'savings',
+  //     'payment-account-number': 1234567890,
+  //     'payment-account-number-confirm': 1234567890,
+  //     'payment-routing-number': 23456789,
+  //     'payment-routing-number-confirm': 23456789,
+  //   }
+  //   for (const [id, v] of Object.entries(testValues)) {
+  //     if (values[id] === v) {
+  //       continue
+  //     }
 
-      for (const [i, page] of form.pages.entries()) {
-        for (const question of getFlattenedQuestions(page.questions, values)) {
-          if (question.id === id) {
-            if (i !== pageIndex) {
-              setPageIndex(i)
-              // 1337 hacks
-              return
-            }
+  //     for (const [i, page] of form.pages.entries()) {
+  //       for (const question of getFlattenedQuestions(page.questions, values)) {
+  //         if (question.id === id) {
+  //           if (i !== pageIndex) {
+  //             setPageIndex(i)
+  //             // 1337 hacks
+  //             return
+  //           }
 
-            setValue(question, v)
-            // 1337 hacks
-            return
-          }
-        }
-      }
-    }
+  //           setValue(question, v)
+  //           // 1337 hacks
+  //           return
+  //         }
+  //       }
+  //     }
+  //   }
 
-    // now that we've prefilled the values, stop overwriting them with the initial values.
-    setPrefilled(true)
-  })
+  //   // now that we've prefilled the values, stop overwriting them with the initial values.
+  //   setPrefilled(true)
+  // })
 
   useEffect(() => {
     if (form) {
