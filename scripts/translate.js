@@ -216,7 +216,8 @@ function translate(languageCode) {
   await map(translate('es'))
 
   // Add chinese translations
-  await map(translate('zh'))
+  // NOTE: NJ isn't using chinese translations
+  // await map(translate('zh'))
 
   let contents = ''
   try {

@@ -13,7 +13,8 @@ interface Props {
 
 const languages = [
   { title: 'English', value: 'en' },
-  { title: '中文', value: 'zh' },
+  // NJ isn't using Chinese language translations
+  // { title: '中文', value: 'zh' },
   { title: 'Español', value: 'es' },
 ]
 
