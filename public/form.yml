@@ -954,6 +954,13 @@ definitions:
               en: '#### Job Protections'
               es: '#### Programas de beneficios federales'
               zh: '####联邦福利计划'
+          - name:
+              en: ''
+            id: faq-terminal-not-eligible
+            type: instructions-only
+            instructions:
+              en: |-
+                For more information, please visit our [FAQ page.](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
         situation-10:
           - name:
               en: ''
@@ -992,3 +999,10 @@ definitions:
               en: '#### Job Protections'
               es: '#### Programas de beneficios federales'
               zh: '####联邦福利计划'
+          - name:
+              en: ''
+            id: faq-terminal-not-eligible
+            type: instructions-only
+            instructions:
+              en: |-
+                For more information, please visit our [FAQ page.](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
