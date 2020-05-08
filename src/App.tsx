@@ -110,21 +110,9 @@ const theme = {
     },
   },
   checkBox: {
-    color: '#205EFF',
-    hover: {
-      color: '#BCCFFF !important',
-      border: {
-        color: '#BCCFFF !important',
-      },
-    },
-    border: {
-      color: '#333333 !important',
-    },
+    color: '#FFFFFF',
     check: {
       color: '#205EFF',
-      extend: {
-        border: '#205EFF 2px solid',
-      },
     },
   },
   radioButton: {

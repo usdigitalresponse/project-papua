@@ -100,10 +100,32 @@ ol li::before {
   fill: black;
   stroke: black;
 }
-
 .default-button:active:not([disabled]) svg {
   fill: white;
   stroke: white;
+}
+
+/* Checkboxes */
+.checkbox > label > div > div {
+  background-color: #f8f8f8 !important;
+  border-width: 1px !important;
+  border-color: black;
+  box-shadow: none !important;
+}
+.checkbox > label:hover > div > div {
+  background-color: #eff3fe !important;
+}
+.checkbox > label > div:focus-within > div,
+.checkbox > label > div:active > div {
+  /* TODO */
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.checkbox-selected > label > div > div {
+  background-color: #4776f6 !important;
+  border: none !important;
+}
+.checkbox-selected > label:hover > div > div {
+  background-color: #2c63f6 !important;
 }
 
 .App {

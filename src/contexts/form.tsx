@@ -197,11 +197,11 @@ export const FormProvider: React.FC = (props) => {
 
     // Initialize form with some starter values for testing.
     // Note Number values won't render, but the value is there.
-    const testValues = {
+    const testValues: Record<string, Value> = {
       /* eslint-disable @typescript-eslint/camelcase */
-      agreement: true,
-      first_name: 'Colin',
-      last_name: 'King',
+      // agreement: true,
+      // first_name: 'Colin',
+      // last_name: 'King',
       // dob: '2001-01-02T00:00:00+00:00',
       // gender: 'male',
       // race: 'white',
