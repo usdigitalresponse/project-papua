@@ -9,9 +9,9 @@ import { getByDisplayValue } from '@testing-library/react'
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'row',
-    backgroundColor: '#E4E4E4',
+    backgroundColor: 'white',
   },
-  section: {
+  pageContent: {
     margin: 10,
     padding: 10,
     flexGrow: 1,
@@ -19,10 +19,30 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 24,
     fontWeight: 500,
+    marginBottom: 16,
   },
   questionTitle: {
     fontSize: 16,
     fontWeight: 500,
+    marginBottom: 8,
+  },
+  questionAnswer: {
+    fontSize: 12,
+  },
+  section: {
+    padding: 12,
+    border: '1px solid black',
+    backgroundColor: '#F8F8F8',
+    marginBottom: 12,
+  },
+  sectionTitle: {
+    fontSize: 12,
+    marginBottom: 8,
+  },
+  sectionContent: { fontSize: 10 },
+  questionSection: {
+    paddingTop: 12,
+    borderTop: '1px solid black',
   },
 })
 
@@ -45,25 +65,29 @@ const PDF: React.FC<Props> = (props) => {
       const multiselectAnswers = (values[question.id] as string[]).reduce((val, optionId) => {
         const option = question.options!.find((o) => o.id === optionId)
         if (option) {
-          return `${val}\n${translateCopy(option.name)}`
+          return `${val}\n• ${translateCopy(option.name)}`
         }
         return val
       }, '')
-      return <Text>{multiselectAnswers}</Text>
+      return <Text style={styles.questionAnswer}>{multiselectAnswers}</Text>
     }
     if (question.type === 'single-select') {
+      console.log(question, values[question.id])
       const option = question.options!.find((o) => o.id === values[question.id])
       if (option) {
-        return <Text>{translateCopy(option.name)}</Text>
+        return <Text style={styles.questionAnswer}>{translateCopy(option.name)}</Text>
       }
+    }
+    if (question.type === 'checkbox') {
+      return <Text style={styles.questionAnswer}>{translateCopy(question.options![0].name)}</Text>
     }
     if (question.type === 'sections') {
       return (
         <View>
-          {getSections(question.sections, form, values).map((section) => (
-            <View key={translateCopy(section.title)}>
-              <Text>{translateCopy(section.title)}</Text>
-              <Text>{translateCopy(section.content)}</Text>
+          {getSections(question.sections, form, values).map((section, i) => (
+            <View style={styles.section} key={`${translateCopy(section.title)}_${i}`}>
+              <Text style={styles.sectionTitle}>{translateCopy(section.title)}</Text>
+              <Text style={styles.sectionContent}>{translateCopy(section.content)}</Text>
             </View>
           ))}
         </View>
@@ -76,12 +100,17 @@ const PDF: React.FC<Props> = (props) => {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
+        <View style={styles.pageContent}>
           <Text style={styles.heading}>{translateCopy(form.title)}</Text>
-          {questions.map((q) => {
+          {questions.map((q, i) => {
+            if (q.type === 'sections' && getSections(q.sections, form, values).length === 0) {
+              return <View />
+            }
             return (
-              <View key={q.id}>
-                <Text style={styles.questionTitle}>{translateCopy(q.name)}</Text>
+              <View style={styles.questionSection} key={`${q.id}_${i}`}>
+                <Text style={styles.questionTitle}>
+                  {q.type === 'sections' ? translateCopy(q.instructions!) : `${i + 1}. ${translateCopy(q.name)}`}
+                </Text>
                 {getValue(q, values)}
               </View>
             )
