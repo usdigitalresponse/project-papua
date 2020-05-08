@@ -9,6 +9,7 @@ import awsconfig from '../aws-exports'
 import { v5 as uuid } from 'uuid'
 import { Confirmation } from './Confirmation'
 import Question from './Question'
+import { FormPrevious, FormNext } from 'grommet-icons'
 
 Amplify.configure(awsconfig)
 
@@ -81,12 +82,16 @@ const Form: React.FC<{}> = () => {
             <>
               {pageComponents[pageIndex]}
               <Box justify="between" pad="medium" direction="row">
-                {(pageIndex > 0 && <Button onClick={onClickBack} label={translateByID('back')} />) || <Box />}
+                {(pageIndex > 0 && (
+                  <Button onClick={onClickBack} label={translateByID('back')} icon={<FormPrevious />} />
+                )) || <Box />}
                 {pageIndex + 1 < pageTitles.length && (
                   <Button
                     primary={pageIndex === 0}
                     onClick={onClickNext}
                     disabled={!completion[pageIndex]}
+                    icon={<FormNext />}
+                    reverse={true}
                     label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
                   />
                 )}

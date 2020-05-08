@@ -112,7 +112,7 @@ const theme = {
       color: 'transparent',
     },
     primary: {
-      color: '#3E7EFF',
+      color: '#4776f6',
     },
   },
   checkBox: {
