@@ -7270,6 +7270,11 @@ fast-xml-parser@^3.16.0:
   resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.16.0.tgz#d905e7e6b28fc4648cabebcb074363867fb56ee2"
   integrity sha512-U+bpScacfgnfNfIKlWHDu4u6rtOaCyxhblOLJ8sZPkhsjgGqdZmVPBhdOyvdMGCDt8CsAv+cssOP3NzQptNt2w==
 
+fastestsmallesttextencoderdecoder@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/fastestsmallesttextencoderdecoder/-/fastestsmallesttextencoderdecoder-1.0.21.tgz#b67599f879417229bad311c9e1f2918dfd155c63"
+  integrity sha512-43gkbs+ruBXej0jhqcOKZ/DfKJmdWXrHZ5ZeHfYdnJ53aqU+p4JfhZrcNHBLNswieV7DOlj6f4q/+Fw9YMy/5Q==
+
 faye-websocket@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.10.0.tgz#4e492f8d04dfb6f89003507f6edbf2d501e7c6f4"
