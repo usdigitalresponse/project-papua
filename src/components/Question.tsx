@@ -47,11 +47,7 @@ const Question: React.FC<Props> = (props) => {
             )}
           </Heading>
         </Box>
-        {question.instructions && (
-          <Markdown margin={{ vertical: 'xsmall' }} size="small">
-            {translateCopy(question.instructions)}
-          </Markdown>
-        )}
+        {question.instructions && <Markdown size="small">{translateCopy(question.instructions)}</Markdown>}
       </Box>
 
       <Component question={question} />
