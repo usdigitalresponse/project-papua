@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { Card, Button, Markdown } from './helper-components'
-import { Box, ResponsiveContext, Heading } from 'grommet'
+import { Box, ResponsiveContext, Heading, Paragraph } from 'grommet'
 import Sidebar from './Sidebar'
 import Review from './Review'
 import { FormContext } from '../contexts/form'
 import Question from './Question'
 import { FormPrevious, FormNext } from 'grommet-icons'
 import PDF from './PDF'
-import { PDFDownloadLink } from '@react-pdf/renderer'
+import { BlobProvider } from '@react-pdf/renderer'
 
 const Form: React.FC<{}> = () => {
   const { form, translateByID, translateCopy, completion, pageIndex, setPage, values } = useContext(FormContext)
@@ -41,6 +41,12 @@ const Form: React.FC<{}> = () => {
   const onClickBack = () => setPage(pageIndex - 1)
 
   const pdf = <PDF form={form} values={values} translateCopy={translateCopy} />
+  const fileName = 'new-jersey-eligiblity.pdf'
+  const onDownloadIE = (blob: Blob | null) => {
+    if (blob && window.navigator.msSaveBlob) {
+      window.navigator.msSaveBlob(blob, fileName)
+    }
+  }
 
   return (
     <Box align="center" pad="medium" direction="column" width="100%" style={{ maxWidth: '1200px' }}>
@@ -62,20 +68,18 @@ const Form: React.FC<{}> = () => {
               />
             )}
             {pageIndex === pageTitles.length - 1 && (
-              <PDFDownloadLink
-                style={{
-                  padding: '4px 22px',
-                  backgroundColor: '#3E73FF',
-                  borderRadius: '18px',
-                  color: 'white',
-                  fontSize: '18px',
-                  textDecoration: 'none',
-                }}
-                document={pdf}
-                fileName="new-jersey-eligiblity.pdf"
-              >
-                {({ loading }) => (loading ? 'Downloading...' : 'Download')}
-              </PDFDownloadLink>
+              <BlobProvider document={pdf}>
+                {(params) => (
+                  <Button
+                    primary={true}
+                    href={params.url || undefined}
+                    disabled={params.loading}
+                    label={<Paragraph margin="none">{params.loading ? 'Downloading...' : 'Download'}</Paragraph>}
+                    onClick={() => onDownloadIE(params.blob)}
+                    {...{ download: fileName }}
+                  />
+                )}
+              </BlobProvider>
             )}
           </Box>
         </Card>
