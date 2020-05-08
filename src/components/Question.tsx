@@ -20,7 +20,7 @@ const Question: React.FC<Props> = (props) => {
   let switchComponent: HTMLDivElement | null
 
   useEffect(() => {
-    if (value) {
+    if (value && form.variables?.autoscroll) {
       switchComponent?.scrollIntoView({ behavior: 'smooth' })
     }
   }, [value])

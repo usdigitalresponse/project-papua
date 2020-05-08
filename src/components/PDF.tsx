@@ -72,7 +72,6 @@ const PDF: React.FC<Props> = (props) => {
       return <Text style={styles.questionAnswer}>{multiselectAnswers}</Text>
     }
     if (question.type === 'single-select') {
-      console.log(question, values[question.id])
       const option = question.options!.find((o) => o.id === values[question.id])
       if (option) {
         return <Text style={styles.questionAnswer}>{translateCopy(option.name)}</Text>
