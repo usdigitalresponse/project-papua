@@ -15,10 +15,10 @@ const TextInput: React.FC<Props> = (props) => {
   const hasError = Boolean(errors[question.id])
   return (
     <GrommetTextInput
+      className={hasError ? 'text-input errored' : 'text-input'}
       value={(value as string) || ''}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(question, e.target.value)}
-      color="black"
-      style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid' }}
+      style={{ maxWidth: '600px' }}
     />
   )
 }

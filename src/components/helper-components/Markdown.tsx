@@ -6,7 +6,7 @@ import { merge } from '../../lib/merge'
 const ListItem: React.FC = ({ children, ...styleProps }) => {
   return (
     <li>
-      <Paragraph fill={true} color="black" margin="none" {...styleProps}>
+      <Paragraph fill={true} margin="none" {...styleProps}>
         {children}
       </Paragraph>
     </li>
@@ -23,7 +23,7 @@ export const Markdown: React.FC<Props> = ({ margin, size, children }) => {
   // HTML elements. It handles a few components by default, but there are a few
   // extra cases we want to handle (or customize).
   const headings = [1, 2, 3, 4, 5, 6].map((n) => ({
-    [`h${n}`]: { props: merge({ margin: { vertical: 'small' }, color: 'black' }, { merge, size }) },
+    [`h${n}`]: { props: merge({ margin: { vertical: 'small' } }, { merge, size }) },
   }))
   return (
     <GrommetMarkdown
@@ -35,14 +35,14 @@ export const Markdown: React.FC<Props> = ({ margin, size, children }) => {
           },
           p: {
             component: Paragraph,
-            props: merge({ fill: true, color: 'black' }, { margin, size }),
+            props: merge({ fill: true }, { margin, size }),
           },
           span: {
             component: Paragraph,
-            props: merge({ fill: true, color: 'black', size: 'small' }, { margin, size }),
+            props: merge({ fill: true, size: 'small' }, { margin, size }),
           },
           a: {
-            props: { target: '_blank' },
+            props: { target: '_blank', rel: 'noopener noreferrer' },
           },
         },
         ...headings

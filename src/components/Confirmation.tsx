@@ -28,7 +28,7 @@ export const Confirmation: React.FC<Props> = (props) => {
     <Box direction="column" justify="start">
       {/* Instructions */}
       <Box pad={{ horizontal: '48px', top: '48px', bottom: 'none' }}>
-        <Heading color="black" margin="none" level={3}>
+        <Heading margin="none" level={3}>
           {translateByID('confirmation-heading')}
         </Heading>
         <Markdown>
@@ -62,11 +62,15 @@ export const Confirmation: React.FC<Props> = (props) => {
         </Box>
         <Box height="100%" justify="center" pad={{ top: '16px' }}>
           <Button
-            color={'black'}
             onClick={onCopy}
             label={translateByID('copy')}
             reverse={true}
-            icon={<Clipboard size="small" color="black" />}
+            gap="small"
+            icon={
+              <Box width="20px">
+                <Clipboard size="small" />
+              </Box>
+            }
           />
         </Box>
       </Box>
@@ -88,13 +92,7 @@ export const Confirmation: React.FC<Props> = (props) => {
       <Box direction="row" justify="between" margin={{ horizontal: '48px', vertical: '16px' }}>
         <Box />
         <Box>
-          <Button
-            color="#3E73FF"
-            primary={true}
-            onClick={onExit}
-            label={translateByID('confirmation-exit')}
-            size="small"
-          />
+          <Button primary={true} onClick={onExit} label={translateByID('confirmation-exit')} size="small" />
         </Box>
       </Box>
     </Box>

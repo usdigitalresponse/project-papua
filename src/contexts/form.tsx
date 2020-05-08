@@ -197,7 +197,7 @@ export const FormProvider: React.FC = (props) => {
 
   //   // Initialize form with some starter values for testing.
   //   // Note Number values won't render, but the value is there.
-  //   const testValues = {
+  //   const testValues: Record<string, Value> = {
   //     /* eslint-disable @typescript-eslint/camelcase */
   //     agreement: true,
   //     first_name: 'Colin',
@@ -332,7 +332,6 @@ ${formValidationError.error ? '```' + JSON.stringify(formValidationError.error, 
       <Card
         margin={{ vertical: 'medium', horizontal: 'auto' }}
         pad={{ horizontal: 'medium', vertical: 'small' }}
-        background="white"
         width={{ max: '800px' }}
       >
         <Box pad="medium">

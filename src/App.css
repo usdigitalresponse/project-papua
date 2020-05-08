@@ -1,21 +1,208 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+/* TODO: replace with Helvetica Neue */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+* {
+  font-family: 'Roboto', sans-serif;
+}
 
 html {
-  background: #e5e5e5;
+  background: #f8f8fa;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ol {
+  list-style: none;
+  counter-reset: aCounter;
+  padding-left: 12px;
+}
+ol li {
+  counter-increment: aCounter;
+  display: flex;
+  padding-bottom: 4px;
+}
+ol li::before {
+  display: flex;
+  content: counter(aCounter) '.';
+  font-size: 14px;
+  line-height: 20px;
+  flex-basis: 24px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding-right: 12px;
+}
+
+/* Primary Buttons */
+.primary-button {
+  box-shadow: none !important;
+  border: none !important;
+}
+.primary-button:disabled {
+  cursor: not-allowed;
+  background-color: #f2f2f2;
+  color: #cccccc;
+  opacity: 1;
+}
+.primary-button:disabled svg {
+  fill: #cccccc;
+  stroke: #cccccc;
+}
+.primary-button:active:not([disabled]),
+.primary-button:focus:not([disabled]) {
+  box-shadow: 0px 0px 0px 3px #bccfff !important;
+}
+.primary-button:hover:not([disabled]) {
+  background-color: #426de3 !important;
+}
+.primary-button:focus:not([disabled]) {
+  background-color: #426de3 !important;
+}
+.primary-button:active:not([disabled]) {
+  background-color: #3c64cf !important;
+}
+
+/* Default Buttons */
+.default-button {
+  box-shadow: none !important;
+  border: 1px solid #333333 !important;
+  background-color: #f8f8f8 !important;
+}
+.default-button:disabled {
+  cursor: not-allowed;
+  background-color: #f2f2f2;
+  border: none !important;
+  color: #cccccc;
+  opacity: 100%;
+}
+.default-button:disabled svg {
+  fill: #cccccc;
+  stroke: #cccccc;
+}
+
+.default-button:active:not([disabled]),
+.default-button:focus:not([disabled]) {
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.default-button:hover:not([disabled]) {
+  background-color: #ededed !important;
+}
+.default-button:focus:not([disabled]) {
+  background-color: #ededed !important;
+}
+.default-button:active:not([disabled]) {
+  background-color: #333333 !important;
+  color: white;
+}
+.default-button svg {
+  fill: black;
+  stroke: black;
+}
+.default-button:active:not([disabled]) svg {
+  fill: white;
+  stroke: white;
+}
+
+/* Checkboxes */
+.checkbox > label > div > div {
+  background-color: #f8f8f8 !important;
+  border-width: 1px !important;
+  border-color: black;
+  box-shadow: none !important;
+}
+.checkbox > label:hover > div > div {
+  background-color: #eff3fe !important;
+}
+.checkbox > label > div:focus-within > div,
+.checkbox > label > div:active > div {
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.checkbox-selected > label > div > div {
+  background-color: #4776f6 !important;
+  border: none !important;
+}
+.checkbox-selected > label:hover > div > div {
+  background-color: #2c63f6 !important;
+}
+
+/* Dropdowns (Selects) */
+.dropdown:not(.dropdown-open) > button:hover {
+  background-color: #f2f2f2 !important;
+}
+.dropdown:not(.dropdown-open) input {
+  color: #333333 !important;
+}
+.dropdown:not(.dropdown-open) svg {
+  fill: #333333 !important;
+  stroke: #333333 !important;
+}
+.dropdown:not(.dropdown-open) > button:focus-within,
+.dropdown:not(.dropdown-open) > button:active {
+  background-color: #f2f2f2 !important;
+}
+.dropdown > button:focus-within,
+.dropdown > button:active {
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.dropdown input {
+  font-weight: 400;
+}
+.dropdown-open > button {
+  background-color: #555555 !important;
+}
+.dropdown-open input {
+  color: white !important;
+}
+.dropdown-open svg {
+  fill: white !important;
+  stroke: white !important;
+}
+div[data-g-portal-id] {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* Radio Button Groups */
+.radio-button-group label > div > div {
+  background-color: #f8f8f8 !important;
+  border: 1px solid #403f40 !important;
+  overflow: hidden;
+}
+.radio-button-group:not(.selected) label > div > div:hover {
+  background-color: #f2f2f2 !important;
+}
+.radio-button-group.selected label > div > div {
+  background-color: blue !important;
+}
+.radio-button-group label > div > div {
+  box-shadow: none !important;
+}
+.radio-button-group label:focus-within > div > div {
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.radio-button-group svg {
+  fill: white !important;
+  background-color: #2c63f6 !important;
+}
+
+/* Text Inputs */
+.text-input {
+  font-weight: 400 !important;
+  box-shadow: none !important;
+  border: 1px solid black;
+}
+.text-input:focus {
+  border: 1px solid black;
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.text-input.errored:not(:focus) {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 3px #ec5149 !important;
+  /* border: 1px solid #ec5149 !important; */
 }
 
 .App {
-  background-color: #e5e5e5;
   width: 100%;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }

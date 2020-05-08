@@ -20,6 +20,10 @@ instructions:
     en: Next
     es: próximo
     zh: 下一个
+  optional:
+    en: optional
+    es: opcional
+    zh: 可选的
   yes:
     en: Yes
     es: si
@@ -72,10 +76,10 @@ instructions:
     en: Progress
     es: Progreso
     zh: 进展
-  complete:
-    en: complete
-    es: completar
-    zh: 完成
+  section:
+    en: Section
+    es: Sección
+    zh: 部分
   invalid-email:
     en: Please enter a valid email address.
     es: 'Por favor, introduce una dirección de correo electrónico válida.'
@@ -132,6 +136,14 @@ instructions:
     en: Please upload a valid file.
     es: Sube un archivo válido.
     zh: 请上传有效文件。
+  invalid-address:
+    en: Please enter a valid address.
+    es: Por favor introduce una dirección válida.
+    zh: 请输入一个有效的地址。
+  invalid-checkbox:
+    en: You must agree before continuing.
+    es: Debe aceptar antes de continuar.
+    zh: 您必须先同意才能继续。
   file-uploader-drag-drop:
     en: Drag and drop files here
     es: Arrastra y suelta archivos aquí
@@ -148,10 +160,6 @@ instructions:
     en: Uploaded!
     es: Subido!
     zh: 已上传！
-  invalid-checkbox:
-    en: You must agree before continuing.
-    es: Debe aceptar antes de continuar.
-    zh: 您必须先同意才能继续。
   confirmation-heading:
     en: Your application has been submitted!
     es: ¡Tu solicitud ha sido enviada!
@@ -743,14 +751,14 @@ pages:
                     zh: 没有残疾的老兵
                   id: no-disability
                 - name:
-                    en: Veteran with Service-Connected Disability rated at less than 30%?
-                    es: ¿Veterano con discapacidad relacionada con el servicio calificado en menos del 30%?
-                    zh: 退伍军人的服务相关残障率低于30％？
+                    en: Veteran with Service-Connected Disability rated at less than 30%
+                    es: Veterano con discapacidad relacionada con el servicio calificado con menos del 30%
+                    zh: 退役军人的残障率低于30％
                   id: disability-less-than-30
                 - name:
-                    en: Veteran with Service-Connected Disability rated at 30% or more?
-                    es: ¿Veterano con discapacidad relacionada con el servicio con una calificación del 30% o más?
-                    zh: 具有与服务有关的残疾的退伍军人的评分达到或超过30％？
+                    en: Veteran with Service-Connected Disability rated at 30% or more
+                    es: Veterano con discapacidad relacionada con el servicio con una calificación del 30% o más
+                    zh: 具有与服务相关的残障人士的经验丰富度达到30％以上
                   id: disability-more-than-30
             - name:
                 en: Have you performed active military service during the last 2 years?
@@ -1108,6 +1116,13 @@ pages:
         id: employer-first-day-of-work
         required: true
         type: date
+        validate:
+          - type: max
+            value: 'id:employer-last-day-of-work'
+            error:
+              en: Start date must be before end date.
+              es: La fecha de inicio debe ser anterior a la fecha de finalización.
+              zh: 开始日期必须早于结束日期。
       - name:
           en: Last actual Day of Work
           es: Último día real de trabajo
@@ -1119,6 +1134,13 @@ pages:
         id: employer-last-day-of-work
         required: true
         type: date
+        validate:
+          - type: min
+            value: 'id:employer-first-day-of-work'
+            error:
+              en: End date must be after start date.
+              es: La fecha de finalización debe ser posterior a la fecha de inicio.
+              zh: 结束日期必须晚于开始日期。
       - name:
           en: 'Did you work for this employer full-time, part-time or on a staggered schedule?'
           es: '¿Trabajó para este empleador a tiempo completo, a tiempo parcial o en un horario escalonado?'
