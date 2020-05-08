@@ -31,8 +31,8 @@ const Question: React.FC<Props> = (props) => {
   }
 
   return (
-    <Box direction="column" margin={{ bottom: 'small' }}>
-      <Box fill={true} margin={{ bottom: 'small' }}>
+    <Box direction="column" margin={{ top: 'small' }}>
+      <Box fill={true}>
         <Box direction="row" align="start">
           <Heading
             style={{
@@ -47,7 +47,11 @@ const Question: React.FC<Props> = (props) => {
             )}
           </Heading>
         </Box>
-        {question.instructions && <Markdown size="small">{translateCopy(question.instructions)}</Markdown>}
+        {question.instructions ? (
+          <Markdown size="small">{translateCopy(question.instructions)}</Markdown>
+        ) : (
+          <Box margin={{ bottom: 'small' }} />
+        )}
       </Box>
 
       <Component question={question} />

@@ -23,12 +23,16 @@ const Form: React.FC<{}> = () => {
         direction="column"
         justify="start"
         key={page.heading.en}
+        margin="none"
       >
         <Heading margin="none" level={3}>
           {translateCopy(page.heading)}
         </Heading>
-        {page.instructions && <Markdown size="small">{translateCopy(page.instructions)}</Markdown>}
-        <Box margin={{ bottom: 'medium' }}></Box>
+        {page.instructions ? (
+          <Markdown size="small">{translateCopy(page.instructions)}</Markdown>
+        ) : (
+          <Box margin={{ bottom: 'small' }} />
+        )}
         {page.questions.map((question) => (
           <Question question={question} key={question.id} />
         ))}

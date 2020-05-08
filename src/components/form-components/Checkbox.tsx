@@ -14,10 +14,10 @@ export const Checkbox: React.FC<Props> = (props) => {
   const value = values[question.id]
 
   return (
-    <Box className={value === true ? 'checkbox checkbox-selected' : 'checkbox'}>
+    <Box className={value === true ? 'checkbox checkbox-selected' : 'checkbox'} margin="none">
       <GrommetCheckBox
         checked={value === true}
-        label={<Paragraph>{translateCopy(question.options![0].name)}</Paragraph>}
+        label={<Paragraph margin="none">{translateCopy(question.options![0].name)}</Paragraph>}
         onChange={() => setValue(question, !value)}
         {...rest}
       />
