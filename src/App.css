@@ -106,6 +106,9 @@ ol li::before {
 }
 
 /* Checkboxes */
+.checkbox {
+  margin-bottom: 8px;
+}
 .checkbox > label > div > div {
   background-color: #f8f8f8 !important;
   border-width: 1px !important;

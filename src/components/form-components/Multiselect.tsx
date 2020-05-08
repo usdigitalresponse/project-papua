@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { Question } from '../../lib/types'
-import { Box, CheckBox } from 'grommet'
+import { Question, Option } from '../../lib/types'
+import { Box, CheckBox, Paragraph } from 'grommet'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
@@ -41,15 +41,16 @@ const Multiselect: React.FC<Props> = (props) => {
       {question.options.map((o) => {
         const isSelected = Boolean(value && value.includes(o.id))
         return (
-          <CheckBox
-            key={o.id}
-            style={{
-              marginTop: '8px',
-            }}
-            checked={isSelected}
-            label={translateCopy(o.name)}
-            onChange={() => onSelectValue(o.id)}
-          />
+          <Box className={isSelected ? 'checkbox checkbox-selected' : 'checkbox'} key={o.id}>
+            <CheckBox
+              style={{
+                marginTop: '8px',
+              }}
+              checked={isSelected}
+              label={<Paragraph margin="none">{translateCopy(o.name)}</Paragraph>}
+              onChange={() => onSelectValue(o.id)}
+            />
+          </Box>
         )
       })}
     </Box>
