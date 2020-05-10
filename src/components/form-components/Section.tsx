@@ -54,7 +54,6 @@ const Section: React.FC<Props> = (props) => {
       {sectionGroup.map(({ section, options }, index) => {
         const icons = options.filter((o) => !!o.icon).map((o) => o.icon!)
         icons.sort((i1, i2) => i1.label.localeCompare(i2.label))
-        console.log(section, icons)
 
         return (
           <Box
