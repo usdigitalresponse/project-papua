@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Card, Button, Markdown } from './helper-components'
 import { Box, ResponsiveContext, Heading } from 'grommet'
 import Sidebar from './Sidebar'
@@ -6,7 +6,7 @@ import { FormContext } from '../contexts/form'
 import Question from './Question'
 import { FormPrevious, FormNext } from 'grommet-icons'
 import PDF from './PDF'
-import { BlobProvider } from '@react-pdf/renderer'
+import { pdf } from '@react-pdf/renderer'
 
 const Form: React.FC<{}> = () => {
   const { form, translateByID, translateCopy, completion, pageIndex, setPage, values } = useContext(FormContext)
@@ -33,17 +33,45 @@ const Form: React.FC<{}> = () => {
   const onClickNext = () => setPage(pageIndex + 1)
   const onClickBack = () => setPage(pageIndex - 1)
 
-  const pdf = <PDF form={form} values={values} translateCopy={translateCopy} />
-  const fileName = 'new-jersey-eligiblity.pdf'
-  const onDownload = (blob: Blob | null) => {
+  const [previousURL, setPreviousURL] = useState<string>()
+  const onDownload = async () => {
     console.log('[Google Analytics] sending event: Download')
     gtag('event', 'Download')
 
-    // Downloads are fired via the href, but on IE we have to use the msSaveBlob API.
-    // This code is based on the react-pdf codebase.
-    if (blob && window.navigator.msSaveBlob) {
-      window.navigator.msSaveBlob(blob, fileName)
+    // NOTE: we use the imperative react-pdf API here instead of `BlobProvider` because BlobProvider
+    // renders the PDF in the foreground on document update, which blocks the UI. We only want to render
+    // the PDF after the user clicks on the download button so that we don't block UI updates as the
+    // user completes the form.
+    const fileName = 'new-jersey-eligiblity.pdf'
+    const blob = await pdf(<PDF form={form} values={values} translateCopy={translateCopy} />).toBlob()
+
+    if (!blob) {
+      // TODO: we should consider incorporating Sentry here.
+      gtag('event', 'PDF Generation Failed')
+      console.error('Failed to generate PDF')
+      return
     }
+
+    // For most browsers, we can use the HTML5 download API. But for IE, we have to use
+    // the msSaveBlob API. This code is based on the react-pdf codebase.
+    if (window.navigator.msSaveBlob) {
+      window.navigator.msSaveBlob(blob, fileName)
+      return
+    }
+
+    // Attach a <a> element that we'll use to trigger the HTML5 download API
+    // for this blob:
+    const a = document.createElement('a')
+    a.setAttribute('style', 'display: none;')
+    document.body.appendChild(a)
+    const url = window.URL.createObjectURL(blob)
+    a.setAttribute('href', url)
+    a.setAttribute('download', fileName)
+    a.click()
+    if (previousURL) {
+      window.URL.revokeObjectURL(previousURL)
+    }
+    setPreviousURL(url)
   }
 
   // Track page views
@@ -79,18 +107,12 @@ const Form: React.FC<{}> = () => {
             )}
             {pageIndex === pageTitles.length - 1 && null}
             {pageIndex === pageTitles.length - 1 && (
-              <BlobProvider document={pdf}>
-                {(params) => (
-                  <Button
-                    primary={true}
-                    href={!params.loading && completion[pageIndex] ? params.url || undefined : undefined}
-                    disabled={params.loading || !completion[pageIndex]}
-                    label={params.loading ? 'Downloading...' : 'Download'}
-                    onClick={() => !params.loading && completion[pageIndex] && onDownload(params.blob)}
-                    {...{ download: fileName }}
-                  />
-                )}
-              </BlobProvider>
+              <Button
+                primary={true}
+                disabled={!completion[pageIndex]}
+                label="Download"
+                onClick={() => completion[pageIndex] && onDownload()}
+              />
             )}
           </Box>
         </Card>
