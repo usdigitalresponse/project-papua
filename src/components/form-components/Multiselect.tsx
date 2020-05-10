@@ -15,53 +15,44 @@ const Multiselect: React.FC<Props> = (props) => {
   const { values, setValue, translateCopy } = useContext(FormContext)
   const value = values[question.id] as string[] | string
 
-  // This logic is pretty crazy - has to add additional keys to aggregate sections for NJ.
   const onSelect = (option: Option) => {
-    const primaryKey = option.id
-    let keys = [option.id]
-    if (question.additionalKeys) {
-      keys = keys.concat(question.additionalKeys.split(','))
+    // Handle the state of the multiselect, first.
+    const selectedOptions = value ? [...value] : []
+    const selected = !selectedOptions.includes(option.id)
+    if (selected) {
+      // Case A: User selected this option
+      selectedOptions.push(option.id)
+    } else {
+      // Case B: User deselected this option
+      selectedOptions.splice(selectedOptions.indexOf(option.id), 1)
     }
 
-    let newValue = value ? [...value] : []
-    const additionalValues: Record<string, string[]> = question.additionalKeys
-      ? (pick(values, question.additionalKeys.split(',')) as Record<string, string[]>)
-      : {}
-    keys.forEach((key) => {
-      // This option is being deselected
-      if (value && typeof value !== 'string' && value.includes(primaryKey)) {
-        if (key === primaryKey) {
-          ;(newValue as string[]).splice(newValue.indexOf(key), 1)
-        }
-        if (option[key] && typeof option[key] === 'string') {
-          const vals: string[] = (additionalValues[key] as string[]) || ([] as string[])
-          ;(option[key] as string).split(',').forEach((additionalValue: string) => {
-            vals.splice(vals.indexOf(additionalValue), 1)
-          })
-          additionalValues[key] = vals
-        }
+    // Now handle the additional keys
+    const additionalValues: Record<string, string[]> = {}
+    for (const key of question.additionalKeys?.split(',') || []) {
+      if (!option[key]) {
+        continue
       }
-      // This option is being selected
-      if (value && typeof value !== 'string' && !value.includes(primaryKey)) {
-        if (key === primaryKey) {
-          newValue = [...value, primaryKey]
-        }
-        if (option[key]) {
-          additionalValues[key] = [...(additionalValues[key] || []), ...(option[key] as string).split(',')]
-        }
-      }
-      // This option is being selected, and there are no other selections yet
-      if (!value) {
-        if (key === primaryKey) {
-          newValue = [primaryKey]
-        }
-        if (option[key]) {
-          additionalValues[key] = ((option[key] as string) || '').split(',')
-        }
-      }
-    })
 
-    setValue(question, newValue, additionalValues)
+      // Each entry in additionalValues maps a key (f.e. "benefits") to a list of
+      // sections that are enabled (f.e. UI-NJ).
+      additionalValues[key] = (values[key] || []) as string[]
+
+      // Based on whether we just enabled or disabled this option, add/remove the
+      // specified sections from this key.
+      const sections = (option[key] as string).split(',')
+      if (selected) {
+        // Note that we purposefully retain duplicates here so that it is easier
+        // to remove sections from the list (see else statement below).
+        additionalValues[key] = [...additionalValues[key], ...sections]
+      } else {
+        for (const s of sections) {
+          additionalValues[key].splice(additionalValues[key].indexOf(s), 1)
+        }
+      }
+    }
+
+    setValue(question, selectedOptions, additionalValues)
   }
 
   if (!question || !question.options) {
