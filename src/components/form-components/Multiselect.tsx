@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Question, Option } from '../../lib/types'
 import { Box, CheckBox, Paragraph } from 'grommet'
 import { FormContext } from '../../contexts/form'
+import { omit } from 'lodash'
 
 interface Props {
   value: string[]
@@ -28,31 +29,41 @@ const Multiselect: React.FC<Props> = (props) => {
     }
 
     // Now handle the additional keys
-    const additionalValues: Record<string, string[]> = {}
+    const additionalValues: Record<string, Record<string, Option[]> | undefined> = {}
     for (const key of question.additionalKeys?.split(',') || []) {
       if (!option[key]) {
         continue
       }
 
-      // Each entry in additionalValues maps a key (f.e. "benefits") to a list of
-      // sections that are enabled (f.e. UI-NJ).
-      additionalValues[key] = (values[key] || []) as string[]
+      // Each entry in additionalValues maps a key (f.e. "benefits") to a mapping of
+      // section ID to a list of options that enabled that section.
+      additionalValues[key] = { ...(values[key] as any) }
 
-      // Based on whether we just enabled or disabled this option, add/remove the
-      // specified sections from this key.
+      // Based on whether we just enabled or disabled this option, add/remove this option
+      // from each of the corresponding section.
       const sections = (option[key] as string).split(',')
       if (selected) {
-        // Note that we purposefully retain duplicates here so that it is easier
-        // to remove sections from the list (see else statement below).
-        additionalValues[key] = [...additionalValues[key], ...sections]
+        for (const s of sections) {
+          additionalValues[key]![s] = [...(additionalValues[key]![s] || []), option]
+        }
       } else {
         for (const s of sections) {
-          additionalValues[key].splice(additionalValues[key].indexOf(s), 1)
+          if (additionalValues[key]![s].length === 1) {
+            // If this option is the only option associated with this section, omit the section.
+            additionalValues[key] = omit(additionalValues[key], s)
+          } else {
+            additionalValues[key]![s] = additionalValues[key]![s].filter((o) => o.id !== option.id)
+          }
         }
+      }
+
+      // If all sections are now hidden, omit this section group key.
+      if (Object.keys(additionalValues[key]!).length === 0) {
+        additionalValues[key] = undefined
       }
     }
 
-    setValue(question, selectedOptions, additionalValues)
+    setValue(question, selectedOptions.length > 0 ? selectedOptions : undefined, additionalValues)
   }
 
   if (!question || !question.options) {

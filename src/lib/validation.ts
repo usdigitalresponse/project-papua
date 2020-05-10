@@ -24,6 +24,7 @@ export function isQuestionValid(
   if (value === undefined) {
     if (question.required) {
       errors.push(getInstructions(form, 'field-is-required'))
+      return { errors, dependencies: [] }
     } else {
       // If the question is not required and not set,
       // go ahead and exit early so we don't surface unnecessary errors.
@@ -32,7 +33,7 @@ export function isQuestionValid(
   }
 
   function validate<T>(schema: Joi.Schema, value: any, copyID: string): value is T {
-    const { error } = schema.strict().validate(value)
+    const { error } = schema.strict().options({ presence: 'required' }).validate(value)
     if (error) {
       errors.push(getInstructions(form, copyID!))
       if (process.env.NODE_ENV === 'development') {

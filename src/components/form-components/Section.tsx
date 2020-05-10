@@ -22,19 +22,23 @@ const Section: React.FC<Props> = (props) => {
     return null
   }
 
-  const sections = getSections(question.sections, form, values)
+  const sectionGroup = getSections(question.sections, form, values)
 
   const onToggle = (e: React.MouseEvent, id: string) => {
+    // Handle Alt-pressing, which should expand/collapse all.
     if (!optionPressed) {
+      // Just expand/collapse this specific option.
       setOpen({
         ...open,
         [id]: !open[id],
       })
     } else if (Object.keys(open).length > 0) {
+      // The user alt-clicked and at least one option is open, so collapse all.
       setOpen({})
     } else {
+      // The user alt-clicked and all options are closed, so expand all.
       const o: Record<string, boolean> = {}
-      for (const section of sections) {
+      for (const { section } of sectionGroup) {
         o[section.title.en] = true
       }
       setOpen(o)
@@ -46,7 +50,7 @@ const Section: React.FC<Props> = (props) => {
       <Heading level={3} margin="none">
         {translateCopy(question.sections.name)}
       </Heading>
-      {sections.map((section, index) => (
+      {sectionGroup.map(({ section }, index) => (
         <Box
           background="#FFFFFF"
           style={{

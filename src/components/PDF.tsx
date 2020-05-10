@@ -82,7 +82,7 @@ const PDF: React.FC<Props> = (props) => {
     if (question.type === 'sections') {
       return (
         <View>
-          {getSections(question.sections, form, values).map((section, i) => (
+          {getSections(question.sections, form, values).map(({ section }, i) => (
             <View style={styles.section} key={`${translateCopy(section.title)}_${i}`}>
               <Text style={styles.sectionTitle}>{translateCopy(section.title)}</Text>
               <Text style={styles.sectionContent}>{translateCopy(section.content)}</Text>

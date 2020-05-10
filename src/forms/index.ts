@@ -1,4 +1,4 @@
-import { Question, QuestionType, Page, Values, Errors, Form, Section } from '../lib/types'
+import { Question, QuestionType, Page, Values, Errors, Form, Section, Option } from '../lib/types'
 import DatePicker from '../components/form-components/DatePicker'
 import TextInput from '../components/form-components/TextInput'
 import Select from '../components/form-components/Select'
@@ -103,19 +103,35 @@ export function getSwitch(questionSwitch: Question['switch'], value: string | st
   return questionSwitch[switchKey] as Question[]
 }
 
-export function getSections(sectionIds: Question['sections'], form: Form, values: Values): Section[] {
+export function getSections(
+  sectionIds: Question['sections'],
+  form: Form,
+  values: Values
+): Array<{ section: Section; options: Option[] }> {
   const { sections } = form
   if (!sections || !sectionIds) {
     return []
   }
 
-  let ids: string[] = []
+  const out: Array<{ section: Section; options: Option[] }> = []
   if (sectionIds.include) {
-    ids = [...sectionIds.include]
+    out.push(
+      ...sectionIds.include.map((id) => ({
+        section: sections[id],
+        // TODO: how to represent the option that triggered this?
+        options: [],
+      }))
+    )
   }
   if (sectionIds.id) {
-    ids = uniq(values[sectionIds.id] as string[] | undefined)
+    const s = (values[sectionIds.id] as Record<string, Option[]>) || {}
+    out.push(
+      ...Object.entries(s).map(([id, options]) => ({
+        section: sections[id],
+        options: options,
+      }))
+    )
   }
 
-  return ids.map((id) => sections[id])
+  return out
 }

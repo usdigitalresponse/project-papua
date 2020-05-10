@@ -132,15 +132,16 @@ export const FormProvider: React.FC = (props) => {
       value,
     })
 
-    const newValues =
-      value !== undefined
-        ? {
-            ...values,
-            [question.id]: value,
-            ...additionalValues,
-          }
-        : omit(values, question.id)
-
+    // Insert the new value, plus additionaValues, into values and remove any fields
+    // that would now map to `undefined`.
+    let newValues = { ...values, [question.id]: value, ...(additionalValues || {}) }
+    if (value === undefined) {
+      newValues = omit(newValues, question.id)
+    }
+    newValues = omit(
+      newValues,
+      Object.keys(additionalValues || {}).filter((k) => additionalValues![k] === undefined)
+    )
     setValues(newValues)
 
     if (process.env.NODE_ENV === 'development') {
@@ -216,45 +217,45 @@ export const FormProvider: React.FC = (props) => {
    * This hook is purely for testing, where it'll prefill form values so we can test
    * functionality later on in the form.
    */
-  // const [prefilled, setPrefilled] = useState(false)
-  // useEffect(() => {
-  //   if (prefilled || !form || process.env.NODE_ENV !== 'development') return
+  const [prefilled, setPrefilled] = useState(false)
+  useEffect(() => {
+    if (prefilled || !form || process.env.NODE_ENV !== 'development') return
 
-  //   // Initialize form with some starter values for testing.
-  //   // Note Number values won't render, but the value is there.
-  //   const testValues: Record<string, [Value] | [Value, Record<string, Value>]> = {
-  //     /* eslint-disable @typescript-eslint/camelcase */
-  //     agreement: [true],
-  //     employed_in_new_jersey: ['laid-off-in-new-jersey'],
-  //     'relationship-to-employer': ['receiving-partial-unemployment'],
-  //   }
-  //   for (const [id, v] of Object.entries(testValues)) {
-  //     const [value, additionalValues] = v
-  //     const vv = values[id]
-  //     if (vv === value || (Array.isArray(value) && Array.isArray(vv) && value.length === vv.length)) {
-  //       continue
-  //     }
+    // Initialize form with some starter values for testing.
+    // Note Number values won't render, but the value is there.
+    const testValues: Record<string, [Value] | [Value, Record<string, Value>]> = {
+      /* eslint-disable @typescript-eslint/camelcase */
+      agreement: [true],
+      employed_in_new_jersey: ['laid-off-in-new-jersey'],
+      'relationship-to-employer': ['receiving-partial-unemployment'],
+    }
+    for (const [id, v] of Object.entries(testValues)) {
+      const [value, additionalValues] = v
+      const vv = values[id]
+      if (vv === value || (Array.isArray(value) && Array.isArray(vv) && value.length === vv.length)) {
+        continue
+      }
 
-  //     for (const [i, page] of form.pages.entries()) {
-  //       for (const question of getFlattenedQuestions(page.questions, values)) {
-  //         if (question.id === id) {
-  //           if (i !== pageIndex) {
-  //             setPageIndex(i)
-  //             // 1337 hacks
-  //             return
-  //           }
+      for (const [i, page] of form.pages.entries()) {
+        for (const question of getFlattenedQuestions(page.questions, values)) {
+          if (question.id === id) {
+            if (i !== pageIndex) {
+              setPageIndex(i)
+              // 1337 hacks
+              return
+            }
 
-  //           setValue(question, value, additionalValues)
-  //           // 1337 hacks
-  //           return
-  //         }
-  //       }
-  //     }
-  //   }
+            setValue(question, value, additionalValues)
+            // 1337 hacks
+            return
+          }
+        }
+      }
+    }
 
-  //   // now that we've prefilled the values, stop overwriting them with the initial values.
-  //   setPrefilled(true)
-  // })
+    // now that we've prefilled the values, stop overwriting them with the initial values.
+    setPrefilled(true)
+  })
 
   useEffect(() => {
     if (form) {
