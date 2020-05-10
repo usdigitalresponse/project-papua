@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Question, Option } from '../../lib/types'
 import { Box, CheckBox, Paragraph } from 'grommet'
 import { FormContext } from '../../contexts/form'
-import { pick } from 'lodash'
+
 interface Props {
   value: string[]
   question: Question

@@ -5,6 +5,16 @@ import Form from './components/Form'
 import { LanguageProvider } from './contexts/language'
 import { FormProvider } from './contexts/form'
 import { USDR } from './components/USDR'
+import values from 'object.values'
+import { TextEncoder } from 'fastestsmallesttextencoderdecoder'
+
+// Load shims
+if (!Object.values) {
+  values.shim()
+}
+if (!window.TextEncoder) {
+  window.TextEncoder = TextEncoder
+}
 
 const sizing = {
   header: '26px',
