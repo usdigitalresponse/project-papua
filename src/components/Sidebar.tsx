@@ -25,7 +25,10 @@ const Sidebar: React.FC<Props> = (props) => {
   const size = useContext(ResponsiveContext)
 
   const currentPage = pages[pageIndex]
-  const percent = Math.floor((pageIndex / (pages.length - 1)) * 100)
+  const maxCompletedPage = range(0, form.pages.length)
+    .map<number>((i) => (completion[i] ? 1 : 0))
+    .reduce((i, j) => i + j, 0)
+  const percent = Math.floor((maxCompletedPage / pages.length) * 100)
 
   const canClickPage = (i: number) => {
     return range(0, i).every((index) => completion[index])
