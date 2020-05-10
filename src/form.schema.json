@@ -3,6 +3,22 @@
   "title": "PAPUA JSON Schema",
   "description": "This JSON schema will give you intellisense in VSCode if you install Red Hat's YAML extension",
   "definitions": {
+    "questionlist": {
+      "type": "array",
+      "description": "A set of questions to render. Each question in this list can optionally be a string, referencing a set of questions that will be merged into this list.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/question"
+          },
+          {
+            "type": "string",
+            "description": "A set of questions to render, using a pre-defined question set definition from above, if this statement is the value of the parent question's answer.",
+            "pattern": "^definition:.*$"
+          }
+        ]
+      }
+    },
     "copy": {
       "type": "object",
       "additionalProperties": false,
@@ -122,20 +138,7 @@
           "description": "Conditionally render further questions for the user to answer, based on the response to this question. For booleans, use true/false. For dropdowns/selects, use the question IDs.",
           "patternProperties": {
             ".*": {
-              "oneOf": [
-                {
-                  "type": "array",
-                  "description": "A set of questions to render if this statement is the value of the parent question's answer.",
-                  "items": {
-                    "$ref": "#/definitions/question"
-                  }
-                },
-                {
-                  "type": "string",
-                  "description": "A set of questions to render, using a pre-defined question set definition from above, if this statement is the value of the parent question's answer.",
-                  "pattern": "^definition:.*$"
-                }
-              ]
+              "$ref": "#/definitions/questionlist"
             }
           }
         },

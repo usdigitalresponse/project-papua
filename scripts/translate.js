@@ -83,9 +83,12 @@ async function map(f) {
     if (question.switch) {
       for (const field of Object.keys(question.switch)) {
         const s = question.switch[field]
-        if (s && Array.isArray(s)) {
+        if (s) {
           for (let j = 0; j < question.switch[field].length; j++) {
-            question.switch[field][j] = await updateQuestion(question.switch[field][j])
+            // Note: we filter out `definition:{question set id}` questions here
+            if (typeof question.switch[field][j] !== 'string') {
+              question.switch[field][j] = await updateQuestion(question.switch[field][j])
+            }
           }
         }
       }

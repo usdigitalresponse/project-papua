@@ -10,19 +10,23 @@ export function transformInlineDefinitions(form: Form): Form {
       const question = questions[qi]
       if (question.switch) {
         for (const switchKey of Object.keys(question.switch)) {
-          const value = question.switch[switchKey]
-          if (typeof value === 'string' && value.startsWith('definition:')) {
-            const definitionID = value.replace(/^definition:/, '')
-            const definition = form.definitions![definitionID]
-            if (!definition) {
-              console.error(`Unknown question set definition: ${definitionID}`)
+          const oldSwitch = question.switch[switchKey]
+          const newSwitch: Question[] = []
+          for (let si = 0; si < oldSwitch.length; si++) {
+            const value = oldSwitch[si]
+            if (typeof value === 'string' && value.startsWith('definition:')) {
+              const definitionID = value.replace(/^definition:/, '')
+              const definition = form.definitions![definitionID]
+              if (!definition) {
+                console.error(`Unknown question set definition: ${definitionID}`)
+                continue
+              }
+              newSwitch.push(...transformInlineDefinitionsQuestions(definition))
+            } else {
+              newSwitch.push(...transformInlineDefinitionsQuestions([value as Question]))
             }
-            questions[qi].switch![switchKey] = definition
-          } else {
-            questions[qi].switch![switchKey] = transformInlineDefinitionsQuestions(
-              question.switch[switchKey] as Question[]
-            )
           }
+          questions[qi].switch![switchKey] = newSwitch
         }
       }
     }

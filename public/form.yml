@@ -541,7 +541,8 @@ pages:
                     es: He estado recibiendo desempleo y no tengo otro empleo.
                   id: receiving-unemployment
               switch:
-                'paid-hourly-by-employer,receiving-partial-unemployment': 'definition:situations'
+                'paid-hourly-by-employer,receiving-partial-unemployment':
+                  - 'definition:situations'
                 self-employed-by-independent-contractor:
                   - name:
                       en: Have you already applied for unemployment insurance through the state of New Jersey?
@@ -550,7 +551,8 @@ pages:
                     type: boolean
                     required: true
                     switch:
-                      'false': 'definition:situations'
+                      'false':
+                        - 'definition:situations'
                       'true':
                         - name:
                             en: Eligibility
@@ -566,6 +568,7 @@ pages:
                               **Si solicitó el seguro de desempleo, su caso será evaluado automáticamente para los beneficios federales de desempleo.**
 
                               Le recomendamos que continúe para ver si es elegible para algún beneficio adicional.
+                        - 'definition:situations'
                 receiving-unemployment:
                   - name:
                       en: Eligibility
