@@ -86,7 +86,7 @@ const Multiselect: React.FC<Props> = (props) => {
               label={
                 <Box direction="row">
                   {o.icon && (
-                    <Box direction="column" justify="center" flex={{ shrink: 0 }} margin={{ right: '8px' }}>
+                    <Box direction="column" justify="center" flex={{ shrink: 0 }} margin={{ right: '16px' }}>
                       <CircleIcon color={o.icon.color} size={30}>
                         <Paragraph fill={true} margin="none" color="white" style={{ fontWeight: 500 }}>
                           {o.icon.label}

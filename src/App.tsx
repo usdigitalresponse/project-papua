@@ -116,6 +116,9 @@ const theme = {
       borderRadius: '4px',
     },
   },
+  radioButton: {
+    gap: '16px',
+  },
   button: {
     border: {
       color: 'transparent',
@@ -129,6 +132,7 @@ const theme = {
     check: {
       color: '#205EFF',
     },
+    gap: '16px',
   },
 }
 
