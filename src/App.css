@@ -14,6 +14,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.markdown p:nth-child(1),
+.markdown div > p:nth-child(1),
+.markdown div > ol:nth-last-child(1) {
+  margin-top: 0 !important;
+}
+.markdown p:nth-last-child(1),
+.markdown div > p:nth-last-child(1),
+.markdown div > ol:nth-last-child(1) {
+  margin-bottom: 0 !important;
+}
+
+.caret {
+  transition-duration: 0.2s;
+}
+
 ol {
   list-style: none;
   counter-reset: aCounter;
@@ -111,9 +126,6 @@ ol li::before {
 }
 
 /* Checkboxes */
-.checkbox {
-  margin-bottom: 8px;
-}
 .checkbox > label > div > div {
   background-color: #f8f8f8 !important;
   border-width: 1px !important;
@@ -123,8 +135,8 @@ ol li::before {
 .checkbox > label:hover > div > div {
   background-color: #eff3fe !important;
 }
-.checkbox > label > div:focus-within > div,
-.checkbox > label > div:active > div {
+.checkbox:not(.errored) > label > div:focus-within > div,
+.checkbox:not(.errored) > label > div:active > div {
   box-shadow: 0px 0px 0px 3px #bfcffb !important;
 }
 .checkbox-selected > label > div > div {
@@ -133,6 +145,11 @@ ol li::before {
 }
 .checkbox-selected > label:hover > div > div {
   background-color: #2c63f6 !important;
+}
+.checkbox.errored > label > div:focus-within > div,
+.checkbox.errored > label > div:active > div {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 3px #ec5149 !important;
 }
 
 /* Dropdowns (Selects) */
@@ -211,7 +228,19 @@ div[data-g-portal-id] {
 .text-input.errored:not(:focus) {
   border: 1px solid transparent;
   box-shadow: 0px 0px 0px 3px #ec5149 !important;
-  /* border: 1px solid #ec5149 !important; */
+}
+
+/* Section Accordions */
+.accordion:focus-within {
+  border: 1px solid #bfcffb !important;
+  box-shadow: 0px 0px 0px 3px #bfcffb !important;
+}
+.accordion-header {
+  box-shadow: none !important;
+  transition: background-color 0.2s;
+}
+.accordion-content {
+  transition: max-height 0.2s;
 }
 
 .App {

@@ -26,7 +26,7 @@ export interface Page {
 }
 
 export interface Question {
-  name: Copy
+  name?: Copy
   instructions?: Copy
   required?: boolean
   type: QuestionType
@@ -34,8 +34,15 @@ export interface Question {
   id: string
   options?: Option[]
   switch?: Switch
-  sections?: string
+  sections?: Sections
   additionalKeys?: string
+}
+
+export interface Sections {
+  name: Copy
+  id?: string
+  include?: string[]
+  color: string
 }
 
 export interface Option {

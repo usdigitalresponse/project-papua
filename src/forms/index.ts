@@ -104,34 +104,18 @@ export function getSwitch(questionSwitch: Question['switch'], value: string | st
 }
 
 export function getSections(sectionIds: Question['sections'], form: Form, values: Values): Section[] {
-  if (!form.sections) {
+  const { sections } = form
+  if (!sections || !sectionIds) {
     return []
   }
 
-  const sections: Section[] = []
-  if (sectionIds?.includes('id:')) {
-    const ids = uniq(values[sectionIds.slice(3)] as string[])
-
-    if (!ids || typeof ids === 'string') {
-      return []
-    }
-
-    ids.forEach((id) => {
-      const section = form.sections![id]
-      if (section) {
-        sections.push(section)
-      }
-    })
-
-    return sections
+  let ids: string[] = []
+  if (sectionIds.include) {
+    ids = [...sectionIds.include]
+  }
+  if (sectionIds.id) {
+    ids = uniq(values[sectionIds.id] as string[] | undefined)
   }
 
-  sectionIds?.split(',').forEach((id) => {
-    const section = form.sections![id]
-    if (section) {
-      sections.push(section)
-    }
-  })
-
-  return sections
+  return ids.map((id) => sections[id])
 }

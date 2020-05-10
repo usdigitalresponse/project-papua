@@ -1,5 +1,5 @@
 import React from 'react'
-import { Markdown as GrommetMarkdown, Paragraph, ParagraphProps, Heading } from 'grommet'
+import { Box, Markdown as GrommetMarkdown, Paragraph, ParagraphProps, Heading } from 'grommet'
 import { MarginType } from 'grommet/utils'
 import { merge } from '../../lib/merge'
 
@@ -30,29 +30,31 @@ export const Markdown: React.FC<Props> = ({ margin, size, children }) => {
     },
   }))
   return (
-    <GrommetMarkdown
-      components={merge(
-        {
-          li: {
-            component: ListItem,
-            props: merge({ margin, size }),
+    <Box className="markdown">
+      <GrommetMarkdown
+        components={merge(
+          {
+            li: {
+              component: ListItem,
+              props: merge({ margin, size }),
+            },
+            p: {
+              component: Paragraph,
+              props: merge({ fill: true }, { margin, size }),
+            },
+            span: {
+              component: Paragraph,
+              props: merge({ fill: true, size: 'small' }, { margin, size }),
+            },
+            a: {
+              props: { target: '_blank', rel: 'noopener noreferrer' },
+            },
           },
-          p: {
-            component: Paragraph,
-            props: merge({ fill: true }, { margin, size }),
-          },
-          span: {
-            component: Paragraph,
-            props: merge({ fill: true, size: 'small' }, { margin, size }),
-          },
-          a: {
-            props: { target: '_blank', rel: 'noopener noreferrer' },
-          },
-        },
-        ...headings
-      )}
-    >
-      {children}
-    </GrommetMarkdown>
+          ...headings
+        )}
+      >
+        {children}
+      </GrommetMarkdown>
+    </Box>
   )
 }

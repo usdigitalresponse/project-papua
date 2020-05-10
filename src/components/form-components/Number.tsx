@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TextInput as GrommetTextInput } from 'grommet'
+import { Box, TextInput as GrommetTextInput } from 'grommet'
 import { FormContext } from '../../contexts/form'
 import { Question } from '../../lib/types'
 import NumberFormat, { NumberFormatProps } from 'react-number-format'
@@ -58,12 +58,14 @@ export const Number: React.FC<Props> = (props) => {
 
   const hasError = Boolean(errors[question.id])
   return (
-    <NumberFormat
-      className={hasError ? 'text-input errored' : 'text-input'}
-      customInput={GrommetTextInput}
-      onValueChange={onChange}
-      style={{ maxWidth: '600px' }}
-      {...typeProps}
-    />
+    <Box pad={{ horizontal: 'large' }}>
+      <NumberFormat
+        className={hasError ? 'text-input errored' : 'text-input'}
+        customInput={GrommetTextInput}
+        onValueChange={onChange}
+        style={{ maxWidth: '600px' }}
+        {...typeProps}
+      />
+    </Box>
   )
 }

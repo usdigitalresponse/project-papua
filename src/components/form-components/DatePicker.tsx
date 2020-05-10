@@ -35,7 +35,7 @@ const DatePicker: React.FC<{ question: Question }> = (props) => {
    */
 
   return (
-    <Box style={{ maxWidth: '600px' }}>
+    <Box style={{ maxWidth: '600px' }} pad={{ horizontal: 'large' }}>
       <ReactDatePicker className="date-picker" onChange={onChange} value={v} clearIcon={null} calendarIcon={null} />
     </Box>
   )

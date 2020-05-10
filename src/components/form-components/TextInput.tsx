@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TextInput as GrommetTextInput } from 'grommet'
+import { Box, TextInput as GrommetTextInput } from 'grommet'
 import { FormContext } from '../../contexts/form'
 import { Question } from '../../lib/types'
 
@@ -14,12 +14,14 @@ const TextInput: React.FC<Props> = (props) => {
 
   const hasError = Boolean(errors[question.id])
   return (
-    <GrommetTextInput
-      className={hasError ? 'text-input errored' : 'text-input'}
-      value={(value as string) || ''}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(question, e.target.value)}
-      style={{ maxWidth: '600px' }}
-    />
+    <Box pad={{ horizontal: 'large' }}>
+      <GrommetTextInput
+        className={hasError ? 'text-input errored' : 'text-input'}
+        value={(value as string) || ''}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(question, e.target.value)}
+        style={{ maxWidth: '600px' }}
+      />
+    </Box>
   )
 }
 

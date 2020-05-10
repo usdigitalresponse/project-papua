@@ -69,8 +69,30 @@
           "description": "The type of values to accept from this form. This determines what type of form input is generated."
         },
         "sections": {
-          "type": "string",
-          "description": "Can be a comma separated string list of sections by their id in the sections part of the form.yml, or if prefixed by 'id:', the list will be fetched from values in the form."
+          "type": "object",
+          "description": "Provides configuration for what sections to render.",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/copy",
+              "description": "The name of this group of sections"
+            },
+            "id": {
+              "type": "string",
+              "description": "If specified, a list of sections to render is pulled from the current form values using the provided id."
+            },
+            "include": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of sections to always include in this group."
+            },
+            "color": {
+              "type": "string",
+              "description": "The background color of this section."
+            }
+          },
+          "required": ["name", "color"]
         },
         "instructions": {
           "$ref": "#/definitions/copy",
@@ -209,7 +231,7 @@
           }
         }
       },
-      "required": ["name", "id", "type"]
+      "required": ["id", "type"]
     }
   },
   "oneOf": [

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Question } from '../../lib/types'
-import { TextArea as GrommetTextArea } from 'grommet'
+import { Box, TextArea as GrommetTextArea } from 'grommet'
 import { FormContext } from '../../contexts/form'
 
 interface Props {
@@ -14,11 +14,13 @@ const TextArea: React.FC<Props> = (props) => {
   const hasError = errors[question.id]
 
   return (
-    <GrommetTextArea
-      value={values[question.id] as string}
-      onChange={(e) => setValue(question, e.target.value)}
-      style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid' }}
-    />
+    <Box pad={{ horizontal: 'large' }}>
+      <GrommetTextArea
+        value={values[question.id] as string}
+        onChange={(e) => setValue(question, e.target.value)}
+        style={{ border: hasError ? '#FF4040 1px solid' : 'black 1px solid' }}
+      />
+    </Box>
   )
 }
 

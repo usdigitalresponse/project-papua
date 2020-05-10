@@ -1,9 +1,8 @@
-import React, { useContext, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
-import { Form, Values, Question, Copy } from '../lib/types'
+import { Form, Values, Question } from '../lib/types'
 import { getSections, getFlattenedQuestions } from '../forms'
-import { FormContext } from '../contexts/form'
-import { getByDisplayValue } from '@testing-library/react'
+import { FormState } from '../contexts/form'
 
 // Create styles
 const styles = StyleSheet.create({
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
 interface Props {
   form: Form
   values: Values
-  translateCopy: (copy: Copy) => string
+  translateCopy: FormState['translateCopy']
 }
 
 const PDF: React.FC<Props> = (props) => {

@@ -25,7 +25,7 @@ const Multiselect: React.FC<Props> = (props) => {
 
     let newValue = value ? [...value] : []
     const additionalValues: Record<string, string[]> = question.additionalKeys
-      ? (pick(values, question.additionalKeys?.split(',')) as Record<string, string[]>)
+      ? (pick(values, question.additionalKeys.split(',')) as Record<string, string[]>)
       : {}
     keys.forEach((key) => {
       // This option is being deselected
@@ -69,15 +69,16 @@ const Multiselect: React.FC<Props> = (props) => {
   }
 
   return (
-    <Box>
+    <Box pad={{ horizontal: 'large' }}>
       {question.options.map((o) => {
         const isSelected = Boolean(value && value.includes(o.id))
         return (
-          <Box className={isSelected ? 'checkbox checkbox-selected' : 'checkbox'} key={o.id}>
+          <Box
+            className={isSelected ? 'checkbox checkbox-selected' : 'checkbox'}
+            key={o.id}
+            margin={{ bottom: '16px' }}
+          >
             <CheckBox
-              style={{
-                marginTop: '8px',
-              }}
               checked={isSelected}
               label={
                 <Paragraph margin="none" fill={true}>

@@ -80,7 +80,7 @@ const File: React.FC<Props> = (props) => {
   return (
     <>
       <Box
-        pad="medium"
+        pad="large"
         gap="small"
         alignContent="center"
         align="center"

@@ -29,15 +29,16 @@ const SingleSelectRadio: React.FC<Props> = (props) => {
   })
 
   return (
-    <Box className="radio-button-group">
+    <Box className="radio-button-group" pad={{ horizontal: 'large' }}>
       <RadioButtonGroup
-        name={translateCopy(question.name)}
+        name={translateCopy(question.name) || ''}
         options={options}
         value={`${question.id}:${value}`}
         onChange={(e) => {
           const id = e.target.value.split(':')[1]
           props.onChange ? props.onChange(id) : setValue(question, id)
         }}
+        gap="16px"
       />
     </Box>
   )

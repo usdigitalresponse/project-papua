@@ -570,19 +570,24 @@ pages:
                   - name:
                       en: Eligibility
                       es: Elegibilidad
-                    type: sections
-                    id: terminal-eligibility-2
-                    sections: 'PEUC-FED,FPUC-FED'
-                    required: true
+                    id: eligibility-instructions
+                    type: instructions-only
                     instructions:
                       en: |-
                         Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):
-
-                        #### Federal Benefits Programs and Legislation
                       es: |-
                         Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
-
-                        #### Programas de beneficios federales y legislación
+                  - type: sections
+                    id: terminal-eligibility-2
+                    sections:
+                      name:
+                        en: Federal Benefits Programs and Legislation
+                        es: Programas de beneficios federales y legislación
+                      include:
+                        - PEUC-FED
+                        - FPUC-FED
+                      color: '#F6F7F9'
+                    required: true
           'works-in-another-state,laid-off-in-another-state':
             - name:
                 en: Eligibility
@@ -689,37 +694,32 @@ definitions:
       switch:
         ? 'situation-1,situation-2,situation-3,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9,situation-11'
         : - name:
-              en: ''
-              es: ''
-            id: terminal-eligibility-benefits
-            type: sections
-            sections: 'id:benefits'
+              en: You may be eligible for...
+              es: Puede ser elegible para ...
+            id: you-may-be-eligible
+            type: instructions-only
             instructions:
               en: |-
-                ### You may be eligible for...
-
                 Based on the information you've provided, you may be eligible for protection or financial aid from these program(s):
-
-                #### Benefits
               es: |-
-                ### Puede ser elegible para ...
-
                 Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
-
-                #### Programas de beneficios estatales
-          - name:
-              en: ''
-              es: ''
-            id: terminal-eligibility-job-protections
+          - id: terminal-eligibility-benefits
             type: sections
-            sections: 'id:job-protections'
-            instructions:
-              en: '#### Job Protections'
-              es: '#### Programas de beneficios federales'
-          - name:
-              en: ''
-              es: ''
-            id: faq-terminal-not-eligible
+            sections:
+              name:
+                en: Benefits
+                es: Beneficios
+              id: benefits
+              color: '#F6F7F9'
+          - id: terminal-eligibility-job-protections
+            type: sections
+            sections:
+              name:
+                en: Job Protections
+                es: Protecciones laborales
+              id: job-protections
+              color: '#ECEEF1'
+          - id: faq-terminal-not-eligible
             type: instructions-only
             instructions:
               en: |-
@@ -728,37 +728,32 @@ definitions:
                 Para obtener más información, visite nuestra [página de preguntas frecuentes](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
         situation-10:
           - name:
-              en: ''
-              es: ''
-            id: terminal-eligibility-benefits-not-eligible
-            type: sections
-            sections: 'id:benefits'
+              en: Additional Information
+              es: Información Adicional
+            id: additional-information
+            type: instructions-only
             instructions:
               en: |-
-                ### Additional Information
-
                 Based on the information you may not be eligible for any of the following benefits that are being offered at this time:
-
-                #### Benefits
               es: |-
-                ### Puede ser elegible para ...
-
-                Según la información que proporcionó, puede ser elegible para recibir protección o ayuda financiera de estos programas:
-
-                #### Programas de beneficios estatales
-          - name:
-              en: ''
-              es: ''
-            id: terminal-eligibility-job-protections-not-eligible
+                Según la información, es posible que no sea elegible para ninguno de los siguientes beneficios que se ofrecen en este momento:
+          - id: terminal-eligibility-benefits-not-eligible
             type: sections
-            sections: 'id:job-protections'
-            instructions:
-              en: '#### Job Protections'
-              es: '#### Programas de beneficios federales'
-          - name:
-              en: ''
-              es: ''
-            id: faq-terminal-not-eligible
+            sections:
+              name:
+                en: Benefits
+                es: Beneficios
+              id: benefits
+              color: '#F6F7F9'
+          - id: terminal-eligibility-job-protections-not-eligible
+            type: sections
+            sections:
+              name:
+                en: Job Protections
+                es: Protecciones laborales
+              id: job-protections
+              color: '#ECEEF1'
+          - id: faq-terminal-not-eligible
             type: instructions-only
             instructions:
               en: |-

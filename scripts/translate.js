@@ -62,7 +62,9 @@ if (!form) {
 async function map(f) {
   const updateQuestion = async (question) => {
     // Update the question's name
-    question.name = await f(question.name)
+    if (question.name) {
+      question.name = await f(question.name)
+    }
 
     // Update the question's instructions, if any
     if (question.instructions) {
@@ -94,6 +96,11 @@ async function map(f) {
       for (let j = 0; j < question.validate.length; j++) {
         question.validate[j].error = await f(question.validate[j].error)
       }
+    }
+
+    // Update the sections name, if any
+    if (question.sections) {
+      question.sections.name = await f(question.sections.name)
     }
 
     return question

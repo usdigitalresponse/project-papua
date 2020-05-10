@@ -26,18 +26,20 @@ const Select: React.FC<Props> = (props) => {
   const options = question.options.map((option) => ({ name: translateCopy(option.name), id: option.id }))
 
   return (
-    <StyledSelect
-      a11yTitle={translateCopy(question.name)}
-      margin={{ top: 'xsmall' }}
-      options={options}
-      labelKey="name"
-      valueKey={{
-        key: 'id',
-        reduce: true,
-      }}
-      value={value as string}
-      onChange={({ option }: { option: { id: string; name: string } }) => setValue(question, option.id)}
-    />
+    <Box pad={{ horizontal: 'large' }}>
+      <StyledSelect
+        a11yTitle={translateCopy(question.name)}
+        margin={{ top: 'xsmall' }}
+        options={options}
+        labelKey="name"
+        valueKey={{
+          key: 'id',
+          reduce: true,
+        }}
+        value={value as string}
+        onChange={({ option }: { option: { id: string; name: string } }) => setValue(question, option.id)}
+      />
+    </Box>
   )
 }
 export default Select

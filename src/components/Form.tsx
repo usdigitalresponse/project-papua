@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import { Card, Button, Markdown } from './helper-components'
 import { Box, ResponsiveContext, Heading } from 'grommet'
 import Sidebar from './Sidebar'
-import Review from './Review'
 import { FormContext } from '../contexts/form'
 import Question from './Question'
 import { FormPrevious, FormNext } from 'grommet-icons'
@@ -15,30 +14,20 @@ const Form: React.FC<{}> = () => {
 
   const pageTitles = [...form.pages.map((page) => translateCopy(page.title))]
 
-  const padding = size === 'small' ? '12px' : '24px'
   const pageComponents = [
     ...form.pages.map((page) => (
-      <Box
-        pad={{ horizontal: padding, top: padding, bottom: 'none' }}
-        direction="column"
-        justify="start"
-        key={page.heading.en}
-        margin="none"
-      >
-        <Heading margin="none" level={3}>
-          {translateCopy(page.heading)}
-        </Heading>
-        {page.instructions ? (
-          <Markdown size="small">{translateCopy(page.instructions)}</Markdown>
-        ) : (
-          <Box margin={{ bottom: 'small' }} />
-        )}
+      <Box direction="column" justify="start" key={page.heading.en} margin="none">
+        <Box pad={{ horizontal: 'large' }}>
+          <Heading margin={{ horizontal: 'none', top: 'none', bottom: page.instructions ? '24px' : 'none' }} level={3}>
+            {translateCopy(page.heading)}
+          </Heading>
+          {page.instructions && <Markdown size="small">{translateCopy(page.instructions)}</Markdown>}
+        </Box>
         {page.questions.map((question) => (
           <Question question={question} key={question.id} />
         ))}
       </Box>
     )),
-    <Review key="review" pages={form.pages} />,
   ]
 
   const onClickNext = () => setPage(pageIndex + 1)
@@ -72,9 +61,9 @@ const Form: React.FC<{}> = () => {
   return (
     <Box align="center" pad="medium" direction="column" width="100%" style={{ maxWidth: '1200px' }}>
       <Box width="100%" height="100%" justify="center" direction={size === 'small' ? 'column' : 'row'}>
-        <Card pad="medium" justify="between" flex={{ grow: 1, shrink: 1 }}>
+        <Card justify="between" flex={{ grow: 1, shrink: 1 }} pad={{ vertical: '48px' }}>
           {pageComponents[pageIndex]}
-          <Box justify="between" pad="medium" direction="row">
+          <Box justify="between" pad={{ horizontal: 'large' }} margin={{ top: '48px' }} direction="row">
             {(pageIndex > 0 && (
               <Button onClick={onClickBack} label={translateByID('back')} icon={<FormPrevious />} />
             )) || <Box />}
@@ -88,6 +77,7 @@ const Form: React.FC<{}> = () => {
                 label={pageIndex === 0 ? translateByID('get-started') : translateByID('next')}
               />
             )}
+            {pageIndex === pageTitles.length - 1 && null}
             {pageIndex === pageTitles.length - 1 && (
               <BlobProvider document={pdf}>
                 {(params) => (

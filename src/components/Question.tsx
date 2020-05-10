@@ -31,40 +31,40 @@ const Question: React.FC<Props> = (props) => {
   }
 
   return (
-    <Box direction="column" margin={{ top: 'small' }}>
-      <Box fill={true} className="question-heading-box">
-        <Box direction="row" align="start">
-          <Heading
-            style={{
-              maxWidth: 'none',
-            }}
-            level={4}
-            margin="none"
-          >
-            {translateCopy(question.name)}
-            {!question.required && !['instructions-only', 'sections'].includes(question.type) && (
-              <em> ({translateByID('optional')})</em>
-            )}
-          </Heading>
+    <Box direction="column" margin={{ top: question.type === 'sections' ? 'none' : '48px' }}>
+      {(question.name || question.instructions) && (
+        <Box fill={true} className="question-heading-box" pad={{ horizontal: 'large' }} margin={{ bottom: '16px' }}>
+          {question.name && (
+            <Box direction="row" align="start">
+              <Heading
+                style={{
+                  maxWidth: 'none',
+                }}
+                level={4}
+                margin={{ horizontal: 'none', top: 'none', bottom: question.instructions ? '8px' : 'none' }}
+              >
+                {translateCopy(question.name)}
+                {!question.required && !['instructions-only', 'sections'].includes(question.type) && (
+                  <em> ({translateByID('optional')})</em>
+                )}
+              </Heading>
+            </Box>
+          )}
+          {question.instructions && <Markdown size="small">{translateCopy(question.instructions)}</Markdown>}
         </Box>
-        {question.instructions ? (
-          <Markdown size="small">{translateCopy(question.instructions)}</Markdown>
-        ) : (
-          <Box margin={{ bottom: 'small' }} />
-        )}
-      </Box>
+      )}
 
       <Component question={question} />
       {error && (
-        <Box>
+        <Box pad={{ horizontal: 'large' }}>
           {error.map((e) => (
-            <Text key={e.en} margin={{ top: 'xsmall' }} color="#FF4040">
+            <Text key={e.en} margin={{ top: 'xsmall' }} color="#E42906">
               {translateCopy(e)}
             </Text>
           ))}
         </Box>
       )}
-      <Box ref={(el) => (switchComponent = el)} margin={{ top: 'medium' }}>
+      <Box ref={(el) => (switchComponent = el)}>
         {question.switch &&
           getSwitch(question.switch, value as string | string[])?.map((q) => <Question question={q} key={q.id} />)}
       </Box>
