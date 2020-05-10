@@ -667,7 +667,6 @@ definitions:
             es: 'No puedo trabajar, o mis horas se reducen, porque mi empleador cerró voluntariamente.'
           id: situation-7
           benefits: UI-NJ
-          job-protections: 'FPUC-FED,PEUC-FED,PUA-FED'
         - name:
             en: |-
               I was laid off, or furloughed, while on Family or Temporary Disability Leave, because there are fewer hours available due to business slowdown or lack of demand.
