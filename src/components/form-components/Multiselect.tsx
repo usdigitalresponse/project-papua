@@ -3,6 +3,7 @@ import { Question, Option } from '../../lib/types'
 import { Box, CheckBox, Paragraph } from 'grommet'
 import { FormContext } from '../../contexts/form'
 import { omit } from 'lodash'
+import { CircleIcon } from '../helper-components/CircleIcon'
 
 interface Props {
   value: string[]
@@ -83,9 +84,20 @@ const Multiselect: React.FC<Props> = (props) => {
             <CheckBox
               checked={isSelected}
               label={
-                <Paragraph margin="none" fill={true}>
-                  {translateCopy(o.name)}
-                </Paragraph>
+                <Box direction="row">
+                  {o.icon && (
+                    <Box direction="column" justify="center" flex={{ shrink: 0 }} margin={{ right: '8px' }}>
+                      <CircleIcon color={o.icon.color} size={30}>
+                        <Paragraph fill={true} margin="none" color="white" style={{ fontWeight: 500 }}>
+                          {o.icon.label}
+                        </Paragraph>
+                      </CircleIcon>
+                    </Box>
+                  )}
+                  <Paragraph margin="none" fill={true}>
+                    {translateCopy(o.name)}
+                  </Paragraph>
+                </Box>
               }
               onChange={() => onSelect(o)}
             />

@@ -49,8 +49,15 @@ export interface Option {
   name: Copy
   id: string
   value?: string
-  [key: string]: string | undefined | Copy
+  icon?: Icon
+  [key: string]: string | undefined | Copy | Icon
 }
+
+export interface Icon {
+  label: string
+  color: string
+}
+
 interface Switch {
   [option: string]: string | Question[]
 }

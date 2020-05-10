@@ -126,28 +126,28 @@ ol li::before {
 }
 
 /* Checkboxes */
-.checkbox > label > div > div {
+.checkbox > label > div:nth-child(1) > div {
   background-color: #f8f8f8 !important;
   border-width: 1px !important;
   border-color: black;
   box-shadow: none !important;
 }
-.checkbox > label:hover > div > div {
+.checkbox > label:hover > div:nth-child(1) > div {
   background-color: #eff3fe !important;
 }
-.checkbox:not(.errored) > label > div:focus-within > div,
-.checkbox:not(.errored) > label > div:active > div {
+.checkbox:not(.errored) > label > div:nth-child(1):focus-within > div,
+.checkbox:not(.errored) > label > div:nth-child(1):active > div {
   box-shadow: 0px 0px 0px 3px #bfcffb !important;
 }
-.checkbox-selected > label > div > div {
+.checkbox-selected > label > div:nth-child(1) > div {
   background-color: #4776f6 !important;
   border: none !important;
 }
-.checkbox-selected > label:hover > div > div {
+.checkbox-selected > label:hover > div:nth-child(1) > div {
   background-color: #2c63f6 !important;
 }
-.checkbox.errored > label > div:focus-within > div,
-.checkbox.errored > label > div:active > div {
+.checkbox.errored > label > div:nth-child(1):focus-within > div,
+.checkbox.errored > label > div:nth-child(1):active > div {
   border: 1px solid transparent;
   box-shadow: 0px 0px 0px 3px #ec5149 !important;
 }

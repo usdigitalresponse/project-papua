@@ -626,6 +626,9 @@ definitions:
           id: situation-1
           benefits: 'UA,ESL-NJ,FEC-FMLA-FED'
           job-protections: 'FMLA-FED,FLA-NJ'
+          icon:
+            label: A
+            color: '#4DB0E3'
         - name:
             en: |-
               I can't work, or my hours are reduced, because I am caring for a family member who is diagnosed with COVID-19 or in quarantine with suspicion of exposure.
@@ -634,6 +637,9 @@ definitions:
           id: situation-2
           benefits: 'UA,ESL-NJ,FLI-NJ,EPSL-FED'
           job-protections: 'FMLA-FED,FLA-NJ'
+          icon:
+            label: B
+            color: '#4FAB5B'
         - name:
             en: |-
               I can't work, or my hours are reduced, because I'm advised to by a doctor or public health authority to quarantine.
@@ -642,6 +648,9 @@ definitions:
           id: situation-3
           benefits: 'UA,ESL-NJ,TDI-NJ,EPSL-FED'
           job-protections: 'A3848,FMLA-FED'
+          icon:
+            label: C
+            color: '#E95143'
         - name:
             en: |-
               I can't work, or my hours are reduced, because I was exposed in my workplace and was told to quarantine by a health authority.
@@ -650,6 +659,9 @@ definitions:
           id: situation-4
           benefits: 'UA,ESL-NJ,TDI-NJ,EPSL-FED'
           job-protections: 'A3848,FMLA-FED'
+          icon:
+            label: D
+            color: '#F3A553'
         - name:
             en: |-
               There is no work for me, or my hours are reduced, because there are fewer hours available due to business slowdown or lack of demand.
@@ -657,16 +669,25 @@ definitions:
               No puedo trabajar, o mis horas se reducen, porque hay menos horas disponibles debido a la desaceleración del negocio o la falta de demanda.
           id: situation-5
           benefits: UA
+          icon:
+            label: E
+            color: '#F8CB56'
         - name:
             en: 'There is no work for me, or my hours are reduced, because my employer was ordered to close.'
             es: 'No puedo trabajar, o mis horas se reducen, porque mi empleador recibió la orden de cerrar.'
           id: situation-6
           benefits: UA
+          icon:
+            label: F
+            color: '#8B378D'
         - name:
             en: "I can't work, or my hours are reduced, because my employer voluntarily closed."
             es: 'No puedo trabajar, o mis horas se reducen, porque mi empleador cerró voluntariamente.'
           id: situation-7
           benefits: UI-NJ
+          icon:
+            label: G
+            color: '#C0D1E0'
         - name:
             en: |-
               I was laid off, or furloughed, while on Family or Temporary Disability Leave, because there are fewer hours available due to business slowdown or lack of demand.
@@ -674,17 +695,26 @@ definitions:
               Fui despedido o suspendido mientras estaba en licencia familiar o por incapacidad temporal, porque hay menos horas disponibles debido a la desaceleración del negocio o la falta de demanda.
           id: situation-11
           benefits: UA
+          icon:
+            label: H
+            color: '#235DA6'
         - name:
             en: 'My employer is permitted to be open, but I am afraid of exposure and refuse to work.'
             es: 'A mi empleador se le permite estar abierto, pero tengo miedo de la exposición y me niego a trabajar.'
           id: situation-8
           benefits: ESL-NJ
+          icon:
+            label: I
+            color: '#E67162'
         - name:
             en: 'My employer was ordered to close, but has remained open. I am afraid of exposure and refuse to work.'
             es: |-
               A mi empleador se le ordenó cerrar, pero se ha mantenido abierto. Tengo miedo a la exposición y me niego a trabajar.
           id: situation-9
           benefits: ESL-NJ
+          icon:
+            label: J
+            color: '#ACD6B2'
         - name:
             en: None of the above statements describe my situation. I would like to know more about all program benefits.
             es: |-
@@ -692,6 +722,9 @@ definitions:
           id: situation-10
           benefits: 'UA,EPSL-FED,ESL-NJ,TDI-NJ,FLI-NJ,FEC-FMLA-FED'
           job-protections: 'A3848,FMLA-FED,FLA-NJ'
+          icon:
+            label: K
+            color: 'lightgrey'
       switch:
         ? 'situation-1,situation-2,situation-3,situation-4,situation-5,situation-6,situation-7,situation-8,situation-9,situation-11'
         : - name:
