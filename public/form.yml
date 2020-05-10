@@ -587,7 +587,6 @@ pages:
                         - PEUC-FED
                         - FPUC-FED
                       color: '#F6F7F9'
-                    required: true
           'works-in-another-state,laid-off-in-another-state':
             - name:
                 en: Eligibility
