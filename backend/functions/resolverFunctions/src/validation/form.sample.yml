@@ -6,7 +6,7 @@ description:
   en: Demo of the USDR's Pandemic Unemployment Assistance service
   es: Demostración del servicio de asistencia de desempleo pandémico del USDR
   zh: USDR大流行性失业援助服务演示
-seal: /generic-state-seal.png
+seal: generic-state-seal.png
 variables:
   STATE_CODE: '[ST]'
   STATE_NAME: '[State]'
@@ -80,10 +80,6 @@ instructions:
     en: Section
     es: Sección
     zh: 部分
-  complete:
-    en: complete
-    es: completar
-    zh: 完成
   invalid-email:
     en: Please enter a valid email address.
     es: 'Por favor, introduce una dirección de correo electrónico válida.'
