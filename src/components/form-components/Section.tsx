@@ -76,7 +76,7 @@ const Section: React.FC<Props> = (props) => {
               align="center"
               justify="between"
               onClick={(e: React.MouseEvent) => onToggle(e, section.title.en)}
-              pad={{ horizontal: 'medium' }}
+              pad={{ horizontal: '24px' }}
               className="accordion-header"
               background={open[section.title.en] ? '#F8F8F8' : '#FFFFFF'}
               hoverIndicator={{
@@ -108,7 +108,7 @@ const Section: React.FC<Props> = (props) => {
               </Box>
             </Box>
             <Box
-              pad={{ horizontal: 'medium' }}
+              pad={{ horizontal: '24px' }}
               className="accordion-content"
               style={{ maxHeight: open[section.title.en] ? '300px' : '0px' }}
             >
