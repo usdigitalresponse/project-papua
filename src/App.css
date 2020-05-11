@@ -126,6 +126,9 @@ ol li::before {
 }
 
 /* Checkboxes */
+.checkbox > label {
+  align-items: flex-start;
+}
 .checkbox > label > div:nth-child(1) > div {
   background-color: #f8f8f8 !important;
   border-width: 1px !important;
@@ -190,6 +193,9 @@ div[data-g-portal-id] {
 }
 
 /* Radio Button Groups */
+.radio-button-group label {
+  align-items: flex-start;
+}
 .radio-button-group label > div {
   flex-shrink: 0;
 }

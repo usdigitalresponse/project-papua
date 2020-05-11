@@ -97,8 +97,8 @@ const Section: React.FC<Props> = (props) => {
                     margin={{ right: i === icons.length - 1 ? '16px' : '8px' }}
                     key={icon.label}
                   >
-                    <CircleIcon color={icon.color} size={30}>
-                      <Paragraph fill={true} margin="none" color="white" style={{ fontWeight: 500 }}>
+                    <CircleIcon color={icon.color} size={24}>
+                      <Paragraph fill={true} margin="none" color="white" style={{ fontWeight: 500, fontSize: '16px' }}>
                         {icon.label}
                       </Paragraph>
                     </CircleIcon>
