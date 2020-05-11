@@ -7,6 +7,7 @@ import Question from './Question'
 import { FormPrevious, FormNext } from 'grommet-icons'
 import PDF from './PDF'
 import { pdf } from '@react-pdf/renderer'
+import amplitude from 'amplitude-js'
 
 const Form: React.FC<{}> = () => {
   const { form, translateByID, translateCopy, completion, pageIndex, setPage, values } = useContext(FormContext)
@@ -37,6 +38,7 @@ const Form: React.FC<{}> = () => {
   const onDownload = async () => {
     console.log('[Google Analytics] sending event: Download')
     gtag('event', 'Download')
+    amplitude.getInstance().logEvent('Download')
 
     // NOTE: we use the imperative react-pdf API here instead of `BlobProvider` because BlobProvider
     // renders the PDF in the foreground on document update, which blocks the UI. We only want to render
@@ -48,6 +50,7 @@ const Form: React.FC<{}> = () => {
     if (!blob) {
       // TODO: we should consider incorporating Sentry here.
       gtag('event', 'PDF Generation Failed')
+      amplitude.getInstance().logEvent('PDF Generation Failed')
       console.error('Failed to generate PDF')
       return
     }
@@ -82,6 +85,9 @@ const Form: React.FC<{}> = () => {
 
     console.log('[Google Analytics] sending page call: ', form.pages[pageIndex].title.en)
     gtag('event', 'page_view', {
+      title: form.pages[pageIndex].title.en,
+    })
+    amplitude.getInstance().logEvent('Page View', {
       title: form.pages[pageIndex].title.en,
     })
   }, [form, pageIndex])

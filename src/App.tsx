@@ -7,6 +7,9 @@ import { FormProvider } from './contexts/form'
 import { USDR } from './components/USDR'
 import values from 'object.values'
 import { TextEncoder } from 'fastestsmallesttextencoderdecoder'
+import amplitude from 'amplitude-js'
+
+amplitude.getInstance().init('f97e7157248bb243a19ad46f17cdf2d7')
 
 // Load shims
 if (!Object.values) {

@@ -6,6 +6,7 @@ import { FormContext } from '../contexts/form'
 import { range } from 'lodash'
 import { Markdown } from './helper-components/Markdown'
 import { StyledSelect } from './helper-components/StyledSelect'
+import amplitude from 'amplitude-js'
 
 interface Props {
   pages: string[]
@@ -37,6 +38,10 @@ const Sidebar: React.FC<Props> = (props) => {
   const onChangeLanguage = ({ value }: any) => {
     console.log('[Google Analytics] sending event: Change Language')
     gtag('event', 'Change Language', {
+      prevLanguage: language,
+      newLanguage: value,
+    })
+    amplitude.getInstance().logEvent('Change Language', {
       prevLanguage: language,
       newLanguage: value,
     })

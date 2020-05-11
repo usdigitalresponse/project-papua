@@ -12,6 +12,7 @@ import Ajv from 'ajv'
 import { getFlattenedQuestions } from '../forms/index'
 import { isQuestionValid } from '../lib/validation'
 import { transformInlineDefinitions } from '../lib/inline'
+import amplitude from 'amplitude-js'
 
 export interface FormState {
   form: Form
@@ -128,6 +129,10 @@ export const FormProvider: React.FC = (props) => {
   const setValue = (question: Question, value: Value, additionalValues?: Record<string, Value>) => {
     console.log('[Google Analytics] sending event: Answer Updated')
     gtag('event', 'Answer Updated', {
+      id: question.id,
+      value,
+    })
+    amplitude.getInstance().logEvent('Answer Updated', {
       id: question.id,
       value,
     })
