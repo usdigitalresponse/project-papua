@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 12,
     marginBottom: 8,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   sectionContent: { fontSize: 10 },
   questionSection: {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const linkRegex = /\[([^\[]+)\](\(.*\))/gm
+const linkRegex = /\[([^[]+)\](\(.*\))/gm
 function processLinks(content: string) {
   if (!content) {
     return content
@@ -67,7 +67,21 @@ interface Props {
 
 const Icon: React.FC<{ option: Option }> = ({ option }) => {
   return (
-    <View key={option.id} style={{ marginRight: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: option.icon ? option.icon.color : 'grey', height: 20, width: 20, borderRadius: 10 }}><Text style={{ fontSize: 12 }}>{option.icon?.label}</Text></View>
+    <View
+      key={option.id}
+      style={{
+        marginRight: 8,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: option.icon ? option.icon.color : 'grey',
+        height: 20,
+        width: 20,
+        borderRadius: 10,
+      }}
+    >
+      <Text style={{ fontSize: 12 }}>{option.icon?.label}</Text>
+    </View>
   )
 }
 
@@ -90,7 +104,12 @@ const PDF: React.FC<Props> = (props) => {
           return `\n• ${removeMarkdown(translateCopy(option.name))}`
         }
         return (
-          <View style={{ alignItems: 'flex-start', marginBottom: 8, display: 'flex', flexDirection: 'row' }}><Icon option={option} /><Text style={{ fontSize: 12, width: '90%' }}>{removeMarkdown(translateCopy(option.name))}</Text>
+          <View
+            style={{ alignItems: 'flex-start', marginBottom: 8, display: 'flex', flexDirection: 'row' }}
+            key={question.id}
+          >
+            <Icon option={option} />
+            <Text style={{ fontSize: 12, width: '90%' }}>{removeMarkdown(translateCopy(option.name))}</Text>
           </View>
         )
       })
@@ -110,20 +129,28 @@ const PDF: React.FC<Props> = (props) => {
         <View>
           {getSections(question.sections, form, values).map(({ section, options }, i) => (
             <View style={styles.section} key={`${translateCopy(section.title)}_${i}`}>
-              <View style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                marginBottom: 12
-              }}>
-                <Text style={{
-                  fontSize: 12,
-                  marginBottom: 8,
-                  fontWeight: 'bold'
-                }}>{translateCopy(section.title)}</Text>
-                <View style={{ display: "flex", flexDirection: 'row' }}>
-                  {options.map(o => <Icon key={o.id} option={o} />)}
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  marginBottom: 12,
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: 12,
+                    marginBottom: 8,
+                    fontWeight: 'bold',
+                  }}
+                >
+                  {translateCopy(section.title)}
+                </Text>
+                <View style={{ display: 'flex', flexDirection: 'row' }}>
+                  {options.map((o) => (
+                    <Icon key={o.id} option={o} />
+                  ))}
                 </View>
               </View>
               <Text style={styles.sectionContent}>{removeMarkdown(processLinks(translateCopy(section.content)))}</Text>
@@ -152,7 +179,9 @@ const PDF: React.FC<Props> = (props) => {
             return (
               <View style={{ marginBottom: 20 }} key={`${q.id}_${i}`}>
                 <Text style={styles.questionTitle}>
-                  {isPresentationalQuestion ? removeMarkdown(processLinks(translateCopy(q.instructions!))) : `${i + 1}. ${name}`}
+                  {isPresentationalQuestion
+                    ? removeMarkdown(processLinks(translateCopy(q.instructions!)))
+                    : `${i + 1}. ${name}`}
                 </Text>
 
                 {value}
