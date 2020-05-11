@@ -240,7 +240,7 @@ div[data-g-portal-id] {
   transition: background-color 0.2s;
 }
 .accordion-content {
-  transition: max-height 0.2s;
+  transition: max-height 0.3s ease-in-out;
 }
 
 .App {

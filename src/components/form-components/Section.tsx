@@ -110,7 +110,7 @@ const Section: React.FC<Props> = (props) => {
             <Box
               pad={{ horizontal: '24px' }}
               className="accordion-content"
-              style={{ maxHeight: open[section.title.en] ? '300px' : '0px' }}
+              style={{ maxHeight: open[section.title.en] ? '500px' : '0px' }}
             >
               <Box pad={{ vertical: '16px' }}>
                 <Markdown size="small">{translateCopy(section.content)}</Markdown>
