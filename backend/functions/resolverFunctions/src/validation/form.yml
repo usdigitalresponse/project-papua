@@ -722,7 +722,7 @@ definitions:
             type: instructions-only
             instructions:
               en: |-
-                For more information, please visit our [FAQ page.](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
+                For more information, please visit our [FAQ page](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
               es: |-
                 Para obtener más información, visite nuestra [página de preguntas frecuentes](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
         situation-10:
@@ -756,6 +756,6 @@ definitions:
             type: instructions-only
             instructions:
               en: |-
-                For more information, please visit our [FAQ page.](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
+                For more information, please visit our [FAQ page](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
               es: |-
                 Para obtener más información, visite nuestra [página de preguntas frecuentes](https://myunemployment.nj.gov/labor/myunemployment/covidFAQ.shtml)
