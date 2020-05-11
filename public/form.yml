@@ -684,7 +684,7 @@ definitions:
             en: "I can't work, or my hours are reduced, because my employer voluntarily closed."
             es: 'No puedo trabajar, o mis horas se reducen, porque mi empleador cerró voluntariamente.'
           id: situation-7
-          benefits: UI-NJ
+          benefits: UA
           icon:
             label: G
             color: '#C0D1E0'
