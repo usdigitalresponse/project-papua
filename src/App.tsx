@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grommet } from 'grommet'
+import { Grommet, Paragraph } from 'grommet'
 import './App.css'
 import Form from './components/Form'
 import { LanguageProvider } from './contexts/language'
@@ -145,9 +145,12 @@ function App() {
     <Grommet className="App" theme={theme as any}>
       <LanguageProvider>
         <FormProvider>
-          <USDR>
-            <Form />
-          </USDR>
+          <Paragraph>
+            This site has been moved to:{' '}
+            <a href="https://newjersey.github.io/dol-eligibility-tool/">
+              https://newjersey.github.io/dol-eligibility-tool
+            </a>
+          </Paragraph>
         </FormProvider>
       </LanguageProvider>
     </Grommet>
