@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "https://usdigitalresponse.github.io/project-papua/static/css/main.b1acdd04.chunk.css",
+    "main.js": "https://usdigitalresponse.github.io/project-papua/static/js/main.3f40bf6b.chunk.js",
+    "main.js.map": "https://usdigitalresponse.github.io/project-papua/static/js/main.3f40bf6b.chunk.js.map",
+    "runtime-main.js": "https://usdigitalresponse.github.io/project-papua/static/js/runtime-main.d1a96461.js",
+    "runtime-main.js.map": "https://usdigitalresponse.github.io/project-papua/static/js/runtime-main.d1a96461.js.map",
+    "static/css/2.93b3b32d.chunk.css": "https://usdigitalresponse.github.io/project-papua/static/css/2.93b3b32d.chunk.css",
+    "static/js/2.b6a10297.chunk.js": "https://usdigitalresponse.github.io/project-papua/static/js/2.b6a10297.chunk.js",
+    "static/js/2.b6a10297.chunk.js.map": "https://usdigitalresponse.github.io/project-papua/static/js/2.b6a10297.chunk.js.map",
+    "index.html": "https://usdigitalresponse.github.io/project-papua/index.html",
+    "precache-manifest.0ea96137b9ccb69fb1cf2354772c94b1.js": "https://usdigitalresponse.github.io/project-papua/precache-manifest.0ea96137b9ccb69fb1cf2354772c94b1.js",
+    "service-worker.js": "https://usdigitalresponse.github.io/project-papua/service-worker.js",
+    "static/css/2.93b3b32d.chunk.css.map": "https://usdigitalresponse.github.io/project-papua/static/css/2.93b3b32d.chunk.css.map",
+    "static/css/main.b1acdd04.chunk.css.map": "https://usdigitalresponse.github.io/project-papua/static/css/main.b1acdd04.chunk.css.map",
+    "static/js/2.b6a10297.chunk.js.LICENSE.txt": "https://usdigitalresponse.github.io/project-papua/static/js/2.b6a10297.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d1a96461.js",
+    "static/css/2.93b3b32d.chunk.css",
+    "static/js/2.b6a10297.chunk.js",
+    "static/css/main.b1acdd04.chunk.css",
+    "static/js/main.3f40bf6b.chunk.js"
+  ]
+}
