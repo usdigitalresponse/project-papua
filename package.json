@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "ajv": "^6.12.2",
+    "ajv": "^6.12.3",
     "aws-amplify": "^3.0.7",
-    "aws-amplify-react": "^4.1.6",
+    "aws-amplify-react": "^4.2.11",
     "base64-arraybuffer": "^0.2.0",
     "copy-to-clipboard": "^3.3.1",
     "email-validator": "^2.0.4",
@@ -16,7 +16,7 @@
     "grommet-icons": "^4.4.0",
     "js-yaml": "colinking/js-yaml#2a635bc6563d609c0124fcbdcb0ebcaf7dd12d40",
     "ky": "^0.19.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "polished": "^3.5.1",
     "react": "^16.13.1",
@@ -24,10 +24,11 @@
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.1",
     "react-number-format": "^4.4.1",
-    "react-scripts": "3.4.1",
-    "styled-components": "^5.1.0",
+    "react-scripts": "4.0.0",
+    "styled-components": "^5.2.1",
     "uuid": "^7.0.3",
-    "validator": "^13.0.0"
+    "validator": "^13.0.0",
+    "snyk": "^1.433.0"
   },
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
@@ -42,7 +43,9 @@
     "lint:check": "eslint '**/*.{js,jsx,ts,tsx}' --max-warnings=0 && prettier --check .",
     "lint": "eslint --fix '**/*.{js,jsx,ts,tsx}' --max-warnings=0 && prettier --write .",
     "backend": "cd backend/functions/resolverFunctions && yarn --frozen-lockfile && DANGEROUS_DEMO_SKIP_VALIDATION=true FILE='form.sample.yml' yarn nodemon",
-    "transform": "cd backend/functions/transformer && yarn --frozen-lockfile && yarn local"
+    "transform": "cd backend/functions/transformer && yarn --frozen-lockfile && yarn local",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "browserslist": {
     "production": [
@@ -143,5 +146,6 @@
     "ts-jest": "^25.4.0",
     "typescript": "^3.8.3",
     "yarnhook": "^0.4.3"
-  }
+  },
+  "snyk": true
 }
