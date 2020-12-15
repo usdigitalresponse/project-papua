@@ -15,7 +15,7 @@
     "grommet": "^2.12.0",
     "grommet-icons": "^4.4.0",
     "js-yaml": "colinking/js-yaml#2a635bc6563d609c0124fcbdcb0ebcaf7dd12d40",
-    "ky": "^0.19.1",
+    "ky": "^0.25.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "polished": "^3.5.1",
