@@ -27,7 +27,7 @@
     "react-scripts": "4.0.1",
     "styled-components": "^5.2.1",
     "uuid": "^7.0.3",
-    "validator": "^13.0.0",
+    "validator": "^13.5.1",
     "snyk": "^1.437.0"
   },
   "scripts": {
