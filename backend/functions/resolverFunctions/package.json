@@ -33,7 +33,7 @@
   "dependencies": {
     "@aws-sdk/client-s3-node": "^0.1.0-preview.2",
     "@hapi/joi": "^17.1.1",
-    "aws-serverless-express": "^3.3.8",
+    "aws-serverless-express": "^3.4.0",
     "body-parser": "^1.19.0",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
