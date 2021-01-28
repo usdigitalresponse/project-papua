@@ -14964,10 +14964,10 @@ react-calendar@^3.0.0:
     merge-class-names "^1.1.1"
     prop-types "^15.6.0"
 
-react-date-picker@^8.0.5:
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-8.0.5.tgz#be5452466d5dd18c30f3eb5378f1d3052992aa3f"
-  integrity sha512-GaxIhhsXD4JZpKIZDOt4cLI8greTtMiku1jUeGwUBMyg8S7EAmY3YjXlswC6BoUnc2OXzAZslwUSfMtdH6YZiw==
+react-date-picker@^8.0.6:
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-8.0.6.tgz#e5f0cf515c7e0a9381ae45094f141a8d934c4358"
+  integrity sha512-DskQ9ddBoP6LPBHiV9cfu6enD6dgMhvEH/yXlFLSbmCy0WgymEe9tCXzH3RRazmyNAItb4hzf+xAaDvHP/W/9g==
   dependencies:
     "@types/react-calendar" "^3.0.0"
     "@wojtekmaj/date-utils" "^1.0.3"
