@@ -20,7 +20,7 @@
     "moment": "^2.29.1",
     "polished": "^3.6.7",
     "react": "^16.14.0",
-    "react-date-picker": "^8.0.6",
+    "react-date-picker": "^8.0.7",
     "react-dom": "^16.14.0",
     "react-dropzone": "^11.2.4",
     "react-number-format": "^4.4.3",

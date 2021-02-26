@@ -6509,6 +6509,11 @@ copy-concurrently@^1.0.0:
     rimraf "^2.5.4"
     run-queue "^1.0.0"
 
+copy-descriptor@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
+  integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+
 copy-to-clipboard@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz#115aa1a9998ffab6196f93076ad6da3b913662ae"
@@ -11849,7 +11854,7 @@ killable@^1.0.1:
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
   integrity sha512-LzqtLKlUwirEUyl/nicirVmNiPvYs7l5n8wOPP7fyJVpUPkvCnW/vuiXGpylGUlnPDnB7311rARzAt3Mhswpjg==
 
-kind-of@^3.0.2, kind-of@^3.2.0:
+kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
   integrity sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ=
@@ -13052,6 +13057,15 @@ object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+
+object-copy@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/object-copy/-/object-copy-0.1.0.tgz#7e7d858b781bd7c991a41ba975ed3812754e998c"
+  integrity sha1-fn2Fi3gb18mRpBupde04EnVOmYw=
+  dependencies:
+    copy-descriptor "^0.1.0"
+    define-property "^0.2.5"
+    kind-of "^3.0.3"
 
 object-hash@^2.0.3:
   version "2.0.3"
@@ -14945,20 +14959,20 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
-react-calendar@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-3.0.1.tgz#69c11188d7fee6fd7d837593e6e6868317f2e682"
-  integrity sha512-EGzmSZXYVxMhhGWFZKEW6I5RFWwi7TrhJIwPIFTTW2nGuMed4aHS51degFEvvSQNf6jt/LLwcXxbwC2U6D2BIg==
+react-calendar@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-3.3.1.tgz#da691a5d59c88f178695fd8b33909a71d698021f"
+  integrity sha512-iDIrhE0ABz3mChAIvA+5d2UtQGEb5oaUpLiEbrRdWHBYb45MhsbO59pG9HIy2uTdHkBF/nvzRV2JBmMfdg/0Qg==
   dependencies:
     "@wojtekmaj/date-utils" "^1.0.2"
     get-user-locale "^1.2.0"
     merge-class-names "^1.1.1"
     prop-types "^15.6.0"
 
-react-date-picker@^8.0.6:
-  version "8.0.6"
-  resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-8.0.6.tgz#e5f0cf515c7e0a9381ae45094f141a8d934c4358"
-  integrity sha512-DskQ9ddBoP6LPBHiV9cfu6enD6dgMhvEH/yXlFLSbmCy0WgymEe9tCXzH3RRazmyNAItb4hzf+xAaDvHP/W/9g==
+react-date-picker@^8.0.7:
+  version "8.0.7"
+  resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-8.0.7.tgz#43585751feeaf2b790eea8c343c3fcb35ad95ede"
+  integrity sha512-ZuS9NPHUUz0zeeXlYOfq58cteHLRC94NO76ti28aN/Ybi9nugG2SfR46i/5xTL5094rRPiXJveGA1P1cJqQMsg==
   dependencies:
     "@types/react-calendar" "^3.0.0"
     "@wojtekmaj/date-utils" "^1.0.3"
@@ -14966,7 +14980,7 @@ react-date-picker@^8.0.6:
     make-event-props "^1.1.0"
     merge-class-names "^1.1.1"
     prop-types "^15.6.0"
-    react-calendar "^3.0.0"
+    react-calendar "^3.3.1"
     react-fit "^1.0.3"
     update-input-width "^1.1.1"
 
