@@ -12,7 +12,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "gh-pages": "^2.2.0",
-    "grommet": "^2.16.0",
+    "grommet": "^2.16.3",
     "grommet-icons": "^4.5.0",
     "js-yaml": "3.14.1",
     "ky": "^0.26.0",
