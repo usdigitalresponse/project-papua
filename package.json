@@ -18,7 +18,7 @@
     "ky": "^0.26.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "polished": "^3.6.7",
+    "polished": "^3.7.0",
     "react": "^16.14.0",
     "react-date-picker": "^8.0.7",
     "react-dom": "^16.14.0",
