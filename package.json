@@ -25,7 +25,7 @@
     "react-dropzone": "^11.3.0",
     "react-number-format": "^4.5.0",
     "react-scripts": "4.0.3",
-    "styled-components": "^5.2.1",
+    "styled-components": "^5.2.2",
     "uuid": "^7.0.3",
     "validator": "^13.5.1",
     "snyk": "^1.461.0"
