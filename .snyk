@@ -11300,3 +11300,7 @@ patch:
         patched: '2020-12-14T21:13:55.450Z'
     - react-scripts > @svgr/webpack > @babel/preset-env > @babel/preset-modules > @babel/plugin-proposal-unicode-property-regex > @babel/helper-create-regexp-features-plugin > @babel/helper-annotate-as-pure > @babel/types > lodash:
         patched: '2020-12-14T21:13:55.450Z'
+    - snyk > snyk-nodejs-lockfile-parser > @yarnpkg/core > lodash:
+        patched: '2021-04-23T17:25:44.674Z'
+    - snyk > @snyk/fix > @snyk/dep-graph > graphlib > lodash:
+        patched: '2021-04-23T17:25:44.674Z'
