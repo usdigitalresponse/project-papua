@@ -5,7 +5,7 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "ajv": "^6.12.3",
-    "aws-amplify": "^4.0.1",
+    "aws-amplify": "^3.3.26",
     "aws-amplify-react": "^4.2.30",
     "base64-arraybuffer": "^0.2.0",
     "copy-to-clipboard": "^3.3.1",
@@ -28,7 +28,7 @@
     "styled-components": "^5.2.2",
     "uuid": "^7.0.3",
     "validator": "^13.6.0",
-    "snyk": "^1.567.0"
+    "snyk": "^1.606.0"
   },
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
