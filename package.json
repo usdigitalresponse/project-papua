@@ -11,7 +11,7 @@
     "copy-to-clipboard": "^3.3.1",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
-    "gh-pages": "^3.2.1",
+    "gh-pages": "^3.2.2",
     "grommet": "^2.17.2",
     "grommet-icons": "^4.5.0",
     "js-yaml": "3.14.1",
