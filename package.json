@@ -11,9 +11,9 @@
     "copy-to-clipboard": "^3.3.1",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
-    "gh-pages": "^3.2.1",
+    "gh-pages": "^3.2.2",
     "grommet": "^2.17.3",
-    "grommet-icons": "^4.5.0",
+    "grommet-icons": "^4.6.0",
     "js-yaml": "3.14.1",
     "ky": "^0.28.5",
     "lodash": "^4.17.21",
@@ -22,13 +22,13 @@
     "react": "^16.14.0",
     "react-date-picker": "^8.2.0",
     "react-dom": "^16.14.0",
-    "react-dropzone": "^11.3.2",
+    "react-dropzone": "^11.3.4",
     "react-number-format": "^4.6.0",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.0",
     "uuid": "^7.0.3",
     "validator": "^13.6.0",
-    "snyk": "^1.618.0"
+    "snyk": "^1.641.0"
   },
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
