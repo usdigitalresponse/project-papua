@@ -28,7 +28,7 @@
     "styled-components": "^5.3.0",
     "uuid": "^7.0.3",
     "validator": "^13.6.0",
-    "snyk": "^1.641.0"
+    "snyk": "^1.667.0"
   },
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
