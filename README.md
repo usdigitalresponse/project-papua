@@ -1,3 +1,6 @@
+⚠️ **This project is no longer maintained!** ⚠️ While USDR is no longer providing fixes or updates to it, it remains open-source for you to fork or reference for your own projects. If you represent a government agency and need help developing eligibility screening tools or software similar to Project PAPUA, please get in touch at https://www.usdigitalresponse.org/request-help/.
+
+
 # Project PAPUA
 
 The Pilot Application for Pandemic Unemployment Assistance (PAPUA) project is a prototype service providing a unified unemployment intake form and delivers validated unemployment claims to various State backends. This project is a volunteer-led effort and part of the [US Digital Response network.][1]
